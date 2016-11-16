@@ -101,4 +101,8 @@ class ConcursosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	public function incluirCarreira($concurso_id = null) {
+		$this->view($concurso_id);
+	}
 }

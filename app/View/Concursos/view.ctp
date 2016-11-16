@@ -1,4 +1,4 @@
-<div class="concursos view">
+<div class="col-md-6">
 <h2><?php echo __('Concurso'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
@@ -23,7 +23,7 @@
 		</dd>
 	</dl>
 </div>
-<div class="actions">
+<div class="col-md-4">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Edit Concurso'), array('action' => 'edit', $concurso['Concurso']['id'])); ?> </li>
@@ -31,4 +31,15 @@
 		<li><?php echo $this->Html->link(__('List Concursos'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Concurso'), array('action' => 'add')); ?> </li>
 	</ul>
+</div>
+<div class="col-md-12">
+	<h4>Carreiras disponiveis concorrentes</h4>
+	<table class="table table-hover">
+		<thead>
+			<th>Designacao da carreira</th>
+		</thead>
+		<tr>
+			<td>Not available</td>
+		</tr>
+	</table>
 </div>

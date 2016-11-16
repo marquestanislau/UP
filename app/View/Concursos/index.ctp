@@ -16,7 +16,7 @@
 		<td><?php echo h($concurso['Concurso']['id']); ?>&nbsp;</td>
 		<td><?php echo h($concurso['Concurso']['data_aprovacao']); ?>&nbsp;</td>
 		<td><?php echo h($concurso['Concurso']['data_registo']); ?>&nbsp;</td>
-		<td><?php echo h($concurso['Concurso']['nome']); ?>&nbsp;</td>
+		<td><?php echo h($concurso['Concurso']['nome'].' [' .$concurso['Concurso']['data_aprovacao']. ']'); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $concurso['Concurso']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $concurso['Concurso']['id'])); ?>
