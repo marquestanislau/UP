@@ -43,9 +43,9 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <?php echo $this->Html->image('image4155.png', array('alt' => 'sigerh Logo', 'class' => 'img-responsive')) ?>
+      <!-- <?php echo $this->Html->image('image4155.png', array('alt' => 'sigerh Logo', 'class' => 'img-responsive')) ?> -->
       <!-- Title -->
-     <!--  <span>Sistema de Gest&atilde;o de Recursos Humanos da UP</span> -->
+     <span>Sistema de Gest&atilde;o de Recursos Humanos da UP</span>
       <!-- <span class="mdl-layout-title">
         Sistema de gest&atilde;o de recursos humanos da UP
       </span> -->
@@ -104,7 +104,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
     </div>
   </div>
 </main>
-<footer class="mdl-mini-footer">
+<!-- <footer class="mdl-mini-footer"> -->
 <!-- <div class="mdl-mini-footer__right-section">
   <div class="mdl-logo">Sistema de Gest&atilde;o de Recursos Humanos da UP</div>
   <ul class="mdl-mini-footer__link-list">
@@ -112,7 +112,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
     <li><a href="#">Privacy & Terms</a></li>
   </ul>
 </div> -->
-</footer>
+<!-- </footer> -->
 </div>
 </body>
 </html>

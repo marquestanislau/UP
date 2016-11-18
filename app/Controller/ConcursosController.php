@@ -37,7 +37,9 @@ class ConcursosController extends AppController {
 			throw new NotFoundException(__('Invalid concurso'));
 		}
 		$options = array('conditions' => array('Concurso.' . $this->Concurso->primaryKey => $id));
+		$carreiras = $this->Concurso->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
 		$this->set('concurso', $this->Concurso->find('first', $options));
+		$this->set(compact('carreiras'));
 	}
 
 /**

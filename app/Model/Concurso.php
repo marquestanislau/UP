@@ -33,4 +33,22 @@ class Concurso extends AppModel {
 			),
 		),
 	);
+
+	public $hasAndBelongsToMany = array(
+        'Carreira' =>
+            array(
+                'className' => 'Carreira',
+                'joinTable' => 'carreiras_concursos',
+                'foreignKey' => 'concurso_id',
+                'associationForeignKey' => 'carreira_id',
+                'unique' => 'keepExisting',
+                'conditions' => '',
+                'fields' => '',
+                'order' => '',
+                'limit' => '',
+                'offset' => '',
+                'finderQuery' => '',
+                'with' => 'carreiras_concursos'
+            )
+    );
 }
