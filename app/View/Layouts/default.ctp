@@ -28,8 +28,10 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   echo $this->Html->css('custom');
   #Carrega o javascript do framwork da google mdl
   echo $this->Html->script('material/material.min');
-  #Carrega o script de bootstrap
+  # Load jsquery libs for ajax and other effects
+  echo $this->Html->script('jquery/jquery-1.9.1');
   echo $this->Html->script('jquery-ui-1.10.3.custom.min');
+  #Carrega o script de bootstrap
   echo $this->Html->script('bootstrap/bootstrap.min');
   echo $this->Html->script('script');
 

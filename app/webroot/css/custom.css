@@ -16,6 +16,10 @@ th a {
 	color: #004455;
 }
 
+.btn {
+	border-radius: 0 0;
+}
+
 .limit-down {
 	border-bottom: solid orange 3px;
 }

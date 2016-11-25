@@ -1,8 +1,11 @@
+<!-- <?php echo $this->Js->object($concurso); ?> -->
 <div class="col-md-9">
-<h4><?php echo __('Concurso: '); ?>
+<h4 class="settings-font-color">
+<span class="glyphicon glyphicon-folder-open" style="font-size: 24px;"></span>
+<?php echo __('Concurso: '); ?>
 	<?php echo h($concurso['Concurso']['data_aprovacao']); ?>
 </h4>
-<p><?php echo h($concurso['Concurso']['nome']); ?></p>
+<p><strong><?php echo h($concurso['Concurso']['nome']); ?></strong></p>
 <table class="table table-striped">
 	<tr>
 		<td><?php echo __('Data Aprovacao'); ?></td>
@@ -13,12 +16,14 @@
 		<td><?php echo h($concurso['Concurso']['data_registo']); ?></td>
 	</tr>
 </table>
-	<?php echo $this->Form->create('Carreira'); ?>
+	<?php echo $this->Form->create('Concurso', array('controller' => 'concursos', 'url' => 'add')); ?>
 	Carreiras:
-	<?php echo $this->Form->input('carreira_id', array('label' => '', 'empty' => '-------------')); ?>
-	Numero de vaga: <input type="" name="">
-	<button class="btn btn-default">Adicionar</button>
+	<?php echo $this->Form->input('Carreira', array('id' => 'carreiraSelecionada', 'label' => '', 'empty' => '-------------')); ?>
+	<?php echo $this->Form->input('Concurso.id', array('value' => $concurso['Concurso']['id'])); ?>
+	<?php echo $this->Form->input('Carreira.0.carreira_concurso.numero_vaga'); ?>
 	<button class="btn btn-success">Submeter</button>
+	<?php echo $this->Form->end(); ?>
+	<button id="adicionar" class="btn btn-default">Adicionar</button>
 </div>
 <div class="col-md-3">
 <div class="list-group">
@@ -46,3 +51,8 @@
 		</tr>
 	</table>
 </div>
+<?php 
+	$this->Js->get('#adicionar');
+	$this->Js->event('click', $this->Js->alert('Konvict muzik')); 
+?>
+<?php echo $this->Js->writeBuffer(); ?>	

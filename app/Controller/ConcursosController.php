@@ -14,6 +14,7 @@ class ConcursosController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Flash', 'Session');
+	public $helpers = array('Js' => array('Jquery'));
 
 /**
  * index method
@@ -50,9 +51,10 @@ class ConcursosController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Concurso->create();
-			if ($this->Concurso->save($this->request->data)) {
+			if ($this->Concurso->saveAll($this->request->data)) {
 				$this->Flash->success(__('The concurso has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				debug($this->request->data);
+				//return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Flash->error(__('The concurso could not be saved. Please, try again.'));
 			}

@@ -1,5 +1,6 @@
-<div class="concursos index">
-	<h2><?php echo __('Concursos'); ?></h2>
+<div class="col-md-12">
+	<h4 class="settings-font-color">
+		<span style="font-size: 24px;" class=" glyphicon glyphicon-folder-open"></span> <?php echo __('Concursos'); ?></h4>
 	<table class="table table-striped" cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
@@ -18,9 +19,9 @@
 		<td><?php echo h($concurso['Concurso']['data_registo']); ?>&nbsp;</td>
 		<td><?php echo h($concurso['Concurso']['nome'].' [' .$concurso['Concurso']['data_aprovacao']. ']'); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $concurso['Concurso']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $concurso['Concurso']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $concurso['Concurso']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $concurso['Concurso']['id']), array('class' => 'btn btn-warning')); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $concurso['Concurso']['id']), array('class' => 'btn btn-success')); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $concurso['Concurso']['id']), array('class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -40,9 +41,8 @@
 	?>
 	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Concurso'), array('action' => 'add')); ?></li>
-	</ul>
+</div>
+<div class="col-md-12">
+	<hr>
+	<?php echo $this->Html->link("<span class='glyphicon glyphicon-plus-sign' ></span> Novo concuro", array('action' => 'add'), array('class' => 'btn btn-success', 'escape' => false)); ?>
 </div>
