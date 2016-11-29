@@ -1,13 +1,7 @@
-<div class="mdl-cell mdl-cell--10-col">
-	
-	<ul class="demo-list-item mdl-list">
-	  <li class="mdl-list__item">
-	    <span class="mdl-list__item-primary-content">
-	    	<i class="material-icons mdl-list__item-icon">person</i>
-	      	Lista de Utilizadores regitados no sistema
-	    </span>
-	  </li>
-	</ul>
+<div class="col-md-10">
+	<h5 class="settings-font-color">
+		<span style="font-size: 24px;" class="glyphicon glyphicon-user"></span>
+		Lista de Utilizadores regitados no sistema</h5>
 	<hr>
 	<?php echo $this->Form->create('Usuario', array('controller' => 'UsuariosController', 'url' => 'index')); ?>
 	<div class="form-group">
@@ -22,7 +16,7 @@
     	</div>
 	</div>
 	<?php echo $this->Form->end(); ?>
-	<table class="table table-striped" cellpadding="0" cellspacing="0">
+	<table id="tabelaUsuarios" class="table table-striped" cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
@@ -64,8 +58,8 @@
 	?>
 	</div>
 </div>
-<div class="mdl-cell mdl-cell--2-col">
+<div class="col-md-2">
 	<h3><?php echo __('Atividade'); ?></h3>
-	<?php echo $this->Html->link(__('Novo Utilizador'), array('action' => 'add'), array('class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect')); ?>
+	<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> Adicionar utilizador', array('action' => 'add'), array('class' => 'btn btn-warning', 'escape' => FALSE)); ?>
 	
 </div>

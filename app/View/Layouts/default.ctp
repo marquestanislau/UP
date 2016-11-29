@@ -18,19 +18,18 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 </title>
 <?php
   echo $this->Html->meta('icon');
+   # Load jsquery libs for ajax and other effects
+  echo $this->Html->script('jquery/jquery');
   #Inclusao de bootstrap
   echo $this->Html->css('bootstrap/bootstrap.min');
   #	echo $this->Html->css('cake.generic');
   echo $this->Html->css('material/material.indigo-orange.min');
   	# Funciona quando possuimos uma conexao com a internet
-  echo $this->Html->css('https://fonts.googleapis.com/icon?family=Material+Icons');
+  // echo $this->Html->css('https://fonts.googleapis.com/icon?family=Material+Icons');
   #Modificacao de alguns aspectos (Modificacao do aspecto default)
   echo $this->Html->css('custom');
   #Carrega o javascript do framwork da google mdl
   echo $this->Html->script('material/material.min');
-  # Load jsquery libs for ajax and other effects
-  echo $this->Html->script('jquery/jquery-1.9.1');
-  echo $this->Html->script('jquery-ui-1.10.3.custom.min');
   #Carrega o script de bootstrap
   echo $this->Html->script('bootstrap/bootstrap.min');
   echo $this->Html->script('script');
@@ -99,7 +98,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 <main class="mdl-layout__content">
   <div class="page-content">
     <?php echo $this->Session->flash(); ?>
-    <div class="row mdl-grid">      
+    <div id="container" class="row mdl-grid">      
       <!--<div class="mdl-cell mdl-cell--12-col">-->
         <?php echo $this->fetch('content'); ?>  	
       <!--</div>-->
@@ -116,5 +115,6 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 </div> -->
 <!-- </footer> -->
 </div>
+<?php echo $this->Js->writeBuffer(array('cache' => TRUE, 'buffer' => FALSE)); ?>
 </body>
 </html>

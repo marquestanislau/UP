@@ -13,7 +13,7 @@ class ConcursosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Flash', 'Session');
+	public $components = array('Paginator', 'Flash', 'Session', 'RequestHandler');
 	public $helpers = array('Js' => array('Jquery'));
 
 /**
@@ -37,10 +37,17 @@ class ConcursosController extends AppController {
 		if (!$this->Concurso->exists($id)) {
 			throw new NotFoundException(__('Invalid concurso'));
 		}
+		
 		$options = array('conditions' => array('Concurso.' . $this->Concurso->primaryKey => $id));
 		$carreiras = $this->Concurso->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
+		$concursos = $this->Concurso->find('all', array(
+				'contain' => array('Carreira'),
+				'conditions' => array('Concurso.id' => $id)
+			));
+		$this->set(compact('concursos'));
 		$this->set('concurso', $this->Concurso->find('first', $options));
 		$this->set(compact('carreiras'));
+		
 	}
 
 /**
@@ -52,9 +59,14 @@ class ConcursosController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Concurso->create();
 			if ($this->Concurso->saveAll($this->request->data)) {
-				$this->Flash->success(__('The concurso has been saved.'));
-				debug($this->request->data);
-				//return $this->redirect(array('action' => 'index'));
+				if($this->RequestHandler->isAjax()) {
+					debug($this->request->data);
+					$this->render('nova_pagina', 'ajax');
+				} else {
+					$this->Flash->success(__('The concurso has been saved.'));
+					// debug($this->request->data);
+					return $this->redirect(array('action' => 'view/'.$this->request->data['Concurso']['id']));
+				}
 			} else {
 				$this->Flash->error(__('The concurso could not be saved. Please, try again.'));
 			}
@@ -108,5 +120,16 @@ class ConcursosController extends AppController {
 
 	public function incluirCarreira($concurso_id = null) {
 		$this->view($concurso_id);
+	}
+
+	public function nova_pagina($id = null) {
+		if($this->RequestHandler->isAjax()) {
+			$concursos = $this->Concurso->find('all', array(
+				'contain' => array('Carreira'),
+				'conditions' => array('Concurso.id' => $id)
+			));
+			$this->set('concursos', $concursos);
+			$this->render('nova_pagina', 'ajax');
+		}
 	}
 }

@@ -15,7 +15,8 @@ class UsuariosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session', 'Flash');
+	public $components = array('Paginator', 'Session', 'Flash', 'RequestHandler');
+	public $helpers = array('Js' => array('Jquery'));
     
     public $paginator_settings = array(
 		'limit' => 5
@@ -53,19 +54,20 @@ class UsuariosController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
-			$this->Usuario->create();
-			$data = $this->request->data['Usuario'];
-			if (!$data['foto_perfil']['name']) {
-				unset($data['foto_perfil']);
+		if($this->request->is('post') && !empty($this->request->data)) {
+			if($this->Usuario->save($this->request->data)) {
+				if($this->RequestHandler->isAjax()) {
+					$this->render('sucesso', 'ajax');
+				} else {
+					$this->Flash->success(__('Usuario adicionado com exito.'));
+					return $this->redirect(array('action' => 'index'));
+				}
 			}
-			if ($this->Usuario->save($data)) {
-				$this->Flash->success(__('The usuario has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Flash->error(__('The usuario could not be saved. Please, try again.'));
-			}
+			$this->layout = 'ajax';
 		}
+		$this->set('ultimoUsuario', 
+			$this->Usuario->find('first', array('order' => array('Usuario.id' => 'desc'))));
+		
 	}
 
 /**
@@ -115,5 +117,18 @@ class UsuariosController extends AppController {
 			$this->Flash->error(__('The usuario could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+
+	public function validate_form() {
+		if($this->RequestHandler->isAjax()) {
+			$this->request->data['Usuario'][$this->request->data['field']] = $this->request->data['value'];
+			$this->Usuario->set($this->request->data);
+			if($this->Usuario->validates()) {
+				$this->autoRender = FALSE;
+			} else {
+				$erros = $this->validateErrors($this->Usuario);
+				$this->set('erros', $erros[$this->request->data['field']]);
+			}
+		}
 	}
 }
