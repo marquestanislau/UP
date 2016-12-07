@@ -1,4 +1,3 @@
-<!-- <?php echo $this->Js->object($concurso); ?> -->
 <div class="col-md-9">
 <h4 class="settings-font-color">
 <span class="glyphicon glyphicon-folder-open" style="font-size: 24px;"></span>
@@ -17,27 +16,17 @@
 	</tr>
 </table>
 	<div role="form">
-		<?php echo $this->Form->create('Concurso', array('controller' => 'concursos', 'url' => 'add')); ?>
+		<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'add'), 'id' => 'ajaxFormAdd')); ?>
 		Carreiras:
-		<div class="form-group">
-			<?php echo $this->Form->input('Carreira', array('id' => 'carreiraSelecionada', 'label' => FALSE, 'multiple' => 'checkbox')); ?>			
+		<div class="form-group w3-sand w3-border">
+			<?php echo $this->Form->input('Carreira', array('id' => 'carreiraSelecionada', 'label' => FALSE, 'multiple' => 'checkbox', 'class' => 'w3-margin')); ?>			
 		</div>
 		<div class="form-group">
 			N&uacute;mero de vagas dispon&iacute;veis:
 			<input type="" class="form-control" placeholder="Digite o numero de vaga para a carreira seleccionada" name="">
 		</div>
 		<?php echo $this->Form->input('Concurso.id', array('value' => $concurso['Concurso']['id'])); ?>
-		<!-- <?php echo $this->Js->submit(
-						'Adicionar Carreiras',
-						array(
-							'before' => $this->Js->get('#requesting')->effect('fadeIn'),
-							'success' => $this->Js->get('#requesting')->effect('fadeOut'),
-							'update'=> '#table-body',
-							'class' => 'btn btn-default'
-						)
-					);
-		 ?> -->
-		<button id="adicionar" class="btn btn-success">
+		<button id="adicionar" class="w3-btn w3-green w3-large">
 			<span class="glyphicon glyphicon-save"></span> Adicionar
 		</button>
 		<?php echo $this->Form->end(); ?>
@@ -58,43 +47,40 @@
 </div>
 <div class="col-md-9">
 	<p>Carreiras para o concurso: {<?php echo h($concurso['Concurso']['data_aprovacao']); ?>}</p>
+	<div id="requesting" style="display: none;">
+		<?php echo $this->Html->image('ajax/ajax-loader.gif', array('alt' => 'Aguarde...')); ?>
+	</div>
 	<table id="table-carreiras" class="table table-hover">
 		<thead>
 			<th>Designa&ccedil;&atilde;o da carreira</th>
 			<th>N&uacute;mero de vagas</th>
 			<th>Ac&ccedil;&otilde;es</th>
 		</thead>
-		<tr id="requesting">
-			<td style="text-align: center; display: none;" colspan="3"><?php echo $this->Html->image('ajax/ajax-loader.gif', array('alt' => 'Aguarde...')); ?></td>
-		</tr>
 		<tbody id="table-body">
 			<?php 
-				include('nova_pagina.ctp');
+				 include('nova_pagina.ctp');
 			?>
 		</tbody>
 	</table>
-	<button id="ajax" class="btn btn-primary">Ajax button</button>
 </div>
 <?php 
-	$this->Js->get('#ajax')->event(
-		'click',
+	$dados = $this->Js->get('#ajaxFormAdd')->serializeForm(array('inline' => true, 'isForm' => true));
+	$this->Js->get('#ajaxFormAdd')->event(
+		"submit",
 		$this->Js->request(
-			array('action' => 'nova_pagina/', $concurso['Concurso']['id']),
-			array('update' => '#table-body')
+			array('action' => 'add'),
+			array(
+				'update' => '#table-body',
+				'method' => 'post',
+				'data' => $dados,
+				'dataExpression' => true,
+				'async' => true,
+				'before' => '$("#requesting").attr("style", "")',
+				'complete' => '$("#requesting").attr("style", "display:none")'
+			)
 		)
 	);
-	// $this->Js->get('#adicionar');
-	// $this->Js->event(
-	// 	'click',
-	// 	$this->Js->request(
-	// 		array(
-	// 			'action' => 'view', $concurso['Concurso']['id']
-	// 		),
-	// 		array(
-	// 			'async' => true, 
-	// 			'update' => '#table-carreiras',
-	// 			''
-	// 		)
-	// 	)
-	// );
+?>
+<?php
+	include('participantes.ctp');
 ?>

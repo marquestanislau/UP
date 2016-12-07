@@ -5,6 +5,12 @@ $(document).ready(function() {
 			$('#nome').focus();
 		}
 	);
+	$('#catCancelBtn').click(
+		function() {
+			$('#formAdd')[0].reset();
+			$('#nome').focus();
+		}
+	);
 });
 
 

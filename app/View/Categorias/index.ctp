@@ -1,29 +1,20 @@
-<div class="col-md-6">
+<div class="col-md-12">
 	<h2><?php echo __('Categorias'); ?></h2>
+</div>
+<div class="col-md-8">
+	<div id="espera" style="display:none">
+		<?php echo $this->Html->image('ajax/ajax-loader.gif');?>
+	</div>
 	<table class="table table-striped" cellpadding="0" cellspacing="0">
 	<thead>
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
+	<tr class="w3-lime w3-text-black">
 			<th><?php echo $this->Paginator->sort('nome'); ?></th>
 			<th><?php echo $this->Paginator->sort('carreira_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
-	<tbody>
-	<?php foreach ($categorias as $categoria): ?>
-	<tr>
-		<td><?php echo h($categoria['Categoria']['id']); ?>&nbsp;</td>
-		<td><?php echo h($categoria['Categoria']['nome']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($categoria['Carreira']['nome'], array('controller' => 'carreiras', 'action' => 'view', $categoria['Carreira']['id'])); ?>
-		</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $categoria['Categoria']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $categoria['Categoria']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $categoria['Categoria']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $categoria['Categoria']['id']))); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
+	<tbody id="table-body">
+		<?php include('categorias.ctp'); ?>
 	</tbody>
 	</table>
 	<p>
@@ -40,11 +31,15 @@
 	?>
 	</div>
 </div>
-<div class="col-md-4">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<div class="col-md-3">
+	<div class="w3-container w3-lime">
+		<h3><?php echo __('Menu'); ?></h3>
+	</div>
+	<ul class="w3-ul w3-border">
+		<li><a href="#" onclick="document.getElementById('categoriaAddForm').style.display='block'">Novas categorias</a></li>
 		<li><?php echo $this->Html->link(__('New Categoria'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Carreiras'), array('controller' => 'carreiras', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Carreira'), array('controller' => 'carreiras', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php include('add.ctp');?>

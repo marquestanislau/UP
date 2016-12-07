@@ -5,7 +5,7 @@
     color: gray;
 }
 th a {
-	color: grey;
+	/*color: grey;*/
 	font-weight: bold;
 }
 .form-control {
@@ -17,7 +17,8 @@ th a {
 	-webkit-box-shadow: none !important;
 }
 .settings-font-color {
-	color: #004455;
+	/*color: #004455;*/
+	color: black;
 }
 
 .btn {
@@ -41,4 +42,17 @@ th a {
 }
 
 #tabelaUsuarios thead {
+}
+.w3-sidenav a,.w3-sidenav h4 {padding: 12px;}
+.w3-navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+/*Para a janela de paricipantes do processo de recrutamento*/
+.city {display:none;}
+.main-tab {display: block;}
+
+.user-icon {
+	width: 30%;
+	height: 30%;
 }

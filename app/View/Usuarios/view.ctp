@@ -8,8 +8,8 @@
     }
 </style>
 
-<div class="mdl-cell mdl-cell--1-col"></div>
-<div class="mdl-cell mdl-cell--7-col">
+<div class="col-md-1"></div>
+<div class="col-md-7">
     <h3>
 		<?php 
 			$photo = $usuario['Usuario']['foto_perfil'];
@@ -52,17 +52,17 @@
         Voltar
     </button>
 </div>
-<div class="mdl-cell mdl-cell--3-col">
+<div class="col-md-3">
     <div class="list-group">
         <h6>
-            <a href="#" class="list-group-item list-group-item-success">
+            <a href="#" class="w3-black list-group-item list-group-item-success">
                 <span class="glyphicon glyphicon-menu-hamburger"></span>
                 Menu 
             </a>
         </h6>
-	  <?php echo $this->Html->link(__('Edit Usuario'), array('action' => 'edit', $usuario['Usuario']['id']), array('class' => 'list-group-item')); ?>
-	  <?php echo $this->Form->postLink(__('Delete Usuario'), array('action' => 'delete', $usuario['Usuario']['id']), array('class' => 'list-group-item', 'confirm' => __('Are you sure you want to delete # %s?', $usuario['Usuario']['id']))); ?>
-	  <?php echo $this->Html->link(__('List Usuarios'), array('action' => 'index'), array('class' => 'list-group-item')); ?>
-	  <?php echo $this->Html->link(__('New Usuario'), array('action' => 'add'), array('class' => 'list-group-item')); ?>
+	  <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Rectificar dados', array('action' => 'edit', $usuario['Usuario']['id']), array('class' => 'list-group-item', 'escape' => FALSE)); ?>
+	  <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-trash"></span> Remover este utilizador', array('action' => 'delete', $usuario['Usuario']['id']), array('escape' => FALSE, 'class' => 'list-group-item', 'confirm' => __('Are you sure you want to delete # %s?', $usuario['Usuario']['id']))); ?>
+	  <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Todos utilizadores', array('action' => 'index'), array('escape' => false,'class' => 'list-group-item')); ?>
+	  <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> Registo de utilizadores', array('action' => 'add'), array('escape' => FALSE, 'class' => 'list-group-item')); ?>
     </div>
 </div>

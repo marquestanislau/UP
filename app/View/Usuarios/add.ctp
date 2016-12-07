@@ -1,62 +1,34 @@
-<?php echo $this->Html->script('validation', TRUE); ?>
-<div id="formularioUtilizador" class="col-md-6" role="form">
+<div id="formularioUtilizador" class="col-md-8" role="form">
 	<div id="sucesso"></div>
-	<?php echo $this->Form->create('Usuario', array('type' => 'file')); ?>
-		<fieldset>
-			<legend class="settings-font-color">
-				<span class="glyphicon glyphicon-user" style="font-size: 24px;" ></span>
-				<?php echo __('Adicionar utilizador'); ?>
-			</legend>
-			<!-- Ajax loading image... -->
-			<span style="display: none;" id="enviando">
-				<?php echo $this->Html->image('ajax/ajax-loader.gif') ?>
-			</span>
-			<div class="form-group">
-				<?php echo $this->Form->input('nome', array('class' => 'form-control', 'id' => 'nome'));?>
-			</div>
-			<div class="form-group">
-				<?php echo $this->Form->input('apelido', array('class' => 'form-control')); ?>
-			</div>
-			<div class="form-group">
-				<?php echo $this->Form->input('email', array('class' => 'form-control')); ?>
-			</div>
-			<div class="form-group">
-				<?php echo $this->Form->input('contacto', array('class' => 'form-control')); ?>	
-			</div>
-			<?php
-				$hoje = date("Y-m-d");
-				echo $this->Form->input('data_de_registo', array('value' => $hoje,'type' => 'hidden'), array('class' => 'btn btn-default'));
-				
-				echo $this->Form->input('foto_perfil', array('value' => 'upload/perfil_default.png', 'type' => 'file', 'class' => 'btn btn-primary'));
-			?>
-		</fieldset>
-	<hr>
-	<div class="col-md-3">
-	<?php 
-	/*	echo $this->Form->button('Salvar', array('class'=>'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'));*/
-		echo $this->Js->submit('Submeter', 
-			array(
-				'before' => $this->Js->get('#enviando')->effect('fadeIn'),
-				'success' => $this->Js->get('#enviando')->effect('fadeOut'),
-				'update' => '#sucesso',
-				'class' => 'btn btn-success'
-			)
-		);
-	?>
-
-	<?php
-		echo $this->Form->end();
-	 ?>
+	<div class="w3-container w3-grey">
+		<h4><span class="glyphicon glyphicon-user" style="font-size: 24px;" ></span> <?php echo __('Adicionar utilizador'); ?></h4>
+	</div>
+	<?php echo $this->Form->create('Usuario', array('type' => 'file', 'class' => 'w3-container')); ?>
+		
+		<!-- Ajax loading image... -->
+		<span style="display: none;" id="enviando">
+			<?php echo $this->Html->image('ajax/ajax-loader.gif') ?>
+		</span>
+		<?php echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki w3-border'));?>
+		<?php echo $this->Form->input('apelido', array('class' => 'w3-input w3-hover-khaki w3-border')); ?>
+		<?php echo $this->Form->input('email', array('class' => 'w3-input w3-hover-khaki w3-border')); ?>
+		<?php echo $this->Form->input('contacto', array('class' => 'w3-input w3-hover-khaki w3-border')); ?>
+		<?php
+			$hoje = date("Y-m-d");
+			echo $this->Form->input('data_de_registo', array('value' => $hoje,'type' => 'hidden'), array('class' => 'btn btn-default'));
+			
+			echo $this->Form->input('foto_perfil', array('value' => 'upload/perfil_default.png', 'type' => 'file', 'class' => 'btn btn-primary'));
+		?>
+		<button class="w3-btn w3-green w3-large"><span class="glyphicon glyphicon-ok"></span> Submeter</button>
+		<?php
+			echo $this->Form->end();
+	 	?>
+		<button id="novo" class="w3-btn w3-red w3-large"><span class="glyphicon glyphicon-plus"></span> Novo</button>
  </div>
-
- <div class="col-md-3">
- 	<button id="novo" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Novo</button>
- </div>
-</div>
 
 <div class="col-md-4">
 	<div class="list-group">
-		<a href="" class="list-group-item active">
+		<a href="" class="list-group-item w3-grey">
 			<h4> Escolha uma op&ccedil;&atilde;o</h4>
 		</a>
 		<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de utilizadores", array('action' => 'index'), array('class' => 'list-group-item', 'escape' => FALSE)); ?>

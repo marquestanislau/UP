@@ -1,9 +1,10 @@
 <div class="escalaos index">
-	<h2><?php echo __('Escalaos'); ?></h2>
-        <table class="table table-hover" cellpadding="0" cellspacing="0">
+	<h2>Escal&otilde;es</h2>
+	<label>Procure aqui:</label>
+	<input class="w3-input w3-border w3-animate-input" placeholder="Digite o nome do escalao" style="width: 30%" type="" name="">
+    <table class="table table-hover" cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('nome'); ?></th>
 			<th><?php echo $this->Paginator->sort('categoria_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('clazze_id'); ?></th>
@@ -13,7 +14,6 @@
 	<tbody>
 	<?php foreach ($escalaos as $escalao): ?>
 	<tr>
-		<td><?php echo h($escalao['Escalao']['id']); ?>&nbsp;</td>
 		<td><?php echo h($escalao['Escalao']['nome']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($escalao['Categoria']['nome'], array('controller' => 'categorias', 'action' => 'view', $escalao['Categoria']['id'])); ?>

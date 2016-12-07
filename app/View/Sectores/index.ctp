@@ -1,9 +1,17 @@
-<div class="col-md-6">
+<div class="col-md-8">
 	<h4 class="settings-font-color"><span class="glyphicon glyphicon-file"></span><?php echo __('Sectores'); ?></h4>
+	<div class="input-group w3-margin-bottom">
+		<input type="text" class="form-control" placeholder="Insira o nome do sector..." >
+		<span class="input-group-btn">
+			<button class="btn btn-default">
+				<span class="glyphicon glyphicon-search"></span> Procurar
+			</button>
+		</span>
+	</div>
         <table class="table table-hover" cellpadding="0" cellspacing="0">
 	<thead>
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
+	<tr class="w3-black">
+			<th><?php echo $this->Paginator->sort('#'); ?></th>
 			<th><?php echo $this->Paginator->sort('designacao'); ?></th>
 			<th><?php echo $this->Paginator->sort('delegacao_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
@@ -18,9 +26,18 @@
 			<?php echo $this->Html->link($sectore['Delegacao']['nome'], array('controller' => 'delegacaos', 'action' => 'view', $sectore['Delegacao']['id'])); ?>
 		</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $sectore['Sectore']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $sectore['Sectore']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $sectore['Sectore']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $sectore['Sectore']['id']))); ?>
+			<?php $id = $sectore['Sectore']['id']; ?>
+			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Remover", array('action' => 'delete', $sectore['Sectore']['id']), array('escape' => false, 'confirm' => __('Are you sure you want to delete # %s?', $sectore['Sectore']['id']))); ?>
+		<a href="#" class="" onclick="document.getElementById('sectoresModalWindow<?php echo $id; ?>').style.display='block'">
+			<span class='glyphicon glyphicon-refresh'></span> Actualizar
+		</a>
+		<button id="apagar" onclick="document.getElementById('confirmacao<?php echo $id; ?>').style.display='block'" >Remover</button>
+		
+		<?php 
+			include('edit.ctp');
+			include('confirmacao.ctp');
+		?>
+
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -40,21 +57,19 @@
 	?>
 	</div>
 </div>
-<div class="col-md-4">
+<div class="col-md-3">
 	<div class="list-group">
-		<a class="list-group-item active" href="">
-			<h3><?php echo __('Menu'); ?></h3>	
+		<a class="list-group-item w3-black" href="">
+			<h6><?php echo __('Menu'); ?></h6>	
 		</a>
-		<?php echo $this->Html->link("<span class='glyphicon glyphicon-plus'></span> Novo sector", array('action' => 'add'), array('class' => 'list-group-item', 'escape' => false)); ?>
+		<a href="#" class="list-group-item" onclick="document.getElementById('sectoresModal').style.display='block'">
+			<span class='glyphicon glyphicon-plus'></span> Novo sector
+		</a>
 		<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Listas das delega&ccedil;&otilde;s", array('controller' => 'delegacaos', 'action' => 'index'), array('class' => 'list-group-item', 'escape' => false)); ?>
 		<?php echo $this->Html->link("<span class='glyphicon glyphicon-map-marker'></span> Nova delega&ccedil;&atilde;o", array('controller' => 'delegacaos', 'action' => 'add'), array('class' => 'list-group-item', 'escape' => false)); ?>
 	</div>
-	<div class="input-group">
-		<input type="text" class="form-control" placeholder="Insira o nome do sector..." >
-		<span class="input-group-btn">
-			<button class="btn btn-default">
-				<span class="glyphicon glyphicon-search"></span> Procurar
-			</button>
-		</span>
-	</div>
 </div>
+<?php 
+	include('add.ctp');
+	include('edit.ctp');
+?>

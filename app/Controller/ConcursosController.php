@@ -1,70 +1,70 @@
 <?php
 App::uses('AppController', 'Controller');
-/**
- * Concursos Controller
- *
- * @property Concurso $Concurso
- * @property PaginatorComponent $Paginator
- */
-class ConcursosController extends AppController {
+	/**
+	 * Concursos Controller
+	 *
+	 * @property Concurso $Concurso
+	 * @property PaginatorComponent $Paginator
+	 */
+	class ConcursosController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
+	/**
+	 * Components
+	 *
+	 * @var array
+	 */
 	public $components = array('Paginator', 'Flash', 'Session', 'RequestHandler');
 	public $helpers = array('Js' => array('Jquery'));
 
-/**
- * index method
- *
- * @return void
- */
+	/**
+	 * index method
+	 *
+	 * @return void
+	 */
 	public function index() {
+		//$this->editarModal();
 		$this->Concurso->recursive = 0;
 		$this->set('concursos', $this->Paginator->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function view($id = null) {
 		if (!$this->Concurso->exists($id)) {
 			throw new NotFoundException(__('Invalid concurso'));
 		}
-		
+
 		$options = array('conditions' => array('Concurso.' . $this->Concurso->primaryKey => $id));
 		$carreiras = $this->Concurso->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
 		$concursos = $this->Concurso->find('all', array(
-				'contain' => array('Carreira'),
-				'conditions' => array('Concurso.id' => $id)
-			));
+			'contain' => array('Carreira'),
+			'conditions' => array('Concurso.id' => $id)
+		));
 		$this->set(compact('concursos'));
 		$this->set('concurso', $this->Concurso->find('first', $options));
 		$this->set(compact('carreiras'));
-		
+
 	}
 
-/**
- * add method
- *
- * @return void
- */
+	/**
+	 * add method
+	 *
+	 * @return void
+	 */
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Concurso->create();
 			if ($this->Concurso->saveAll($this->request->data)) {
 				if($this->RequestHandler->isAjax()) {
-					debug($this->request->data);
-					$this->render('nova_pagina', 'ajax');
+					$this->nova_pagina($this->request->data['Concurso']['id']);
 				} else {
 					$this->Flash->success(__('The concurso has been saved.'));
-					// debug($this->request->data);
+						// debug($this->request->data);
 					return $this->redirect(array('action' => 'view/'.$this->request->data['Concurso']['id']));
 				}
 			} else {
@@ -73,13 +73,13 @@ class ConcursosController extends AppController {
 		}
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function edit($id = null) {
 		if (!$this->Concurso->exists($id)) {
 			throw new NotFoundException(__('Invalid concurso'));
@@ -97,13 +97,13 @@ class ConcursosController extends AppController {
 		}
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * delete method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function delete($id = null) {
 		$this->Concurso->id = $id;
 		if (!$this->Concurso->exists()) {
@@ -130,6 +130,33 @@ class ConcursosController extends AppController {
 			));
 			$this->set('concursos', $concursos);
 			$this->render('nova_pagina', 'ajax');
+		}
+	}
+
+	public function editarModal() {
+		if($this->request->is('ajax')) {
+			if($this->Concurso->save($this->request->data)) {
+				$this->autoRender = false;
+				$this->render('sucesso', 'ajax');
+			} else {
+				$this->render('erro', 'ajax');
+			}
+		} else {
+			if($this->Concurso->save($this->request->data)) {
+				$this->Flash->success('Dados submetidos com exito!');
+				return $this->redirect(array('action' => 'index'));
+			}
+		}
+	}
+
+	public function adicionarModal() {
+		if($this->request->is(array('post', 'ajax'))) {
+			$this->Concurso->create();
+			if($this->Concurso->save($this->request->data)) {
+				$this->render('sucesso', 'ajax');
+			} else {
+				$this->render('erro', 'ajax');
+			}
 		}
 	}
 }

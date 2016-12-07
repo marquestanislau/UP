@@ -13,7 +13,8 @@ class SectoresController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Flash', 'Session');
+	public $components = array('Paginator', 'Flash', 'Session', 'RequestHandler');
+	public $helpers = array('Js' => array('Jquery'));
 
 /**
  * index method
@@ -23,6 +24,7 @@ class SectoresController extends AppController {
 	public function index() {
 		$this->Sectore->recursive = 0;
 		$this->set('sectores', $this->Paginator->paginate());
+		$this->colocaNome();
 	}
 
 /**
@@ -48,20 +50,29 @@ class SectoresController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Sectore->create();
-			if ($this->Sectore->save($this->request->data)) {
-				$this->Flash->success(__('The sectore has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+			if($this->request->is('ajax')) {
+				if ($this->Sectore->save($this->request->data)) {
+					$this->render('sucesso', 'ajax');
+				} else {
+					$this->render('erro', 'ajax');
+				}
 			} else {
-				$this->Flash->error(__('The sectore could not be saved. Please, try again.'));
+
+				if ($this->Sectore->save($this->request->data)) {
+					$this->Flash->success(__('The sectore has been saved.'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+					$this->Flash->error(__('The sectore could not be saved. Please, try again.'));
+				}
 			}
 		}
-                $this->colocaNome();
+        $this->colocaNome();
 	}
 
-        protected function colocaNome() {
-            $delegacaos = $this->Sectore->Delegacao->find('list', array('fields' => 'Delegacao.nome', 'Delegacao.id'));
-            $this->set(compact('delegacaos'));
-        }
+    protected function colocaNome() {
+        $delegacaos = $this->Sectore->Delegacao->find('list', array('fields' => 'Delegacao.nome', 'Delegacao.id'));
+        $this->set(compact('delegacaos'));
+    }
 /**
  * edit method
  *
@@ -74,17 +85,35 @@ class SectoresController extends AppController {
 			throw new NotFoundException(__('Invalid sectore'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Sectore->save($this->request->data)) {
-				$this->Flash->success(__('The sectore has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+			if($this->request->is('ajax')) {
+				if($this->Sectore->save($this->request->data)) {
+					$this->render('sucesso', 'ajax');
+				} else {
+					$this->render('erro', 'ajax');
+				}	
 			} else {
-				$this->Flash->error(__('The sectore could not be saved. Please, try again.'));
+				if ($this->Sectore->save($this->request->data)) {
+					$this->Flash->success(__('The sectore has been saved.'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+					$this->Flash->error(__('The sectore could not be saved. Please, try again.'));
+				}
 			}
 		} else {
 			$options = array('conditions' => array('Sectore.' . $this->Sectore->primaryKey => $id));
 			$this->request->data = $this->Sectore->find('first', $options);
 		}
 		$this->colocaNome();
+	}
+
+	public function modificar() {
+		if($this->request->is('ajax')) {
+			if($this->Sectore->save($this->request->data)) {
+				$this->render('sucesso', 'ajax');
+			} else {
+				$this->render('erro', 'ajax');
+			}	
+		}
 	}
 
 /**

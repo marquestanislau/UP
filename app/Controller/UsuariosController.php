@@ -19,7 +19,7 @@ class UsuariosController extends AppController {
 	public $helpers = array('Js' => array('Jquery'));
     
     public $paginator_settings = array(
-		'limit' => 5
+		'limit' => 10
 		);
 
 /**
@@ -54,16 +54,17 @@ class UsuariosController extends AppController {
  * @return void
  */
 	public function add() {
-		if($this->request->is('post') && !empty($this->request->data)) {
-			if($this->Usuario->save($this->request->data)) {
-				if($this->RequestHandler->isAjax()) {
+		if($this->request->is('post')) {
+			if($this->request->is('ajax')) {
+				if($this->Usuario->save($this->request->data)) {
 					$this->render('sucesso', 'ajax');
 				} else {
-					$this->Flash->success(__('Usuario adicionado com exito.'));
-					return $this->redirect(array('action' => 'index'));
+					$this->render('erro', 'ajax');
 				}
+			} else {
+				$this->Flash->success(__('Usuario adicionado com exito.'));
+				return $this->redirect(array('action' => 'index'));
 			}
-			$this->layout = 'ajax';
 		}
 		$this->set('ultimoUsuario', 
 			$this->Usuario->find('first', array('order' => array('Usuario.id' => 'desc'))));
@@ -94,7 +95,9 @@ class UsuariosController extends AppController {
 			}
 		} else {
 			$options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
-			$this->request->data = $this->Usuario->find('first', $options);
+			$usuario = $this->Usuario->find('first', $options);
+			$this->request->data = $usuario;
+			$this->set('usuario', $usuario);
 		}
 	}
 

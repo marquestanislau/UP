@@ -13,7 +13,8 @@ class CarreirasController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Flash', 'Session');
+	public $components = array('Paginator', 'Flash', 'Session', 'RequestHandler');
+	public $helpers = array('Js' => array('Jquery'));
 
 /**
  * index method
@@ -100,5 +101,16 @@ class CarreirasController extends AppController {
 			$this->Flash->error(__('The carreira could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
+	}
+
+	public function adicionarCarreira() {
+		if($this->request->is(array('ajax', 'post'))){
+			$this->Carreira->Create();
+			if($this->Carreira->save($this->request->data)) {
+				$this->render('sucesso', 'ajax');
+			} else {
+				$this->render('erro', 'ajax');
+			}
+		}
 	}
 }

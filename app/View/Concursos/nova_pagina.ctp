@@ -11,7 +11,7 @@
 					echo $this->Html->link(
 						'<span class="glyphicon glyphicon-eye-open"></span> Ver', 
 						array('controller' => 'carreiras', 'action' => 'view', $carreira['id']),
-						array('class' => 'btn btn-default', 'escape' => FALSE)
+						array('class' => 'w3-btn w3-white w3-border', 'escape' => FALSE)
 					);
 
 					echo $this->Html->link(
@@ -19,12 +19,10 @@
 						array('controller' => 'carreiras', 'action' => 'view', $carreira['id']),
 						array('class' => 'btn btn-danger', 'escape' => FALSE)
 					);
-					echo $this->Html->link(
-						'<span class="glyphicon glyphicon-user"></span> Adicionar candidato', 
-						array('controller' => 'carreiras', 'action' => 'view', $carreira['id']),
-						array('class' => 'btn btn-primary', 'escape' => FALSE)
-					);
 				 ?>
+				 <button onclick="document.getElementById('participantesModal').style.display='block'" class="w3-btn w3-purple">
+				 	<span class="glyphicon glyphicon-user"></span> Adicionar candidato
+				 </button>
 				</td>
 			</tr>
 <?php 			

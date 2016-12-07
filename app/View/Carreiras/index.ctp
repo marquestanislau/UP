@@ -1,5 +1,5 @@
 <div class="col-md-8">
-	<h4 class="settings-font-color"><span style="font-size: 24px;" class="glyphicon glyphicon-briefcase"></span> <?php echo __('Carreiras disponiveis no sistema'); ?></h4>
+	<h4 class="w3-text-blue settings-font-color"><span style="font-size: 24px;" class="glyphicon glyphicon-briefcase"></span> <?php echo __('Carreiras disponiveis no sistema'); ?></h4>
 	<a href="">
 		<span class="glyphicon glyphicon-print"></span>
 		Imprimir
@@ -10,22 +10,27 @@
 	<table class="table table-striped" cellpadding="0" cellspacing="0">
 	<thead>
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('nome'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+		<th><?php echo $this->Paginator->sort('nome'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
 	<tbody>
 	<?php foreach ($carreiras as $carreira): ?>
+		<!-- Para facilitar na nomeacao de formulario, usamos o id por ser unico -->
+	<?php $id = $carreira['Carreira']['id']; ?>
 	<tr>
-		<td><?php echo h($carreira['Carreira']['id']); ?>&nbsp;</td>
 		<td><?php echo h($carreira['Carreira']['nome']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-eye-open'></span> Visualizar", array('action' => 'view', $carreira['Carreira']['id']), array('escape' => false)); ?>
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-edit'></span> Editar", array('action' => 'edit', $carreira['Carreira']['id']), array('escape' => false)); ?>
-			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Remover", array('action' => 'delete', $carreira['Carreira']['id']), array( 'escape' => false, 'confirm' => __('Are you sure you want to delete # %s?', $carreira['Carreira']['id']))); ?>
+			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Remover", array('action' => 'delete', $carreira['Carreira']['id']), array('class' => 'w3-btn w3-red' , 'escape' => false, 'confirm' => __('Are you sure you want to delete # %s?', $carreira['Carreira']['id']))); ?>
+			<button class="w3-btn w3-blue" onclick="document.getElementById('carreiraModalEditar<?php echo $id;?>').style.display='block'">
+				<span class='glyphicon glyphicon-edit'></span>
+				Editar
+			</button>
 		</td>
 	</tr>
+	<?php
+		include('edit.ctp');
+	?>
 <?php endforeach; ?>
 	</tbody>
 	</table>
@@ -48,10 +53,15 @@
 	  <a href="#" class="list-group-item active">
 	    <h4><span class="glyphicon glyphicon-menu-left"></span> <?php echo __('Menu'); ?></h4>
 	  </a>
-	  <a href="#" class="list-group-item"> <span class="glyphicon glyphicon-cog"></span> Configuracoes</a>
-	  <a href="#" class="list-group-item">Morbi leo risus</a>
-	  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-	  <a href="#" class="list-group-item">Vestibulum at eros</a>
-		<?php echo $this->Html->link(__('New Carreira'), array('action' => 'add'), array('class' => 'list-group-item')); ?>
+	  <a href="<?php echo $this->Html->url(array('action' => 'configuracao', 'controller' => 'pages'));?>" class="list-group-item"> <span class="glyphicon glyphicon-cog"></span> Configuracoes</a>
+	  <a href="#" onclick="document.getElementById('carreiraModal').style.display='block'"  class="list-group-item w3-hover-green">
+		<span class="glyphicon glyphicon-plus-sign"></span>
+	  	Nova carreira
+	  </a>
 	</div>
 </div>
+
+<?php
+	include('add.ctp');
+	include('edit.ctp');
+?>

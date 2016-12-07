@@ -13,7 +13,8 @@ class CategoriasController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session', 'Flash');
+	public $components = array('Paginator', 'Session', 'Flash', 'RequestHandler');
+	public $helpers = array('Js' => array('Jquery'));
 
 /**
  * index method
@@ -23,6 +24,10 @@ class CategoriasController extends AppController {
 	public function index() {
 		$this->Categoria->recursive = 0;
 		$this->set('categorias', $this->Paginator->paginate());
+		if($this->request->is('ajax')) {
+			$this->render('categorias', 'ajax');
+		}
+		$this->fillCombo();
 	}
 
 /**
@@ -50,15 +55,28 @@ class CategoriasController extends AppController {
 		
 		if ($this->request->is('post')) {
 			$this->Categoria->create();
-			if ($this->Categoria->save($this->request->data)) {
-				$this->Flash->success(__('The categoria has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+			if($this->request->is('ajax')) {
+				if ($this->Categoria->save($this->request->data)) {
+					$this->render('sucesso', 'ajax');
+				} else {
+					$this->render('erro', 'ajax');
+				}
 			} else {
-				$this->Flash->error(__('The categoria could not be saved. Please, try again.'));
+				if ($this->Categoria->save($this->request->data)) {
+					$this->Flash->success(__('The categoria has been saved.'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+					$this->Flash->error(__('The categoria could not be saved. Please, try again.'));
+				}
 			}
 		}
 		$carreiras = $this->Categoria->Carreira->find('list', array('fields' =>'Carreira.nome', 'Carreira.id'));
 		$this->set(compact('carreiras'));
+	}
+
+	protected function fillCombo() {
+		$carreiras = $this->Categoria->Carreira->find('list', array('fields' =>'Carreira.nome', 'Carreira.id'));
+		$this->set(compact('carreiras'));	
 	}
 
 /**
