@@ -13,7 +13,8 @@ class EscalaosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Flash', 'Session');
+	public $components = array('Paginator', 'Flash', 'Session', 'RequestHandler');
+	public $helpers = array('Js' => array('Jquery'));
 
 /**
  * index method
@@ -23,6 +24,10 @@ class EscalaosController extends AppController {
 	public function index() {
 		$this->Escalao->recursive = 0;
 		$this->set('escalaos', $this->Paginator->paginate());
+		$this->getkeys();
+		if($this->request->is('ajax')) {
+			$this->render('escaloes', 'ajax');
+		}
 	}
 
 /**
@@ -48,21 +53,29 @@ class EscalaosController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Escalao->create();
-			if ($this->Escalao->save($this->request->data)) {
-				$this->Flash->success(__('The escalao has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+			if($this->request->is('ajax')) {
+				if ($this->Escalao->save($this->request->data)) {
+					$this->render('sucesso', 'ajax');
+				} else {
+					$this->render('erro', 'ajax');
+				}
 			} else {
-				$this->Flash->error(__('The escalao could not be saved. Please, try again.'));
+				if ($this->Escalao->save($this->request->data)) {
+					$this->Flash->success(__('The escalao has been saved.'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+					$this->Flash->error(__('The escalao could not be saved. Please, try again.'));
+				}
 			}
 		}
-                $this->getkeys();
+        $this->getkeys();
 	}
 
-        protected function getkeys() {
-            $categorias = $this->Escalao->Categoria->find('list', array('fields' => 'Categoria.nome', 'Categoria.id'));
-            $clazzes = $this->Escalao->Clazze->find('list', array('fields' => 'Clazze.nome', 'Clazze.id'));
-            $this->set(compact('categorias', 'clazzes'));
-        }
+    protected function getkeys() {
+        $categorias = $this->Escalao->Categoria->find('list', array('fields' => 'Categoria.nome', 'Categoria.id'));
+        $clazzes = $this->Escalao->Clazze->find('list', array('fields' => 'Clazze.nome', 'Clazze.id'));
+        $this->set(compact('categorias', 'clazzes'));
+    }
 
                 /**
  * edit method
@@ -76,11 +89,19 @@ class EscalaosController extends AppController {
 			throw new NotFoundException(__('Invalid escalao'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Escalao->save($this->request->data)) {
-				$this->Flash->success(__('The escalao has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+			if($this->request->is('ajax')) {
+				if ($this->Escalao->save($this->request->data)) {
+					$this->render('sucesso', 'ajax');
+				} else {
+					$this->render('erro', 'ajax');
+				}
 			} else {
-				$this->Flash->error(__('The escalao could not be saved. Please, try again.'));
+				if ($this->Escalao->save($this->request->data)) {
+					$this->Flash->success(__('The escalao has been saved.'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+					$this->Flash->error(__('The escalao could not be saved. Please, try again.'));
+				}
 			}
 		} else {
 			$options = array('conditions' => array('Escalao.' . $this->Escalao->primaryKey => $id));

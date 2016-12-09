@@ -1,22 +1,58 @@
-<div class="categorias form">
-<?php echo $this->Form->create('Categoria'); ?>
-	<fieldset>
-		<legend><?php echo __('Edit Categoria'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('nome');
-		echo $this->Form->input('carreira_id');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+<div class="w3-modal" id="catModal<?php echo $id;?>">
+	<div class="w3-modal-content">
+		<header class="w3-container w3-dark-grey">
+			<span onclick="document.getElementById('catModal<?php echo $id;?>').style.display='none'" class="w3-closebtn">&times;</span>
+			<h4>Alterar dados da categoria</h4>
+		</header>
+		<div class="w3-container w3-padding">
+			<div id="sucesso<?php echo $id;?>"></div>
+			<?php echo $this->Form->create('Categoria', array('id' => 'ajaxFormCatEdit'.$id, 'class' => 'w3-container')); ?>
+			<?php
+				echo $this->Form->input('id', array('value' => $categoria['Categoria']['id']));
+				echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki w3-border', 'value' => $categoria['Categoria']['nome']));
+				echo $this->Form->input('carreira_id', array('class' => 'w3-input w3-hover-khaki w3-border', 'value' => $categoria['Categoria']['carreira_id']));
+			?>
+			<div style="display: none" id="requesting<?php echo $id;?>">
+				<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
+			</div>
+		</div>
+		<footer class="w3-container w3-padding">
+			<button class="w3-btn w3-green w3-large">
+				<span class="glyphicon glyphicon-ok"></span>
+				Submeter
+			</button>
+			<?php echo $this->Form->end(); ?>
+		</footer>
+	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+<?php
+	$dados = $this->Js->get('#ajaxFormCatEdit'.$id)->serializeForm(array('inline' => true, 'isForm' => true));
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Categoria.id')), array('confirm' => __('Are you sure you want to delete # %s?', $this->Form->value('Categoria.id')))); ?></li>
-		<li><?php echo $this->Html->link(__('List Categorias'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Carreiras'), array('controller' => 'carreiras', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Carreira'), array('controller' => 'carreiras', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+	$before = '$("#requesting'.$id.'").attr("style", "")';
+	$complete = '$("#requesting'.$id.'").attr("style", "display:none")';
+	$success = $this->Js->request(
+		array('action' => 'index') ,
+		array(
+			'method' => 'post',
+			'update' => '#table-body',
+			'async' => true
+		)
+	);
+
+	$this->Js->get('#ajaxFormCatEdit'.$id)->event(
+		"submit",
+		$this->Js->request(
+			array('action' => 'edit/'.$id),
+			array(
+				'method' => 'post',
+				'data' => $dados,
+				'dataExpression' => true,
+				'update' => '#sucesso'.$id,
+				'async' => true,
+				'before' => $before,
+				'complete' => $complete,
+				'success' => $success
+			)
+		)
+	);
+?>

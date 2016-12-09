@@ -19,7 +19,7 @@
 	</div>
 	<?php echo $this->Form->end(); ?>
 	<div class="w3-responsive">
-		<table id="tabelaUsuarios" class="w3-table-all" cellpadding="0" cellspacing="0">
+		<table id="tabelaUsuarios" class="w3-table-all">
 			<thead>
 			<tr class="w3-black" style="color: white;">
 				<th><?php echo $this->Paginator->sort('nome'); ?></th>
@@ -52,11 +52,11 @@
 		'format' => __('Pagina {:page} de {:pages}, a visualizar {:current} registos num total de {:count}, inicia em {:start},  e termina em {:end}')
 	));
 	?>	</p>
-	<div class="pagination">
-	<?php
-		echo $this->Paginator->prev('<< ' . __('Anterior'), array(), null, array('class' => 'btn btn-primary'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('Proximo') . ' >>', array(), null, array('class' => 'btn btn-warning'));
-	?>
+	<div class="paging">
+		<?php
+			echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+			echo $this->Paginator->numbers(array('separator' => ''));
+			echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		?>
 	</div>
 </div>

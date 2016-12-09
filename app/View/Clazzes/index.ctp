@@ -1,31 +1,31 @@
-<div class="clazzes index">
-	<h2><?php echo __('Clazzes'); ?></h2>
-        <table class="table table-hover" cellpadding="0" cellspacing="0">
-	<thead>
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('nome'); ?></th>
-			<th><?php echo $this->Paginator->sort('carreira_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	</thead>
-	<tbody>
-	<?php foreach ($clazzes as $clazze): ?>
-	<tr>
-		<td><?php echo h($clazze['Clazze']['id']); ?>&nbsp;</td>
-		<td><?php echo h($clazze['Clazze']['nome']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($clazze['Carreira']['nome'], array('controller' => 'carreiras', 'action' => 'view', $clazze['Carreira']['id'])); ?>
-		</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $clazze['Clazze']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $clazze['Clazze']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $clazze['Clazze']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $clazze['Clazze']['id']))); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</tbody>
-	</table>
+<div class="row w3-margin-bottom">
+	<div class="col-md-12">
+		<h4><?php echo __('Classes'); ?></h4>
+	</div>
+	<div class="col-md-5">
+		<input style="width: 40%;" placeholder="Procure aqui..." class="w3-input w3-border w3-hover-sand">
+	</div>
+	<div class="col-md-5">
+		<button onclick="document.getElementById('classeModal').style.display='block'" class="pull-right w3-btn w3-dark-grey w3-large">
+			<span class="glyphicon glyphicon-plus"></span>
+			Nova classe
+		</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10">
+	    <table class="table table-striped">
+		<thead>
+		<tr class="w3-brown">
+				<th><?php echo $this->Paginator->sort('nome'); ?></th>
+				<th><?php echo $this->Paginator->sort('carreira_id'); ?></th>
+				<th class="actions"><?php echo __('Actions'); ?></th>
+		</tr>
+		</thead>
+		<tbody id="table-body">
+			<?php include('classes.ctp'); ?>
+		</tbody>
+		</table></div>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
@@ -41,7 +41,6 @@
 	</div>
 </div>
 <div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Clazze'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Carreiras'), array('controller' => 'carreiras', 'action' => 'index')); ?> </li>
@@ -50,3 +49,6 @@
 		<li><?php echo $this->Html->link(__('New Escalao'), array('controller' => 'escalaos', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+<?php
+	include('add.ctp');
+?>

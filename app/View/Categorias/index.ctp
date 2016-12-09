@@ -1,11 +1,11 @@
 <div class="col-md-12">
-	<h2><?php echo __('Categorias'); ?></h2>
+	<h4><?php echo __('Categorias'); ?></h4>
 </div>
-<div class="col-md-8">
+<div class="col-md-9">
 	<div id="espera" style="display:none">
 		<?php echo $this->Html->image('ajax/ajax-loader.gif');?>
 	</div>
-	<table class="table table-striped" cellpadding="0" cellspacing="0">
+	<table class="table table-striped">
 	<thead>
 	<tr class="w3-lime w3-text-black">
 			<th><?php echo $this->Paginator->sort('nome'); ?></th>
@@ -36,7 +36,10 @@
 		<h3><?php echo __('Menu'); ?></h3>
 	</div>
 	<ul class="w3-ul w3-border">
-		<li><a href="#" onclick="document.getElementById('categoriaAddForm').style.display='block'">Novas categorias</a></li>
+		<li><a href="#" onclick="document.getElementById('categoriaAddForm').style.display='block'">
+			<span class="glyphicon glyphicon-plus"></span>
+			Novas categorias</a>
+		</li>
 		<li><?php echo $this->Html->link(__('New Categoria'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Carreiras'), array('controller' => 'carreiras', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Carreira'), array('controller' => 'carreiras', 'action' => 'add')); ?> </li>

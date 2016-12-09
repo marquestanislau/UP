@@ -18,8 +18,11 @@ class ClazzesController extends AppController {
 	public $components = array(
             'Paginator', 
             'Session',
-            'Flash'
+            'Flash',
+            'RequestHandler'
             );
+
+	public $helpers = array('Js'  => array('Jquery'));
 
 /**
  * index method
@@ -29,6 +32,10 @@ class ClazzesController extends AppController {
 	public function index() {
 		$this->Clazze->recursive = 0;
 		$this->set('clazzes', $this->Paginator->paginate());
+		$this->setKeys();
+		if($this->request->is('ajax')) {
+			$this->render('classes', 'ajax');
+		}
 	}
 
 /**
@@ -54,11 +61,19 @@ class ClazzesController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Clazze->create();
-			if ($this->Clazze->save($this->request->data)) {
-				$this->Flash->success(__('The clazze has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+			if($this->request->is('ajax')) {
+				if ($this->Clazze->save($this->request->data)) {
+					$this->render('sucesso', 'ajax');
+				} else {
+					$this->render('erro', 'ajax');
+				}
 			} else {
-				$this->Flash->error(__('The clazze could not be saved. Please, try again.'));
+				if ($this->Clazze->save($this->request->data)) {
+					$this->Flash->success(__('The clazze has been saved.'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+					$this->Flash->error(__('The clazze could not be saved. Please, try again.'));
+				}
 			}
 		}
 		$this->setKeys();
@@ -81,11 +96,19 @@ class ClazzesController extends AppController {
 			throw new NotFoundException(__('Invalid clazze'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Clazze->save($this->request->data)) {
-				$this->Flash->success(__('The clazze has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+			if($this->request->is('ajax')) {
+				if ($this->Clazze->save($this->request->data)) {
+					$this->render('sucesso', 'ajax');
+				} else {
+					$this->render('erro', 'ajax');
+				}	
 			} else {
-				$this->Flash->error(__('The clazze could not be saved. Please, try again.'));
+				if ($this->Clazze->save($this->request->data)) {
+					$this->Flash->success(__('The clazze has been saved.'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+					$this->Flash->error(__('The clazze could not be saved. Please, try again.'));
+				}
 			}
 		} else {
 			$options = array('conditions' => array('Clazze.' . $this->Clazze->primaryKey => $id));

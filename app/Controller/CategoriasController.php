@@ -92,11 +92,19 @@ class CategoriasController extends AppController {
 			throw new NotFoundException(__('Invalid categoria'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Categoria->save($this->request->data)) {
-				$this->Flash->success(__('The categoria has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Flash->error(__('The categoria could not be saved. Please, try again.'));
+			if($this->request->is('ajax')) {
+				if ($this->Categoria->save($this->request->data)) {
+					$this->render('sucesso', 'ajax');
+				} else {
+					$this->render('erro', 'ajax');
+				}
+			} else{
+				if ($this->Categoria->save($this->request->data)) {
+					$this->Flash->success(__('The categoria has been saved.'));
+					return $this->redirect(array('action' => 'index'));
+				} else {
+					$this->Flash->error(__('The categoria could not be saved. Please, try again.'));
+				}
 			}
 		} else {
 			$options = array('conditions' => array('Categoria.' . $this->Categoria->primaryKey => $id));
