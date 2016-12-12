@@ -30,6 +30,11 @@ class Carreira extends AppModel {
 		'Categoria' => array(
 			'className' => 'Categoria',
 			'foreignKey' => 'carreira_id',
-		)	
+		),
+		'Documentacao' => array(
+			'className' => 'Documentacao',
+			'foreignKey' => 'carreira_id',
+		)		
 	);
+
 }

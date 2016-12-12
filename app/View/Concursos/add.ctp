@@ -13,8 +13,8 @@
 	    <div id="salvar_erro"></div>
 		<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'adicionarModal'), 'class' => 'w3-container', 'id' => 'addForm')); ?>
 		<?php
-			echo $this->Form->input('data_aprovacao');
-			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-sand'));
+			echo $this->Form->input('data_aprovacao', array('label' => 'Data de aprova&ccedil;&atilde;o: '));
+			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-sand w3-border'));
 			echo $this->Form->input('data_registo', array('type' => 'hidden'));
 		?>
 		<div id="salvar_processando" style="display: none;">
@@ -47,7 +47,15 @@
 				'dataExpression' => true,
 				'method' => 'post',
 				'before'   => '$("#salvar_processando").attr("style", "")', 
-				'complete' => '$("#salvar_processando").attr("style", "display:none")'
+				'complete' => '$("#salvar_processando").attr("style", "display:none")',
+				'success' => $this->Js->request(
+								array('action' => 'index'),
+								array(
+									'method' => 'post',
+									'async' => true,
+									'update' => '#table-body'
+								)
+							)
 			)
 		)
 	);

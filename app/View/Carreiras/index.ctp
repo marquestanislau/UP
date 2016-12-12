@@ -21,10 +21,9 @@
 	<tr>
 		<td><?php echo h($carreira['Carreira']['nome']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Remover", array('action' => 'delete', $carreira['Carreira']['id']), array('class' => 'w3-btn w3-red' , 'escape' => false, 'confirm' => __('Are you sure you want to delete # %s?', $carreira['Carreira']['id']))); ?>
+			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span>", array('action' => 'delete', $carreira['Carreira']['id']), array('class' => 'w3-btn w3-red' , 'escape' => false, 'confirm' => __('Are you sure you want to delete # %s?', $carreira['Carreira']['id']))); ?>
 			<button class="w3-btn w3-blue" onclick="document.getElementById('carreiraModalEditar<?php echo $id;?>').style.display='block'">
 				<span class='glyphicon glyphicon-edit'></span>
-				Editar
 			</button>
 		</td>
 	</tr>

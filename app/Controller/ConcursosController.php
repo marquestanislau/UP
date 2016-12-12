@@ -25,6 +25,9 @@ App::uses('AppController', 'Controller');
 		//$this->editarModal();
 		$this->Concurso->recursive = 0;
 		$this->set('concursos', $this->Paginator->paginate());
+		if($this->request->is('ajax')) {
+			$this->render('concursos', 'ajax');
+		}
 	}
 
 	/**

@@ -11,10 +11,10 @@
 
     <div class="w3-container">
       <div class="w3-row">
-          <a href="javascript:void(0)" onclick="openCity(event, 'cta');">
+          <a href="javascript:void(0)" onclick="janelasParticipantes(event, 'cta');">
             <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><strong><span class="glyphicon glyphicon-user"></span> CTAS</strong></div>
           </a>
-          <a href="javascript:void(0)" onclick="openCity(event, 'CorpoDocente');">
+          <a href="javascript:void(0)" onclick="janelasParticipantes(event, 'CorpoDocente');">
             <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><strong><span class="glyphicon glyphicon-education"></span> Corpo docente</strong></div>
           </a>
         </div>
@@ -37,7 +37,7 @@
 
 
 <script>
-function openCity(evt, cityName) {
+function janelasParticipantes(evt, cityName) {
   var i, x, tablinks;
   x = document.getElementsByClassName("city");
   for (i = 0; i < x.length; i++) {

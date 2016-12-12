@@ -24,7 +24,7 @@
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<table class="table table-hover" cellpadding="0" cellspacing="0">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th><?php echo $this->Paginator->sort('nome'); ?></th>
