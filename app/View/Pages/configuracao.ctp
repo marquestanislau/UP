@@ -1,11 +1,13 @@
-<div style="margin-bottom: 15px;" class="col-md-12 limit-down">
-  <h5 class="settings-font-color">
-    <span class="glyphicon glyphicon-cog settings-font-color"></span>
-    Configura&ccedil;&otilde;es
-  </h5>
-  <small class="settings-font-color">
-    Esta janela contem links que sao uteis para configuracao inicial dos principais parametros de contratacao de funcionarios e agentes do estado
-  </small>
+<div class="row">
+  <div style="margin-bottom: 15px; margin-top: 50px;" class=" col-md-12 limit-down">
+    <h5 class="settings-font-color">
+      <span class="glyphicon glyphicon-cog settings-font-color"></span>
+      Configura&ccedil;&otilde;es
+    </h5>
+    <small class="settings-font-color">
+      Esta janela contem links que sao uteis para configuracao inicial dos principais parametros de contratacao de funcionarios e agentes do estado
+    </small>
+  </div>
 </div>
 <div class="row">
 <div class="col-md-5 w3-teal">

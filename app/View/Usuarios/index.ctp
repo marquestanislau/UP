@@ -1,27 +1,26 @@
 <?php echo $this->Html->script('filter.js');  ?>
-<div class="col-md-10">
-<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> Adicionar utilizador', array('action' => 'add'), array('class' => 'w3-btn w3-blue w3-border pull-right', 'escape' => FALSE)); ?>
-	<h5 class="settings-font-color">
+<div class="col-md-6">
+	<h6 class="w3-text-grey settings-font-color">
 		<span style="font-size: 24px;" class="glyphicon glyphicon-user"></span>
-		Lista de Utilizadores regitados no sistema</h5>
-	<hr>
-	<?php echo $this->Form->create('Usuario', array('controller' => 'UsuariosController', 'url' => 'index')); ?>
-	<div class="form-group">
-		<div class="input-group">
-    		<input onkeyup="myFunction()" id="procurar" type="text" class="form-control" placeholder="Digite o nome ou apelido...">
-    		<span class="input-group-btn">
-        		<button class="btn btn-default disabled" type="submit">
-        			<span class="glyphicon glyphicon-search"></span>
-        			Procurar!
-        		</button>
-      		</span>
-    	</div>
-	</div>
-	<?php echo $this->Form->end(); ?>
-	<div class="w3-responsive">
-		<table id="tabelaUsuarios" class="w3-table-all">
+		Lista de Utilizadores regitados no sistema</h6>
+</div>
+<div class="col-md-6 w3-padding">
+	<a href="#" class="pull-right w3-margin-left">
+		<span class="glyphicon glyphicon-question-sign"></span>
+	</a>
+	<a href="#" class="pull-right w3-margin-left">
+		<span class="glyphicon glyphicon-print"></span>
+	</a>
+	<a href="#" class="pull-right w3-margin-left">
+		<span class="glyphicon glyphicon-cog"></span>
+	</a>
+</div>
+<div class="col-md-12">
+	<div class="w3-responsive w3-white w3-padding w3-border">
+	<div class="alert alert-info w3-container"><h6>Utilizadores</h6></div>
+		<table id="tabelaUsuarios" class="w3-table table table-striped w3-white">
 			<thead>
-			<tr class="w3-black" style="color: white;">
+			<tr>
 				<th><?php echo $this->Paginator->sort('nome'); ?></th>
 				<th><?php echo $this->Paginator->sort('apelido'); ?></th>
 				<th><?php echo $this->Paginator->sort('email'); ?></th>
@@ -45,18 +44,22 @@
 		<?php endforeach; ?>
 			</tbody>
 		</table>
+		<?php
+		echo $this->Paginator->counter(array(
+			'format' => __('Pagina {:page} de {:pages}, a visualizar {:current} registos num total de {:count}, inicia em {:start},  e termina em {:end}')
+		));
+		?>	</p>
+		<div class="paging">
+			<?php
+				echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+				echo $this->Paginator->numbers(array('separator' => ''));
+				echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+			?>
+		</div>
+    	
+    	<input onkeyup="myFunction()" style="width: 20%;" id="procurar" type="text" class="pull-right w3-margin-left w3-border w3-input" placeholder="Digite o nome ou apelido...">
+
+		<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> Adicionar utilizador', array('action' => 'add'), array('class' => 'w3-btn w3-green pull-right', 'escape' => FALSE)); ?>
 	</div>
 	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-		'format' => __('Pagina {:page} de {:pages}, a visualizar {:current} registos num total de {:count}, inicia em {:start},  e termina em {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-		<?php
-			echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-			echo $this->Paginator->numbers(array('separator' => ''));
-			echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-		?>
-	</div>
 </div>

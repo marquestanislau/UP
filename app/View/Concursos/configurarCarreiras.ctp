@@ -1,6 +1,6 @@
 <div class="w3-modal" id="config">
-	<div class="w3-modal-content w3-purple">
-		<header class="w3-container w3-orange">
+	<div class="w3-modal-content w3-white">
+		<header class="w3-container w3-blue">
 			<span onclick="document.getElementById('config').style.display='none'" class="w3-closebtn">
 				&times;
 			</span>
@@ -9,23 +9,21 @@
 		<div class="w3-container w3-padding">
 			<div id="sucesso"></div>
 			<div class="w3-row">
-				<?php echo $this->Form->create('Carreira', array('id' => 'carreiraAddForm', 'class' => 'w3-container')); ?>
-				<div class="w3-third">
-					Numero de vagas: <input placeholder="100" class="w3-input w3-hover-khaki w3-text-black">
-				</div>
-				<div class="w3-third">
-					<h3>
-						<span class=" w3-large glyphicon glyphicon-file"></span>
-						Documentos
-					</h3>
-					<hr>
-				</div>
-				<div class="w3-third">
+				<?php echo $this->Form->create('Carreira', array('controller' => 'carreiras', 'url' => array('action' => 'configurarCarreiras') ,'id' => 'carreiraAddForm', 'class' => 'w3-container'));?>
+				<div class="w3-third w3-padding">
 					<h3>
 						<span class=" w3-large glyphicon glyphicon-globe"></span>
 						Categorias
 					</h3>
-					<hr>
+					<?php echo $this->Form->input('categoria_id', array('class' => 'w3-input w3-text-black w3-border', 'value' => $categorias)); ?>
+					Numero de vagas: <input placeholder="Valor numerico" class="w3-input w3-hover-khaki w3-text-black w3-border">
+				</div>
+				<div class="w3-third w3-padding">
+					<h3>
+						<span class=" w3-large glyphicon glyphicon-file"></span>
+						Documentos
+					</h3>
+					<?php echo $this->Form->input('documentacao_id', array('multiple' => 'checkbox', 'class' => 'w3-check', 'label' => array('text' => 'Documentos necessarios'), 'value' => $documentacaos)); ?>
 				</div>
 			</div>
 			<div id="requesting" style="display:none">
@@ -33,7 +31,7 @@
 			</div>
 		</div>
 		<footer class="w3-container w3-padding">
-			<button class="w3-large w3-orange w3-btn">
+			<button class="w3-large w3-green w3-btn pull-right">
 				<span class="glyphicon glyphicon-save">
 				</span>
 				Guardar

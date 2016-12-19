@@ -29,6 +29,17 @@
 	$completed = '$("#processandoEditar'.$id.'").attr("style", "display:none")';
 	$beforeIt = '$("#processandoEditar'.$id.'").attr("style", "")';
 
+	$success = $this->Js->request(
+								array(
+									'action' => 'index'
+								),
+								array(
+									'update' => '#corpo',
+									'method' => 'post',
+									'async' => true
+								)
+							);
+
 	$dados = $this->Js->get('#ajaxFormEditar'.$id)->serializeForm(array('inline' => true, 'isForm' => true));
 	$this->Js->get('#ajaxFormEditar'.$id)->event(
 		"submit",
@@ -43,7 +54,8 @@
 				'before' => $beforeIt,
 				'data' => $dados,
 				'dataExpression' => true,
-				'async' => true
+				'async' => true,
+				'success' => $success
 			)
 		)
 	);

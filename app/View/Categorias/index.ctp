@@ -1,16 +1,22 @@
-<div class="col-md-12">
-	<h4><?php echo __('Categorias'); ?></h4>
-</div>
-<div class="col-md-9">
+<h4 class="w3-text-grey">
+	<?php echo __('Categorias'); ?>
+</h4>
+<div class="col-md-9 w3-container w3-border w3-padding w3-white">
 	<div id="espera" style="display:none">
 		<?php echo $this->Html->image('ajax/ajax-loader.gif');?>
 	</div>
+	<div class="w3-container w3-text-blue">
+		<h6>
+			<span class="glyphicon glyphicon-tags"></span>
+			<?php echo __('Categorias'); ?>
+		</h6>
+	</div>
 	<table class="table table-striped">
 	<thead>
-	<tr class="w3-lime w3-text-black">
-			<th><?php echo $this->Paginator->sort('nome'); ?></th>
-			<th><?php echo $this->Paginator->sort('carreira_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+	<tr>
+		<th><?php echo $this->Paginator->sort('nome'); ?></th>
+		<th><?php echo $this->Paginator->sort('carreira_id'); ?></th>
+		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
 	<tbody id="table-body">
@@ -32,10 +38,10 @@
 	</div>
 </div>
 <div class="col-md-3">
-	<div class="w3-container w3-lime">
-		<h3><?php echo __('Menu'); ?></h3>
+	<div class="w3-container w3-blue">
+		<h6><span class="glyphicon glyphicon-list"></span>  <?php echo __('Menu'); ?></h6>
 	</div>
-	<ul class="w3-ul w3-border">
+	<ul class="w3-ul w3-border w3-white">
 		<li><a href="#" onclick="document.getElementById('categoriaAddForm').style.display='block'">
 			<span class="glyphicon glyphicon-plus"></span>
 			Novas categorias</a>

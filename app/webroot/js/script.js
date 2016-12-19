@@ -11,7 +11,13 @@ $(document).ready(function() {
 			$('#nome').focus();
 		}
 	);
+
+	$( "#sucesso" ).change(function() {
+		alert('lalalu');
+	  $( "#sucesso" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
+	});
+	$('#sucesso').bind( "contentchange", function(){
+				 alert("pppp");// how to capture this event
+	 });
+
 });
-
-
-

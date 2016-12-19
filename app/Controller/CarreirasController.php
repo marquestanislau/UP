@@ -24,6 +24,9 @@ class CarreirasController extends AppController {
 	public function index() {
 		$this->Carreira->recursive = 0;
 		$this->set('carreiras', $this->Paginator->paginate());
+		if($this->request->is('ajax')) {
+			$this->render('carreiras', 'ajax');
+		}
 	}
 
 /**
@@ -107,6 +110,16 @@ class CarreirasController extends AppController {
 		if($this->request->is(array('ajax', 'post'))){
 			$this->Carreira->Create();
 			if($this->Carreira->save($this->request->data)) {
+				$this->render('sucesso', 'ajax');
+			} else {
+				$this->render('erro', 'ajax');
+			}
+		}
+	}
+
+	public function configurarCarreiras() {
+		if($this->request->is('ajax')) {
+			if($this->Carreira->saveAll($this->request->data)) {
 				$this->render('sucesso', 'ajax');
 			} else {
 				$this->render('erro', 'ajax');

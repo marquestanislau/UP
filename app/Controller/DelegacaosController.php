@@ -13,7 +13,8 @@ class DelegacaosController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session', 'Flash');
+	public $components = array('Paginator', 'Session', 'Flash', 'RequestHandler');
+	public $helpers = array('Js' => array('Jquery'));
 
 /**
  * index method
@@ -22,7 +23,11 @@ class DelegacaosController extends AppController {
  */
 	public function index() {
 		$this->Delegacao->recursive = 0;
+		$this->Paginator->settings = $this->paginator_settings;
 		$this->set('delegacaos', $this->Paginator->paginate());
+		if($this->request->is('ajax')) {
+			$this->render('delegacoes', 'ajax');
+		}
 	}
 
 /**
@@ -46,13 +51,12 @@ class DelegacaosController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
+		if ($this->request->is('ajax')) {
 			$this->Delegacao->create();
 			if ($this->Delegacao->save($this->request->data)) {
-				$this->Flash->success(__('The delegacao has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+					$this->render('sucesso', 'ajax');
 			} else {
-				$this->Flash->error(__('The delegacao could not be saved. Please, try again.'));
+				$this->render('erro', 'ajax');
 			}
 		}
 	}

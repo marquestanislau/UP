@@ -43,7 +43,17 @@
 				'complete' => '$("#processando").attr("style", "display:none")',
 				'async' => true,
 				'dataExpression' => true,
-				'method' => 'post'
+				'method' => 'post',
+				'success' => $this->Js->request(
+								array(
+									'action' => 'index'
+								),
+								array(
+									'update' => '#corpo',
+									'method' => 'post',
+									'async' => true
+								)
+							)
 			)
 		)
 	);

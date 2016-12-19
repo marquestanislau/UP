@@ -17,10 +17,8 @@ class UsuariosController extends AppController {
  */
 	public $components = array('Paginator', 'Session', 'Flash', 'RequestHandler');
 	public $helpers = array('Js' => array('Jquery'));
-    
-    public $paginator_settings = array(
-		'limit' => 10
-		);
+
+   
 
 /**
  * index method
@@ -66,9 +64,16 @@ class UsuariosController extends AppController {
 				return $this->redirect(array('action' => 'index'));
 			}
 		}
-		$this->set('ultimoUsuario', 
+		$this->set('ultimoUsuario',
 			$this->Usuario->find('first', array('order' => array('Usuario.id' => 'desc'))));
-		
+	}
+
+	public function ultimo_user() {
+		$this->set('ultimoUsuario',
+			$this->Usuario->find('first', array('order' => array('Usuario.id' => 'desc'))));
+		if($this->request->is('ajax')) {
+			$this->render('ultimo_usuario', 'ajax');
+		}
 	}
 
 /**

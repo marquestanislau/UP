@@ -1,5 +1,5 @@
-<div class="row">
-	<div class="col-md-9">
+<div class="row ">
+	<div class="col-md-9 w3-container w3-border w3-white w3-padding">
 		<h4 class="settings-font-color">
 			<span class="glyphicon glyphicon-folder-open" style="font-size: 24px;"></span>
 			<?php echo __('Concurso: '); ?>
@@ -45,7 +45,7 @@
 </div>
 
 <div class="row">
-	<div class="col-md-9 w3-margin-top">
+	<div class="col-md-9 w3-margin-top w3-container w3-border w3-white w3-padding">
 		<p>Carreiras para o concurso: {<?php echo h($concurso['Concurso']['data_aprovacao']); ?>}</p>
 		<div id="requesting" style="display: none;">
 			<?php echo $this->Html->image('ajax/ajax-loader.gif', array('alt' => 'Aguarde...')); ?>

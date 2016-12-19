@@ -44,6 +44,7 @@ App::uses('AppController', 'Controller');
 
 		$options = array('conditions' => array('Concurso.' . $this->Concurso->primaryKey => $id));
 		$carreiras = $this->Concurso->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
+		
 		$concursos = $this->Concurso->find('all', array(
 			'contain' => array('Carreira'),
 			'conditions' => array('Concurso.id' => $id)
@@ -52,6 +53,19 @@ App::uses('AppController', 'Controller');
 		$this->set('concurso', $this->Concurso->find('first', $options));
 		$this->set(compact('carreiras'));
 
+		$this->categoriasParaCombo();
+		$this->documentosParaCheckbox();
+
+	}
+
+	protected function categoriasParaCombo() {
+		$categorias = $this->Concurso->Carreira->Categoria->find('list',  array('fields' => 'Categoria.nome', 'Categoria.id'));
+		$this->set(compact('categorias'));	
+	}
+
+	protected function documentosParaCheckbox() {
+		$documentacaos = $this->Concurso->Carreira->Documentacao->find('list',  array('fields' => 'Documentacao.nome', 'Documentacao.id'));
+		$this->set(compact('documentacaos'));
 	}
 
 	/**
