@@ -2,7 +2,7 @@
   <?php echo  __('Listas das Delega&ccedil;&otilde;es');?>
 </h4>
 <div class="col-md-9 w3-white w3-padding w3-border">
-  <h6 class="settings-font-color">
+  <h6 class="w3-text-blue settings-font-color">
     <span style="font-size: 24px;" class="glyphicon glyphicon-map-marker">
 
     </span><?php echo  __('Listas das Delega&ccedil;&otilde;es');?>

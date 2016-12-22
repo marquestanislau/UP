@@ -7,14 +7,14 @@
 		<span class='glyphicon glyphicon-plus-sign' ></span>
 		Novo Concurso
 	</button>
-	<input type="text" style="width: 30%;" class="pull-right w3-input w3-hover-aqua " placeholder="Nome do concurso...">
+	<input type="text" style="width: 30%;" class="pull-right w3-input w3-border w3-hover-sand " placeholder="Nome do concurso...">
 </div>
 <div class="col-md-12">
 	<div style="margin-top: 10px;"></div>
 	<div class="w3-white w3-border w3-container w3-padding">
 		<table class="table table-striped" cellpadding="0" cellspacing="0">
 			<thead>
-				<tr class="w3-purple w3-text-white">
+				<tr>
 					<th><?php echo $this->Paginator->sort('data_aprovacao'); ?></th>
 					<th><?php echo $this->Paginator->sort('nome'); ?></th>
 					<th class="actions"><?php echo __('Actions'); ?></th>

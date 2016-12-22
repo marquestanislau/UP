@@ -18,7 +18,7 @@ class UsuariosController extends AppController {
 	public $components = array('Paginator', 'Session', 'Flash', 'RequestHandler');
 	public $helpers = array('Js' => array('Jquery'));
 
-   
+
 
 /**
  * index method
@@ -27,7 +27,7 @@ class UsuariosController extends AppController {
  */
 	public function index() {
 		$this->Usuario->recursive = 0;
-        $this->Paginator->settings = $this->paginator_settings;
+    $this->Paginator->settings = $this->paginator_settings;
 		$this->set('usuarios', $this->Paginator->paginate());
 	}
 

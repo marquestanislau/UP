@@ -85,11 +85,11 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         <h3 class="w3-text-blue" >Recrutamento</h3>
         <table>
           <tr>
-            <td><a href="#"><span class="glyphicon glyphicon-list"></span> Participantes</a></td>
+            <td><a href="<?php echo $this->Html->url(array('action' => 'participantes', 'controller' => 'funcionarios'));?>"><span class="fa fa-users"></span> Participantes</a></td>
             <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'concursos'));?>"><span class="glyphicon glyphicon-book"></span> Concursos</a></td>
           </tr>
           <tr>
-            <td><a href="#"><span class="fa fa-users"></span> Entrevistas</a></td>
+            <td><a href="#"><span class="fa fa-comments"></span> Entrevistas</a></td>
           </tr>
         </table>
       </div>
@@ -125,7 +125,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
       ?></b>
   </h4>
     <?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> In&iacute;cio', array('controller' => 'pages', 'action' => 'home'), array('escape' => FALSE, 'class' => 'w3-hover-blue')); ?>
-  
+
     <?php echo $this->Html->link('<span class="glyphicon glyphicon-cog"></span>
     Configura&ccedil;&otilde;es', array('controller' => 'pages', 'action' => 'configuracao'), array('class' => 'w3-hover-blue', 'escape' => FALSE)); ?>
 

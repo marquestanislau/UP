@@ -146,7 +146,7 @@ App::uses('AppController', 'Controller');
 				'conditions' => array('Concurso.id' => $id)
 			));
 			$this->set('concursos', $concursos);
-			$this->render('nova_pagina', 'ajax');
+			$this->render('carreiras', 'ajax');
 		}
 	}
 

@@ -1,29 +1,29 @@
- <div id="participantesModal" class="w3-modal">
+ <div id="participantesModal<?php echo $carreira_id;?>" class="w3-modal">
   <div class="w3-modal-content">
 
     <header class="w3-container w3-purple">
-      <span onclick="document.getElementById('participantesModal').style.display='none'"
+      <span onclick="document.getElementById('participantesModal<?php echo $carreira_id;?>').style.display='none'"
       class="w3-closebtn">&times;</span>
-      <h2> 
+      <h5> 
         <span style="font-size: 24px;" class="glyphicon glyphicon-user"></span>
-        Adi&ccedil;&atilde;o de candidactos</h2>
+        Adi&ccedil;&atilde;o de candidactos</h5>
     </header>
 
     <div class="w3-container">
       <div class="w3-row">
-          <a href="javascript:void(0)" onclick="janelasParticipantes(event, 'cta');">
+          <a href="javascript:void(0)" onclick="janelasParticipantes(event, 'cta<?php echo $carreira_id;?>');">
             <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><strong><span class="glyphicon glyphicon-user"></span> CTAS</strong></div>
           </a>
-          <a href="javascript:void(0)" onclick="janelasParticipantes(event, 'CorpoDocente');">
+          <a href="javascript:void(0)" onclick="janelasParticipantes(event, 'CorpoDocente<?php echo $carreira_id;?>');">
             <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><strong><span class="glyphicon glyphicon-education"></span> Corpo docente</strong></div>
           </a>
         </div>
 
-        <div id="cta" class="w3-container city main-tab w3-padding">
+        <div id="cta<?php echo $carreira_id;?>" class="w3-container city main-tab w3-padding">
           <?php include('ctas.ctp'); ?>
         </div>
 
-        <div id="CorpoDocente" class="w3-container city w3-padding">
+        <div id="CorpoDocente<?php echo $carreira_id;?>" class="w3-container city w3-padding">
           <?php include('cds.ctp'); ?>
         </div>
     </div>

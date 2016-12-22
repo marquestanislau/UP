@@ -1,7 +1,9 @@
 <!-- <h3>Hello world</h3> -->
 <?php 
 	foreach($concursos as $concurso): 
+		$concurso_id = $concurso['Concurso']['id'];
 		foreach($concurso['Carreira'] as $carreira):
+			$carreira_id = $carreira['id'];
 ?>
 			<tr>
 				<td><?php echo $carreira['nome']; ?></td>
@@ -18,13 +20,14 @@
 						array('class' => 'w3-btn w3-red', 'escape' => FALSE)
 					);
 				 ?>
-				 <button onclick="document.getElementById('participantesModal').style.display='block'" class="w3-btn w3-purple">
+				 <button onclick="document.getElementById('participantesModal<?php echo $carreira_id;?>').style.display='block'" class="w3-btn w3-purple">
 				 	<span class="glyphicon glyphicon-user"></span>
 				 </button>
 				</td>
 			</tr>
 <?php 			
 			include('configurarCarreiras.ctp');
+			include('participantes.ctp');
 
 		endforeach;
 	endforeach;

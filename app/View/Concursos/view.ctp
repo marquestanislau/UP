@@ -1,6 +1,6 @@
 <div class="row ">
 	<div class="col-md-9 w3-container w3-border w3-white w3-padding">
-		<h4 class="settings-font-color">
+		<h4 class="w3-text-blue">
 			<span class="glyphicon glyphicon-folder-open" style="font-size: 24px;"></span>
 			<?php echo __('Concurso: '); ?>
 			<?php echo h($concurso['Concurso']['data_aprovacao']); ?>
@@ -59,7 +59,7 @@
 			</thead>
 			<tbody id="table-body">
 				<?php 
-				include('nova_pagina.ctp');
+				include('carreiras.ctp');
 				?>
 			</tbody>
 		</table>
@@ -82,7 +82,4 @@ $this->Js->get('#ajaxFormAdd')->event(
 		)
 	)
 );
-?>
-<?php
-include('participantes.ctp');
 ?>

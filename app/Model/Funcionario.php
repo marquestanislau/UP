@@ -23,4 +23,15 @@ class Funcionario extends AppModel {
                 'className' => 'Cd'
             )
 	);
+
+	public $belongsTo = array (
+		'Carreira' => array(
+			'className' => 'Carreira',
+			'foreignKey' => 'carreira_id'
+		),
+		'Concurso' => array (
+			'className' => 'Concurso',
+			'foreignKey' => 'concurso_id'
+		)
+	);
 }

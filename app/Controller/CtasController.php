@@ -15,7 +15,8 @@ class CtasController extends AppController {
      *
      * @var array
      */
-    public $components = array('Paginator', 'Flash');
+    public $components = array('Paginator', 'Flash', 'RequestHandler');
+    public $helpers = array('Js' => array('Jquery'));
 
     /**
      * index method
@@ -48,18 +49,18 @@ class CtasController extends AppController {
      * @return void
      */
     public function add() {
-        if ($this->request->is('post')) {
+        if ($this->request->is('ajax')) {
             $this->Cta->create();
             $this->Cta->Funcionario->create();
             if ($this->Cta->saveAssociated($this->request->data)) {
-                $this->Flash->success(__('The cta has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+                $this->request->data = array();
+                $this->render('sucesso', 'ajax');
             } else {
-                $this->Flash->error(__('The cta could not be saved. Please, try again.'));
+                $this->render('erro', 'ajax');
             }
         }
-        $funcionarios = $this->Cta->Funcionario->find('list');
-        $this->set(compact('funcionarios'));
+        // $funcionarios = $this->Cta->Funcionario->find('list');
+        // $this->set(compact('funcionarios'));
     }
 
     /**

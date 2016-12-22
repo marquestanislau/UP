@@ -1,8 +1,9 @@
 <div class="col-md-12">
-	<p><?php echo __('Adicionar candidactos para vagas de Corpo docente'); ?></p>
+	<p><?php echo __('Adicionar candidactos para vagas de Corpo docente'); ?> |
+        <span class="w3-text-blue"><?php echo $carreira['nome'];?></span> | </p>
 </div>
 <div class="col-md-6">
-	<?php echo $this->Form->create('Cd', array('url' => array(), 'id' => 'cdsForm', 'class' => 'w3-container')); ?>
+	<?php echo $this->Form->create('Cd', array('url' => array(), 'id' => 'cdsForm'.$carreira_id, 'class' => 'w3-container')); ?>
 
 	<?php
 		echo $this->Form->input('Funcionario.nome', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Estanislau'));
@@ -21,6 +22,7 @@
 		echo $this->Form->input('Funcionario.email', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'exemplo@mail.com'));
 	?>
 	<button class="w3-large w3-green w3-btn w3-margin-top pull-right">
+		<span class="glyphicon glyphicon-ok"></span>
 		Submeter
 	</button>
 	<?php echo $this->Form->end(); ?>
