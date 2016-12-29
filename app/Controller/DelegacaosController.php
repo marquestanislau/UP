@@ -72,12 +72,11 @@ class DelegacaosController extends AppController {
 		if (!$this->Delegacao->exists($id)) {
 			throw new NotFoundException(__('Invalid delegacao'));
 		}
-		if ($this->request->is(array('post', 'put'))) {
+		if ($this->request->is(array('post', 'put', 'ajax'))) {
 			if ($this->Delegacao->save($this->request->data)) {
-				$this->Flash->success(__('The delegacao has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->render('sucesso', 'ajax');
 			} else {
-				$this->Flash->error(__('The delegacao could not be saved. Please, try again.'));
+				$this->render('erro', 'ajax');
 			}
 		} else {
 			$options = array('conditions' => array('Delegacao.' . $this->Delegacao->primaryKey => $id));

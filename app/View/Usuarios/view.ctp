@@ -8,9 +8,10 @@
     }
 </style>
 
-<div class="col-md-1"></div>
-<div class="col-md-7">
-    <h3>
+<h4 class="w3-text-grey">Detalhes da conta</h4>
+
+<div class="col-md-8 w3-padding w3-border w3-white">
+    <h3 class="w3-text-blue">
 		<?php 
 			$photo = $usuario['Usuario']['foto_perfil'];
 			if ($photo == NULL) {
@@ -27,24 +28,24 @@
 
     <table class="table table-striped">
         <tr>
-            <td><?php echo __('Nome'); ?></td>
-            <td><strong><?php echo h($usuario['Usuario']['nome']); ?></strong></td>
+            <td class="w3-label"><?php echo __('Nome'); ?></td>
+            <td class="w3-text-dark-grey"><strong><?php echo h($usuario['Usuario']['nome']); ?></strong></td>
         </tr>
         <tr>
-            <td><?php echo __('Apelido'); ?></td>
-            <td><?php echo h($usuario['Usuario']['apelido']); ?></td>
+            <td class="w3-label"><?php echo __('Apelido'); ?></td>
+            <td class="w3-text-dark-grey"><?php echo h($usuario['Usuario']['apelido']); ?></td>
         </tr>
         <tr>
-            <td><?php echo __('Email'); ?></td>
-            <td><?php echo h($usuario['Usuario']['email']); ?></td>
+            <td class="w3-label"><?php echo __('Email'); ?></td>
+            <td class="w3-text-dark-grey"><?php echo h($usuario['Usuario']['email']); ?></td>
         </tr>
         <tr>
-            <td><?php echo __('Data De Registo'); ?></td>
-            <td><?php echo h($usuario['Usuario']['data_de_registo']); ?></td>
+            <td class="w3-label"><?php echo __('Data De Registo'); ?></td>
+            <td class="w3-text-dark-grey"><?php echo h($usuario['Usuario']['data_de_registo']); ?></td>
         </tr>
         <tr>
-            <td><?php echo __('Contacto'); ?></td>
-            <td><?php echo h($usuario['Usuario']['contacto']); ?></td>
+            <td class="w3-label"><?php echo __('Contacto'); ?></td>
+            <td class="w3-text-dark-grey"><?php echo h($usuario['Usuario']['contacto']); ?></td>
         </tr>
     </table>
     <button class="btn" onclick="window.history.back()">

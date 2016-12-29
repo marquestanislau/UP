@@ -20,21 +20,23 @@
 	<div class="alert alert-info w3-container"><h6>Utilizadores</h6></div>
 		<table id="tabelaUsuarios" class="w3-table table table-striped w3-white">
 			<thead>
-			<tr>
+			<tr class="w3-label">
 				<th><?php echo $this->Paginator->sort('nome'); ?></th>
 				<th><?php echo $this->Paginator->sort('apelido'); ?></th>
 				<th><?php echo $this->Paginator->sort('email'); ?></th>
 				<th><?php echo $this->Paginator->sort('contacto'); ?></th>
+				<th>status</th>
 				<th class="actions"><?php echo __('Actions'); ?></th>
 			</tr>
 			</thead>
 			<tbody>
 			<?php foreach ($usuarios as $usuario): ?>
-			<tr>
+			<tr class="w3-text-dark-grey">
 				<td><?php echo h($usuario['Usuario']['nome']); ?>&nbsp;</td>
 				<td><?php echo h($usuario['Usuario']['apelido']); ?>&nbsp;</td>
 				<td><?php echo h($usuario['Usuario']['email']); ?>&nbsp;</td>
 				<td><?php echo h('+(258) '.$usuario['Usuario']['contacto']); ?>&nbsp;</td>
+				<td><span class="glyphicon glyphicon-ok w3-text-green"></span></td>
 				<td class="actions">
 					<?php echo $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', array('action' => 'view', $usuario['Usuario']['id']), array('class' => 'w3-btn w3-green', 'escape' => FALSE)); ?>
 					<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $usuario['Usuario']['id']), array('class' => 'w3-btn w3-teal', 'escape' => FALSE)); ?>
@@ -51,9 +53,9 @@
 		?>	</p>
 		<div class="paging">
 			<?php
-				echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+				echo $this->Paginator->prev('< ' . __('Anterior'), array(), null, array('class' => 'prev disabled'));
 				echo $this->Paginator->numbers(array('separator' => ''));
-				echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+					echo $this->Paginator->next(__('Proximo') . ' >', array(), null, array('class' => 'next disabled'));
 			?>
 		</div>
     	

@@ -5,7 +5,7 @@
 		foreach($concurso['Carreira'] as $carreira):
 			$carreira_id = $carreira['id'];
 ?>
-			<tr>
+			<tr class="w3-text-dark-grey">
 				<td><?php echo $carreira['nome']; ?></td>
 				<td><?php echo $carreira['id']; ?></td>
 				<td><?php echo $carreira['id']; ?></td>

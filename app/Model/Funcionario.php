@@ -7,14 +7,49 @@ App::uses('AppModel', 'Model');
  */
 class Funcionario extends AppModel {
 
+	public $validate = array(
+		'nome' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				'message' => 'Campo obrigatorio',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'apelido' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				'message' => 'Campo obrigatorio',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'email' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				'message' => 'Campo obrigatorio',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'contacto_pessoal' => array(
+			'notBlank' => array(
+				'rule' => array('notBlank'),
+				'message' => 'Campo obrigatorio',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+	);
 
-	// The Associations below have been created with all possible keys, those that are not needed can be removed
-
-/**
- * hasOne associations
- *
- * @var array
- */
 	public $hasOne = array(
             'Cta' => array(
 		'className' => 'Cta'

@@ -20,7 +20,7 @@
 			<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'add'), 'id' => 'ajaxFormAdd')); ?>
 			Carreiras:
 			<div class="form-group w3-sand w3-border">
-				<?php echo $this->Form->input('Carreira', array('id' => 'carreiraSelecionada', 'label' => FALSE,'class' => 'w3-margin')); ?>			
+				<?php echo $this->Form->input('Carreira', array('id' => 'carreiraSelecionada', 'label' => FALSE,'class' => 'w3-margin w3-text-dark-grey w3-hover-sand')); ?>			
 			</div>
 			<?php echo $this->Form->input('Concurso.id', array('value' => $concurso['Concurso']['id'])); ?>
 			<button id="adicionar" class="w3-btn w3-green w3-large pull-right">

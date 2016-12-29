@@ -12,12 +12,11 @@ $(document).ready(function() {
 		}
 	);
 
-	$( "#sucesso" ).change(function() {
-		alert('lalalu');
-	  $( "#sucesso" ).fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
-	});
-	$('#sucesso').bind( "contentchange", function(){
-				 alert("pppp");// how to capture this event
-	 });
+	$('.datepicker').datepicker({
+		startDate:'01/01/1996',
+		dateFormat: "yy-mm-dd",
+	    changeMonth: true,
+	    changeYear: true
+    });
 
 });

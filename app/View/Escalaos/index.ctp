@@ -9,7 +9,7 @@
 <div class="row">
 	<div class="col-md-10">
 		<div class="w3-container w3-white w3-border w3-padding">
-		<h6 class="w3-text-blue"><span class="fa fa-cubes"></span>Escaloes pertencentes a</h6>
+		<h6 class="w3-text-blue"><span class="fa fa-cubes"></span>Escal&otilde;es pertencentes a categorias e classes</h6>
 			<table class="table table-striped">
 				<thead>
 					<tr>

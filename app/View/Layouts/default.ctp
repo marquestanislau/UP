@@ -20,6 +20,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   echo $this->Html->meta('icon');
    # Load jsquery libs for ajax and other effects
   echo $this->Html->script('jquery/jquery');
+  echo $this->Html->script('jquery-ui.min');
   #Inclusao de bootstrap
   echo $this->Html->css('bootstrap/bootstrap.min');
   #	echo $this->Html->css('cake.generic');
@@ -28,6 +29,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   // echo $this->Html->css('https://fonts.googleapis.com/icon?family=Material+Icons');
   #Modificacao de alguns aspectos (Modificacao do aspecto default)
   echo $this->Html->css('custom');
+  echo $this->Html->css('jquery-ui.min');
   echo $this->Html->css('w3');
   echo $this->Html->css('font-awesome/css/font-awesome.min');
   #Carrega o javascript do framwork da google mdl
@@ -69,12 +71,12 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
           </tr>
           <tr>
             <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'categorias'));?>"><span class="glyphicon glyphicon-tags"></span> Categorias</a></td>
-            <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'delegacaos'));?>"><span class="glyphicon glyphicon-map-marker"></span> Delegacao</a></td>
+            <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'delegacaos'));?>"><span class="glyphicon glyphicon-map-marker"></span> Delega&ccedil;&atilde;o</a></td>
           </tr>
           <tr>
             <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'clazzes'));?>"><span class="fa fa-cube"></span> Classes</a></td>
             <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'sectores'));?>"><span class="fa fa-industry"></span> Sectores</a></td>
-             <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'escalaos'));?>"><span class="fa fa-cubes"></span> Escaloes</a></td>
+             <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'escalaos'));?>"><span class="fa fa-cubes"></span> Escal&otilde;es</a></td>
           </tr>
         </table>
       </div>

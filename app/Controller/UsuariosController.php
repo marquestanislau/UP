@@ -52,18 +52,13 @@ class UsuariosController extends AppController {
  * @return void
  */
 	public function add() {
-		if($this->request->is('post')) {
-			if($this->request->is('ajax')) {
-				if($this->Usuario->save($this->request->data)) {
-					$this->render('sucesso', 'ajax');
-				} else {
-					$this->render('erro', 'ajax');
-				}
+		if($this->request->is('ajax')) {
+			if($this->Usuario->save($this->request->data)) {
+				$this->render('sucesso', 'ajax');
 			} else {
-				$this->Flash->success(__('Usuario adicionado com exito.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->render('erro', 'ajax');
 			}
-		}
+		} 
 		$this->set('ultimoUsuario',
 			$this->Usuario->find('first', array('order' => array('Usuario.id' => 'desc'))));
 	}

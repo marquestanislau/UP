@@ -108,3 +108,21 @@ table {
 	border-collapse: collapse;
 	margin: 0px;
 }
+
+#ui-datepicker-div {
+	background-color: white;
+	border: solid thin grey;
+}
+#ui-datepicker-div th {
+	color: blue;
+}
+#ui-datepicker-div a:hover {
+	color: white;
+	background-color: blue;
+}
+.ui-datepicker-prev .ui-corner-all {
+	background-color: blue;
+}
+.ui-datepicker-header  {
+	border: solid thin gray;
+}

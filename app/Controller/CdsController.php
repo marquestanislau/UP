@@ -17,7 +17,8 @@ class CdsController extends AppController {
      *
      * @var array
      */
-    public $components = array('Paginator', 'Session', 'Flash');
+    public $components = array('Paginator', 'Session', 'Flash', 'RequestHandler');
+    public $helpers = array('Js' => array('Jquery'));
 
     /**
      * index method
@@ -50,17 +51,17 @@ class CdsController extends AppController {
      * @return void
      */
     public function add() {
-        if ($this->request->is('post')) {
+        if ($this->request->is('ajax')) {
             $this->Cd->create();
+            $this->Cd->Funcionario->create();
             if ($this->Cd->saveAssociated($this->request->data)) {
-                $this->Flash->success(__('The cd has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+                $this->render('sucesso', 'ajax');
             } else {
-                $this->Flash->error(__('The cd could not be saved. Please, try again.'));
+                $this->render('erro', 'ajax');
             }
         }
-        $funcionarios = $this->Cd->Funcionario->find('list');
-        $this->set(compact('funcionarios'));
+        // $funcionarios = $this->Cd->Funcionario->find('list');
+        // $this->set(compact('funcionarios'));
     }
 
     /**

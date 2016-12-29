@@ -8,11 +8,6 @@ App::uses('AppController', 'Controller');
  */
 class EscalaosController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
 	public $components = array('Paginator', 'Flash', 'Session', 'RequestHandler');
 	public $helpers = array('Js' => array('Jquery'));
 

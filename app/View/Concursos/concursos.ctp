@@ -3,14 +3,14 @@
 		<td class="w3-text-gray"><?php echo h($concurso['Concurso']['data_aprovacao']); ?>&nbsp;</td>
 		<td class="w3-text-gray"><?php echo h($concurso['Concurso']['nome'].' [' .$concurso['Concurso']['data_aprovacao']. ']'); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-briefcase '></span>", array('action' => 'view', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'btn btn-warning')); ?>
 			<!-- <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $concurso['Concurso']['id']), array('class' => 'btn btn-success', 'id' => '')); ?> -->
-			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span>", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'btn btn-danger', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?>
+			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span>", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-red', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?>
 			<!-- Trigger/Open the Modal -->
 			<button onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='block'"
 				class="w3-btn w3-green">
 				<span class="glyphicon glyphicon-repeat"></span>
 			</button>
+			<?php echo $this->Html->link("<span class='glyphicon glyphicon-briefcase '></span>", array('action' => 'view', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-blue')); ?>
 
 		</td>
 
@@ -55,6 +55,10 @@
 		$data = $this->Js->get('#ajaxform'.$id)->serializeForm(array('isForm' => true, 'inline' => true));
 		$before = '$("#enviando'.$id.'").attr("style", " ")';
 		$complete = '$("#enviando'.$id.'").attr("style", "display:none")';
+		$success = $this->Js->request(
+			array('action' => 'index'),
+			array('method' => 'post', 'dataExpression' => true, 'update' => '#table-body')
+		);
 
 		$this->Js->get('#ajaxform'.$id)->event('submit',
 			$this->Js->request(
@@ -66,7 +70,8 @@
 					'dataExpression' => true,
 					'method' => 'post',
 					'before'   => $before, 
-					'complete' => $complete
+					'complete' => $complete,
+					'success' => $success
 				)
 			)
 		);
