@@ -91,13 +91,13 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
             <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'concursos'));?>"><span class="glyphicon glyphicon-book"></span> Concursos</a></td>
           </tr>
           <tr>
-            <td><a href="#"><span class="fa fa-comments"></span> Entrevistas</a></td>
+            <td><a href="#"><span class="fa fa-comments"></span> Entrevistas de emprego</a></td>
           </tr>
         </table>
       </div>
     </li>
     <li>
-      <a href=""><span class="glyphicon glyphicon-calendar"></span></a>
+      <a href="<?php echo $this->Html->url(array('action' => 'calendario', 'controller' => 'funcionarios'));?>"><span class="glyphicon glyphicon-calendar"></span></a>
     </li>
     <li class="pull-right w3-hide-medium w3-hide-small">
       <a href="#">
@@ -126,12 +126,12 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         );
       ?></b>
   </h4>
-    <?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> In&iacute;cio', array('controller' => 'pages', 'action' => 'home'), array('escape' => FALSE, 'class' => 'w3-hover-blue')); ?>
+    <?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> In&iacute;cio', array('controller' => 'pages', 'action' => 'home'), array('escape' => FALSE, 'class' => 'w3-hover-green')); ?>
 
     <?php echo $this->Html->link('<span class="glyphicon glyphicon-cog"></span>
-    Configura&ccedil;&otilde;es', array('controller' => 'pages', 'action' => 'configuracao'), array('class' => 'w3-hover-blue', 'escape' => FALSE)); ?>
+    Configura&ccedil;&otilde;es', array('controller' => 'pages', 'action' => 'configuracao'), array('class' => 'w3-hover-green', 'escape' => FALSE)); ?>
 
-    <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Utilizadores', array('controller' => 'usuarios', 'action' => 'index'), array('class' => 'w3-hover-blue', 'escape' => FALSE)); ?>
+    <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Utilizadores', array('controller' => 'usuarios', 'action' => 'index'), array('class' => 'w3-hover-green', 'escape' => FALSE)); ?>
 </nav>
 
 <!-- Overlay effect when opening sidenav on small screens -->

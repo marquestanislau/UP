@@ -43,4 +43,8 @@ class FuncionariosController extends AppController {
     $this->set(compact('concursos', 'carreiras'));
   }
 
+  public function calendario() {
+    $this->getkeys();
+  }
+
 }

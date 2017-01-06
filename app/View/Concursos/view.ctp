@@ -1,5 +1,5 @@
 <div class="row ">
-	<div class="col-md-9 w3-container w3-border w3-white w3-padding">
+	<div class="col-md-10 w3-container w3-border w3-white w3-padding">
 		<h4 class="w3-text-blue">
 			<span class="glyphicon glyphicon-folder-open" style="font-size: 24px;"></span>
 			<?php echo __('Concurso: '); ?>
@@ -23,30 +23,21 @@
 				<?php echo $this->Form->input('Carreira', array('id' => 'carreiraSelecionada', 'label' => FALSE,'class' => 'w3-margin w3-text-dark-grey w3-hover-sand')); ?>			
 			</div>
 			<?php echo $this->Form->input('Concurso.id', array('value' => $concurso['Concurso']['id'])); ?>
+			<!-- BEGIN BUTTON'S -->
+			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-blue', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
+			<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'w3-btn w3-blue', 'escape' => false)); ?>
 			<button id="adicionar" class="w3-btn w3-green w3-large pull-right">
 				<span class="glyphicon glyphicon-save"></span> Adicionar
 			</button>
+			<!-- END BUTTON'S -->
 			<?php echo $this->Form->end(); ?>
-		</div>
-	</div>
-	<div class="col-md-3">
-		<div class="list-group">
-			<h3>
-				<a href="" class="list-group-item w3-purple">
-					<span class="glyphicon glyphicon-list"></span> <?php echo __('Menu'); ?>	
-				</a>
-			</h3>
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-edit'></span> Editar", array('action' => 'edit', $concurso['Concurso']['id']), array('class' => 'list-group-item w3-hover-khaki', 'escape' => false)); ?>
-			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'list-group-item w3-hover-khaki', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'list-group-item w3-hover-khaki', 'escape' => false)); ?>
-			<?php echo $this->Html->link(__('New Concurso'), array('action' => 'add'), array('class' => 'list-group-item w3-hover-khaki', 'escape' => false)); ?>
 		</div>
 	</div>
 </div>
 
 <div class="row">
-	<div class="col-md-9 w3-margin-top w3-container w3-border w3-white w3-padding">
-		<p>Carreiras para o concurso: {<?php echo h($concurso['Concurso']['data_aprovacao']); ?>}</p>
+	<div class="col-md-10 w3-margin-top w3-container w3-border w3-white w3-padding">
+		<p class="w3-text-blue">Carreiras para o concurso: {<?php echo h($concurso['Concurso']['data_aprovacao']); ?>}</p>
 		<div id="requesting" style="display: none;">
 			<?php echo $this->Html->image('ajax/ajax-loader.gif', array('alt' => 'Aguarde...')); ?>
 		</div>

@@ -11,11 +11,11 @@
 	<thead>
 	<tr>
 		<th><?php echo $this->Paginator->sort('Ordem'); ?></th>
-		<th><?php echo $this->Paginator->sort('nome'); ?></th>
+		<th><?php echo $this->Paginator->sort('nome'); ?> <span class="fa fa-sort w3-text-blue"></span></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
-	<tbody id="corpo">
+	<tbody class="w3-text-dark-grey" id="corpo">
 		<?php
 			include('carreiras.ctp');
 		?>
@@ -29,15 +29,15 @@
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('Anterior'), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__('Proximo') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
 </div>
 <div class="col-md-3">
 	<div class="list-group">
-	  <a href="#" class="list-group-item active">
+	  <a href="#" class="list-group-item w3-blue">
 	    <h4><span class="glyphicon glyphicon-menu-left"></span> <?php echo __('Menu'); ?></h4>
 	  </a>
 	  <a href="<?php echo $this->Html->url(array('action' => 'configuracao', 'controller' => 'pages'));?>" class="list-group-item"> <span class="glyphicon glyphicon-cog"></span> Configuracoes</a>
