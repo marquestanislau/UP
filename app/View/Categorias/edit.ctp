@@ -1,6 +1,6 @@
 <div class="w3-modal" id="catModal<?php echo $id;?>">
 	<div class="w3-modal-content">
-		<header class="w3-container w3-dark-grey">
+		<header class="w3-container w3-blue">
 			<span onclick="document.getElementById('catModal<?php echo $id;?>').style.display='none'" class="w3-closebtn">&times;</span>
 			<h4>Alterar dados da categoria</h4>
 		</header>

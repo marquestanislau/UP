@@ -1,6 +1,6 @@
 <div class="w3-modal" id="escAddModal">
 	<div class="w3-modal-content">
-		<header class="w3-teal w3-container">
+		<header class="w3-blue w3-container">
 			<span class="w3-closebtn" onclick="document.getElementById('escAddModal').style.display='none'">&times;</span>
 			<h4>Adicionar escal&otilde;es</h4>
 		</header>

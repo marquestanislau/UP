@@ -1,6 +1,6 @@
 <div id="sectoresModalWindow<?php echo $id; ?>" class="w3-modal">
 	<div class="w3-modal-content">
-		<header class="w3-container w3-black">
+		<header class="w3-container w3-blue">
 			 <span onclick="document.getElementById('sectoresModalWindow<?php echo $id; ?>').style.display='none'"
        class="w3-closebtn w3-hover-white">&times;</span>
 			<h4><?php echo __('Edit Sectore'); ?></h4>
@@ -17,7 +17,7 @@
 				<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
 			</div>
 		</div>
-		<footer class="w3-container w3-black w3-padding">
+		<footer class="w3-container w3-padding">
 			<button class="w3-btn w3-green w3-large">
 				Submeter dados
 			</button>

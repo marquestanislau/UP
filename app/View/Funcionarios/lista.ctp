@@ -1,6 +1,6 @@
 <?php if (!empty($funcionarios)) { ?>
 <?php foreach ($funcionarios as $funcionario) :?>
-      <tr class="w3-text-dark-grey">
+      <tr class="w3-text-dark-grey w3-hover-sand">
         <td><?php echo $funcionario['Funcionario']['delegacao_id'] != NULL? "<span class='glyphicon glyphicon-ok w3-text-blue'>": "<span class='w3-text-grey glyphicon glyphicon-remove'>"; ?></td>
         <td><?php echo $funcionario['Funcionario']['nome']; ?></td>
         <td><?php echo $funcionario['Funcionario']['apelido']; ?></td>

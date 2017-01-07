@@ -1,6 +1,6 @@
 <div class="w3-modal" id="escModal<?php echo $id;?>">
 	<div class="w3-modal-content">
-		<header class="w3-container w3-teal">
+		<header class="w3-container w3-blue">
 			<span onclick="document.getElementById('escModal<?php echo $id; ?>').style.display='none'" class="w3-closebtn">&times;</span>
 			<h4>Altere os dados do escal&atilde;o</h4>
 		</header>

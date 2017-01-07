@@ -126,12 +126,12 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         );
       ?></b>
   </h4>
-    <?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> In&iacute;cio', array('controller' => 'pages', 'action' => 'home'), array('escape' => FALSE, 'class' => 'w3-hover-green')); ?>
+    <?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> In&iacute;cio', array('controller' => 'pages', 'action' => 'home'), array('escape' => FALSE, 'class' => 'w3-hover-khaki w3-hover-text-blue')); ?>
 
     <?php echo $this->Html->link('<span class="glyphicon glyphicon-cog"></span>
-    Configura&ccedil;&otilde;es', array('controller' => 'pages', 'action' => 'configuracao'), array('class' => 'w3-hover-green', 'escape' => FALSE)); ?>
+    Configura&ccedil;&otilde;es', array('controller' => 'pages', 'action' => 'configuracao'), array('class' => 'w3-hover-khaki w3-hover-text-blue', 'escape' => FALSE)); ?>
 
-    <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Utilizadores', array('controller' => 'usuarios', 'action' => 'index'), array('class' => 'w3-hover-green', 'escape' => FALSE)); ?>
+    <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Utilizadores', array('controller' => 'usuarios', 'action' => 'index'), array('class' => 'w3-hover-khaki w3-hover-text-blue', 'escape' => FALSE)); ?>
 </nav>
 
 <!-- Overlay effect when opening sidenav on small screens -->
@@ -146,11 +146,11 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 
   <footer id="myFooter">
     <div class="w3-container w3-theme-l2 w3-padding-32">
-      <h4>Footer</h4>
+      <!-- <h4>Footer</h4> -->
     </div>
 
     <div class="w3-container w3-theme-l1">
-      <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+      <!-- <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p> -->
     </div>
   </footer>
 

@@ -1,7 +1,7 @@
 <!-- The Modal -->
 <div id="sectoresModal" class="w3-modal">
   <div class="w3-modal-content">
-  <header class="w3-container w3-black">
+  <header class="w3-container w3-blue">
       <span onclick="document.getElementById('sectoresModal').style.display='none'"
        class="w3-closebtn">&times;</span>
        <h4><?php echo __('Adicionar Sectores novos a Delega&ccedil;&atilde;o'); ?></h4>
@@ -21,7 +21,7 @@
 		</div>
      </div>
 
-     <footer class="w3-container w3-black w3-padding">
+     <footer class="w3-container w3-padding">
 	    <button class="w3-btn w3-large w3-green">
     	 	Submeter 
      	</button>

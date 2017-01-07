@@ -1,7 +1,7 @@
 <!-- The Modal -->
 <div id="addConcursoModal" class="w3-modal">
   <div class="w3-modal-content">
-    <header class="w3-container w3-purple"> 
+    <header class="w3-container w3-blue"> 
       <span onclick="document.getElementById('addConcursoModal').style.display='none'" 
       class="w3-closebtn">&times;</span>
       <h2>Adicionar concurso</h2>

@@ -1,6 +1,6 @@
 <div id="classeModal" class="w3-modal">
 	<div class="w3-modal-content">
-		<header class="w3-container w3-brown">
+		<header class="w3-container w3-blue">
 			<span class="w3-closebtn" onclick="document.getElementById('classeModal').style.display = 'none'">
 				&times;
 			</span>

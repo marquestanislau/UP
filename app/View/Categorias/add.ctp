@@ -1,6 +1,6 @@
 <div id="categoriaAddForm" class="w3-modal">
 	<div class="w3-modal-content">
-		<header class="w3-container w3-lime">
+		<header class="w3-container w3-blue">
 			<span onclick="document.getElementById('categoriaAddForm').style.display='none'"
        class="w3-closebtn w3-hover-text-white">&times;</span>
 			<h3><?php echo __('Adicionar Categoria'); ?></h3>		
@@ -16,7 +16,7 @@
 				<?php echo $this->Html->image('ajax/ajax-loader.gif');?>
 			</div>
 		</div>
-		<footer class="w3-container w3-lime w3-padding">
+		<footer class="w3-container w3-padding">
 			<button class="w3-large w3-btn w3-green">
 				<span class="glyphicon glyphicon-ok"></span>
 				Submeter
