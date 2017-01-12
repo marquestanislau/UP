@@ -1,5 +1,5 @@
 <div class="row">
-  <div style="margin-bottom: 15px; margin-top: 50px;" class=" col-md-12 limit-down">
+  <div class=" col-md-12 limit-down">
     <h5 class="settings-font-color">
       <span class="glyphicon glyphicon-cog settings-font-color"></span>
       Configura&ccedil;&otilde;es

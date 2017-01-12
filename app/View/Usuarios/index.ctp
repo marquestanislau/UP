@@ -19,7 +19,7 @@
 				</a>
 			</div>
 		</div>
-			<table id="tabelaUsuarios" class="table table-striped w3-white">
+			<table id="tabelaUsuarios" class="table table-striped w3-white w3-bottombar w3-border-teal">
 				<thead>
 					<tr class="w3-label">
 						<th><?php echo $this->Paginator->sort('nome'); ?></th>

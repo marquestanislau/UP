@@ -1,26 +1,12 @@
 <?php
 App::uses('AppController', 'Controller');
-	/**
-	 * Concursos Controller
-	 *
-	 * @property Concurso $Concurso
-	 * @property PaginatorComponent $Paginator
-	 */
-	class ConcursosController extends AppController {
 
-	/**
-	 * Components
-	 *
-	 * @var array
-	 */
+class ConcursosController extends AppController {
+
 	public $components = array('Paginator', 'Flash', 'Session', 'RequestHandler');
 	public $helpers = array('Js' => array('Jquery'));
 
-	/**
-	 * index method
-	 *
-	 * @return void
-	 */
+
 	public function index() {
 		//$this->editarModal();
 		$this->Concurso->recursive = 0;
@@ -30,13 +16,7 @@ App::uses('AppController', 'Controller');
 		}
 	}
 
-	/**
-	 * view method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
+
 	public function view($id = null) {
 		if (!$this->Concurso->exists($id)) {
 			throw new NotFoundException(__('Invalid concurso'));
@@ -44,7 +24,7 @@ App::uses('AppController', 'Controller');
 
 		$options = array('conditions' => array('Concurso.' . $this->Concurso->primaryKey => $id));
 		$carreiras = $this->Concurso->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
-		
+
 		$concursos = $this->Concurso->find('all', array(
 			'contain' => array('Carreira'),
 			'conditions' => array('Concurso.id' => $id)
@@ -60,7 +40,7 @@ App::uses('AppController', 'Controller');
 
 	protected function categoriasParaCombo() {
 		$categorias = $this->Concurso->Carreira->Categoria->find('list',  array('fields' => 'Categoria.nome', 'Categoria.id'));
-		$this->set(compact('categorias'));	
+		$this->set(compact('categorias'));
 	}
 
 	protected function documentosParaCheckbox() {
@@ -68,11 +48,6 @@ App::uses('AppController', 'Controller');
 		$this->set(compact('documentacaos'));
 	}
 
-	/**
-	 * add method
-	 *
-	 * @return void
-	 */
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Concurso->create();
@@ -90,13 +65,6 @@ App::uses('AppController', 'Controller');
 		}
 	}
 
-	/**
-	 * edit method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
 	public function edit($id = null) {
 		if (!$this->Concurso->exists($id)) {
 			throw new NotFoundException(__('Invalid concurso'));
@@ -114,13 +82,6 @@ App::uses('AppController', 'Controller');
 		}
 	}
 
-	/**
-	 * delete method
-	 *
-	 * @throws NotFoundException
-	 * @param string $id
-	 * @return void
-	 */
 	public function delete($id = null) {
 		$this->Concurso->id = $id;
 		if (!$this->Concurso->exists()) {

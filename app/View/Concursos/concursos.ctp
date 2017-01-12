@@ -15,12 +15,12 @@
 		</td>
 
 		<!-- The Modal -->
-		<div id="modal<?php echo $concurso['Concurso']['id']?>" class="w3-modal">
+		<div id="modal<?php echo $concurso['Concurso']['id']; ?>" class="w3-modal">
 			<div class="w3-modal-content">
 				<header class="w3-container w3-purple">
 					<span onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='none'"
 						class="w3-closebtn">&times;</span>
-						<h1>Editar dados para concurso</h1>
+						<h5>Editar dados para concurso</h5>
 					</header>
 					<?php echo $this->Form->create('Concurso', array( 'url' =>array('action' => 'editarModal'), 'default' => false, 'id' => 'ajaxform'.$concurso['Concurso']['id']));?>
 					<div class="w3-container">

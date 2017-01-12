@@ -18,5 +18,13 @@ $(document).ready(function() {
 	    changeMonth: true,
 	    changeYear: true
     });
-
 });
+function selecionador(id) {
+	// alert('.datepicker'+id);
+	$('#datepicker'+id).datepicker({
+		startDate:'01/01/1996',
+		dateFormat: "yy-mm-dd",
+	    changeMonth: true,
+	    changeYear: true
+    });
+}

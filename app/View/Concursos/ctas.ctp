@@ -12,9 +12,9 @@
     <?php echo $this->Form->input('Funcionario.carreira_id', array('type' => 'hidden', 'value' => $carreira_id)); ?>
     <?php echo $this->Form->input('Funcionario.concurso_id', array('type' => 'hidden', 'value' => $concurso_id)); ?>
     <label for="FuncionarioNome" class="w3-label">Nome</label>
-    <?php echo $this->Form->input('Funcionario.nome', array('label'=>false, 'class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Ex: Estanislau')); ?>
+    <?php echo $this->Form->input('Funcionario.nome', array('label'=>false, 'class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Estanislau')); ?>
     <label for="FuncionarioApelido" class="w3-label">Apelido</label>
-    <?php echo $this->Form->input('Funcionario.apelido', array('label'=>false, 'class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Ex: Marques')); ?>
+    <?php echo $this->Form->input('Funcionario.apelido', array('label'=>false, 'class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Marques')); ?>
      <?php echo $this->Form->label('Funcionario.sexo', 'Genero', array('class' => 'w3-label')); ?>
       <?php echo $this->Form->radio('Funcionario.sexo', array('M' => 'Masculino', 'F' => 'Feminino'), array('legend' => false)); ?>
     <div id="requesting<?php echo $carreira_id;?>" style="display:none">
@@ -27,7 +27,7 @@
     <label for="FuncionarioContactoAlternativo" class="w3-label">Contacto alternativo</label>
     <?php   echo $this->Form->input('Funcionario.contacto_alternativo', array('label'=>false, 'class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => '821234567')); ?>
     <?php echo $this->Form->label('Funcionario.data_nascimento', 'Data de Nascimento', array('class' => 'w3-label')); ?>
-      <?php echo $this->Form->input('Funcionario.data_nascimento', array('label' => false, 'type' => 'text', 'class' => 'w3-input w3-border datepicker', 'placeholder' => '(Ano/Mes/Dia)')); ?>
+      <?php echo $this->Form->input('Funcionario.data_nascimento', array('label' => false, 'type' => 'text', 'class' => 'w3-input w3-border datepicker', 'placeholder' => '(Ano-Mes-Dia)', 'id' => 'datepicker'.$carreira_id , 'onfocus' => 'selecionador('.$carreira_id.')')); ?>
     <button class="pull-right w3-btn w3-green w3-large w3-margin-top">
         <span class="glyphicon glyphicon-ok"></span>
         Submeter

@@ -16,12 +16,12 @@
 <div class="col-md-12">
 	<div style="margin-top: 10px;"></div>
 	<div class="w3-white w3-border w3-container w3-padding">
-		<table class="table table-striped" cellpadding="0" cellspacing="0">
+		<table class="table table-striped w3-bottombar" cellpadding="0" cellspacing="0">
 			<thead>
 				<tr>
 					<th><?php echo $this->Paginator->sort('data_aprovacao'); ?></th>
 					<th><?php echo $this->Paginator->sort('nome'); ?></th>
-					<th class="actions"><?php echo __('Actions'); ?></th>
+					<th class="actions"><?php echo __('Actividade'); ?></th>
 				</tr>
 			</thead>
 			<tbody id="table-body">

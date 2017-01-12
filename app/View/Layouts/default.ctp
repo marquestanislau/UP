@@ -54,15 +54,33 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
     <li>
       <a><span class="glyphicon glyphicon-home"></span></a>
     </li>
-    <li>
+    <li class="w3-hide-small w3-dropdown-hover">
       <a><span class="glyphicon glyphicon-user"></span></a>
+      <div class="w3-dropdown-content w3-card-4 w3-padding w3-text-blue w3-bottombar">
+        <h3>Funcion&aacute;rios</h3>
+        <table>
+          <tr>
+            <td><a href=""><i class="fa fa-users"></i> Funcion&aacute;rios</a></td>
+            <td><a href=""><i class="fa fa-star-o w3-large"></i> Progress&atilde;o</a></td>
+          </tr>
+          <tr>
+            <td><a href="#"><i class="fa fa-refresh"></i> Transfer&ecirc;ncias</a></td>
+          </tr>
+          <tr>
+            <td><a href="#"><i class="fa  fa-info-circle w3-large"></i> Processo disciplinar</a></td>
+          </tr>
+          <tr>
+            <td><a href="#"><i class="fa fa-balance-scale"></i> Avalia&ccedil;&atilde;o de desempenho</a></td>
+          </tr>
+        </table>
+      </div>
     </li>
     <li>
       <a><span class="glyphicon glyphicon-education"></span></a>
     </li>
     <li class="w3-hide-small w3-dropdown-hover">
       <a><span class="glyphicon glyphicon-cog"></span></a>
-      <div class="w3-dropdown-content w3-card-4 w3-padding w3-text-blue">
+      <div class="w3-dropdown-content w3-card-4 w3-padding w3-text-blue w3-bottombar">
         <h3 class="w3-text-blue">Configura&ccedil;&otilde;es</h3>
         <table>
           <tr>
@@ -83,7 +101,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
     </li>
     <li class="w3-hide-small w3-dropdown-hover">
       <a><span class="glyphicon glyphicon-briefcase"></span></a>
-      <div class="w3-dropdown-content w3-padding w3-card-4 w3-text-blue">
+      <div class="w3-dropdown-content w3-padding w3-card-4 w3-text-blue w3-bottombar">
         <h3 class="w3-text-blue" >Recrutamento</h3>
         <table>
           <tr>
@@ -113,7 +131,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 </div>
 
 <!-- Sidenav -->
-<nav class="w3-sidenav w3-light-grey w3-center w3-collapse w3-animate-left" style="z-index:3;width:200px;margin-top:51px;" id="mySidenav">
+<nav class="w3-sidenav w3-light-grey w3-center w3-collapse w3-animate-left" style="z-index:3;width:100px;margin-top:51px;" id="mySidenav">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-blue w3-hide-large" title="close menu">
     <i class="glyphicon glyphicon-remove"></i>
   </a>

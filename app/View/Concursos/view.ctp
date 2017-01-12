@@ -23,14 +23,14 @@
 				<?php echo $this->Form->input('Carreira', array('id' => 'carreiraSelecionada', 'label' => FALSE,'class' => 'w3-margin w3-text-dark-grey w3-hover-sand')); ?>			
 			</div>
 			<?php echo $this->Form->input('Concurso.id', array('value' => $concurso['Concurso']['id'])); ?>
-			<!-- BEGIN BUTTON'S -->
-			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-blue', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'w3-btn w3-blue', 'escape' => false)); ?>
 			<button id="adicionar" class="w3-btn w3-green w3-large pull-right">
 				<span class="glyphicon glyphicon-save"></span> Adicionar
 			</button>
-			<!-- END BUTTON'S -->
 			<?php echo $this->Form->end(); ?>
+			<!-- BEGIN BUTTON'S -->
+			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-blue', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
+			<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'w3-btn w3-blue', 'escape' => false)); ?>
+			<!-- END BUTTON'S -->
 		</div>
 	</div>
 </div>

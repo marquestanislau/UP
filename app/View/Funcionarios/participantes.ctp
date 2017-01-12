@@ -37,7 +37,7 @@
   <div id="requesting" style="display:none">
     <?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
   </div>
-  <table class="table table-striped">
+  <table class="table table-striped w3-bottombar">
     <thead class="w3-label">
       <th>Estado</th>
       <th>Nome</th>

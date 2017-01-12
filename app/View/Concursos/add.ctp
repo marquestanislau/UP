@@ -10,12 +10,12 @@
 
     <div class="w3-container" style="padding: 30px;">
 	    <div id="salvar_exito"></div>
-	    <div id="salvar_erro"></div>
 		<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'adicionarModal'), 'class' => 'w3-container', 'id' => 'addForm')); ?>
 		<?php
+			$hoje = Date('Y-m-d');
 			echo $this->Form->input('data_aprovacao', array('label' => 'Data de aprova&ccedil;&atilde;o: '));
 			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-sand w3-border'));
-			echo $this->Form->input('data_registo', array('type' => 'hidden'));
+			echo $this->Form->input('data_registo', array('type' => 'hidden', 'value' => $hoje));
 		?>
 		<div id="salvar_processando" style="display: none;">
 			<?php echo $this->Html->image('ajax/ajax-loader.gif', array('alt' => 'Por favor aguarde...')); ?>
