@@ -1,9 +1,9 @@
 <div id="categoriaAddForm" class="w3-modal">
-	<div class="w3-modal-content">
+	<div class="w3-modal-content w3-animate-top">
 		<header class="w3-container w3-blue">
 			<span onclick="document.getElementById('categoriaAddForm').style.display='none'"
        class="w3-closebtn w3-hover-text-white">&times;</span>
-			<h3><?php echo __('Adicionar Categoria'); ?></h3>		
+			<h3><?php echo __('Adicionar Categoria'); ?></h3>
 		</header>
 		<div class="w3-container w3-padding-32">
 			<div id="sucesso"></div>
@@ -23,7 +23,7 @@
 			</button>
 			<?php echo $this->Form->end(); ?>
 			<button onclick="document.getElementById('categoriaAddForm').style.display='none'" class="w3-btn w3-red w3-large" id="catCancelBtn">
-				<span class="glyphicon glyphicon-remove"></span> 
+				<span class="glyphicon glyphicon-remove"></span>
 				Cancelar
 			</button>
 		</footer>
@@ -60,5 +60,5 @@
 			)
 		)
 	);
-	
+
 ?>

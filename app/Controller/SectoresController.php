@@ -25,6 +25,9 @@ class SectoresController extends AppController {
 		$this->Sectore->recursive = 0;
 		$this->set('sectores', $this->Paginator->paginate());
 		$this->colocaNome();
+		if ($this->request->is('ajax')) {
+			$this->render('sectores', 'ajax');
+		}
 	}
 
 /**
@@ -90,7 +93,7 @@ class SectoresController extends AppController {
 					$this->render('sucesso', 'ajax');
 				} else {
 					$this->render('erro', 'ajax');
-				}	
+				}
 			} else {
 				if ($this->Sectore->save($this->request->data)) {
 					$this->Flash->success(__('The sectore has been saved.'));
@@ -108,11 +111,11 @@ class SectoresController extends AppController {
 
 	public function modificar() {
 		if($this->request->is('ajax')) {
-			if($this->Sectore->save($this->request->data)) {
+			if($this->Sectore->saveAssociated($this->request->data)) {
 				$this->render('sucesso', 'ajax');
 			} else {
 				$this->render('erro', 'ajax');
-			}	
+			}
 		}
 	}
 

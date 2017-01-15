@@ -1,6 +1,5 @@
-<!-- <h3>Hello world</h3> -->
-<?php 
-	foreach($concursos as $concurso): 
+<?php
+	foreach($concursos as $concurso):
 		$concurso_id = $concurso['Concurso']['id'];
 		foreach($concurso['Carreira'] as $carreira):
 			$carreira_id = $carreira['id'];
@@ -10,12 +9,12 @@
 				<td><?php echo $carreira['id']; ?></td>
 				<td><?php echo $carreira['id']; ?></td>
 				<td class="actions">
-				<button onclick="document.getElementById('config').style.display='block'" class="w3-btn w3-orange">
+				<button onclick="document.getElementById('config<?php echo $carreira_id;?>').style.display='block'" class="w3-btn w3-orange">
 					<span class="glyphicon glyphicon-cog"></span>
 				</button>
 				<?php
 					echo $this->Html->link(
-						'<span class="glyphicon glyphicon-trash"></span>', 
+						'<span class="glyphicon glyphicon-trash"></span>',
 						array('controller' => 'carreiras', 'action' => 'view', $carreira['id']),
 						array('class' => 'w3-btn w3-red', 'escape' => FALSE)
 					);
@@ -25,7 +24,7 @@
 				 </button>
 				</td>
 			</tr>
-<?php 			
+<?php
 			include('configurarCarreiras.ctp');
 			include('participantes.ctp');
 

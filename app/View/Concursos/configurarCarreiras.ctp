@@ -1,10 +1,10 @@
-<div class="w3-modal" id="config">
-	<div class="w3-modal-content w3-white">
+<div class="w3-modal" id="config<?php echo $carreira_id;?>">
+	<div class="w3-modal-content w3-white w3-animate-top">
 		<header class="w3-container w3-blue">
-			<span onclick="document.getElementById('config').style.display='none'" class="w3-closebtn">
+			<span onclick="document.getElementById('config<?php echo $carreira_id;?>').style.display='none'" class="w3-closebtn">
 				&times;
 			</span>
-			<h4>Adicionar documenta&ccedil;&atilde;o e n&uacute;mero de vagas!</h4>
+			<h5><span class="glyphicon glyphicon-cog w3-large"></span> Adicionar documenta&ccedil;&atilde;o e n&uacute;mero de vagas!</h5>
 		</header>
 		<div class="w3-container w3-padding w3-light-grey">
 			<div id="sucesso"></div>
@@ -37,7 +37,7 @@
 				Guardar
 			</button>
 			<?php echo $this->Form->end();?>
-			<button onclick="document.getElementById('config').style.display='none'" class="w3-large w3-blue w3-btn pull-right">
+			<button onclick="document.getElementById('config<?php echo $carreira_id;?>').style.display='none'" class="w3-large w3-blue w3-btn pull-right">
 				<span class="glyphicon glyphicon-remove">
 				</span>
 				Cancelar

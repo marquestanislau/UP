@@ -41,7 +41,7 @@
 		<div id="requesting" style="display: none;">
 			<?php echo $this->Html->image('ajax/ajax-loader.gif', array('alt' => 'Aguarde...')); ?>
 		</div>
-		<table id="table-carreiras" class="w3-table-all">
+		<table id="table-carreiras" class="table">
 			<thead>
 				<th>Designa&ccedil;&atilde;o da carreira</th>
 				<th>N&uacute;mero de vagas</th>
@@ -50,7 +50,7 @@
 			</thead>
 			<tbody id="table-body">
 				<?php 
-				include('carreiras.ctp');
+					include('carreiras.ctp');
 				?>
 			</tbody>
 		</table>

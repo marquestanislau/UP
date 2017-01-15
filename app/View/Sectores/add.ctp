@@ -16,14 +16,14 @@
 				echo $this->Form->input('delegacao_id', array('empty' => '** Escolha a delegacao **', 'class' => 'w3-input w3-hover-khaki w3-border', 'label' => 'Delega&ccedil;&atilde;o'));
 			?>
 			<div id="processando" style="display: none;">
-				<?php echo $this->Html->image('ajax-loader.gif'); ?>
+				<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
 			</div>
 		</div>
      </div>
 
      <footer class="w3-container w3-padding">
 	    <button class="w3-btn w3-large w3-green">
-    	 	Submeter 
+    	 	Submeter
      	</button>
 		<?php echo $this->Form->end(); ?>
      </footer>
@@ -32,6 +32,7 @@
 
 <?php
 	$dados = $this->Js->get('#ajaxSectorForm')->serializeForm(array('inline' => true, 'isForm' => true));
+
 	$this->Js->get('#ajaxSectorForm')->event(
 		"submit",
 		$this->Js->request(

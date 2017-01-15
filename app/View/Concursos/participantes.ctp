@@ -1,11 +1,11 @@
  <div id="participantesModal<?php echo $carreira_id;?>" class="w3-modal">
-  <div class="w3-modal-content">
+  <div class="w3-modal-content w3-animate-top">
 
-    <header class="w3-container w3-purple">
+    <header class="w3-container w3-blue">
       <span onclick="document.getElementById('participantesModal<?php echo $carreira_id;?>').style.display='none'"
       class="w3-closebtn">&times;</span>
       <h5> 
-        <span style="font-size: 24px;" class="glyphicon glyphicon-user"></span>
+        <span class="fa fa-users w3-large"></span>
         Adi&ccedil;&atilde;o de candidactos</h5>
     </header>
 
