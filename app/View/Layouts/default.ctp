@@ -60,7 +60,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         <h3>Funcion&aacute;rios</h3>
         <table>
           <tr>
-            <td><a href=""><i class="fa fa-users"></i> Funcion&aacute;rios</a></td>
+            <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'funcionarios')); ?>"><i class="fa fa-users"></i> Funcion&aacute;rios</a></td>
             <td><a href=""><i class="fa fa-star-o w3-large"></i> Progress&atilde;o</a></td>
           </tr>
           <tr>

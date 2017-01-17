@@ -1,6 +1,6 @@
 <?php foreach ($sectores as $sectore): ?>
 <tr>
-  <td><?php echo h($sectore['Sectore']['id']); ?>&nbsp;</td>
+  <!-- <td><?php echo h($sectore['Sectore']['id']); ?>&nbsp;</td> -->
   <td><?php echo h($sectore['Sectore']['designacao']); ?>&nbsp;</td>
   <td>
     <?php echo $this->Html->link($sectore['Delegacao']['nome'], array('controller' => 'delegacaos', 'action' => 'view', $sectore['Delegacao']['id'])); ?>

@@ -47,4 +47,24 @@ class FuncionariosController extends AppController {
     $this->getkeys();
   }
 
+  public function index() {
+    $this->Funcionario->recursive = 0;
+    $this->Paginator->settings = $this->paginator_settings;
+    $funcionarios = $this->Funcionario->find('all', array('conditions' => array('delegacao_id not' => false)));
+    $this->set('funcionarios', $funcionarios);
+  }
+
+  public function detalhes($id = null) {
+    if ($this->request->is('ajax')) {
+      $this->Funcionario->id = $id;
+      if ( $this->Funcionario->exists() ) {
+        $funcionario = $this->Funcionario->read();
+        $this->set(compact('funcionario'));
+        $this->render('detalhes', 'ajax');
+      } else {
+        $this->render('404', 'ajax');
+      }
+    }
+  }
+
 }

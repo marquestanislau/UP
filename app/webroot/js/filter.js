@@ -1,8 +1,8 @@
-function myFunction() {
+function filtro() {
   var input, filter, table, tr, td, i;
   input = document.getElementById("procurar");
   filter = input.value.toUpperCase();
-  table = document.getElementById("tabelaUsuarios");
+  table = document.getElementById("tabelaFiltro");
   tr = table.getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[0];

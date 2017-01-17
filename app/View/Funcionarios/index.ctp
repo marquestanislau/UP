@@ -1,0 +1,21 @@
+<?php echo $this->Html->script('filter.js'); ?>
+<div id="content" class="row">
+	<div class="col-md-10 w3-border w3-white w3-padding">
+		<input onkeyup="filtro()" id="procurar" class="pull-right w3-input w3-border w3-animate-input" style="width: 30%" placeholder="Procure digitando o primeiro nome">
+		<table id="tabelaFiltro" class="table table-striped">
+			<thead>
+				<th></th>
+				<th>Nome</th>
+				<th>Apelido</th>
+				<th>Contacto</th>
+				<th>Sexo</th>
+				<th>Data de nascimento</th>
+			</thead>
+			<tbody>
+				<?php	
+					include('apenas_funcionarios.ctp');
+				?>	
+			</tbody>
+		</table>
+	</div>
+</div>

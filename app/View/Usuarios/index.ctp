@@ -19,7 +19,7 @@
 				</a>
 			</div>
 		</div>
-			<table id="tabelaUsuarios" class="table table-striped w3-white w3-bottombar w3-border-teal">
+			<table id="tabelaFiltro" class="table table-striped w3-white w3-bottombar w3-border-teal">
 				<thead>
 					<tr class="w3-label">
 						<th><?php echo $this->Paginator->sort('nome'); ?></th>
@@ -60,7 +60,7 @@
 				?>
 			</div>
 
-			<input onkeyup="myFunction()" style="width: 20%;" id="procurar" type="text" class="pull-right w3-margin-left w3-border w3-input" placeholder="Digite o nome ou apelido...">
+			<input onkeyup="filtro()" style="width: 20%;" id="procurar" type="text" class="pull-right w3-margin-left w3-border w3-input" placeholder="Digite o nome ou apelido...">
 
 			<?php echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> Adicionar utilizador', array('action' => 'add'), array('class' => 'w3-btn w3-green pull-right', 'escape' => FALSE)); ?>
 
