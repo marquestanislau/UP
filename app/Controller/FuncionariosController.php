@@ -67,4 +67,33 @@ class FuncionariosController extends AppController {
     }
   }
 
+  protected function getKeysCompany() {
+
+  }
+
+  public function alterar($funcionario_id = null) {
+    if ($this->request->is('get')) {
+      $this->Funcionario->id = $funcionario_id;
+      if ($this->Funcionario->exists($funcionario_id)) {
+        $funcionario = $this->Funcionario->read();
+        $this->set(compact('funcionario'));
+      }
+    }
+  }
+
+  public function alterarDados($id = null) {
+    if ($this->request->is('post')) {
+      $this->Funcionario->id = $id;
+      if($this->Funcionario->exists()) {
+        if ($this->Funcionario->save($this->request->data)) {
+          $funcionario = $this->Funcionario->read();
+          $this->set(compact('funcionario'));
+          $this->render('sucesso', 'ajax');
+        } else {
+          $this->render('erro', 'ajax');
+        }
+      }
+    }
+  }
+
 }

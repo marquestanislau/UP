@@ -67,6 +67,10 @@ class Funcionario extends AppModel {
 		'Concurso' => array (
 			'className' => 'Concurso',
 			'foreignKey' => 'concurso_id'
+		),
+		'Delegacao' => array(
+			'className' => 'Delegacao',
+			'foreignKey' => 'delegacao_id'
 		)
 	);
 }

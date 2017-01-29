@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-10">
-		<a href="#" class="pull-right w3-text-blue w3-margin"><i class="fa fa-print"></i> Imprimir</a>
+		<h3><a href="#" class="pull-right w3-text-grey w3-large"><i class="fa fa-print"></i> Imprimir</a></h3>
 	</div>
 	<div class="col-md-10 w3-padding w3-border w3-white">
 		<div class="row">
@@ -114,7 +114,7 @@
 					<tr>
 						<td>
 							<label class="w3-label">Carreira: </label>	
-							<?php echo $funcionario['Funcionario']['carreira_id']; ?>
+							<?php echo $funcionario['Carreira']['nome']; ?>
 						</td>
 					</tr>
 					<tr>
@@ -126,13 +126,17 @@
 					<tr>
 						<td>
 							<label class="w3-label">Delega&ccedil;&atilde;o: </label>
-							<?php echo $funcionario['Funcionario']['delegacao_id']; ?>
+							<?php echo $funcionario['Delegacao']['nome']; ?>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<label class="w3-label">Departamento: </label>
 							<?php echo $funcionario['Funcionario']['departamento_id']; ?>
+						</td>
+						<td>
+							<label class="w3-label">Data e hora de registo no sistema: </label>
+							<strong><?php echo $funcionario['Funcionario']['created']; ?></strong>
 						</td>
 					</tr>
 				</table>
