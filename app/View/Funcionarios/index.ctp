@@ -5,7 +5,6 @@
 		<input onkeyup="filtro()" id="procurar" class="pull-right w3-input w3-border w3-animate-input" style="width: 30%" placeholder="Procure digitando o primeiro nome">
 		<table id="tabelaFiltro" class="table table-striped">
 			<thead>
-				<th></th>
 				<th>Nome</th>
 				<th>Apelido</th>
 				<th>Contacto</th>

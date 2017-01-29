@@ -1,8 +1,8 @@
 <div class="row">
-	<div class="col-md-10">
+	<div class="col-md-11">
 		<h3><a href="#" class="pull-right w3-text-grey w3-large"><i class="fa fa-print"></i> Imprimir</a></h3>
 	</div>
-	<div class="col-md-10 w3-padding w3-border w3-white">
+	<div class="col-md-11 w3-padding w3-border w3-white">
 		<div class="row">
 			<div class="col-md-12 w3-center w3-text-grey">
 				<h4>
@@ -141,10 +141,22 @@
 					</tr>
 				</table>
 			</div>
-			<div class="col-md-4">
-				<?php echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
-				<h4>Documentos</h4>
-				Sem documento
+			<div class="col-md-5">
+				<div class="row">
+					<div class="col-md-12">
+						<?php echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
+						<h4>Documentos</h4>
+						Sem documento
+					</div>
+					<hr>
+					<div class="col-md-12">
+						<ul class="nav nav-pills nav-stacked w3-text-grey w3-leftbar w3-border-green w3-margin-top">
+						  <li role="presentation"><a href="#"><i class="fa fa-balance-scale"></i> Avaliar desempenho</a></li>
+						  <li role="presentation"><a href="#"><i class="fa fa-refresh"></i> Transferir</a></li>
+						  <li role="presentation"><a href="#"><i class="fa fa-info-circle"></i> Formalizar processo disciplinar</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

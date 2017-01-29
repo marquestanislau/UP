@@ -1,7 +1,7 @@
 <?php if (!empty($funcionarios)) { ?>
 <?php foreach ($funcionarios as $funcionario) :?>
       <?php $funcionario_id = $funcionario['Funcionario']['id'];?>
-      <tr class="w3-text-dark-grey w3-hover-sand">
+      <tr class="w3-text-dark-grey w3-hover-khaki">
         <td><?php echo $funcionario['Funcionario']['delegacao_id'] != NULL? "<span class='glyphicon glyphicon-ok w3-text-blue'>": "<span class='w3-text-grey glyphicon glyphicon-remove'>"; ?></td>
         <td><?php echo $funcionario['Funcionario']['nome']; ?></td>
         <td><?php echo $funcionario['Funcionario']['apelido']; ?></td>
@@ -22,7 +22,9 @@
                 Aprovar Candidato para participar do conjunto de colaboradores...
               </header>
               <div class="w3-container w3-padding-bottom">
-                
+                  <?php if (!empty($funcionario['Funcionario']['delegacao_id'])) {?>
+                    <h1 class="w3-large w3-text-grey w3-padding"><span class="glyphicon glyphicon-ok  w3-large"></span> Este candidato ja foi marcado como funcionario</h1>
+                  <?php } else {?>
                   <h5>
                     <?php echo $funcionario['Funcionario']['nome']; ?>
                     <?php echo $funcionario['Funcionario']['apelido']; ?>
@@ -73,6 +75,7 @@
                       </td>
                     </tr>
                   </table>
+                  <?php }?>
               </div>
               <footer class="w3-container"></footer>
             </div>
