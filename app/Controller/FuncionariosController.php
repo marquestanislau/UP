@@ -96,4 +96,9 @@ class FuncionariosController extends AppController {
     }
   }
 
+  public function transferencia() {
+   $employee = $this->Funcionario->find('list', array('fields' => 'Funcionario.nome', 'Funcionario.id'));
+   $this->set(compact('employee'));
+  }
+
 }

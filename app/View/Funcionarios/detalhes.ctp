@@ -152,7 +152,7 @@
 					<div class="col-md-12">
 						<ul class="nav nav-pills nav-stacked w3-text-grey w3-leftbar w3-border-green w3-margin-top">
 						  <li role="presentation"><a href="#"><i class="fa fa-balance-scale"></i> Avaliar desempenho</a></li>
-						  <li role="presentation"><a href="#"><i class="fa fa-refresh"></i> Transferir</a></li>
+						  <li role="presentation"><a href="<?php echo $this->Html->url(array('action' => 'transferencia'));?>"><i class="fa fa-refresh"></i> Transferir</a></li>
 						  <li role="presentation"><a href="#"><i class="fa fa-info-circle"></i> Formalizar processo disciplinar</a></li>
 						</ul>
 					</div>
