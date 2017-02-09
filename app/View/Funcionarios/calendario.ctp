@@ -73,7 +73,7 @@
 	});
 
 </script>
-<h5 class="w3-text-grey">Calendario</h5>
+<h5 class="w3-text-grey"><i class="fa fa-calendar"></i> Calendario</h5>
 <div class="row w3-text-dark-grey w3-border w3-white w3-padding">
 	<div class="col-md-3">
 		<h5 class="w3-text-blue">Selecione um calendario</h5>

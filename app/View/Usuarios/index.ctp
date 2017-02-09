@@ -1,6 +1,6 @@
 <?php echo $this->Html->script('filter.js');  ?>
 <div class="row">
-		<div class="col-md-10 w3-white w3-padding w3-border">
+		<div class="col-md-11 w3-white w3-padding w3-border">
 		<div class="row w3-padding-top">
 			<div class="col-md-6 w3-white">
 				<h6 class="w3-text-blue">

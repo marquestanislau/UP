@@ -1,5 +1,5 @@
 <?php foreach ($concursos as $concurso): ?>
-	<tr>
+	<tr class="w3-hover-khaki">
 		<td class="w3-text-gray"><?php echo h($concurso['Concurso']['data_aprovacao']); ?>&nbsp;</td>
 		<td class="w3-text-gray"><?php echo h($concurso['Concurso']['nome'].' [' .$concurso['Concurso']['data_aprovacao']. ']'); ?>&nbsp;</td>
 		<td class="actions">
@@ -8,7 +8,7 @@
 			<!-- Trigger/Open the Modal -->
 			<button onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='block'"
 				class="w3-btn w3-green">
-				<span class="glyphicon glyphicon-repeat"></span>
+				<span class="glyphicon glyphicon-edit"></span>
 			</button>
 			<?php echo $this->Html->link("<span class='glyphicon glyphicon-briefcase '></span>", array('action' => 'view', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-blue')); ?>
 

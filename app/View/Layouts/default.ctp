@@ -64,7 +64,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
             <td><a href=""><i class="fa fa-star-o w3-large"></i> Progress&atilde;o</a></td>
           </tr>
           <tr>
-            <td><a href="#"><i class="fa fa-refresh"></i> Transfer&ecirc;ncias</a></td>
+            <td><a href="<?php echo $this->Html->url(array('action' => 'transferencia', 'controller' => 'funcionarios')); ?>"><i class="fa fa-refresh"></i> Transfer&ecirc;ncias</a></td>
           </tr>
           <tr>
             <td><a href="#"><i class="fa  fa-info-circle w3-large"></i> Processo disciplinar</a></td>
