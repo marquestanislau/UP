@@ -1,13 +1,15 @@
 <div class="row w3-margin-bottom">
-	<div class="col-md-10">
+	<div class="col-md-5">
 		<h4 class="w3-text-grey"><?php echo __('Classes'); ?></h4>
+	</div>
+	<div class="col-md-6">
 		<a href="#"><span class="glyphicon glyphicon-question-sign w3-text-grey pull-right w3-margin-left"></span></a>
 		<a href="#"><span class="glyphicon glyphicon-file w3-text-grey pull-right w3-margin-left"></span></a>
 		<a href="#"><span class="glyphicon glyphicon-print w3-text-grey pull-right w3-margin-left"></span></a>
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-10">
+	<div class="col-md-11">
 	    <div class="w3-white w3-border w3-padding">
 	    <div class="w3-container">
 	    	<h6 class="w3-text-blue">

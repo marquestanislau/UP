@@ -35,4 +35,8 @@
     ?>
     </div>
 </div>
+<div class="col-md-3">
+  <h5 class="w3-panel w3-border w3-padding">O nosso belo Mo&ccedil;ambique</h5>
+  <?php echo $this->Html->image('mapa.png', array('id' => 'mapa', 'class' => 'img img-responsive'));?>
+</div>
 <?php include('add.ctp'); ?>

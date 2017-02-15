@@ -103,4 +103,8 @@ class FuncionariosController extends AppController {
    $this->set(compact(array('employees', 'delegacoes')));
   }
 
+  public function entrevista() {
+    
+  }
+
 }

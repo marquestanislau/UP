@@ -1,6 +1,6 @@
 	<?php foreach ($clazzes as $clazze): ?>
 		<?php $id = $clazze['Clazze']['id'];?>
-		<tr>
+		<tr class="w3-hover-khaki">
 			<td><?php echo h($clazze['Clazze']['nome']); ?>&nbsp;</td>
 			<td>
 				<?php echo $this->Html->link($clazze['Carreira']['nome'], array('controller' => 'carreiras', 'action' => 'view', $clazze['Carreira']['id'])); ?>
