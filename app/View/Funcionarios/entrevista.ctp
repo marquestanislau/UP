@@ -1,5 +1,30 @@
 <div class="col-md-11 w3-white w3-border w3-padding">
 	<h5>Entrevistas</h5>
+	<a href="#" onclick="document.getElementById('settings').style.display='block'" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
+	<div id="settings" class="w3-modal">
+		<div class="w3-modal-content">
+			<header class="w3-container w3-blue">
+				<span onclick="document.getElementById('settings').style.display='none'
+				" class="w3-closebtn">&times;</span>
+				<h6>configuracao para entrevista de emprego</h6>
+			</header>
+			<div class="w3-container w3-padding">
+				<h5>Configuracao de Email</h5>
+				<table>
+					<tr>
+						<td>Nao enviar emails para os Entrevistados (Candidatos)</td>
+						<td><input type="checkbox" class="w3-check" name=""></td>
+					</tr>
+					<tr>
+						<td>Nao enviar emails para os Entrevistadores (Funcionarios)</td>
+						<td><input type="checkbox" class="w3-check" name=""></td>
+					</tr>
+				</table>
+				<button class="w3-blue w3-btn">Salvar dados</button>
+			</div>
+			<footer class="w3-container"></footer>
+		</div>
+	</div>
 	<table class="table">
 		<thead class="w3-sand w3-text-blue">
 			<th>Carreira</th>
@@ -8,4 +33,12 @@
 			<th>Local da entrevista</th>
 		</thead>
 	</table>
+	<div class="row">
+		<div class="col-md-6">
+			<button class="w3-btn w3-blue">Nova entrevista</button>
+		</div>
+		<div class="col-md-6">
+			<input placeholder="Procure aqui" class="w3-input w3-border" type="" name="">
+		</div>
+	</div>
 </div>
