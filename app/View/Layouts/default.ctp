@@ -109,7 +109,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
             <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'concursos'));?>"><span class="glyphicon glyphicon-book"></span> Concursos</a></td>
           </tr>
           <tr>
-            <td><a href="#"><span class="fa fa-comments"></span> Entrevistas de emprego</a></td>
+            <td><a href="<?php echo $this->Html->url(array('action' => 'entrevista', 'controller' => 'funcionarios'));?>"><span class="fa fa-comments"></span> Entrevistas de emprego</a></td>
           </tr>
         </table>
       </div>

@@ -38,7 +38,7 @@
     <?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
   </div>
   <table class="table table-striped w3-bottombar">
-    <thead class="w3-label">
+    <thead class="w3-label w3-blue-grey">
       <th>Estado</th>
       <th>Nome</th>
       <th>Apelido</th>
@@ -46,6 +46,7 @@
       <th>Sexo</th>
       <th>Data de Nascimento</th>
       <th>Contacto alternativo</th>
+      <th></th>
     </thead>
     <tbody id="table-body">
       <?php include('lista.ctp'); ?>

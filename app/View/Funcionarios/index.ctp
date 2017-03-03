@@ -10,6 +10,7 @@
 				<th>Contacto</th>
 				<th>Sexo</th>
 				<th>Data de nascimento</th>
+				<th></th>
 			</thead>
 			<tbody>
 				<?php	
