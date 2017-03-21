@@ -1,5 +1,5 @@
 <div class="w3-modal" id="delegacaoModalWindow">
-	<div class="w3-modal-content">
+	<div class="w3-modal-content w3-animate-zoom">
 		<header class="w3-container w3-blue">
 			<span onclick="document.getElementById('delegacaoModalWindow').style.display='none'" class="w3-closebtn">&times;</span>
 			<h5><span class="fa fa-map-signs"></span> Insira nova delega&ccedil;&atilde;o</h5>
@@ -29,7 +29,8 @@
 				'update' => '#table-body',
 				'method' => 'post',
 				'async' => true,
-				'dataExpression' => true
+				'dataExpression' => true,
+				'complete' => 'displayMessages()'
 			)
 	);
 	$this->Js->get('#delegaFormAdd')->event(

@@ -1,6 +1,6 @@
 <?php foreach ($delegacaos as $delegacao): ?>
 <?php $id = $delegacao['Delegacao']['id']; ?>
-  <tr class="w3-text-dark-grey">
+  <tr class="w3-text-dark-grey w3-hover-khaki w3-hover-text-blue">
     <td><?php echo h($delegacao['Delegacao']['id']); ?>&nbsp;</td>
     <td><?php echo h($delegacao['Delegacao']['nome']); ?>&nbsp;</td>
     <td class="actions w3-text-grey">

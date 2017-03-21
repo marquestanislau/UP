@@ -1,5 +1,5 @@
 <div id="delegacaoModal<?php echo $id;?>" class="w3-modal">
-	<div class="w3-modal-content">
+	<div class="w3-modal-content w3-animate-zoom">
 		<header class="w3-container w3-blue">
 			<span onclick="document.getElementById('delegacaoModal<?php echo $id;?>').style.display='none'" class="w3-closebtn">&times;</span>
 			<h4>Alterar dados da delegacao</h4>

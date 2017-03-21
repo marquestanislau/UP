@@ -1,5 +1,5 @@
 <?php foreach ($sectores as $sectore): ?>
-<tr>
+<tr class="w3-hover-khaki w3-hover-text-blue">
   <!-- <td><?php echo h($sectore['Sectore']['id']); ?>&nbsp;</td> -->
   <td><?php echo h($sectore['Sectore']['designacao']); ?>&nbsp;</td>
   <td>

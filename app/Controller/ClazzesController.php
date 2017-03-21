@@ -16,10 +16,10 @@ class ClazzesController extends AppController {
  * @var array
  */
 	public $components = array(
-            'Paginator', 
-            'Session',
-            'Flash',
-            'RequestHandler'
+            	'Paginator', 
+            	'Session',
+            	'Flash',
+            	'RequestHandler'
             );
 
 	public $helpers = array('Js'  => array('Jquery'));

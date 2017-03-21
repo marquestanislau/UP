@@ -1,7 +1,7 @@
 	<?php foreach ($carreiras as $carreira): ?>
 		<!-- Para facilitar na nomeacao de formulario, usamos o id por ser unico -->
 	<?php $id = $carreira['Carreira']['id']; ?>
-	<tr>
+	<tr class="w3-hover-khaki w3-hover-text-blue">
 		<td><?php echo h($carreira['Carreira']['id']); ?>&nbsp;</td>
 		<td><?php echo h($carreira['Carreira']['nome']); ?>&nbsp;</td>
 		<td class="actions">

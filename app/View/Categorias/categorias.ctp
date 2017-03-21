@@ -1,6 +1,6 @@
 <?php foreach ($categorias as $categoria): ?>
 	<?php $id = $categoria['Categoria']['id']; ?>
-	<tr>
+	<tr class="w3-hover-khaki w3-hover-text-blue">
 		<td><?php echo h($categoria['Categoria']['nome']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($categoria['Carreira']['nome'], array('controller' => 'carreiras', 'action' => 'view', $categoria['Carreira']['id'])); ?>
