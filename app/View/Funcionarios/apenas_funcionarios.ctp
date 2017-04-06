@@ -11,8 +11,9 @@
         </td>
         <td><?php echo $funcionario['Funcionario']['data_nascimento']; ?></td>
         <td>
-          <button class="w3-btn w3-blue" id="ver<?php echo $funcionario_id;?>">
+          <button class="w3-btn w3-green" id="ver<?php echo $funcionario_id;?>">
             <i class="fa fa-user"></i>
+            <span class="mdl-tooltip" data-mdl-for="ver<?php echo $funcionario_id;?>">Visualizar <?php echo $funcionario['Funcionario']['nome']; ?></span>
           </button>
           <?php echo $this->Html->link('<i class="fa fa-user-plus"></i>', array('action' => 'alterar/'.$funcionario_id, 'controller' => 'funcionarios'), array('escape' => false, 'class' => 'w3-blue w3-btn')); ?>
           <span id="requesting<?php echo $funcionario_id;?>" style="display:none">

@@ -15,6 +15,7 @@
     <?php echo $this->Form->input('Funcionario.nome', array('label'=>false, 'class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Estanislau')); ?>
     <label for="FuncionarioApelido" class="w3-label">Apelido</label>
     <?php echo $this->Form->input('Funcionario.apelido', array('label'=>false, 'class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Marques')); ?>
+    <br>
      <?php echo $this->Form->label('Funcionario.sexo', 'Genero', array('class' => 'w3-label')); ?>
       <?php echo $this->Form->radio('Funcionario.sexo', array('M' => 'Masculino', 'F' => 'Feminino'), array('legend' => false)); ?>
     <div id="requesting<?php echo $carreira_id;?>" style="display:none">

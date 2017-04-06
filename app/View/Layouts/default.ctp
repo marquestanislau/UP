@@ -26,7 +26,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   #	echo $this->Html->css('cake.generic');
   echo $this->Html->css('material/material.indigo-orange.min');
   	# Funciona quando possuimos uma conexao com a internet
-  // echo $this->Html->css('https://fonts.googleapis.com/icon?family=Material+Icons');
+  #echo $this->Html->css('https://fonts.googleapis.com/icon?family=Material+Icons');
   #Modificacao de alguns aspectos (Modificacao do aspecto default)
   echo $this->Html->css('custom');
   echo $this->Html->css('jquery-ui.min');

@@ -126,3 +126,7 @@ table {
 .ui-datepicker-header  {
 	border: solid thin gray;
 }
+#afastamento {
+	margin-bottom: 700px;
+	background-color: red;
+}

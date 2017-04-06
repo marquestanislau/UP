@@ -67,6 +67,9 @@
                     </tr>
                     <tr>
                       <td colspan="2">
+                        <button onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" class="w3-btn w3-blue pull-right w3-large">
+                          <i class="fa fa-close"></i> Cancelar
+                        </button>
                         <button class="w3-large w3-btn pull-right w3-green"><i class="fa fa-thumbs-o-up"></i> Admitir
                         </button>
                         <div id="requesting<?php echo $funcionario['Funcionario']['id']; ?>" style="display: none.">

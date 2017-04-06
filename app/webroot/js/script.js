@@ -31,6 +31,6 @@ function selecionador(id) {
 
 function displayMessages() {
 	var snackbarContainer = document.querySelector('#message');
-	var data = {message: 'Estanislau Samussone Marques adsfjakjfladjfkajdfjaksjfkjasdfjkasfkj # '};
+	var data = {message: 'Estanislau Samussone Marques'};
 	snackbarContainer.MaterialSnackbar.showSnackbar(data);
 }

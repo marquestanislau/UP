@@ -134,4 +134,12 @@ class UsuariosController extends AppController {
 			}
 		}
 	}
+
+	public function login() {
+		$this->layout = 'empty';
+	}
+
+	public function recuperar() {
+		$this->layout = 'empty';
+	}
 }
