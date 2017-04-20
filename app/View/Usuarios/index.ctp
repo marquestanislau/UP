@@ -19,9 +19,9 @@
 				</a>
 			</div>
 		</div>
-			<table id="tabelaFiltro" class="table table-striped w3-white w3-bottombar w3-border-teal">
-				<thead>
-					<tr class="w3-label">
+			<table id="tabelaFiltro" class="table table-striped w3-border w3-border-dark-grey">
+				<thead class="w3-dark-grey">
+					<tr>
 						<th><?php echo $this->Paginator->sort('nome'); ?></th>
 						<th><?php echo $this->Paginator->sort('apelido'); ?></th>
 						<th><?php echo $this->Paginator->sort('email'); ?></th>

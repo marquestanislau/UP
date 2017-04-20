@@ -4,7 +4,7 @@
 			<span class="w3-closebtn" onclick="document.getElementById('classeModal<?php echo $id;?>').style.display = 'none'">
 				&times;
 			</span>
-			<h4>Adicao de classes</h4>
+			<h4>Adi&ccedil;&atilde;o de classes</h4>
 		</header>
 		<div class="w3-container w3-margin">
 			<div id="sucesso<?php echo $id;?>"></div>

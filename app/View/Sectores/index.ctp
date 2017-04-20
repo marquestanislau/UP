@@ -2,10 +2,10 @@
 <h4 class="w3-text-grey"><?php echo __('Sectores'); ?></h4>
 <div class="col-md-8 w3-border w3-padding w3-white">
 	<h4 class="w3-text-blue"><span class="fa fa-industry"></span> <?php echo __('Sectores'); ?></h4>
-	<input onkeyup="filtro()" id="procurar" type="text" style="width: 30%" class="w3-animate-input w3-tiny w3-hover-sand w3-border w3-input" placeholder="Insira o nome do sector..." >
-    <table class="table table-hover" id="tabelaFiltro">
-	<thead>
-	<tr class="w3-white">
+	<input onkeyup="filtro()" id="procurar" type="text" style="width: 30%" class="w3-animate-input w3-tiny w3-hover-sand w3-border w3-input w3-margin-bottom" placeholder="Insira o nome do sector..." >
+    <table class="table table-hover w3-border w3-border-dark-grey" id="tabelaFiltro">
+	<thead class="w3-dark-grey">
+	<tr>
 			<!-- <th><?php echo $this->Paginator->sort('#'); ?></th> -->
 			<th><?php echo $this->Paginator->sort('designacao'); ?></th>
 			<th><?php echo $this->Paginator->sort('delegacao_id'); ?></th>
@@ -19,14 +19,14 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-		'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+		'format' => __('<span class="w3-text-blue">P&aacute;gina {:page} de {:pages}, a mostrar {:current} num total de {:count}</span>')
 	));
 	?>	</p>
 	<div class="paging">
 	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->prev('< ' . __('Anterior'), array(), null, array('class' => 'prev disabled'));
 		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->next(__('Proximo') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
 	</div>
 </div>

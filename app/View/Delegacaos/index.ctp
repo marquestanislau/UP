@@ -7,32 +7,34 @@
 
     </span><?php echo  __('Listas das Delega&ccedil;&otilde;es');?>
 </h6>
-      <button onclick="document.getElementById('delegacaoModalWindow').style.display='block'" class="w3-btn w3-blue pull-right">
+      <button onclick="document.getElementById('delegacaoModalWindow').style.display='block'" class="w3-btn w3-blue pull-right w3-margin-bottom">
         <span class="glyphicon glyphicon-plus"></span>
         Adicionar delega&ccedil;&atilde;o
       </button>
-      <table class="table table-striped" cellpadding="0" cellspacing="0">
-        <thead>
+      <table class="table table-striped w3-border w3-border-dark-grey" cellpadding="0" cellspacing="0">
+        <thead class="w3-dark-grey" >
           <tr>
             <th><?php echo $this->Paginator->sort('#'); ?></th>
             <th><?php echo $this->Paginator->sort('nome'); ?></th>
             <th class="actions"><?php echo __('Actions'); ?></th>
         </tr>
         </thead>
-        <tbody id="table-body">
+        <tbody id="table-body" class="w3-tiny">
           <?php include('delegacoes.ctp'); ?>
         </tbody>
    </table>
   <p>
   <?php
-        echo $this->Paginator->counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}'))); ?>
-  </p>
-    <div class="paging">
-    <?php
-        echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-        echo $this->Paginator->numbers(array('separator' => ''));
-        echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-    ?>
+  echo $this->Paginator->counter(array(
+    'format' => __('<span class="w3-text-blue">P&aacute;gina {:page} de {:pages}, a mostrar {:current} num total de {:count}</span>')
+  ));
+  ?>  </p>
+  <div class="paging">
+  <?php
+    echo $this->Paginator->prev('< ' . __('Anterior'), array(), null, array('class' => 'prev disabled'));
+    echo $this->Paginator->numbers(array('separator' => ''));
+    echo $this->Paginator->next(__('Proximo') . ' >', array(), null, array('class' => 'next disabled'));
+  ?>
     </div>
 </div>
 <div class="col-md-3">

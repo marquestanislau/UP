@@ -15,7 +15,7 @@
 				<table class="w3-table">
 					<tr>
 						<td>
-							<h4>Dados pessoais</h4>
+							<h4><i class="fa fa-user"></i> Dados pessoais</h4>
 						</td>
 					</tr>
 					<tr>
@@ -50,7 +50,10 @@
 					</tr>
 					<tr>
 						<td>
-							<h4>Contactos</h4>
+							<h4><i class="fa fa-phone"></i> Contactos</h4>
+						</td>
+						<td>
+							<h4><i class="fa fa-id-card"></i> Documentos de indentifica&ccedil;&atilde;o</h4>
 						</td>
 					</tr>
 					<tr>
@@ -58,11 +61,19 @@
 							<label class="w3-label">Contacto alternativo: </label>	
 							<?php echo $funcionario['Funcionario']['contacto_alternativo']; ?>
 						</td>
+						<td>
+							<label class="w3-label">NUIT: </label>
+							<?php echo $funcionario['Funcionario']['nuit']; ?>
+						</td>
 					</tr>
 					<tr>
 						<td>
 							<label class="w3-label">Contacto da empresa: </label>	
 							<?php echo $funcionario['Funcionario']['contacto_trabalho']; ?>
+						</td>
+						<td>
+							<label class="w3-label">Numedo do BI: </label>
+							<?php echo $funcionario['Funcionario']['bi']; ?>
 						</td>
 					</tr>
 					<tr>
@@ -70,14 +81,22 @@
 							<label class="w3-label">Email: </label>
 							<?php echo $funcionario['Funcionario']['email_pessoal']; ?>
 						</td>
+						<td>
+							<label class="w3-label">Data de Emiss&atilde;o: </label>	
+							<?php echo $funcionario['Funcionario']['data_emissao']; ?>
+						</td>
 					</tr>
 					<tr>
 						<td>
 							<label class="w3-label">Email corporativo: </label>
 							<?php echo $funcionario['Funcionario']['email_corporativo']; ?>
 						</td>
+						<td>
+							<label class="w3-label">Local de emiss&atilde;o: </label>	
+							<?php echo $funcionario['Funcionario']['local_emissao']; ?>
+						</td>
 					</tr>
-					<tr>
+					<!-- <tr>
 						<td>
 							<h4>Documentos de indentifica&ccedil;&atilde;o</h4>
 						</td>
@@ -105,10 +124,10 @@
 							<label class="w3-label">Local de emiss&atilde;o: </label>	
 							<?php echo $funcionario['Funcionario']['local_emissao']; ?>
 						</td>
-					</tr>
+					</tr> -->
 					<tr>
 						<td>
-							<h4>Informa&ccedil;&otilde;s adicionais do funcion&aacute;rio</h4>
+							<h4><i class="fa fa-info-circle"></i> Informa&ccedil;&otilde;s adicionais do funcion&aacute;rio</h4>
 						</td>
 					</tr>
 					<tr>
@@ -145,7 +164,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<?php echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
-						<h4>Documentos</h4>
+						<h4><i class="fa fa-file"></i> Documentos</h4>
 						Sem documento
 					</div>
 					<hr>

@@ -50,8 +50,18 @@ class FuncionariosController extends AppController {
   public function index() {
     $this->Funcionario->recursive = 0;
     $this->Paginator->settings = $this->paginator_settings;
-    $funcionarios = $this->Funcionario->find('all', array('conditions' => array('delegacao_id not' => false)));
+    $funcionarios = $this->Funcionario->find('all', array('conditions' => array('despacho not' => false)));
     $this->set('funcionarios', $funcionarios);
+    if($this->request->is('ajax'))
+      $this->render('lista', 'ajax');
+  }
+
+  public function listaDeParticipantesAjax() {
+    $this->Funcionario->recursive = 0;
+    $this->Paginator->settings = $this->paginator_settings;
+    $this->set('funcionarios', $this->Paginator->paginate());
+    if($this->request->is('ajax'))
+      $this->render('lista', 'ajax');
   }
 
   public function detalhes($id = null) {
@@ -94,6 +104,17 @@ class FuncionariosController extends AppController {
         }
       }
     }
+  }
+
+  public function aceitarDespacho($id = null) {
+    $this->Funcionario->id = $id;
+      if($this->request->is('ajax')) {
+        if ($this->Funcionario->save($this->request->data)) {
+            $this->render('sucesso', 'ajax');
+        } else {
+            $this->render('erro', 'ajax');
+          }
+      }
   }
 
   public function transferencia() {

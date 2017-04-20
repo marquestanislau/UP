@@ -14,6 +14,7 @@
 		echo $this->Form->input('Funcionario.apelido', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Marques'));
 		echo $this->Form->input('cadeira', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Sistemas de Comunicação'));
 		echo $this->Form->input('funcionario_id', array('type' => 'hidden'));
+		echo "<br>";
 		echo $this->Form->label('Funcionario.sexo', 'Genero');
 		echo $this->Form->radio('Funcionario.sexo', array('M' => 'Masculino', 'F' => 'Feminino'), array('legend' => false));
 	?>

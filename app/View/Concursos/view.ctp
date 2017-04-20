@@ -28,8 +28,8 @@
 			</button>
 			<?php echo $this->Form->end(); ?>
 			<!-- BEGIN BUTTON'S -->
-			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-blue', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'w3-btn w3-blue', 'escape' => false)); ?>
+			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-dark-grey', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
+			<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'w3-btn w3-dark-grey', 'escape' => false)); ?>
 			<!-- END BUTTON'S -->
 		</div>
 	</div>
@@ -41,8 +41,8 @@
 		<div id="requesting" style="display: none;">
 			<?php echo $this->Html->image('ajax/ajax-loader.gif', array('alt' => 'Aguarde...')); ?>
 		</div>
-		<table id="table-carreiras" class="table">
-			<thead>
+		<table id="table-carreiras" class="table w3-border w3-border-dark-grey">
+			<thead class="w3-dark-grey">
 				<th>Designa&ccedil;&atilde;o da carreira</th>
 				<th>N&uacute;mero de vagas</th>
 				<th>N&uacute;mero de participantes</th>

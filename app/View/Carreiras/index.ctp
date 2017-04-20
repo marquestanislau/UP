@@ -7,8 +7,8 @@
 	<div class="well">
 		Alguma informacao relacionada com a configuracao inserccao de novas carreiras
 	</div>
-	<table class="table table-striped" cellpadding="0" cellspacing="0">
-	<thead>
+	<table class="table table-striped w3-border w3-border-dark-grey" cellpadding="0" cellspacing="0">
+	<thead class="w3-dark-grey">
 	<tr>
 		<th><?php echo $this->Paginator->sort('Ordem'); ?></th>
 		<th><?php echo $this->Paginator->sort('nome'); ?> <span class="fa fa-sort w3-text-blue"></span></th>
@@ -24,7 +24,7 @@
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-		'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+		'format' => __('<span class="w3-text-blue">P&aacute;gina {:page} de {:pages}, a mostrar {:current} num total de {:count}</span>')
 	));
 	?>	</p>
 	<div class="paging">
