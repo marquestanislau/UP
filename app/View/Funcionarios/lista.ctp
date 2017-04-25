@@ -77,8 +77,16 @@
             <?php }?>
           </div>
           <footer class="w3-container w3-padding-bottom">
-              <button id="admitir<?php echo $funcionario_id;?>" class="w3-large w3-btn pull-right w3-green"><i class="fa fa-thumbs-o-up"></i> Admitir
-              </button>
+              <?php if ( !empty($funcionario['Funcionario']['despacho'])): ?>
+                <button onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" class="w3-btn w3-large w3-blue">
+                  <i class="fa fa-thumbs-up"></i>
+                  Ok
+                </button>
+              <?php else: ?>
+                <button id="admitir<?php echo $funcionario_id;?>" class="w3-large w3-btn pull-right w3-green"><i class="fa fa-thumbs-o-up"></i> Admitir
+                </button>
+              <?php endif ?>
+
               <?php echo $this->Form->end(); ?>
           </footer>
         </div>
@@ -86,11 +94,13 @@
         $data = $this->Js->get('#formCandidatura'.$funcionario_id)->serializeForm(array('inline' => true, 'isForm' => true));
         $success = $this->Js->request(
           array(
-            'action' => 'listaDeParticipantesAjax'
+            'action' => 'listaDeParticipantesAjax',
+            'controller' => 'funcionarios'
             ),
           array(
             'update' => '#table-body',
             'method' => 'post',
+            'dataExpression' => true,
             'async' => true
             )
           );
@@ -98,7 +108,8 @@
           'submit',
           $this->Js->request(
             array(
-              'action' => 'aceitarDespacho/'.$funcionario_id
+              'action' => 'aceitarDespacho/'.$funcionario_id,
+              'controller' => 'funcionarios'
             ),
             array(
               'method' => 'post',
@@ -119,7 +130,6 @@
   <?php endforeach; ?>
   <?php } else { ?>
   <tr>
-    <td colspan="7">Sem participantes</td>
+    <td colspan="7"><span class="w3-text-red">Sem participantes</span></td>
   </tr>
   <?php } ?>
-

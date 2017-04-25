@@ -139,7 +139,7 @@
 					<tr>
 						<td>
 							<label class="w3-label">Classe: </label>
-							<?php echo $funcionario['Funcionario']['clazze_id']; ?>
+							<?php echo $funcionario['Clazze']['nome']; ?>
 						</td>
 					</tr>
 					<tr>

@@ -5,6 +5,15 @@
 			<?php echo __('Concurso: '); ?>
 			<?php echo h($concurso['Concurso']['data_aprovacao']); ?>
 		</h4>
+		 <div class="w3-bar w3-light-grey">
+		 	<!-- BEGIN BUTTON'S -->
+		 	<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-button w3-bar-item w3-dark-grey', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
+		 	<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'w3-button w3-bar-item w3-dark-grey', 'escape' => false)); ?>
+		 	<?php $link = $this->Html->url(array('action' => 'participantes', 'controller' => 'funcionarios')); ?>
+		 	<a class="w3-button w3-bar-item w3-red" href="<?php echo $link; ?>"><i class="fa fa-users"></i> Lista de participantes</a>
+		 	<!-- END BUTTON'S -->
+		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->
+		</div>
 		<p><strong><?php echo h($concurso['Concurso']['nome']); ?></strong></p>
 		<table class="w3-margin-bottom w3-table-all">
 			<tr>
@@ -27,10 +36,6 @@
 				<span class="glyphicon glyphicon-save"></span> Adicionar
 			</button>
 			<?php echo $this->Form->end(); ?>
-			<!-- BEGIN BUTTON'S -->
-			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-dark-grey', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'w3-btn w3-dark-grey', 'escape' => false)); ?>
-			<!-- END BUTTON'S -->
 		</div>
 	</div>
 </div>

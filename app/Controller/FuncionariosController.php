@@ -40,7 +40,9 @@ class FuncionariosController extends AppController {
   public function getkeys() {
     $concursos = $this->Funcionario->Concurso->find('list', array('fields' => 'Concurso.data_aprovacao', 'Concurso.id'));
     $carreiras = $this->Funcionario->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
-    $this->set(compact('concursos', 'carreiras'));
+    $this->set('clazzes', $this->Funcionario->Clazze->find('list', array('fields' => 'Clazze.nome', 'Clazze.id')));
+    $delegacaos = $this->Funcionario->Delegacao->find('list', array('fields' => 'Delegacao.nome', 'Delegacao.id'));
+    $this->set(compact('concursos', 'carreiras', 'delegacaos'));
   }
 
   public function calendario() {
@@ -56,13 +58,6 @@ class FuncionariosController extends AppController {
       $this->render('lista', 'ajax');
   }
 
-  public function listaDeParticipantesAjax() {
-    $this->Funcionario->recursive = 0;
-    $this->Paginator->settings = $this->paginator_settings;
-    $this->set('funcionarios', $this->Paginator->paginate());
-    if($this->request->is('ajax'))
-      $this->render('lista', 'ajax');
-  }
 
   public function detalhes($id = null) {
     if ($this->request->is('ajax')) {
@@ -89,6 +84,7 @@ class FuncionariosController extends AppController {
         $this->set(compact('funcionario'));
       }
     }
+    $this->getKeys();
   }
 
   public function alterarDados($id = null) {
@@ -106,14 +102,28 @@ class FuncionariosController extends AppController {
     }
   }
 
-  public function aceitarDespacho($id = null) {
-    $this->Funcionario->id = $id;
+
+  /*Para chamar via ajax a lista que contem todos participantes*/
+  public function listaDeParticipantesAjax() {
+    $this->Funcionario->recursive = 0;
+    $this->Paginator->settings = $this->paginator_settings;
+    $this->set('funcionarios', $this->Paginator->paginate());
+    if($this->request->is('ajax'))
+      $this->render('lista', 'ajax');
+  }
+
+  /*Vai receber um $id pelo method post, para verificar a existencia do Funcionario ;)*/
+  public function aceitarDespacho() {
       if($this->request->is('ajax')) {
-        if ($this->Funcionario->save($this->request->data)) {
-            $this->render('sucesso', 'ajax');
-        } else {
-            $this->render('erro', 'ajax');
+        $id = $this->request->data['Funcionario']['id'];
+        if (!empty($id)) {
+          $this->Funcionario->id = $id;
+          if ($this->Funcionario->save($this->request->data)) {
+              $this->render('sucesso', 'ajax');
+          } else {
+              $this->render('erro', 'ajax');
           }
+        }
       }
   }
 
@@ -125,7 +135,7 @@ class FuncionariosController extends AppController {
   }
 
   public function entrevista() {
-    
+
   }
 
 }

@@ -19,7 +19,7 @@
           </a>
         </div>
 
-        <div id="cta<?php echo $carreira_id;?>" class="w3-container city main-tab w3-padding">
+        <div id="cta<?php echo $carreira_id;?>" style="display: block;" class="w3-container city main-tab w3-padding">
           <?php include('ctas.ctp'); ?>
         </div>
 

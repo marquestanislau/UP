@@ -57,11 +57,11 @@ class VagasController extends AppController {
 		}
                 $this->getKeys();
 	}
-        
+
         protected function getKeys() {
             $concursos = $this->Vaga->Concurso->find('list', array('fields' => 'Concurso.nome', 'Concurso.id'));
             $carreiras = $this->Vaga->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
-            $this->set(compact('concursos', 'carreiras'));    
+            $this->set(compact('concursos', 'carreiras'));
         }
 
 /**
