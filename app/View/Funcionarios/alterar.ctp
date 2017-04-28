@@ -64,7 +64,7 @@
               <label class="w3-label">Contacto Prim&aacute;rio: </label class="w3-label">
                 <?php echo $this->Form->input('contacto_pessoal', array('label' => false, 'class' => 'w3-border w3-input', 'value' => $funcionario['Funcionario']['contacto_pessoal'])); ?>
                 <label class="w3-label">Genero: </label>
-                <?php echo $this->Form->radio('sexo', array('M' => 'Masculino', 'F' => 'Feminino'), array('legend' => false)); ?>
+                <?php echo $this->Form->radio('sexo', array('M' => 'Masculino', 'F' => 'Feminino'), array('legend' => false, 'value' => $funcionario['Funcionario']['sexo'])); ?>
               </div>
               <div class="w3-third w3-padding">
                 <h4>Contactos</h4>

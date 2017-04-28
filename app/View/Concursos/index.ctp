@@ -12,7 +12,7 @@
 		 		<span class='glyphicon glyphicon-plus-sign' ></span>
 		 		Novo Concurso
 		 	</a>
-		  <a href="#" class="w3-bar-item w3-button">Home</a>
+		  <button class="w3-bar-item w3-button"><i class="fa fa-print"></i> Imprimir</button>
 		  <input type="text" class="w3-bar-item w3-input w3-border w3-white w3-hover-sand" placeholder="Nome do concurso...">
 		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->
 		</div>

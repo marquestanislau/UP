@@ -107,9 +107,12 @@ class FuncionariosController extends AppController {
   public function listaDeParticipantesAjax() {
     $this->Funcionario->recursive = 0;
     $this->Paginator->settings = $this->paginator_settings;
-    $this->set('funcionarios', $this->Paginator->paginate());
-    if($this->request->is('ajax'))
+    $funcionarios = $this->Paginator->paginate();
+    
+    if($this->request->is('ajax')){
+      $this->set(compact('funcionarios'));
       $this->render('lista', 'ajax');
+    }
   }
 
   /*Vai receber um $id pelo method post, para verificar a existencia do Funcionario ;)*/

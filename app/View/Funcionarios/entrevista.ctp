@@ -35,11 +35,12 @@
 	</table>
 	<div class="row">
 		<div class="col-md-6">
-			<button class="w3-btn w3-blue">Nova entrevista</button>
+			<button onclick="document.getElementById('entrevista').style.display='block'" class="w3-btn w3-blue">Nova entrevista</button>
 		</div>
 		<div class="col-md-6">
 			<input placeholder="Procure aqui" class="w3-input w3-border" type="" name="">
 		</div>
+		<?php include('entrevista/janela_modal.ctp'); ?>
 	</div>
 </div>
 <button id="demo-show-toast" onclick="displayMessages()" class="mdl-button mdl-js-button mdl-button--raised" type="button">Show Toast</button>
