@@ -7,7 +7,7 @@
     </header>
     <div class="w3-container w3-padding-bottom">
       <?php if (!empty($funcionario['Funcionario']['despacho'])) {?>
-      <h1 class="w3-large w3-text-grey w3-padding"><span class="glyphicon glyphicon-ok  w3-large"></span> Este candidato ja foi marcado como funcionario</h1>
+      <h1 class="w3-large w3-text-grey w3-padding"><span class="glyphicon glyphicon-ok  w3-large"></span> Este candidato j&aacute; foi marcado como funcion&aacute;rio</h1>
       <?php } else {?>
       <?php echo $this->Form->create('Funcionario', array('id' => 'formCandidatura'.$funcionario_id)); ?>
       <?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $funcionario['Funcionario']['id'])); ?>
@@ -27,7 +27,7 @@
         <div class="w3-col m12 w3-topbar">
           <strong>Concurso [<?php echo $funcionario['Concurso']['nome']; ?>]</strong> <br>
           <label class="w3-label">Carreira a que concorre: </label>
-          <?php echo $funcionario['Carreira']['nome']; ?>
+          <span class="w3-large"><?php echo $funcionario['Carreira']['nome']; ?></span>
         </div>
         <div class="w3-col m12">
           <label class="w3-label">Nome: </label>
@@ -42,7 +42,7 @@
         </div>
         <div class="w3-col m12">
           <label class="w3-label">Despacho: </label>
-          <?php //echo $this->Form->input('despacho', array('class' => 'w3-light-grey', 'type' => 'date', 'label' => false)); ?>
+          <?php echo $this->Form->input('despacho', array('class' => 'w3-light-grey', 'type' => 'date', 'label' => false)); ?>
         </div>
       </div>
       <div id="requesting<?php echo $funcionario['Funcionario']['id']; ?>" style="display: none;">
@@ -50,13 +50,17 @@
       </div>
       <?php }?>
     </div>
-    <footer class="w3-container w3-padding-bottom">
+    <footer class="w3-container w3-sand w3-padding-bottom">
         <?php if ( !empty($funcionario['Funcionario']['despacho'])): ?>
           <button type="button" onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" class="w3-btn w3-large w3-blue">
             <i class="fa fa-thumbs-up"></i>
             Ok
           </button>
         <?php else: ?>
+          <button onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" type="button" class="w3-btn w3-red w3-large pull-right">
+            <i class="fa fa-close"></i>
+            Cancelar
+          </button>
           <button id="admitir<?php echo $funcionario_id;?>" class="w3-large w3-btn pull-right w3-green"><i class="fa fa-thumbs-o-up"></i> Admitir
           </button>
         <?php endif ?>

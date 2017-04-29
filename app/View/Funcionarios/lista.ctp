@@ -13,7 +13,7 @@
       <button id="aprovado<?php echo $funcionario_id;?>" onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='block'" class="w3-text-teal w3-btn w3-tiny w3-white w3-border">
         <i class="fa fa-thumbs-up"></i>
       </button>
-      <span class="mdl-tooltip" for="aprovado<?php echo $funcionario_id;?>">Aprovar</span>
+      <span class="mdl-tooltip" for="aprovado<?php echo $funcionario_id;?>">Aprovar <?php echo $funcionario['Funcionario']['nome']; ?></span>
     </td>
     </tr>
     <?php include('despacho.ctp'); ?>

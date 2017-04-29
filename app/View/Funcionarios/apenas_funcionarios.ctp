@@ -6,8 +6,8 @@
         <td><?php echo $funcionario['Funcionario']['apelido']; ?></td>
         <td><?php echo $funcionario['Funcionario']['contacto_pessoal']; ?></td>
         <td>
-          <i class="<?php echo $funcionario['Funcionario']['sexo'] == 'M' ? 'w3-text-blue fa fa-male' : 'w3-text-green fa fa-female'; ?>"></i>    
-          <?php echo $funcionario['Funcionario']['sexo']; ?>
+          <i class="<?php echo $funcionario['Funcionario']['sexo'] == 'M' ? 'w3-text-grey fa fa-male' : 'w3-text-grey fa fa-female'; ?>"></i>    
+          [<?php echo $funcionario['Funcionario']['sexo']; ?>]
         </td>
         <td><?php echo $funcionario['Funcionario']['data_nascimento']; ?></td>
         <td>
