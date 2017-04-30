@@ -1,6 +1,6 @@
 <div class="row">
-	<h6 class="w3-text-grey"><i class="fa fa-refresh"></i> Transferencia</h6>
 	<div class="col-md-11 w3-white w3-border">
+	<h6 class="w3-text-grey"><i class="fa fa-refresh"></i> Transferencia</h6>
 		<?php echo $this->Form->create('Funcionario');?>
 		<h5 class="w3-center w3-text-blue">Adicionar transferencia</h5>
 		<div class="w3-row">

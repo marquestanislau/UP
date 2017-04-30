@@ -1,11 +1,9 @@
-<div class="col-md-6">
-	<h4 class="w3-text-grey settings-font-color">
+
+<div class="col-md-12">
+	<div class="w3-white w3-border w3-container w3-padding">
+	<h4 class="w3-text-blue">
 		<span style="font-size: 24px;" class=" glyphicon glyphicon-folder-open"></span> <?php echo __('Concursos'); ?>
 	</h4>
-</div>
-<div class="col-md-12">
-	<div style="margin-top: 10px;"></div>
-	<div class="w3-white w3-border w3-container w3-padding">
 		 <div class="w3-bar w3-light-grey">
 		 	<a id="salvarConcurso" href="#" onclick="document.getElementById('addConcursoModal').style.display='block'"
 		 		class="w3-bar-item w3-button">
@@ -16,7 +14,7 @@
 		  <input type="text" class="w3-bar-item w3-input w3-border w3-white w3-hover-sand" placeholder="Nome do concurso...">
 		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->
 		</div>
-		<h4 class="w3-text-dark-grey">Lista de concursos disponiveis</h4>
+		<h4 class="w3-text-dark-grey w3-center">Lista de concursos disponiveis</h4>
 		<table class="table table-striped w3-border w3-border-dark-grey" cellpadding="0" cellspacing="0">
 			<thead class="w3-dark-grey">
 				<tr>

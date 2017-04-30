@@ -1,15 +1,16 @@
 <div class="row">
-	<div class="col-md-6">
-		<h4 class="w3-text-grey">Escal&otilde;es</h4>
-	</div>
-	<div class="col-md-4">
-		<input class="w3-input pull-right w3-border w3-animate-input" placeholder="Digite o nome do escal&atilde;o" style="width: 50%" type="" name="">
-	</div>
-</div>
-<div class="row">
 	<div class="col-md-10">
 		<div class="w3-container w3-white w3-border w3-padding">
 			<h6 class="w3-text-blue"><span class="fa fa-cubes"></span>Escal&otilde;es pertencentes a categorias e classes</h6>
+		<div class="w3-bar w3-grey w3-margin-bottom w3-margin-top">
+		  <button class="w3-button w3-bar-item" onclick="document.getElementById('escAddModal').style.display='block'">
+					<span class="glyphicon glyphicon-plus-sign"></span>
+					Adicionar Escal&otilde;es
+				</button>
+				<?php echo $this->Html->link(__('Lista de Categorias'), array('controller' => 'categorias', 'action' => 'index'), array('class' => 'w3-button w3-bar-item')); ?>
+				<?php echo $this->Html->link(__('Lista de Classes'), array('controller' => 'clazzes', 'action' => 'index'), array('class' => 'w3-button w3-bar-item')); ?>
+			<input class="w3-input w3-border w3-light-grey w3-hover-sand w3-bar-item" placeholder="Digite o nome do escal&atilde;o">
+		</div>
 			<table class="table table-striped w3-border w3-border-dark-grey">
 				<thead class="w3-dark-grey">
 					<tr>
@@ -39,24 +40,5 @@
 				</div>
 			</div>
 		</div>
-		<div class="row w3-padding-top">
-			<div class="col-md-3">
-				<button class="w3-btn w3-teal w3-large" onclick="document.getElementById('escAddModal').style.display='block'">
-					<span class="glyphicon glyphicon-plus-sign"></span>
-					Adicionar Escal&otilde;es
-				</button>
-			</div>
-			<div class="col-md-3">
-				<div class="w3-dropdown-hover">
-					<button class="w3-btn w3-green w3-large">
-						<span class="glyphicon glyphicon-tasks"></span>
-						Op&ccedil;&otilde;es
-					</button>
-					<div class="w3-dropdown-content w3-border">
-						<?php echo $this->Html->link(__('Lista de Categorias'), array('controller' => 'categorias', 'action' => 'index')); ?>
-						<?php echo $this->Html->link(__('Lista de Classes'), array('controller' => 'clazzes', 'action' => 'index')); ?>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 		<?php include('add.ctp'); ?>

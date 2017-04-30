@@ -1,12 +1,17 @@
-<div class="col-md-9 w3-white w3-border w3-padding">
+<div class="col-md-10 w3-white w3-border w3-padding">
 	<h4 class="w3-text-blue settings-font-color"><span style="font-size: 24px;" class="glyphicon glyphicon-briefcase"></span> <?php echo __('Carreiras disponiveis no sistema'); ?></h4>
-	<a href="">
-		<span class="glyphicon glyphicon-print"></span>
-		Imprimir
-	</a>
-	<div class="well">
-		Alguma informacao relacionada com a configuracao inserccao de novas carreiras
-	</div>
+	
+	 <div class="w3-bar w3-grey w3-margin-bottom">
+ 	  <a href="#" onclick="document.getElementById('carreiraModal').style.display='block'"  class="w3-bar-item w3-button">
+ 		<span class="glyphicon glyphicon-plus-sign"></span>
+ 	  	Nova carreira
+ 	  </a>
+ 	  <a href="" class="w3-bar-item w3-button">
+ 	  	<span class="glyphicon glyphicon-print"></span>
+ 	  	Imprimir
+ 	  </a>
+ 	  <input class="w3-bar-item w3-input w3-border w3-white" placeholder="Nome da carreira">
+	</div> 
 	<table class="table table-striped w3-border w3-border-dark-grey" cellpadding="0" cellspacing="0">
 	<thead class="w3-dark-grey">
 	<tr>
@@ -35,17 +40,6 @@
 	?>
 	</div>
 </div>
-<div class="col-md-3">
-	<div class="list-group">
-	  <a href="#" class="list-group-item w3-blue">
-	    <h4><span class="glyphicon glyphicon-menu-left"></span> <?php echo __('Menu'); ?></h4>
-	  </a>
-	  <a href="<?php echo $this->Html->url(array('action' => 'configuracao', 'controller' => 'pages'));?>" class="list-group-item"> <span class="glyphicon glyphicon-cog"></span> Configuracoes</a>
-	  <a href="#" onclick="document.getElementById('carreiraModal').style.display='block'"  class="list-group-item w3-hover-green">
-		<span class="glyphicon glyphicon-plus-sign"></span>
-	  	Nova carreira
-	  </a>
-	</div>
 </div>
 
 <?php

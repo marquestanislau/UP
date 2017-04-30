@@ -14,8 +14,9 @@
           <button class="w3-btn w3-green" id="ver<?php echo $funcionario_id;?>">
             <i class="fa fa-user"></i>
             <span class="mdl-tooltip" data-mdl-for="ver<?php echo $funcionario_id;?>">Visualizar <?php echo $funcionario['Funcionario']['nome']; ?></span>
+            <span class="mdl-tooltip" data-mdl-for="editar<?php echo $funcionario_id;?>">Alterar dados de: <?php echo $funcionario['Funcionario']['nome']; ?></span>
           </button>
-          <?php echo $this->Html->link('<i class="fa fa-user-plus"></i>', array('action' => 'alterar/'.$funcionario_id, 'controller' => 'funcionarios'), array('escape' => false, 'class' => 'w3-blue w3-btn')); ?>
+          <?php echo $this->Html->link('<i class="fa fa-user-plus"></i>', array('action' => 'alterar/'.$funcionario_id, 'controller' => 'funcionarios'), array('escape' => false, 'class' => 'w3-blue w3-btn', 'id' => 'editar'.$funcionario_id)); ?>
           <span id="requesting<?php echo $funcionario_id;?>" style="display:none">
             <?php echo $this->Html->image('ajax/ajax-loader.gif');?>
           </span>

@@ -1,5 +1,4 @@
 <?php echo $this->Html->script('filter.js');  ?>
-<h4 class="w3-text-grey"><?php echo __('Sectores'); ?></h4>
 <div class="col-md-8 w3-border w3-padding w3-white">
 	<h4 class="w3-text-blue"><span class="fa fa-industry"></span> <?php echo __('Sectores'); ?></h4>
 	<input onkeyup="filtro()" id="procurar" type="text" style="width: 30%" class="w3-animate-input w3-tiny w3-hover-sand w3-border w3-input w3-margin-bottom" placeholder="Insira o nome do sector..." >

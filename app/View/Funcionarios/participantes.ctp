@@ -1,4 +1,3 @@
-<h5 class="w3-text-grey">Participantes</h5>
 <div class="col-md-12 w3-border w3-white w3-padding">
   <h6 class="w3-text-blue"><span class="fa fa-users"></span> Participantes</h6>
   <?php echo $this->Form->create('Funcionario', array('class' => 'w3-container', 'id' => 'ajaxFormParticipantes'));?>

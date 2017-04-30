@@ -2,43 +2,43 @@
 	<div class="w3-modal-content">
 		<header class="w3-container w3-blue">
 			<span onclick="document.getElementById('carreiraModalEditar<?php echo $id;?>').style.display='none'"
-			class="w3-closebtn">&times;</span>
-			<h3><?php echo __('Editar dados da Carreira'); ?></h3>
-		</header>
-		<div class="w3-container w3-padding-32">
-			<div id="sucessoEditar<?php echo $id;?>"></div>
-			<?php echo $this->Form->create('Carreira', array('id' => 'ajaxFormEditar'.$id)); ?>
-			<?php
+				class="w3-closebtn">&times;</span>
+				<h3><?php echo __('Editar dados da Carreira'); ?></h3>
+			</header>
+			<div class="w3-container w3-padding-32">
+				<div id="sucessoEditar<?php echo $id;?>"></div>
+				<?php echo $this->Form->create('Carreira', array('id' => 'ajaxFormEditar'.$id)); ?>
+				<?php
 				echo $this->Form->input('id', array('value' => $id));
-				echo $this->Form->input('nome', array('style' => 'width:30%', 'class' => 'w3-input w3-hover-khaki w3-animate-input', 'value' => $carreira['Carreira']['nome']));
-			?>
-			<div id="processandoEditar<?php echo $id;?>" style="display: none;">
-				<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
+				echo $this->Form->input('nome', array('style' => 'width:60%', 'class' => 'w3-input w3-hover-khaki w3-animate-input w3-border', 'value' => $carreira['Carreira']['nome']));
+				?>
+				<div id="processandoEditar<?php echo $id;?>" style="display: none;">
+					<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
+				</div>
 			</div>
+			<footer class="w3-container w3-blue w3-padding-8">
+				<button class="w3-btn w3-green w3-large">
+					<span class="glyphicon glyphicon-ok"></span>
+					Submeter
+				</button>
+				<?php echo $this->Form->end(); ?>
+			</footer>
 		</div>
-		<footer class="w3-container w3-blue w3-padding-8">
-			<button class="w3-btn w3-green w3-large">
-				<span class="glyphicon glyphicon-ok"></span>
-				Submeter
-			</button>
-			<?php echo $this->Form->end(); ?>
-		</footer>
 	</div>
-</div>
-<?php
+	<?php
 	$completed = '$("#processandoEditar'.$id.'").attr("style", "display:none")';
 	$beforeIt = '$("#processandoEditar'.$id.'").attr("style", "")';
 
 	$success = $this->Js->request(
-								array(
-									'action' => 'index'
-								),
-								array(
-									'update' => '#corpo',
-									'method' => 'post',
-									'async' => true
-								)
-							);
+		array(
+			'action' => 'index'
+			),
+		array(
+			'update' => '#corpo',
+			'method' => 'post',
+			'async' => true
+			)
+		);
 
 	$dados = $this->Js->get('#ajaxFormEditar'.$id)->serializeForm(array('inline' => true, 'isForm' => true));
 	$this->Js->get('#ajaxFormEditar'.$id)->event(
@@ -46,7 +46,7 @@
 		$this->Js->request(
 			array(
 				'action' => 'adicionarCarreira'
-			),
+				),
 			array(
 				'method' => 'post',
 				'update' => '#sucessoEditar'.$id,
@@ -56,7 +56,7 @@
 				'dataExpression' => true,
 				'async' => true,
 				'success' => $success
+				)
 			)
-		)
-	);
-?>
+		);
+		?>

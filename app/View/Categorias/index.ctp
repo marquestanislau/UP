@@ -1,6 +1,3 @@
-<h4 class="w3-text-grey">
-	<?php echo __('Categorias'); ?>
-</h4>
 <div class="col-md-10 w3-container w3-border w3-padding w3-white">
 	<div id="espera" style="display:none">
 		<?php echo $this->Html->image('ajax/ajax-loader.gif');?>
