@@ -3,15 +3,15 @@
 		<header class="w3-container w3-blue">
 			 <span onclick="document.getElementById('sectoresModalWindow<?php echo $id; ?>').style.display='none'"
        class="w3-closebtn w3-hover-white">&times;</span>
-			<h4><?php echo __('Edit Sectore'); ?></h4>
+			<h5><i class="fa fa-industry"></i> <?php echo __('Editar sector: '.$sectore['Sectore']['designacao']); ?></h5>
 		</header>
 		<div class="w3-container w3-padding-32">
 			<div id="sucesso<?php echo $id; ?>"></div>
 			<?php echo $this->Form->create('Sectore', array('class' => 'w3-container', 'id' => 'ajaxSectorEditarForm'.$id)); ?>
 			<?php
 				echo $this->Form->input('id', array('value' => $id));
-				echo $this->Form->input('designacao', array('class' => 'w3-input w3-hover-khaki', 'value' => $sectore['Sectore']['designacao']));
-				echo $this->Form->input('delegacao_id', array('class' => 'w3-input w3-hover-khaki', 'value' => $sectore['Sectore']['delegacao_id']));
+				echo $this->Form->input('designacao', array('class' => 'w3-input w3-hover-khaki w3-border', 'value' => $sectore['Sectore']['designacao']));
+				echo $this->Form->input('delegacao_id', array('class' => 'w3-input w3-hover-khaki w3-border', 'value' => $sectore['Sectore']['delegacao_id']));
 			?>
 			<div id="requesting<?php echo $id; ?>" style="display: none">
 				<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>

@@ -17,10 +17,10 @@
 		<!-- The Modal -->
 		<div id="modal<?php echo $concurso['Concurso']['id']; ?>" class="w3-modal">
 			<div class="w3-modal-content">
-				<header class="w3-container w3-purple">
+				<header class="w3-container w3-blue w3-padding">
 					<span onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='none'"
 						class="w3-closebtn">&times;</span>
-						<h5>Editar dados para concurso</h5>
+						<h5><i class="fa fa-newspaper-o"></i> Editar dados do concurso</h5>
 					</header>
 					<?php echo $this->Form->create('Concurso', array( 'url' =>array('action' => 'editarModal'), 'default' => false, 'id' => 'ajaxform'.$concurso['Concurso']['id']));?>
 					<div class="w3-container">
@@ -32,7 +32,7 @@
 						<?php echo $this->Form->hidden('data_registo', array('id' => $concurso['Concurso']['id'])); ?>
 					</div>
 					<footer style="padding: 14px;" class="w3-container">
-						<button class="w3-btn w3-purple w3-large" id="saveForm">
+						<button class="w3-btn w3-blue w3-large" id="saveForm">
 							<span class="glyphicon glyphicon-ok"></span>
 							Modificar dados
 						</button>

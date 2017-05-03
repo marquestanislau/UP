@@ -114,8 +114,8 @@
 					</ul>
 				</div>
 
-				<!-- <?php echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
-
+				 <?php echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
+				<!--
 				<ul class="nav nav-pills nav-stacked w3-text-grey w3-leftbar w3-border-green w3-margin-top">
 					<li role="presentation"><a href="#"><i class="fa fa-balance-scale"></i> Avaliar desempenho</a></li>
 					<li role="presentation"><a href="<?php echo $this->Html->url(array('action' => 'transferencia'));?>"><i class="fa fa-refresh"></i> Transferir</a></li>

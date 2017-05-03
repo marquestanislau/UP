@@ -6,7 +6,7 @@
     <td><?php echo $funcionario['Funcionario']['nome']; ?></td>
     <td><?php echo $funcionario['Funcionario']['apelido']; ?></td>
     <td><?php echo $funcionario['Funcionario']['contacto_pessoal']; ?></td>
-    <td><?php echo $funcionario['Funcionario']['sexo']; ?></td>
+    <td><span class="w3-badge w3-red"><?php echo $funcionario['Funcionario']['sexo']; ?></span></td>
     <td><?php echo $funcionario['Funcionario']['data_nascimento']; ?></td>
     <td><?php echo $funcionario['Funcionario']['contacto_alternativo']; ?></td>
     <td>

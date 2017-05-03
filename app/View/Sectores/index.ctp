@@ -1,7 +1,16 @@
 <?php echo $this->Html->script('filter.js');  ?>
-<div class="col-md-8 w3-border w3-padding w3-white">
+<div class="col-md-10 w3-border w3-padding w3-white">
 	<h4 class="w3-text-blue"><span class="fa fa-industry"></span> <?php echo __('Sectores'); ?></h4>
-	<input onkeyup="filtro()" id="procurar" type="text" style="width: 30%" class="w3-animate-input w3-tiny w3-hover-sand w3-border w3-input w3-margin-bottom" placeholder="Insira o nome do sector..." >
+	
+	<div class="w3-bar w3-light-grey w3-margin-bottom">
+		<button class="w3-bar-item w3-button" onclick="document.getElementById('sectoresModal').style.display='block'">
+			<span class='glyphicon glyphicon-plus'></span> Novo sector
+		</button>
+		<a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'delegacaos')); ?>" class="w3-button w3-bar-item"><i class="fa fa-list"></i> Listas das delega&ccedil;&otilde;s</a>
+		
+		<input onkeyup="filtro()" id="procurar" style="width: 50%;" class="w3-bar-item w3-white w3-hover-sand w3-border w3-input" placeholder="Insira o nome do sector..." >
+	</div>
+
     <table class="table table-hover w3-border w3-border-dark-grey" id="tabelaFiltro">
 	<thead class="w3-dark-grey">
 	<tr>
@@ -27,18 +36,6 @@
 		echo $this->Paginator->numbers(array('separator' => ''));
 		echo $this->Paginator->next(__('Proximo') . ' >', array(), null, array('class' => 'next disabled'));
 	?>
-	</div>
-</div>
-<div class="col-md-3">
-	<div class="list-group">
-		<a class="list-group-item" href="">
-			<h6><span class="glyphicon glyphicon-menu-hamburger"></span> <?php echo __('Menu'); ?></h6>
-		</a>
-		<a href="#" class="list-group-item" onclick="document.getElementById('sectoresModal').style.display='block'">
-			<span class='glyphicon glyphicon-plus'></span> Novo sector
-		</a>
-		<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Listas das delega&ccedil;&otilde;s", array('controller' => 'delegacaos', 'action' => 'index'), array('class' => 'list-group-item', 'escape' => false)); ?>
-		<?php echo $this->Html->link("<span class='glyphicon glyphicon-map-marker'></span> Nova delega&ccedil;&atilde;o", array('controller' => 'delegacaos', 'action' => 'add'), array('class' => 'list-group-item', 'escape' => false)); ?>
 	</div>
 </div>
 <?php

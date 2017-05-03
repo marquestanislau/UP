@@ -10,7 +10,7 @@
 		<?php
 			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki w3-border'));
 			echo $this->Form->input('categoria_id', array('empty' => '-- Selecione a categoria --', 'class' => 'w3-input w3-hover-light-grey w3-border'));
-			echo $this->Form->input('clazze_id', array('empty' => '-- Seleccione a carreira --', 'class' => 'w3-input w3-hover-sand w3-border'));
+			echo $this->Form->input('clazze_id', array('empty' => '-- Seleccione a carreira --', 'class' => 'w3-input w3-hover-sand w3-border', 'label' => 'Classe'));
 		?>
 		<div style="display: none" id="requesting">
 			<?php echo $this->Html->image('ajax/ajax-loader.gif');?>

@@ -9,12 +9,12 @@
 	    		<a href="#" class="w3-button w3-circle w3-large pull-right"><span class="glyphicon glyphicon-file w3-text-grey"></span></a>
 			</h6>
 	    </div>
-	    <div class="w3-bar w3-grey w3-margin-top w3-margin-bottom">
+	    <div class="w3-bar w3-light-grey w3-margin-top w3-margin-bottom">
 				<a href="#" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-print w3-text-dark-grey"></span></a>
 				<button onclick="document.getElementById('classeModal').style.display='block'" class="w3-bar-item w3-button w3-text-dark-grey">
 					<span class="glyphicon glyphicon-plus"></span>
 				</button>
-		    <input placeholder="Procure aqui..." class="w3-bar-item w3-input w3-light-grey w3-border w3-hover-sand">
+		    <input placeholder="Procure aqui..." class="w3-bar-item w3-input w3-white w3-border w3-hover-sand">
 	    </div> 
     	    <table class="table table-striped w3-border w3-border-dark-grey">
 	    		<thead class="w3-dark-grey">
