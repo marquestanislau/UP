@@ -1,5 +1,5 @@
 <div id="classeModal<?php echo $id;?>" class="w3-modal">
-	<div class="w3-modal-content">
+	<div class="w3-modal-content w3-animate-zoom">
 		<header class="w3-container w3-blue">
 			<span class="w3-closebtn" onclick="document.getElementById('classeModal<?php echo $id;?>').style.display = 'none'">
 				&times;

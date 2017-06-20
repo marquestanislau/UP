@@ -24,7 +24,7 @@ class FuncionariosController extends AppController {
         $this->render('lista', 'ajax');
       } if (!empty($concurso) && !empty($carreira)) {
         $conditions = array( 'conditions' => array(
-            'Funcionario.carreira_id' => $carreira, 
+            'Funcionario.carreira_id' => $carreira,
             'Funcionario.concurso_id' => $concurso
             )
         );
@@ -108,7 +108,7 @@ class FuncionariosController extends AppController {
     $this->Funcionario->recursive = 0;
     $this->Paginator->settings = $this->paginator_settings;
     $funcionarios = $this->Paginator->paginate();
-    
+
     if($this->request->is('ajax')){
       $this->set(compact('funcionarios'));
       $this->render('lista', 'ajax');

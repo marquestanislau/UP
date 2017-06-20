@@ -9,20 +9,20 @@ App::uses('AppController', 'Controller');
 class ClazzesController extends AppController {
 
         public $name = 'Clazzes';
-    
+
 /**
  * Components
  *
  * @var array
  */
 	public $components = array(
-            	'Paginator', 
+            	'Paginator',
             	'Session',
             	'Flash',
             	'RequestHandler'
             );
 
-	public $helpers = array('Js'  => array('Jquery'));
+	public $helpers = array('Js'  => array('Jquery'), 'Html');
 
 /**
  * index method
@@ -36,6 +36,13 @@ class ClazzesController extends AppController {
 		if($this->request->is('ajax')) {
 			$this->render('classes', 'ajax');
 		}
+	}
+
+  public function pdf_classes() {
+    ini_set('memory_limit', '512M');
+    $clazzes = $this->Clazze->find('all');
+    $this->setKeys();
+		$this->set(compact('clazzes'));
 	}
 
 /**
@@ -78,7 +85,7 @@ class ClazzesController extends AppController {
 		}
 		$this->setKeys();
 	}
-        
+
         protected function setKeys() {
             $carreiras = $this->Clazze->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
             $this->set(compact('carreiras'));
@@ -101,7 +108,7 @@ class ClazzesController extends AppController {
 					$this->render('sucesso', 'ajax');
 				} else {
 					$this->render('erro', 'ajax');
-				}	
+				}
 			} else {
 				if ($this->Clazze->save($this->request->data)) {
 					$this->Flash->success(__('The clazze has been saved.'));

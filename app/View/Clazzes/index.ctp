@@ -10,18 +10,20 @@
 			</h6>
 	    </div>
 	    <div class="w3-bar w3-light-grey w3-margin-top w3-margin-bottom">
-				<a href="#" class="w3-bar-item w3-button"><span class="glyphicon glyphicon-print w3-text-dark-grey"></span></a>
-				<button onclick="document.getElementById('classeModal').style.display='block'" class="w3-bar-item w3-button w3-text-dark-grey">
+	    		<span class="mdl-tooltip" data-mdl-for="print"><i class="fa fa-check"></i> Imprimir relat&oacute;rio</span>
+	    		<span class="mdl-tooltip" data-mdl-for="add"><i class="fa fa-plus"></i> Adicionar classes</span>
+				<a id="print" href="<?php echo $this->Html->url(array('action' => 'pdf_classes', 'ext' => 'pdf')); ?>" class="w3-bar-item w3-button" target="_blank"><span class="glyphicon glyphicon-print w3-text-dark-grey"></span></a>
+				<button id="add" onclick="document.getElementById('classeModal').style.display='block'" class="w3-bar-item w3-button w3-text-dark-grey">
 					<span class="glyphicon glyphicon-plus"></span>
 				</button>
 		    <input placeholder="Procure aqui..." class="w3-bar-item w3-input w3-white w3-border w3-hover-sand">
-	    </div> 
+	    </div>
     	    <table class="table table-striped w3-border w3-border-dark-grey">
 	    		<thead class="w3-dark-grey">
 	    		<tr>
     				<th><?php echo $this->Paginator->sort('nome'); ?></th>
     				<th><?php echo $this->Paginator->sort('carreira_id'); ?></th>
-    				<th class="actions"><?php echo __('Actions'); ?></th>
+    				<th class="actions"><?php echo __('Opera&ccedil;&otilde;es'); ?></th>
 	    		</tr>
 	    		</thead>
 	    		<tbody id="table-body">
@@ -41,10 +43,10 @@
 				echo $this->Paginator->next(__('Proximo') . ' >', array(), null, array('class' => 'next disabled'));
 			?>
 			</div>
-			
+
 			<div class="row w3-margin-top">
 			<div class="col-md-4">
-				
+
 			</div>
 	    </div>
 	</div>

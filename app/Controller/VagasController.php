@@ -8,30 +8,30 @@ App::uses('AppController', 'Controller');
  */
 class VagasController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
+	/**
+	 * Components
+	 *
+	 * @var array
+	 */
 	public $components = array('Paginator', 'Flash', 'Session');
 
-/**
- * index method
- *
- * @return void
- */
+	/**
+	 * index method
+	 *
+	 * @return void
+	 */
 	public function index() {
 		$this->Vaga->recursive = 0;
 		$this->set('vagas', $this->Paginator->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function view($id = null) {
 		if (!$this->Vaga->exists($id)) {
 			throw new NotFoundException(__('Invalid vaga'));
@@ -40,11 +40,11 @@ class VagasController extends AppController {
 		$this->set('vaga', $this->Vaga->find('first', $options));
 	}
 
-/**
- * add method
- *
- * @return void
- */
+	/**
+	 * add method
+	 *
+	 * @return void
+	 */
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Vaga->create();
@@ -55,22 +55,22 @@ class VagasController extends AppController {
 				$this->Flash->error(__('The vaga could not be saved. Please, try again.'));
 			}
 		}
-                $this->getKeys();
+		$this->getKeys();
 	}
 
-        protected function getKeys() {
-            $concursos = $this->Vaga->Concurso->find('list', array('fields' => 'Concurso.nome', 'Concurso.id'));
-            $carreiras = $this->Vaga->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
-            $this->set(compact('concursos', 'carreiras'));
-        }
+	protected function getKeys() {
+		$concursos = $this->Vaga->Concurso->find('list', array('fields' => 'Concurso.nome', 'Concurso.id'));
+		$carreiras = $this->Vaga->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
+		$this->set(compact('concursos', 'carreiras'));
+	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function edit($id = null) {
 		if (!$this->Vaga->exists($id)) {
 			throw new NotFoundException(__('Invalid vaga'));
@@ -89,13 +89,13 @@ class VagasController extends AppController {
 		$this->getKeys();
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
+	/**
+	 * delete method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
 	public function delete($id = null) {
 		$this->Vaga->id = $id;
 		if (!$this->Vaga->exists()) {

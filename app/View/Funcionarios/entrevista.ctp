@@ -1,5 +1,5 @@
 <div class="col-md-11 w3-white w3-border w3-padding">
-	<h5>Entrevistas</h5>
+	<h5 class="w3-text-blue"><i class="fa fa-folder"></i> Entrevistas</h5>
 	<a href="#" onclick="document.getElementById('settings').style.display='block'" class="pull-right"><span class="glyphicon glyphicon-cog"></span></a>
 	<div id="settings" class="w3-modal">
 		<div class="w3-modal-content">

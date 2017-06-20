@@ -92,7 +92,7 @@ class CtasController extends AppController {
     /**
      * delete method
      *
-     * @throws NotFoundException
+     * @throws NotFoundExceptio
      * @param string $id
      * @return void
      */

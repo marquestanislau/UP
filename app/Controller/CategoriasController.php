@@ -30,6 +30,11 @@ class CategoriasController extends AppController {
 		$this->fillCombo();
 	}
 
+	public function listaEmPdf() {
+		$categorias = $this->Categoria->find('all');
+		$this->set(compact('categorias'));
+	}
+
 /**
  * view method
  *
