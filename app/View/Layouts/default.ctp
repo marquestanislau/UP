@@ -43,7 +43,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   echo $this->fetch('script');
 ?>
 </head>
-<body class="w3-light-grey">
+<body class="w3-white w3-text-gray">
 <!-- Navbar -->
 <div class="w3-top">
   <ul class="w3-navbar w3-blue w3-theme w3-left-align w3-large">
@@ -131,7 +131,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 </div>
 
 <!-- Sidenav -->
-<nav class="w3-sidenav w3-light-grey w3-center w3-collapse w3-animate-left" style="z-index:3;width:100px;margin-top:51px;" id="mySidenav">
+<nav class="w3-sidenav w3-white w3-text-gray w3-center w3-collapse w3-animate-left" style="z-index:3;width:100px;margin-top:51px;" id="mySidenav">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-blue w3-hide-large" title="close menu">
     <i class="glyphicon glyphicon-remove"></i>
   </a>
@@ -162,7 +162,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- Main content: shift it to the right by 250 pixels when the sidenav is visible -->
-<div class="w3-main w3-light-grey w3-container" style="margin-left:120px">
+<div class="w3-main w3-white w3-text-gray w3-container" style="margin-left:120px">
 
   <div class="w3-row">
     <div style="margin-top: 50px;"><?php echo $this->fetch('content'); ?></div>

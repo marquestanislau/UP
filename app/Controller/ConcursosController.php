@@ -16,6 +16,11 @@ class ConcursosController extends AppController {
 		}
 	}
 
+	public function lista_concursos() {
+		$concursos = $this->Concurso->find('all');
+		$this->set(compact('concursos'));
+	}
+
 
 	public function view($id = null) {
 		if (!$this->Concurso->exists($id)) {

@@ -1,6 +1,6 @@
 <?php echo $this->Html->script('filter.js');  ?>
 <div class="row">
-		<div class="col-md-11 w3-white w3-padding w3-border">
+		<div class="col-md-11 w3-white w3-padding">
 		<div class="row w3-padding-top">
 			<div class="col-md-6 w3-white">
 				<h6 class="w3-text-blue">
@@ -8,19 +8,19 @@
 					Lista de Utilizadores regitados no sistema</h6>
 			</div>
 			<div class="col-md-4 w3-text-grey w3-white">
-				<a href="#" class="pull-right w3-margin-left">
+				<a href="#" class="pull-right w3-margin-left w3-button w3-circle w3-hover-text-gray">
 					<span class="glyphicon glyphicon-question-sign"></span>
 				</a>
-				<a href="#" class="pull-right w3-margin-left">
+				<a target="_blank" href="<?php echo $this->Html->url(array('action' => 'print_users', 'ext' => 'pdf'));?>" class="pull-right w3-margin-left w3-button w3-circle w3-hover-text-gray">
 					<span class="glyphicon glyphicon-print"></span>
 				</a>
-				<a href="#" class="pull-right w3-margin-left">
+				<a href="#" class="pull-right w3-margin-left w3-button w3-circle w3-hover-text-gray">
 					<span class="glyphicon glyphicon-cog"></span>
 				</a>
 			</div>
 		</div>
-			<table id="tabelaFiltro" class="table table-striped w3-border w3-border-dark-grey">
-				<thead class="w3-dark-grey">
+			<table id="tabelaFiltro" class="table table-striped w3-topbar w3-border-blue">
+				<thead class="w3-yellow">
 					<tr>
 						<th><?php echo $this->Paginator->sort('nome'); ?></th>
 						<th><?php echo $this->Paginator->sort('apelido'); ?></th>

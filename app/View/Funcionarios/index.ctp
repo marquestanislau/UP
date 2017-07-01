@@ -1,6 +1,6 @@
 <?php echo $this->Html->script('filter.js'); ?>
 <div id="content" class="row">
-	<div class="col-md-10 w3-border w3-white w3-padding">
+	<div class="col-md-10 w3-white w3-padding">
 	<h6 class="w3-text-blue"><i class="fa fa-users"></i> Lista de funcion&aacute;rios</h6>
 		<div class="w3-bar w3-light-grey">
 		  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-print"></i> Imprimir</a>

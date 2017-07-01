@@ -31,6 +31,11 @@ class UsuariosController extends AppController {
 		$this->set('usuarios', $this->Paginator->paginate());
 	}
 
+	public function print_users() {
+		$usuarios = $this->Usuario->find('all');
+		$this->set(compact('usuarios'));
+	}
+
 /**
  * view method
  *

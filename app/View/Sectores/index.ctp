@@ -1,5 +1,5 @@
 <?php echo $this->Html->script('filter.js');  ?>
-<div class="col-md-10 w3-border w3-padding w3-white">
+<div class="col-md-10 w3-padding w3-white">
 	<h4 class="w3-text-blue"><span class="fa fa-industry"></span> <?php echo __('Sectores'); ?></h4>
 	
 	<div class="w3-bar w3-light-grey w3-margin-bottom">

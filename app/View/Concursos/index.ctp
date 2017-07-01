@@ -1,6 +1,6 @@
 
 <div class="col-md-12">
-	<div class="w3-white w3-border w3-container w3-padding">
+	<div class="w3-white w3-container w3-padding">
 	<h4 class="w3-text-blue">
 		<span style="font-size: 24px;" class=" glyphicon glyphicon-folder-open"></span> <?php echo __('Concursos'); ?>
 	</h4>
@@ -10,13 +10,14 @@
 		 		<span class='glyphicon glyphicon-plus-sign' ></span>
 		 		Novo Concurso
 		 	</a>
-		  <button class="w3-bar-item w3-button"><i class="fa fa-print"></i> Imprimir</button>
+		  <a id="print" target="_blank" href="<?php echo $this->Html->url(array('action' => 'lista_concursos', 'ext' => 'pdf'));?>" class="w3-bar-item w3-button"><i class="fa fa-print"></i> Imprimir</a>
+		  <span class="mdl-tooltip" data-mdl-for="print">Imprimir todos concursos registados</span>
 		  <input type="text" style="width: 50%;" class="w3-bar-item w3-input w3-border w3-white w3-hover-sand" placeholder="Nome do concurso...">
 		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->
 		</div>
 		<!-- <h4 class="w3-text-dark-grey w3-center">Lista de concursos disponiveis</h4> -->
-		<table class="table table-striped w3-border w3-border-dark-grey" cellpadding="0" cellspacing="0">
-			<thead class="w3-dark-grey">
+		<table class="table table-striped w3-topbar w3-border-grey" cellpadding="0" cellspacing="0">
+			<thead class="w3-white">
 				<tr>
 					<th><?php echo $this->Paginator->sort('data_aprovacao'); ?></th>
 					<th><?php echo $this->Paginator->sort('nome'); ?></th>

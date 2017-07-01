@@ -29,6 +29,11 @@ class CarreirasController extends AppController {
 		}
 	}
 
+	public function relatorio_carreira() {
+		$carreiras = $this->Carreira->find('all');
+		$this->set(compact('carreiras'));
+	}
+
 /**
  * view method
  *

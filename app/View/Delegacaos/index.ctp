@@ -1,4 +1,4 @@
-<div class="col-md-9 w3-white w3-padding w3-border">
+<div class="col-md-9 w3-white w3-padding">
   <h6 class="w3-text-blue settings-font-color">
     <span style="font-size: 24px;" class="glyphicon glyphicon-map-marker">
 
