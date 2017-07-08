@@ -52,15 +52,32 @@ class CtasController extends AppController {
         if ($this->request->is('ajax')) {
             $this->Cta->create();
             $this->Cta->Funcionario->create();
-            if ($this->Cta->saveAssociated($this->request->data)) {
-                $this->request->data = array();
-                $this->render('sucesso', 'ajax');
+            if ($this->antesDeSalvar($this->request->data)) {
+                if ($this->Cta->saveAssociated($this->request->data)) {
+                    $this->request->data = array();
+                    $this->render('sucesso', 'ajax');
+                } else {
+                    $this->render('erro', 'ajax');
+                }
             } else {
-                $this->render('erro', 'ajax');
+                $this->render('erro_duplo', 'ajax');
             }
         }
         // $funcionarios = $this->Cta->Funcionario->find('list');
         // $this->set(compact('funcionarios'));
+    }
+
+    protected function antesDeSalvar($data) {
+        $ctas = $this->Cta->find('all');
+        foreach ( $ctas as $cta) {
+            if($cta['Funcionario']['nome'] === $data['Funcionario']['nome']
+                && $cta['Funcionario']['apelido'] === $data['Funcionario']['apelido']
+                && $cta['Funcionario']['contacto_pessoal'] === $data['Funcionario']['contacto_pessoal']
+                && $cta['Funcionario']['data_nascimento'] === $data['Funcionario']['data_nascimento']) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

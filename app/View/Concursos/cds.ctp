@@ -26,8 +26,10 @@
 	<?php
 		echo $this->Form->input('Funcionario.contacto_pessoal', array('class' => 'w3-input w3-border w3-hover-khaki'));
 		echo $this->Form->input('Funcionario.contacto_alternativo', array('class' => 'w3-input w3-border w3-hover-khaki'));
-		echo $this->Form->input('Funcionario.email', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'exemplo@mail.com'));
+		echo $this->Form->input('Funcionario.email_pessoal', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'exemplo@mail.com'));
+		echo $this->Form->input('Funcionario.data_nascimento', array('label' => 'Data de nascimento', 'type' => 'text', 'class' => 'w3-input w3-border datepicker', 'placeholder' => '(Ano-Mes-Dia)', 'id' => 'data'.$carreira_id , 'onfocus' => 'selecionadorPorId(data'.$carreira_id.')'));
 	?>
+
 	<button class="w3-large w3-green w3-btn w3-margin-top pull-right">
 		<span class="glyphicon glyphicon-ok"></span>
 		Submeter
@@ -41,8 +43,8 @@
 			'controller' => 'cds'
 		),
 		array(
-			'before' => '$("#sucessoCds'.$carreira_id.'").fadeIn(300)',
-			'complete' => '$("#sucessoCds'.$carreira_id.'").fadeOut(1500)',
+			'before' => '$("#sucessoCds'.$carreira_id.'").fadeIn(100)',
+			'complete' => '$("#sucessoCds'.$carreira_id.'").fadeOut(6500)',
 			'success' => '$("#sucessoCds'.$carreira_id.'").finish()'
 		)
 	);

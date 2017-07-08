@@ -7,7 +7,7 @@
 		object-fit: cover; /*magic*/
 	}
 </style>
-<div class="row w3-border w3-white">
+<div class="row w3-white">
 	<div class="col-md-7">
 		<div class="w3-margin w3-padding-bottom">
 			<div class="w3-container alert alert-info">

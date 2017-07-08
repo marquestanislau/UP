@@ -29,6 +29,16 @@ function selecionador(id) {
 	});
 }
 
+function selecionadorPorId(id) {
+	// alert('.datepicker'+id);
+	$('#'+id).datepicker({
+		startDate:'01/01/1996',
+		dateFormat: "yy-mm-dd",
+		changeMonth: true,
+		changeYear: true
+	});
+}
+
 function displayMessages() {
 	var snackbarContainer = document.querySelector('#message');
 	var data = {message: 'Estanislau Samussone Marques'};

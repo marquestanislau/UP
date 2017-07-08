@@ -11,6 +11,13 @@
         </td>
         <td><?php echo $funcionario['Funcionario']['data_nascimento']; ?></td>
         <td>
+          <a id="vta<?php echo $funcionario_id;?>" class="w3-btn w3-white w3-border w3-hover-blue w3-text-grey">
+            <i class="fa fa-file-text"></i>
+            <span class="mdl-tooltip" data-mdl-for="vta<?php echo $funcionario_id;?>">
+              Imprimir termo de contracto para <br> 
+              <i class="fa fa-user"></i> <?php echo $funcionario['Funcionario']['nome'];?>
+            </span>
+          </a>
           <button class="w3-btn w3-green" id="ver<?php echo $funcionario_id;?>">
             <i class="fa fa-user"></i>
             <span class="mdl-tooltip" data-mdl-for="ver<?php echo $funcionario_id;?>">Visualizar <?php echo $funcionario['Funcionario']['nome']; ?></span>

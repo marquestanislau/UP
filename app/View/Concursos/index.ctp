@@ -1,5 +1,5 @@
 
-<div class="col-md-12">
+<div class="">
 	<div class="w3-white w3-container w3-padding">
 	<h4 class="w3-text-blue">
 		<span style="font-size: 24px;" class=" glyphicon glyphicon-folder-open"></span> <?php echo __('Concursos'); ?>
@@ -17,7 +17,7 @@
 		</div>
 		<!-- <h4 class="w3-text-dark-grey w3-center">Lista de concursos disponiveis</h4> -->
 		<table class="table table-striped w3-topbar w3-border-grey" cellpadding="0" cellspacing="0">
-			<thead class="w3-white">
+			<thead class="w3-white w3-text-blue">
 				<tr>
 					<th><?php echo $this->Paginator->sort('data_aprovacao'); ?></th>
 					<th><?php echo $this->Paginator->sort('nome'); ?></th>

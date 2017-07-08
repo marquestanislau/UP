@@ -1,8 +1,8 @@
 <div class="row">
-	<h5 class="w3-text-grey"> 
+	<h5 class="w3-text-blue"> 
 		<span class="fa fa-user w3-large"></span>
 		Alterar dados de funcionario</h5>
-		<div class="col-md-10 w3-padding w3-border w3-white">
+		<div class="w3-padding w3-white">
 			<div class="w3-row">
         <div class="w3-container">
           <h4>
@@ -15,7 +15,7 @@
           <!-- End mensagem de erro ou exito -->
         </div>
 
-        <div class="w3-bar w3-dark-grey">
+        <div class="w3-bar w3-light-grey">
           <button class="w3-bar-item w3-button" onclick="openCity('London')"><i class="fa fa-info"></i> Informa&ccedil;&atilde;o</button>
           <button class="w3-bar-item w3-button" onclick="openCity('Paris')"><i class="fa fa-address-card-o"></i> Dados/Contacto</button>
           <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')"><i class="fa fa-file-word-o"></i> Documentos</button>
@@ -98,7 +98,7 @@
               </div>
             </div>
 
-             <button id="submeter" class="w3-btn w3-large w3-blue">
+             <button id="submeter" class="w3-margin-left w3-hover-light-blue w3-button w3-large w3-blue">
               <i class="fa fa-send"></i>
               Submeter formul&aacute;rio
             </button>

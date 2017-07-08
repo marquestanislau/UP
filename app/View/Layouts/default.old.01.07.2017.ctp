@@ -130,17 +130,42 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   </ul>
 </div>
 
+<!-- Sidenav -->
+<nav class="w3-sidenav w3-white w3-text-gray w3-center w3-collapse w3-animate-left" style="z-index:3;width:100px;margin-top:51px;" id="mySidenav">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-blue w3-hide-large" title="close menu">
+    <i class="glyphicon glyphicon-remove"></i>
+  </a>
+  <h4>
+    <b><?php
+        echo $this->Html->link(
+          $this->Html->image("icon72x72.png", array("alt" => "Image not found")),
+          array('controller' => 'pages', 'action' => 'home'),
+          array('escape' => false)
+        );
+      ?></b>
+  </h4>
+    <!-- <?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span> In&iacute;cio', array('controller' => 'pages', 'action' => 'home'), array('escape' => FALSE, 'class' => 'w3-hover-khaki w3-hover-text-blue')); ?>
+    
+    <?php echo $this->Html->link('<span class="glyphicon glyphicon-cog"></span>
+    Configura&ccedil;&otilde;es', array('controller' => 'pages', 'action' => 'configuracao'), array('class' => 'w3-hover-khaki w3-hover-text-blue', 'escape' => FALSE)); ?>
+    
+    <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Utilizadores', array('controller' => 'usuarios', 'action' => 'index'), array('class' => 'w3-hover-khaki w3-hover-text-blue', 'escape' => FALSE)); ?> -->
+
+    <?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>', array('controller' => 'pages', 'action' => 'home'), array('escape' => FALSE, 'class' => 'w3-hover-khaki w3-hover-text-blue')); ?>
+
+    <?php echo $this->Html->link('<span class="glyphicon glyphicon-cog"></span>', array('controller' => 'pages', 'action' => 'configuracao'), array('class' => 'w3-hover-khaki w3-hover-text-blue', 'escape' => FALSE)); ?>
+
+    <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span>', array('controller' => 'usuarios', 'action' => 'index'), array('class' => 'w3-hover-khaki w3-hover-text-blue', 'escape' => FALSE)); ?>
+</nav>
+
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
 <!-- Main content: shift it to the right by 250 pixels when the sidenav is visible -->
-<div class="w3-main w3-white w3-text-gray w3-container">
+<div class="w3-main w3-white w3-text-gray w3-container" style="margin-left:120px">
 
   <div class="w3-row">
-    <div class="w3-col m1 l1">
-      <p></p>
-    </div>
-    <div class="w3-col m10 l10" style="margin-top: 50px;"><?php echo $this->fetch('content'); ?></div>
-    <div class="w3-col m1 l1">
-      <p></p>
-    </div>
+    <div style="margin-top: 50px;"><?php echo $this->fetch('content'); ?></div>
   </div>
 
   <footer id="myFooter">

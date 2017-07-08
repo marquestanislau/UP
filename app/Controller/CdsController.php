@@ -54,14 +54,36 @@ class CdsController extends AppController {
         if ($this->request->is('ajax')) {
             $this->Cd->create();
             $this->Cd->Funcionario->create();
-            if ($this->Cd->saveAssociated($this->request->data)) {
-                $this->render('sucesso', 'ajax');
+            if ($this->antesDeSalvar( $this->request->data )) {
+                if ($this->Cd->saveAssociated($this->request->data)) {
+                    $this->render('sucesso', 'ajax');
+                } else {
+                    $this->render('erro', 'ajax');
+                }
             } else {
-                $this->render('erro', 'ajax');
+                $this->render('erro_duplo', 'ajax');
             }
         }
         // $funcionarios = $this->Cd->Funcionario->find('list');
         // $this->set(compact('funcionarios'));
+    }
+
+    protected function antesDeSalvar($data) {
+        $cds = $this->Cd->find('all');
+
+        foreach ( $cds as $cd ) {
+            if ($cd['Funcionario']['nome'] === $data['Funcionario']['nome']
+                    && $cd['Funcionario']['apelido'] === $data['Funcionario']['apelido']
+                    && $cd['Funcionario']['email_pessoal'] === $data['Funcionario']['email_pessoal']
+                    && $cd['Funcionario']['contacto_pessoal'] === $data['Funcionario']['contacto_pessoal']
+                    && $cd['Funcionario']['data_nascimento'] === $data['Funcionario']['data_nascimento']
+                    && $cd['Cd']['cadeira'] === $data['Cd']['cadeira']) {
+
+                return FALSE;
+            }
+
+        }
+        return TRUE;
     }
 
     /**

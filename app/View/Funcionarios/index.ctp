@@ -1,6 +1,6 @@
 <?php echo $this->Html->script('filter.js'); ?>
 <div id="content" class="row">
-	<div class="col-md-10 w3-white w3-padding">
+	<div class="w3-white w3-padding">
 	<h6 class="w3-text-blue"><i class="fa fa-users"></i> Lista de funcion&aacute;rios</h6>
 		<div class="w3-bar w3-light-grey">
 		  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-print"></i> Imprimir</a>
@@ -9,8 +9,8 @@
 		  <!-- <input type="text" class="w3-bar-item w3-input w3-white w3-border" placeholder="Search.."> -->
 		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->
 		</div>
-		<table id="tabelaFiltro" class="table table-striped w3-border w3-border-dark-grey w3-margin-top">
-			<thead class="w3-dark-grey">
+		<table id="tabelaFiltro" class="table table-striped w3-topbar w3-border-light-grey w3-margin-top">
+			<thead class="w3-text-blue">
 				<th>Nome</th>
 				<th>Apelido</th>
 				<th>Contacto</th>

@@ -4,14 +4,22 @@
 		<td class="w3-text-gray"><?php echo h($concurso['Concurso']['nome'].' [' .$concurso['Concurso']['data_aprovacao']. ']'); ?>&nbsp;</td>
 		<td class="actions">
 			<!-- <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $concurso['Concurso']['id']), array('class' => 'btn btn-success', 'id' => '')); ?> -->
-			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span>", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-red', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?>
+			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span>", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-hover-text-red w3-text-gray w3-white w3-border', 'id' => 'delete'.$concurso['Concurso']['id'], 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?>
 			<!-- Trigger/Open the Modal -->
-			<button onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='block'"
-				class="w3-btn w3-green">
+			<button id="edit<?php echo $concurso['Concurso']['id'];?>" onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='block'"
+				class="w3-btn w3-hover-text-green w3-white w3-text-gray w3-border">
 				<span class="glyphicon glyphicon-edit"></span>
 			</button>
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-briefcase '></span>", array('action' => 'view', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-blue')); ?>
-
+			<?php echo $this->Html->link("<span class='glyphicon glyphicon-briefcase '></span>", array('action' => 'view', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-btn w3-hover-text-blue w3-white w3-text-gray w3-border', 'id' => 'view'.$concurso['Concurso']['id'])); ?>
+			<!-- Tooltip's for buttons -->
+			<span data-mdl-for="view<?php echo $concurso['Concurso']['id'];?>" class="mdl-tooltip">
+				Configurar o concurso <br>(Carreiras, participantes, etc..)
+				<br>
+				Data: <?php echo $concurso['Concurso']['data_aprovacao'];?>
+			</span>
+			<span data-mdl-for="delete<?php echo $concurso['Concurso']['id'];?>" class="mdl-tooltip">Remover o concurso [<?php echo $concurso['Concurso']['data_aprovacao']; ?>]</span>
+			<span data-mdl-for="edit<?php echo $concurso['Concurso']['id'];?>" class="mdl-tooltip">Alterar o concurso [<?php echo $concurso['Concurso']['data_aprovacao']; ?>]</span>
+			<!-- end tooltips -->
 		</td>
 
 		<!-- The Modal -->

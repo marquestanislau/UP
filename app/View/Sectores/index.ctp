@@ -1,5 +1,5 @@
 <?php echo $this->Html->script('filter.js');  ?>
-<div class="col-md-10 w3-padding w3-white">
+<div class="w3-padding w3-white">
 	<h4 class="w3-text-blue"><span class="fa fa-industry"></span> <?php echo __('Sectores'); ?></h4>
 	
 	<div class="w3-bar w3-light-grey w3-margin-bottom">
@@ -11,8 +11,8 @@
 		<input onkeyup="filtro()" id="procurar" style="width: 50%;" class="w3-bar-item w3-white w3-hover-sand w3-border w3-input" placeholder="Insira o nome do sector..." >
 	</div>
 
-    <table class="table table-hover w3-border w3-border-dark-grey" id="tabelaFiltro">
-	<thead class="w3-dark-grey">
+    <table class="table table-hover w3-border w3-border-light-grey" id="tabelaFiltro">
+	<thead class="w3-text-blue">
 	<tr>
 			<!-- <th><?php echo $this->Paginator->sort('#'); ?></th> -->
 			<th><?php echo $this->Paginator->sort('designacao'); ?></th>

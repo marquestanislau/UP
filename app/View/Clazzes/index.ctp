@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-11">
+	<div class="">
 	    <div class="w3-white w3-padding">
 	    <div class="w3-container">
 	    	<h6 class="w3-text-blue">
@@ -22,7 +22,7 @@
 		    <input placeholder="Procure aqui..." class="w3-bar-item w3-input w3-white w3-border w3-hover-sand">
 	    </div>
     	    <table class="table table-striped w3-border w3-border-light-grey">
-	    		<thead class="w3-dark-grey">
+	    		<thead class="w3-text-blue">
 	    		<tr>
     				<th><?php echo $this->Paginator->sort('nome'); ?></th>
     				<th><?php echo $this->Paginator->sort('carreira_id'); ?></th>

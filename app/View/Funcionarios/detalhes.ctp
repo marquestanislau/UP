@@ -1,15 +1,23 @@
 <div class="row">
-	<div class="col-md-11 w3-padding w3-border w3-white">
+	<?php $sexo = $funcionario['Funcionario']['sexo'] == 'F'? 'a' : 'o'; ?>
+	<h4 class="w3-text-blue"><i class="fa fa-user-o"></i> Dados d<?php echo $sexo; ?> funcionari<?php echo $sexo; ?></h4>
+	<div class="w3-padding w3-white">
 		<h4>
 			<?php echo $funcionario['Funcionario']['nome']; ?>
 			<?php echo $funcionario['Funcionario']['apelido']; ?>
-			<a href="#" class="pull-right w3-large w3-text-grey w3-button w3-circle" onclick="history.back()" ><i class="fa fa-arrow-circle-left"></i></a>
-			<a href="#" class="pull-right w3-text-grey w3-large w3-button w3-circle"><i class="fa fa-print"></i></a>
+			<a href="#" class="pull-right w3-large w3-border w3-white w3-text-grey w3-button w3-circle" onclick="history.back()" ><i class="fa fa-arrow-circle-left"></i></a>
+			
+			<a target="_blank" href="<?php echo $this->Html->url(array('action' => 'imprimeFuncionario', 'ext' => 'pdf', $funcionario['Funcionario']['id'])); ?>" 
+				id="print_employee" 
+				class="pull-right w3-border w3-white w3-text-grey w3-large w3-button w3-circle">
+				<i class="fa fa-print"></i>
+			</a>
+			<span data-mdl-for="print_employee" class="mdl-tooltip">Imprimir dados de <?php echo $funcionario['Funcionario']['nome']; ?></span>
 		</h4>
-		<div class="w3-bar w3-dark-grey">
-			<button class="w3-bar-item w3-button w3-red" onclick="openCity('London')">Dados pessoais</button>
-			<button class="w3-bar-item w3-button" onclick="openCity('Paris')">Documentos de Identificacao</button>
-			<button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">Contactos</button>
+		<div class="w3-bar w3-light-grey">
+			<button class="w3-bar-item w3-button" onclick="openCity('London')"><i class="fa fa-user"></i> Dados pessoais</button>
+			<button class="w3-bar-item w3-button" onclick="openCity('Paris')"><i class="fa fa-info-circle"></i> Documentos de Identificacao</button>
+			<button class="w3-bar-item w3-button" onclick="openCity('Tokyo')"><i class="fa fa-phone"></i> Contactos</button>
 		</div>
 		<div id="London" class="city" style="display:block;">
 			<div class="w3-half">
@@ -113,6 +121,9 @@
 						</li>
 					</ul>
 				</div>
+				<button class="w3-button w3-green">
+					<i class="fa fa-check"></i> Vta
+				</button>
 
 				 <?php echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
 				<!--

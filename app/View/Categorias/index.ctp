@@ -1,4 +1,4 @@
-<div class="col-md-10 w3-container w3-padding w3-white">
+<div class="w3-container w3-padding w3-white">
 	<div id="espera" style="display:none">
 		<?php echo $this->Html->image('ajax/ajax-loader.gif');?>
 	</div>
@@ -17,7 +17,7 @@
 			<span class="mdl-tooltip" data-mdl-for="print_category">Imprimir todas categorias disponiveis!</span>
 		</div> 
 		<table class="table table-striped w3-border w3-border-light-grey">
-			<thead class="w3-dark-grey">
+			<thead class="w3-text-blue">
 				<tr>
 					<th><?php echo $this->Paginator->sort('nome'); ?></th>
 					<th><?php echo $this->Paginator->sort('carreira_id'); ?></th>

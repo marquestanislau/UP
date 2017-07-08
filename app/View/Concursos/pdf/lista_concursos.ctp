@@ -6,21 +6,15 @@
 		#cabecalho {
 			border: solid black thin;
 			padding: 2%;
+			text-align: center;
 		}
 
 		table {
-			border-spacing: 0px;
-			margin: auto;
-		}
-		thead {
-			background-color: #2196F3;
-		}
-
-		tbody td {
-
+			width: 100%;
 		}
 		
 	</style>
+	<link rel="stylesheet" href="css/pure-min.css" type="text/css">
 </head>
 <body>
 	<div id="cabecalho">
@@ -28,9 +22,9 @@
 		<h4>SIGERH</h4>
 	</div>
 	<div id="corpo">
-		<h4>Lista de concursos </h4>
-		<table>
-			<head>
+		<h4>Lista de concursos: <?php $data = date('d/m/Y'); echo $data; ?></h4>
+		<table class="pure-table">
+			<thead>
 				<tr>
 					<th>
 						Data
@@ -39,7 +33,7 @@
 						Nome
 					</th>
 				</tr>
-			</head>
+			</thead>
 			<tbody>
 				<?php foreach ( $concursos as $concurso ): ?>
 				<tr>
@@ -50,6 +44,8 @@
 			</tbody>
 		</table>
 	</div>
-
+	<footer>
+		<p>Todos direitos reservados blah</p>
+	</footer>
 </body>
 </html>

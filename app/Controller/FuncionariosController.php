@@ -141,4 +141,10 @@ class FuncionariosController extends AppController {
 
   }
 
+  public function imprimeFuncionario($id = null) {
+    $this->Funcionario->id = $id;
+    $funcionario = $this->Funcionario->read();
+    $this->set(compact('funcionario'));
+  }
+
 }

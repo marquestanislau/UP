@@ -14,35 +14,21 @@
 		}
 
 		div#header {
-			border: solid thin;
+			border: solid thin grey;
+			text-align: center;
 		}
-		table {
-			border-spacing: 0px;
-			margin: auto;
-			table-layout: auto;
-		}
-		tr {
-			border-top: solid black;
-		}
-		thead > tr {
-			background-color: #2196F3;
-		}
-
-		tbody td, thead th {
-			padding: 0px 20px 0px 20px;
-		}
-
 
 	</style>
+	<link rel="stylesheet" href="css/pure-min.css" type="text/css">
 </head>
 <body>
 	<div id="header">
-		<img src="sigerh/img/icon.png">
+		<img src="img/icon.png">
 		<h3 style="color: #2196F3;">SIGERH-UP</h3>
 	</div>
 	<div id="content"> 
 		<h4 style="text-align: center;">** Lista da rela&ccedil;&atilde;o Carreira/Classe **</h4>
-		<table>
+		<table class="pure-table">
 			<thead>
 				<tr>
 					<th># ORDEM</th>
