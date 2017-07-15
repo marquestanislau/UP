@@ -10,6 +10,7 @@ class ConcursosController extends AppController {
 	public function index() {
 		//$this->editarModal();
 		$this->Concurso->recursive = 0;
+		$this->Paginator->settings = $this->paginator_settings;
 		$this->set('concursos', $this->Paginator->paginate());
 		if($this->request->is('ajax')) {
 			$this->render('concursos', 'ajax');
@@ -34,9 +35,8 @@ class ConcursosController extends AppController {
 			'contain' => array('Carreira'),
 			'conditions' => array('Concurso.id' => $id)
 		));
-		$this->set(compact('concursos'));
-		$this->set('concurso', $this->Concurso->find('first', $options));
-		$this->set(compact('carreiras'));
+		$concurso = $this->Concurso->find('first', $options);
+		$this->set(compact('carreiras', 'concursos', 'concurso'));
 
 		$this->categoriasParaCombo();
 		$this->documentosParaCheckbox();
@@ -135,11 +135,27 @@ class ConcursosController extends AppController {
 	public function adicionarModal() {
 		if($this->request->is(array('post', 'ajax'))) {
 			$this->Concurso->create();
-			if($this->Concurso->save($this->request->data)) {
+			if ($this->verificarDuplos($this->request->data)) {
+				$this->render('erro_duplo', 'ajax');
+			} elseif($this->Concurso->save($this->request->data)) {
 				$this->render('sucesso', 'ajax');
 			} else {
 				$this->render('erro', 'ajax');
 			}
 		}
+	}
+
+	protected function verificarDuplos($request) {
+		$nome = $request['Concurso']['nome'];
+		$resultados = $this->Concurso->find('all');
+		
+		foreach ($resultados as $concurso ) {
+			
+			if ( !strcmp($concurso['Concurso']['nome'], $nome) ) {
+				return true;
+			}
+
+		}
+		return false;
 	}
 }

@@ -109,7 +109,7 @@
 						</li>
 						<li>
 							<label class="w3-label">Contacto da empresa: </label>	
-							<?php echo $funcionario['Funcionario']['contacto_trabalho']; ?>
+							<?php echo empty($funcionario['Funcionario']['contacto_trabalho']) ? 'N/D': $funcionario['Funcionario']['contacto_trabalho']; ?>
 						</li>
 						<li>
 							<label class="w3-label">Email: </label>
@@ -117,7 +117,7 @@
 						</li>
 						<li>
 							<label class="w3-label">Email corporativo: </label>
-							<?php echo $funcionario['Funcionario']['email_corporativo']; ?>
+							<?php echo empty($funcionario['Funcionario']['email_corporativo']) ? _('N/D') : $funcionario['Funcionario']['email_corporativo']; ?>
 						</li>
 					</ul>
 				</div>

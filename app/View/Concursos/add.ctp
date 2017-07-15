@@ -3,18 +3,16 @@
   <div class="w3-modal-content">
     <header class="w3-container w3-blue"> 
       <span onclick="document.getElementById('addConcursoModal').style.display='none'" 
-      class="w3-closebtn">&times;</span>
-      <h2>Adicionar concurso</h2>
-		<?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span> Lista de concursos', array('action' => 'index'), array('escape' => false, 'class' => 'pull-right')); ?>
+      class="w3-closebtn w3-hover-text-yellow">&times;</span>
+      <h4><i class="fa fa-folder"></i> Adicionar concurso</h4>
     </header>
 
     <div class="w3-container" style="padding: 30px;">
-	    <div id="salvar_exito"></div>
 		<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'adicionarModal'), 'class' => 'w3-container', 'id' => 'addForm')); ?>
 		<?php
 			$hoje = Date('Y-m-d');
-			echo $this->Form->input('data_aprovacao', array('label' => 'Data de aprova&ccedil;&atilde;o: '));
-			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-sand w3-border'));
+			echo $this->Form->input('data_aprovacao', array('label' => 'Data de aprova&ccedil;&atilde;o: ', 'class' => 'w3-white'));
+			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-sand w3-border', 'id' => 'nome'));
 			echo $this->Form->input('data_registo', array('type' => 'hidden', 'value' => $hoje));
 		?>
 		<div id="salvar_processando" style="display: none;">
@@ -23,11 +21,16 @@
     </div>
 
     <footer style="padding: 20px;" class="w3-container w3-white">
-		<button class="w3-large w3-btn w3-green">
+		<button class="w3-button w3-border">
 			<span class='glyphicon glyphicon-ok'></span>
 			Submeter
 		</button>
 		<?php echo $this->Form->end(); ?>
+		
+		<button class="w3-button w3-border" onclick="clearInput('addForm', 'nome')">
+			<i class="fa fa-plus"></i>
+			Novo concurso
+		</button>
     </footer>
   </div>
 </div>
@@ -42,7 +45,7 @@
 				'action' => 'adicionarModal'
 			),
 			array(
-				'update' => '#salvar_exito',
+				'update' => '#message',
 				'data' => $data,
 				'dataExpression' => true,
 				'method' => 'post',
@@ -53,7 +56,8 @@
 								array(
 									'method' => 'post',
 									'async' => true,
-									'update' => '#table-body'
+									'update' => '#table-body',
+									'complete' => 'displayMessages()'
 								)
 							)
 			)

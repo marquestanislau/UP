@@ -10,7 +10,7 @@
 		 		<span class='glyphicon glyphicon-plus-sign' ></span>
 		 		Novo Concurso
 		 	</a>
-		  <a id="print" target="_blank" href="<?php echo $this->Html->url(array('action' => 'lista_concursos', 'ext' => 'pdf'));?>" class="w3-bar-item w3-button"><i class="fa fa-print"></i> Imprimir</a>
+	  <a id="print" target="_blank" href="<?php echo empty($concursos) ? '#' : $this->Html->url(array('action' => 'lista_concursos', 'ext' => 'pdf'));?>" class="w3-bar-item w3-button <?php echo empty($concursos)? 'w3-disabled':'';?>"><i class="fa fa-print"></i> Imprimir</a>
 		  <span class="mdl-tooltip" data-mdl-for="print">Imprimir todos concursos registados</span>
 		  <input type="text" style="width: 50%;" class="w3-bar-item w3-input w3-border w3-white w3-hover-sand" placeholder="Nome do concurso...">
 		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->

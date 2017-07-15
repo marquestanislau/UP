@@ -1,0 +1,32 @@
+.corpo {
+	text-align: justify;
+
+}
+
+#reitor {
+	text-align: center;
+}
+
+#diploma {
+	text-align: justify;
+	width: 60%;
+	margin: auto;
+	padding: 2%;
+	border: solid thin black;
+}
+
+#cabecalho {
+	text-align: center;
+}
+
+#endereco {
+	border: solid thin black;
+	font-size: smaller;
+	line-height: normal;
+}
+
+body {
+	line-height: 20px;
+	padding: 50px;
+	font-family: "times new roman"
+}

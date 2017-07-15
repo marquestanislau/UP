@@ -10,10 +10,24 @@
     <td><?php echo $funcionario['Funcionario']['contacto_alternativo']; ?></td>
     <td><?php echo $funcionario['Funcionario']['sexo']; ?></td>
     <td>
+      <?php if ( empty($funcionario['Funcionario']['despacho']) ) { ?>
       <button id="aprovado<?php echo $funcionario_id;?>" onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='block'" class="w3-text-teal w3-tiny w3-white w3-border">
         <i class="fa fa-thumbs-up"></i>
       </button>
       <span class="mdl-tooltip" for="aprovado<?php echo $funcionario_id;?>">Aprovar <?php echo $funcionario['Funcionario']['nome']; ?></span>
+      <?php } else { ?>
+      <a id="nomeacao" target="_blank" href="<?php echo $this->Html->url(
+            array(
+              'action' => 'nomeacao',
+              'controller' => 'funcionarios',
+              'ext' => 'pdf',
+              $funcionario_id
+              )); ?>" 
+              class="w3-hover-text-black">
+        <i class="fa fa-file-pdf-o"></i>
+        <span class="mdl-tooltip" data-mdl-for="nomeacao">Gerar nomea&ccedil;&atilde;o provis&oacute;ria</span>
+      </a>
+      <?php } ?>
     </td>
     </tr>
     <?php include('despacho.ctp'); ?>

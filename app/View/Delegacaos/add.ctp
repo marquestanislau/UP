@@ -9,15 +9,17 @@
 			</div>
 			<?php echo $this->Form->create('Delegacao', array('class' => 'w3-container', 'id' => 'delegaFormAdd')); ?>
 			<?php
-				echo $this->Form->input('nome', array('class' => 'w3-border w3-input w3-hover-khaki', 'placeholder' => 'Nampula..'));
+				echo $this->Form->input('nome', array('class' => 'w3-border w3-input w3-hover-khaki', 'placeholder' => 'Nampula..', 'id' => 'nome'));
 			?>
 		</div>
 		<div id="requesting" style="display:none">
 			<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
 		</div>
 		<footer class="w3-container w3-padding">
-			<button class="w3-btn w3-green w3-large"><span class="glyphicon glyphicon-ok"></span> Submeter dados</button>
+			<button class="w3-button w3-border"><span class="glyphicon glyphicon-ok"></span> Submeter dados</button>
 			<?php echo $this->Form->end(); ?>
+			<button onclick="clearInput('delegaFormAdd', 'nome')" class="w3-button w3-border">
+				<i class="fa fa-plus"></i> Nova delega&ccedil;&atilde;o</button>
 		</footer>
 	</div>
 </div>

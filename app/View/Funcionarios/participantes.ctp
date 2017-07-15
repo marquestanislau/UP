@@ -11,7 +11,7 @@
                             'text' => 'Concurso',
                             'class' => 'w3-label'
                         ),
-                        'empty' => '( Por favor seleccione... )'
+                        'empty' => ' Filtrar por concurso ...'
                       )
                   );
       ?>
@@ -26,7 +26,7 @@
                                     'text' => 'Carreira',
                                     'class' => 'w3-label'
                                   ), 
-                                  'empty' => '( Por favor seleccione... )'
+                                  'empty' => ' Filtrar por carreira ...'
                                 )
                           );
       ?>

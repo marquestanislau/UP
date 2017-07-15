@@ -3,8 +3,8 @@
 	<div class="w3-white w3-padding">
 	<h6 class="w3-text-blue"><i class="fa fa-users"></i> Lista de funcion&aacute;rios</h6>
 		<div class="w3-bar w3-light-grey">
-		  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-print"></i> Imprimir</a>
-		  <a href="#" class="w3-bar-item w3-button"><i class="fa fa-file"></i> Relatorios</a>
+		  <a href="#" class="w3-bar-item w3-button w3-hover-text-dark-grey"><i class="fa fa-print"></i> Imprimir</a>
+		  <a href="#" class="w3-bar-item w3-button w3-hover-text-dark-grey"><i class="fa fa-file"></i> Relat&oacute;rios</a>
 		  <input onkeyup="filtro()" style="width: 50%;" id="procurar" class="w3-white w3-bar-item w3-input w3-border" placeholder="Procure digitando o primeiro nome">
 		  <!-- <input type="text" class="w3-bar-item w3-input w3-white w3-border" placeholder="Search.."> -->
 		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->

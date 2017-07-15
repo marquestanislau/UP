@@ -65,14 +65,15 @@
 		$complete = '$("#enviando'.$id.'").attr("style", "display:none")';
 		$success = $this->Js->request(
 			array('action' => 'index'),
-			array('method' => 'post', 'dataExpression' => true, 'update' => '#table-body')
+			array('method' => 'post', 'dataExpression' => true, 'update' => '#table-body', 'complete' => 'displayMessages()')
 		);
 
 		$this->Js->get('#ajaxform'.$id)->event('submit',
 			$this->Js->request(
 				array('action' => 'editarModal'),
 				array(
-					'update' => '#sucesso'.$id,
+					/*'update' => '#sucesso'.$id,*/
+					'update' => '#message',
 					'data' => $data,
 					'async' => true,
 					'dataExpression' => true,

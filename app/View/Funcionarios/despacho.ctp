@@ -50,18 +50,18 @@
       </div>
       <?php }?>
     </div>
-    <footer class="w3-container w3-sand w3-padding-bottom">
+    <footer class="w3-container w3-white w3-padding-bottom w3-padding">
         <?php if ( !empty($funcionario['Funcionario']['despacho'])): ?>
           <button type="button" onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" class="w3-btn w3-large w3-blue">
             <i class="fa fa-thumbs-up"></i>
             Ok
           </button>
         <?php else: ?>
-          <button onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" type="button" class="w3-btn w3-red w3-large pull-right">
+          <button onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" type="button" class="w3-button w3-light-grey w3-border w3-hover-text-red w3-large pull-right">
             <i class="fa fa-close"></i>
             Cancelar
           </button>
-          <button id="admitir<?php echo $funcionario_id;?>" class="w3-large w3-btn pull-right w3-green"><i class="fa fa-thumbs-o-up"></i> Admitir
+          <button id="admitir<?php echo $funcionario_id;?>" class="w3-large w3-button w3-hover-text-blue pull-right w3-white w3-border"><i class="fa fa-thumbs-o-up"></i> Admitir
           </button>
         <?php endif ?>
 

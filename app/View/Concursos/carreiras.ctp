@@ -9,18 +9,26 @@
 				<td><?php echo $carreira['id']; ?></td>
 				<td><?php echo $carreira['id']; ?></td>
 				<td class="actions">
-				<button onclick="document.getElementById('config<?php echo $carreira_id;?>').style.display='block'" class="w3-btn w3-text-grey w3-white w3-border">
+				<button id="configurar<?php echo $carreira_id; ?>" onclick="document.getElementById('config<?php echo $carreira_id;?>').style.display='block'" class="w3-btn w3-text-grey w3-white w3-border">
 					<span class="glyphicon glyphicon-cog"></span>
+					<span class="mdl-tooltip" data-mdl-for="configurar<?php echo $carreira_id; ?>">
+						Configurar os parametros <br>
+						das candidaturas
+					</span>
 				</button>
 				<?php
-					echo $this->Html->link(
-						'<span class="glyphicon glyphicon-trash"></span>',
-						array('controller' => 'carreiras', 'action' => 'view', $carreira['id']),
-						array('class' => 'w3-btn w3-white w3-border w3-text-grey', 'escape' => FALSE)
-					);
+					// echo $this->Html->link(
+					// 	'<span class="glyphicon glyphicon-trash"></span>',
+					// 	array('controller' => 'carreiras', 'action' => 'view', $carreira['id']),
+					// 	array('class' => 'w3-btn w3-white w3-border w3-text-grey', 'escape' => FALSE)
+					// );
 				 ?>
-				 <button onclick="document.getElementById('participantesModal<?php echo $carreira_id;?>').style.display='block'" class="w3-btn w3-white w3-border w3-text-grey">
+				 <button id="participante<?php echo $carreira['id'];?>" onclick="document.getElementById('participantesModal<?php echo $carreira_id;?>').style.display='block'" class="w3-btn w3-white w3-border w3-text-grey">
 				 	<span class="glyphicon glyphicon-user"></span>
+				 	<span class="mdl-tooltip" data-mdl-for="participante<?php echo $carreira['id'];?>">
+				 		Adicionar participantes <br>
+				 		<strong>Carreira:</strong> <?php echo $carreira['nome']; ?>
+				 	</span>
 				 </button>
 				</td>
 			</tr>

@@ -17,8 +17,8 @@
 		<p><strong><?php echo h($concurso['Concurso']['nome']); ?></strong></p>
 		<table class="w3-margin-bottom w3-table-all">
 			<tr>
-				<td><strong><?php echo __('Data Aprovacao'); ?></strong></td>
-				<td><strong><?php echo __('Data Registo'); ?></strong></td>
+				<td><strong><?php echo __('Data da Aprova&ccedil;&atilde;o'); ?></strong></td>
+				<td><strong><?php echo __('Data de Registo'); ?></strong></td>
 			</tr>
 			<tr>
 				<td><?php echo h($concurso['Concurso']['data_aprovacao']); ?></td>
@@ -26,27 +26,39 @@
 			</tr>
 		</table>
 		<div role="form">
-			<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'add'), 'id' => 'ajaxFormAdd')); ?>
-			Carreiras:
-			<div class="form-group w3-sand w3-border">
-				<?php echo $this->Form->input('Carreira', array('id' => 'carreiraSelecionada', 'label' => FALSE,'class' => 'w3-margin w3-text-dark-grey w3-hover-sand')); ?>			
-			</div>
-			<?php echo $this->Form->input('Concurso.id', array('value' => $concurso['Concurso']['id'])); ?>
-			<button id="adicionar" class="w3-button w3-green w3-large pull-right">
-				<span class="glyphicon glyphicon-save"></span> Adicionar
+			<button onclick="myFunction('carreiras')" class="w3-button w3-green w3-block w3-left-align">
+				<span class="glyphicon glyphicon-briefcase"></span> Carreiras (Clique para obter opcoes)
 			</button>
-			<?php echo $this->Form->end(); ?>
+
+			<div id="carreiras" class="w3-hide w3-animate-top">
+				<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'add'), 'id' => 'ajaxFormAdd')); ?>
+				<div class="form-group w3-sand w3-border">
+					<?php echo $this->Form->input('Carreira', array(
+								'multiple' => 'checkbox',
+								'selected' => $concurso['Carreira'][0],
+								'id' => 'carreiraSelecionada', 
+								'label' => FALSE,
+								'class' => 'w3-margin w3-text-dark-grey w3-hover-sand'
+							)
+					); ?>	
+				</div>
+				<?php echo $this->Form->input('Concurso.id', array('value' => $concurso['Concurso']['id'])); ?>
+				<button id="adicionar" class="w3-button w3-green w3-large pull-right">
+					<span class="glyphicon glyphicon-save"></span> Adicionar
+				</button>
+				<?php echo $this->Form->end(); ?>
+			</div>
 		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="w3-margin-top w3-container w3-white w3-padding">
-		<p class="w3-text-blue">Carreiras para o concurso: {<?php echo h($concurso['Concurso']['data_aprovacao']); ?>}</p>
+		<h4 class="w3-text-dark-grey">Carreiras para o concurso: {<?php echo h($concurso['Concurso']['data_aprovacao']); ?>}</h4>
 		<div id="requesting" style="display: none;">
 			<?php echo $this->Html->image('ajax/ajax-loader.gif', array('alt' => 'Aguarde...')); ?>
 		</div>
-		<table id="table-carreiras" class="table w3-border w3-border-light-grey">
+		<table id="table-carreiras" class="table w3-topbar w3-border-light-grey">
 			<thead class="w3-text-blue">
 				<th>Designa&ccedil;&atilde;o da carreira</th>
 				<th>N&uacute;mero de vagas</th>
@@ -79,3 +91,14 @@ $this->Js->get('#ajaxFormAdd')->event(
 	)
 );
 ?>
+
+<script>
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>

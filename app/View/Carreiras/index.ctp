@@ -13,7 +13,7 @@
  	  <span data-mdl-for="print_report" class="mdl-tooltip">Clique para imprimir o relat&oacute;rio</span>
  	  <input style="width: 30%;" class="w3-bar-item w3-hover-sand w3-input w3-border w3-white" placeholder="Nome da carreira">
 	</div> 
-	<table class="table table-striped w3-border w3-border-light-grey" cellpadding="0" cellspacing="0">
+	<table class="table table-striped w3-border-light-grey" cellpadding="0" cellspacing="0">
 	<thead class="w3-white w3-text-blue">
 	<tr>
 		<th><?php echo $this->Paginator->sort('Ordem'); ?></th>
@@ -45,5 +45,4 @@
 
 <?php
 	include('add.ctp');
-	include('edit.ctp');
 ?>

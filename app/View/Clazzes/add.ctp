@@ -4,13 +4,13 @@
 			<span class="w3-closebtn" onclick="document.getElementById('classeModal').style.display = 'none'">
 				&times;
 			</span>
-			<h4>Adicao de classes</h4>
+			<h4> <i class="fa fa-cube"></i> Adi&ccedil;&atilde;o de classes</h4>
 		</header>
 		<div class="w3-container w3-margin">
 			<div id="sucesso"></div>
 			<?php echo $this->Form->create('Clazze', array('id' => 'ajaxFormClasseAdd', 'class' => 'w3-container')); ?>
 			<?php
-				echo $this->Form->input('nome', array('class' => 'w3-input w3-border w3-hover-khaki'));
+				echo $this->Form->input('nome', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Ex: Classe E', 'id' => 'nome'));
 				echo $this->Form->input('carreira_id', array('class' => 'w3-input w3-border w3-hover-khaki'));
 			?>
 			<div id="requesting" style="display:none">
@@ -18,11 +18,15 @@
 			</div>
 		</div>
 		<footer class="w3-container w3-white w3-padding">
-			<button class="w3-btn w3-green w3-large">
+			<button class="w3-button w3-border">
 				<span class="glyphicon glyphicon-ok"></span>
 				Submeter
 			</button>
 			<?php echo $this->Form->end(); ?>
+			<button onclick="clearInput('ajaxFormClasseAdd', 'nome')" class="w3-button w3-border">
+				<i class="fa fa-plus"></i>
+				Adicionar outra
+			</button>
 		</footer>
 	</div>
 </div>

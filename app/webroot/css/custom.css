@@ -109,7 +109,7 @@ table {
 	margin: 0px;
 }
 
-#ui-datepicker-div {
+/* #ui-datepicker-div {
 	background-color: white;
 	border: solid thin grey;
 }
@@ -125,8 +125,11 @@ table {
 }
 .ui-datepicker-header  {
 	border: solid thin gray;
-}
+} */
 #afastamento {
 	margin-bottom: 700px;
 	background-color: red;
+}
+#carreiras {
+	overflow: auto;
 }

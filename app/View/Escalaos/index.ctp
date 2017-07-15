@@ -11,13 +11,13 @@
 				<?php echo $this->Html->link(__('Lista de Classes'), array('controller' => 'clazzes', 'action' => 'index'), array('class' => 'w3-button w3-bar-item')); ?>
 			<input class="w3-input w3-border w3-white w3-hover-sand w3-bar-item" placeholder="Digite o nome do escal&atilde;o" style="width: 50%;">
 		</div>
-			<table class="table table-striped w3-border w3-border-light-grey">
+			<table class="table table-striped">
 				<thead class="w3-text-blue">
 					<tr>
 						<th><?php echo $this->Paginator->sort('nome'); ?></th>
 						<th><?php echo $this->Paginator->sort('categoria_id'); ?></th>
 						<th><?php echo $this->Paginator->sort('classe'); ?></th>
-						<th class="actions"><?php echo __('Actions'); ?></th>
+						<th class="actions"><?php echo __('Opera&ccedil;&otilde;es'); ?></th>
 					</tr>
 				</thead>
 				<tbody id="table-body">

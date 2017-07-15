@@ -2,39 +2,28 @@
 <html>
 <head>
 	<title>Relatorio/Carreiras</title>
+	<link rel="stylesheet" type="text/css" href="css/pure-min.css">
+	<link rel="stylesheet" type="text/css" href="css/report.css">
 	<style type="text/css">
-		#header {
-			border: solid black thin;
-			padding: 2%;
-		}
-		#body {
-
-		}
 		table {
-			margin: auto;
-			border-spacing: 0px;
+			width: 100%;
+			line-height: normal;
 		}
 
-		thead {
-			background-color: #3a3a3a;
-		}
-
-		tbody td {
-			padding-left: 2%;
-			padding-right: 2%;
-		}
 	</style>
-	<meta charset="utf-8" >
 </head>
 <body>
-	<div id="header">
-		<img src="img/icon.png">
-		<h3>SIGERH</h3>
+	<div id="cabecalho">
+		<img src="img/icon72x72.png">
+		<h2>DIREC&Ccedil;ÃO DE RECURSOS HUMANOS</h2>
+		<p id="endereco">
+			Rua Comandante Augusto Cardoso nº 135, Caixa Postal 3276, Tef.: 21312585 ou 21324502; Fax nº 21312585, Maputo - Moçambique
+		</p>
 	</div>
 
-	<div id="body">
+	<div class="corpo">
 		<h4>Lista das carreiras existentes no sistema!</h4>
-		<table>
+		<table class="pure-table">
 			<thead>
 				<tr>
 					<th>#ID</th>

@@ -30,6 +30,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   #Modificacao de alguns aspectos (Modificacao do aspecto default)
   echo $this->Html->css('custom');
   echo $this->Html->css('jquery-ui.min');
+  echo $this->Html->css('pure-min');
   echo $this->Html->css('w3');
   echo $this->Html->css('font-awesome/css/font-awesome.min');
   #Carrega o javascript do framwork da google mdl
@@ -42,6 +43,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   echo $this->fetch('css');
   echo $this->fetch('script');
 ?>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,400,700" media="all">
 </head>
 <body class="w3-white w3-text-gray">
 <!-- Navbar -->
@@ -146,6 +148,10 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   <footer id="myFooter">
     <div class="w3-container w3-theme-l2 w3-padding-32">
       <!-- <h4>Footer</h4> -->
+      <div id="message" class="mdl-js-snackbar mdl-snackbar w3-green">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+      </div>
     </div>
 
     <div class="w3-container w3-theme-l1">

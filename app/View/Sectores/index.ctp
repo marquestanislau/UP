@@ -6,18 +6,18 @@
 		<button class="w3-bar-item w3-button" onclick="document.getElementById('sectoresModal').style.display='block'">
 			<span class='glyphicon glyphicon-plus'></span> Novo sector
 		</button>
-		<a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'delegacaos')); ?>" class="w3-button w3-bar-item"><i class="fa fa-list"></i> Listas das delega&ccedil;&otilde;s</a>
+		<a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'delegacaos')); ?>" class="w3-button w3-bar-item"><i class="fa fa-list"></i> Listas das delega&ccedil;&otilde;es</a>
 		
 		<input onkeyup="filtro()" id="procurar" style="width: 50%;" class="w3-bar-item w3-white w3-hover-sand w3-border w3-input" placeholder="Insira o nome do sector..." >
 	</div>
 
-    <table class="table table-hover w3-border w3-border-light-grey" id="tabelaFiltro">
+    <table class="table table-striped" id="tabelaFiltro">
 	<thead class="w3-text-blue">
 	<tr>
 			<!-- <th><?php echo $this->Paginator->sort('#'); ?></th> -->
 			<th><?php echo $this->Paginator->sort('designacao'); ?></th>
 			<th><?php echo $this->Paginator->sort('delegacao_id'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
+			<th class="actions"><?php echo __('Opera&ccedil;&otilde;es'); ?></th>
 	</tr>
 	</thead>
 	<tbody id="table-body">

@@ -14,18 +14,21 @@
 			<div id="sucesso"></div>
 			<?php echo $this->Form->create('Carreira', array('url' => array('action' => 'adicionarCarreira'), 'class' => 'w3-container', 'id' => 'addFormCarreira')); ?>
 			<?php
-			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki', 'label' => 'Designa&ccedil;&atilde;o da carreira'));
+			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki w3-border', 'label' => 'Designa&ccedil;&atilde;o da carreira', 'id' => 'nome'));
 			?>
 			<div id="processando" style="display: none">
 				<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
 			</div>
 		</div>
 
-		<footer class="w3-container w3-blue w3-padding-8">
-			<button class="w3-btn w3-green w3-large"><span class="glyphicon glyphicon-ok"></span> 
+		<footer class="w3-container w3-padding-8">
+			<button class="w3-button w3-border w3-large"><span class="glyphicon glyphicon-ok"></span> 
 				Submeter
 			</button>
 			<?php echo $this->Form->end(); ?>
+			<button class="w3-button w3-large w3-border" onclick="clearInput('addFormCarreira', 'nome');">
+				<i class="fa fa-plus"></i>	Novo
+			</button>
 		</footer>
 
 	</div>
@@ -37,7 +40,7 @@
 		$this->Js->request(
 			array('action' => 'adicionarCarreira'),
 			array(
-				'update' => '#sucesso',
+				'update' => '#message',
 				'data' => $data,
 				'before' => '$("#processando").attr("style", "")',
 				'complete' => '$("#processando").attr("style", "display:none")',
@@ -51,11 +54,12 @@
 								array(
 									'update' => '#corpo',
 									'method' => 'post',
-									'async' => true
+									'async' => true,
+									'complete' => 'displayMessages()'
 								)
 							)
 			)
 		)
 	);
  ?>
-
+<?php echo $this->Html->script('script'); ?>

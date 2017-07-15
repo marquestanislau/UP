@@ -16,7 +16,7 @@
 			<a id="print_category" href="<?php echo $this->Html->url(array('action' => 'listaEmPdf', 'ext' => 'pdf')); ?>" target="_blank" class="w3-bar-item w3-button w3-hover-text-blue"><i class="fa fa-print w3-large"></i> Imprimir</a>
 			<span class="mdl-tooltip" data-mdl-for="print_category">Imprimir todas categorias disponiveis!</span>
 		</div> 
-		<table class="table table-striped w3-border w3-border-light-grey">
+		<table class="table table-striped w3-border-light-grey">
 			<thead class="w3-text-blue">
 				<tr>
 					<th><?php echo $this->Paginator->sort('nome'); ?></th>

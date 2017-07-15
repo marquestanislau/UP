@@ -109,3 +109,9 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+
+// configure the primary language of my app
+
+Configure::write('Config.language', 'por');
+CakePlugin::load('AjaxMultiUpload', array('bootstrap' => true));

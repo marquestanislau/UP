@@ -2,32 +2,19 @@
 <html>
 <head>
 	<title>Categorias - Report</title>
-	<style type="text/css">
-		#cabecalho {
-			border: solid thin black;
-			padding: 2%;
-		}
-		table {
-			margin: auto;
-			border-spacing: 0px;
-		}
-
-		table thead {
-			background-color: yellow;
-		}
-
-		td, th {
-			padding: 0px 10px 2px 10px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/report.css">
+	<link rel="stylesheet" type="text/css" href="css/pure-min.css">
 </head>
 <body>
 	<div id="cabecalho">
-		<img src="path/to/image">
-		<h3>SIGERH-UP</h3>
+		<img src="img/icon72x72.png">
+		<h2>DIREC&Ccedil;ÃO DE RECURSOS HUMANOS</h2>
+		<p id="endereco">
+			Rua Comandante Augusto Cardoso nº 135, Caixa Postal 3276, Tef.: 21312585 ou 21324502; Fax nº 21312585, Maputo - Moçambique
+		</p>
 	</div>
 	<h2>Report of categorias</h2>
-	<table>
+	<table class="pure-table" style="width:100%;">
 	<thead>
 		<tr>
 			<th>#Id</th>

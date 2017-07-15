@@ -8,7 +8,7 @@
 		<div id="sucesso"></div>
 		<?php echo $this->Form->create('Escalao', array('id' => 'ajaxFormEscAdd', 'class' => 'w3-container', 'url' => array('action' => 'add', 'controller' => 'escalaos'))); ?>
 		<?php
-			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki w3-border'));
+			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki w3-border', 'id' => 'nome'));
 			echo $this->Form->input('categoria_id', array('empty' => '-- Selecione a categoria --', 'class' => 'w3-input w3-hover-light-grey w3-border'));
 			echo $this->Form->input('clazze_id', array('empty' => '-- Seleccione a carreira --', 'class' => 'w3-input w3-hover-sand w3-border', 'label' => 'Classe'));
 		?>
@@ -17,12 +17,17 @@
 		</div>
 		</div>
 		<footer class="w3-container w3-padding">
-			<button class="w3-btn w3-green w3-large">
-				<span class="glyphicon glyphicon-plus">
+			<button class="w3-border w3-button">
+				<span class="glyphicon glyphicon-check">
 				</span>
 				Submeter
 			</button>
 			<?php echo $this->Form->end(); ?>
+			<button onclick="clearInput('ajaxFormEscAdd', 'nome')" class="w3-border w3-button">
+				<span class="glyphicon glyphicon-plus">
+				</span>
+				Novo escal&atilde;o
+			</button>
 		</footer>
 	</div>
 </div>

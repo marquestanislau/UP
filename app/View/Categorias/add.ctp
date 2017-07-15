@@ -3,13 +3,13 @@
 		<header class="w3-container w3-blue">
 			<span onclick="document.getElementById('categoriaAddForm').style.display='none'"
        class="w3-closebtn w3-hover-text-white">&times;</span>
-			<h3><?php echo __('Adicionar Categoria'); ?></h3>
+			<h4><i class="fa fa-tags"></i> <?php echo __('Adicionar Categoria'); ?></h4>
 		</header>
 		<div class="w3-container w3-padding-32">
 			<div id="sucesso"></div>
 			<?php echo $this->Form->create('Categoria', array('class' => 'w3-container', 'id' => 'formAdd')); ?>
 			<?php
-				echo $this->Form->input('nome', array('class' => 'w3-input w3-border w3-hover-khaki'));
+				echo $this->Form->input('nome', array('class' => 'w3-input w3-border w3-hover-khaki', 'id' => 'nome'));
 				echo $this->Form->input('carreira_id', array('empty' => '==Seleccione uma carreira==', 'class' => 'w3-input w3-border w3-hover-khaki'));
 			?>
 			<div id="requesting" style="display:none">
@@ -17,14 +17,14 @@
 			</div>
 		</div>
 		<footer class="w3-container w3-padding">
-			<button class="w3-large w3-btn w3-green">
+			<button class="w3-button w3-border">
 				<span class="glyphicon glyphicon-ok"></span>
 				Submeter
 			</button>
 			<?php echo $this->Form->end(); ?>
-			<button onclick="document.getElementById('categoriaAddForm').style.display='none'" class="w3-btn w3-red w3-large" id="catCancelBtn">
-				<span class="glyphicon glyphicon-remove"></span>
-				Cancelar
+			<button onclick="clearInput('formAdd', 'nome')" class="w3-button w3-border">
+				<span class="glyphicon glyphicon-plus"></span>
+				Nova categoria
 			</button>
 		</footer>
 	</div>

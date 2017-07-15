@@ -41,6 +41,24 @@ function selecionadorPorId(id) {
 
 function displayMessages() {
 	var snackbarContainer = document.querySelector('#message');
-	var data = {message: 'Estanislau Samussone Marques'};
+	// var data = {message: 'Estanislau Samussone Marques'};
+	var data = {message: ''};
 	snackbarContainer.MaterialSnackbar.showSnackbar(data);
+}
+
+function clearInput(id, foco) {
+	// document.getElementById(id).value = '';
+	var form = document.getElementById(id);
+	var changeFoco = document.getElementById(foco);
+	form.reset();
+	changeFoco.focus();
+
+
+}
+
+function clearInputs(...clazz) {
+	todos = document.getElementsByClassName(clazz);
+	for (i = 0; i < todos.length; i++) {
+		todos[i].value = '';
+	}
 }

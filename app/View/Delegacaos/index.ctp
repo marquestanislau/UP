@@ -11,7 +11,7 @@
       </button>
       <input type="text" class="w3-bar-item w3-border w3-white" style="width: 30%;" name="">
   </div>
-      <table class="table table-striped w3-border w3-border-light-grey" cellpadding="0" cellspacing="0">
+      <table class="table table-striped" cellpadding="0" cellspacing="0">
         <thead class="w3-white w3-text-blue" >
           <tr>
             <th><?php echo $this->Paginator->sort('#'); ?></th>

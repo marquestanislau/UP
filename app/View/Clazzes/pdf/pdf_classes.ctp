@@ -2,33 +2,20 @@
 <html>
 <head>
 	<title>Relatorio</title>
-	<style>
-
-		html {
-			font-size: small;
-			color: #262626;
-		}
-		
-		div {
-			padding: 2%;
-		}
-
-		div#header {
-			border: solid thin grey;
-			text-align: center;
-		}
-
-	</style>
 	<link rel="stylesheet" href="css/pure-min.css" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/report.css">
 </head>
 <body>
-	<div id="header">
-		<img src="img/icon.png">
-		<h3 style="color: #2196F3;">SIGERH-UP</h3>
+	<div id="cabecalho">
+		<img src="img/icon72x72.png">
+		<h2>DIREC&Ccedil;ÃO DE RECURSOS HUMANOS</h2>
+		<p id="endereco">
+			Rua Comandante Augusto Cardoso nº 135, Caixa Postal 3276, Tef.: 21312585 ou 21324502; Fax nº 21312585, Maputo - Moçambique
+		</p>
 	</div>
 	<div id="content"> 
 		<h4 style="text-align: center;">** Lista da rela&ccedil;&atilde;o Carreira/Classe **</h4>
-		<table class="pure-table">
+		<table style="width: 100%;" class="pure-table">
 			<thead>
 				<tr>
 					<th># ORDEM</th>
