@@ -31,7 +31,8 @@
 			'action' => 'index'
 		),
 		array(
-			'update' => '#table-body'
+			'update' => '#table-body',
+			'complete' => 'displayMessages()'
 		)
 	);
 	$this->Js->get('#delegacaoForm'.$id)->event(
@@ -48,7 +49,7 @@
 				'dataExpression' => true,
 				'before' => '$("#requesting'.$id.'").attr("style", "")',
 				'complete' => '$("#requesting'.$id.'").attr("style", "display:none")',
-				'update' => '#sucesso'.$id,
+				'update' => '#message',
 				'success' => $success
 			)
 		)

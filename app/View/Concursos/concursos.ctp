@@ -40,14 +40,14 @@
 						<?php echo $this->Form->hidden('data_registo', array('id' => $concurso['Concurso']['id'])); ?>
 					</div>
 					<footer style="padding: 14px;" class="w3-container">
-						<button class="w3-btn w3-blue w3-large" id="saveForm">
+						<button class="w3-border w3-button w3-round" id="saveForm">
 							<span class="glyphicon glyphicon-ok"></span>
 							Modificar dados
 						</button>
 						<?php echo $this->Form->end();?> 
 						<!-- end form  -->
 						<!-- button to cancel and exit modal window -->
-						<button onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='none'" class="w3-btn w3-red w3-large">
+						<button onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='none'" class="w3-border w3-button w3-hover-text-red w3-round">
 							<span class="glyphicon glyphicon-remove"></span>
 							Cancelar
 						</button>

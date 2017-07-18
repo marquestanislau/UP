@@ -42,7 +42,7 @@
 				'sync' => true,
 				'method' => 'post',
 				'dataExpression' => true,
-				'update' => '#sucesso',
+				'update' => '#message',
 				'before' => '$("#requesting").attr("style", "")',
 				'complete' => '$("#requesting").attr("style", "display:none")',
 				'success' => $this->Js->request(
@@ -51,8 +51,7 @@
 								),
 								array(
 									'update' => '#table-body',
-									'before' => '$("#espera").attr("style", "")',
-									'complete' => '$("#espera").attr("style", "display:none")',
+									'complete' => 'displayMessages()',
 									'method' => 'post',
 									'async' => true
 								)

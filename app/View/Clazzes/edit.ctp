@@ -19,7 +19,7 @@
 			</div>
 		</div>
 		<footer class="w3-container w3-white w3-padding">
-			<button class="w3-btn w3-green w3-large">
+			<button class="w3-button w3-border">
 				<span class="glyphicon glyphicon-ok"></span>
 				Submeter
 			</button>
@@ -41,7 +41,7 @@
 				'method' => 'post',
 				'data' => $dados,
 				'dataExpression' => true,
-				'update' => '#sucesso'.$id,
+				'update' => '#message',
 				'async' => true,
 				'before' => $before,
 				'complete' => $complete,
@@ -51,7 +51,8 @@
 									'method' => 'post',
 									'update' => '#table-body',
 									'dataExpression' => true,
-									'async' => true
+									'async' => true,
+									'complete' => 'displayMessages()'
 								)
 							)
 			)

@@ -40,7 +40,7 @@
 								$this->Js->request(
 									array('action' => 'add'),
 									array(
-										'update' => '#sucesso',
+										'update' => '#message',
 										'method' => 'post',
 										'data' => $dados,
 										'dataExpression' => true,

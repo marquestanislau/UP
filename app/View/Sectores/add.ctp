@@ -47,7 +47,8 @@
 					'update' => '#table-body',
 					'method' => 'post',
 					'dataexpression' => true,
-					'async' => true
+					'async' => true,
+					'complete' => 'displayMessages()'
 				)
 		);
 
@@ -56,7 +57,7 @@
 		$this->Js->request(
 			array('action' => 'add'),
 			array(
-				'update' => '#sucesso',
+				'update' => '#message',
 				'data' => $dados,
 				'method' => 'post',
 				'dataExpression' => true,

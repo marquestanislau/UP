@@ -35,7 +35,8 @@
 		array(
 			'method' => 'post',
 			'update' => '#table-body',
-			'async' => true
+			'async' => true,
+			'complete' => 'displayMessages()'
 		)
 	);
 
@@ -47,7 +48,7 @@
 				'method' => 'post',
 				'data' => $dados,
 				'dataExpression' => true,
-				'update' => '#sucesso'.$id,
+				'update' => '#message',
 				'async' => true,
 				'before' => $before,
 				'complete' => $complete,

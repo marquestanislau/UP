@@ -51,4 +51,13 @@ class Concurso extends AppModel {
                 'with' => 'carreiras_concursos'
             )
     );
+
+    public $hasMany = array (
+		'CarreirasConcurso' => array(
+			'className' => 'CarreirasConcurso',
+			'foreignKey' => 'concurso_id'
+		)
+	);
+
+
 }

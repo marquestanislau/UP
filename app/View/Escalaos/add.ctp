@@ -37,7 +37,8 @@
 							array('action' => 'index'),
 							array(
 								'update' => '#table-body',
-								'method' => 'post'
+								'method' => 'post',
+								'complete' => 'displayMessages()'
 							)
 						);
 	$this->Js->get('#ajaxFormEscAdd')->event(
@@ -45,7 +46,7 @@
 		$this->Js->request(
 			array('action' => 'add'),
 			array(
-				'update' => '#sucesso',
+				'update' => '#message',
 				'data' => $dados,
 				'dataExpression' => true,
 				'method' => 'post',

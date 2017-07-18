@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<footer class="w3-container w3-padding">
-			<button class="w3-btn w3-green w3-large">
+			<button class="w3-button w3-border">
 				Submeter dados
 			</button>
 			<?php echo $this->Form->end(); ?>
@@ -35,7 +35,8 @@
 				'action' => 'index'
 			),
 			array(
-				'update' => '#table-body'
+				'update' => '#table-body',
+				'complete' => 'displayMessages()'
 			)
 	);
 
@@ -51,7 +52,7 @@
 				'data' => $data,
 				'async' => true,
 				'dataExpression' => true,
-				'update' => '#sucesso'.$id,
+				'update' => '#message',
 				'before' => $before,
 				'success' => $success,
 				'complete' => $completed

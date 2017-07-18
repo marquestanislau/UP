@@ -34,7 +34,29 @@ class Carreira extends AppModel {
 		'Documentacao' => array(
 			'className' => 'Documentacao',
 			'foreignKey' => 'carreira_id',
+		), 
+		'CarreirasConcurso' => array(
+			'className' => 'CarreirasConcurso',
+			'foreignKey' => 'carreira_id'
 		)		
 	);
+
+	// public $hasAndBelongsToMany = array(
+ //        'Concurso' =>
+ //            array(
+ //                'className' => 'Concurso',
+ //                'joinTable' => 'carreiras_concursos',
+ //                'foreignKey' => 'carreira_id',
+ //                'associationForeignKey' => 'concurso_id',
+ //                'unique' => 'keepExisting',
+ //                'conditions' => '',
+ //                'fields' => '',
+ //                'order' => '',
+ //                'limit' => '',
+ //                'offset' => '',
+ //                'finderQuery' => '',
+ //                'with' => 'carreiras_concursos'
+ //            )
+ //    );
 
 }

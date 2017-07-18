@@ -26,7 +26,8 @@
 			</tr>
 		</table>
 		<div role="form">
-			<button onclick="myFunction('carreiras')" class="w3-button w3-green w3-block w3-left-align">
+
+		<button onclick="myFunction('carreiras')" class="w3-button w3-hover-gray w3-hover-text-light-grey w3-block w3-left-align">
 				<span class="glyphicon glyphicon-briefcase"></span> Carreiras (Clique para obter opcoes)
 			</button>
 
@@ -35,7 +36,7 @@
 				<div class="form-group w3-sand w3-border">
 					<?php echo $this->Form->input('Carreira', array(
 								'multiple' => 'checkbox',
-								'selected' => $concurso['Carreira'][0],
+								'selected' => $selected,
 								'id' => 'carreiraSelecionada', 
 								'label' => FALSE,
 								'class' => 'w3-margin w3-text-dark-grey w3-hover-sand'
@@ -61,8 +62,6 @@
 		<table id="table-carreiras" class="table w3-topbar w3-border-light-grey">
 			<thead class="w3-text-blue">
 				<th>Designa&ccedil;&atilde;o da carreira</th>
-				<th>N&uacute;mero de vagas</th>
-				<th>N&uacute;mero de participantes</th>
 				<th>Ac&ccedil;&otilde;es</th>
 			</thead>
 			<tbody id="table-body">
@@ -75,6 +74,15 @@
 </div>
 <?php 
 $dados = $this->Js->get('#ajaxFormAdd')->serializeForm(array('inline' => true, 'isForm' => true));
+$success = $this->Js->request(
+		array(
+				'controller' => 'concursos'
+			),
+		array(
+				'update' => '#message',
+				'complete' => 'displayMessagesVer2()'
+			)
+	);
 $this->Js->get('#ajaxFormAdd')->event(
 	"submit",
 	$this->Js->request(
@@ -86,7 +94,8 @@ $this->Js->get('#ajaxFormAdd')->event(
 			'dataExpression' => true,
 			'async' => true,
 			'before' => '$("#requesting").attr("style", "")',
-			'complete' => '$("#requesting").attr("style", "display:none")'
+			'complete' => '$("#requesting").attr("style", "display:none")',
+			'success' => $success
 		)
 	)
 );

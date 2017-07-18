@@ -25,22 +25,26 @@ class ConcursosController extends AppController {
 
 	public function view($id = null) {
 		if (!$this->Concurso->exists($id)) {
-			throw new NotFoundException(__('Invalid concurso'));
+			throw new NotFoundException(__('concurso invalido!'));
 		}
-
-		$options = array('conditions' => array('Concurso.' . $this->Concurso->primaryKey => $id));
-		$carreiras = $this->Concurso->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
+		$this->loadModel('Carreira', 'CarreirasConcursos');
+		$concurso = $this->Concurso->find('first', array('conditions' => array('Concurso.id' => $id)));
+		$carreiras = $this->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
 
 		$concursos = $this->Concurso->find('all', array(
-			'contain' => array('Carreira'),
-			'conditions' => array('Concurso.id' => $id)
-		));
-		$concurso = $this->Concurso->find('first', $options);
-		$this->set(compact('carreiras', 'concursos', 'concurso'));
+					'contain' => array('Carreira'),
+					'conditions' => array('Concurso.id' => $id)
+				));
 
-		$this->categoriasParaCombo();
-		$this->documentosParaCheckbox();
+		$selected = $this->convertToSelects($data = array(), $concurso['CarreirasConcurso']);
+		$this->set(compact('carreiras', 'concurso', 'selected', 'concursos'));
+	}
 
+	private function convertToSelects($data = array(), $carreiras) {
+		for ($i=0; $i < count($carreiras); $i++) {
+			$data[$i] = $carreiras[$i]['carreira_id'];
+		}
+		return $data;
 	}
 
 	protected function categoriasParaCombo() {

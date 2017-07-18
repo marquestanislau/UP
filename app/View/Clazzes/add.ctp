@@ -11,7 +11,7 @@
 			<?php echo $this->Form->create('Clazze', array('id' => 'ajaxFormClasseAdd', 'class' => 'w3-container')); ?>
 			<?php
 				echo $this->Form->input('nome', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Ex: Classe E', 'id' => 'nome'));
-				echo $this->Form->input('carreira_id', array('class' => 'w3-input w3-border w3-hover-khaki'));
+				echo $this->Form->input('carreira_id', array('class' => 'w3-input w3-border w3-hover-khaki', 'empty' => 'Pertencente a qual das Carreiras?'));
 			?>
 			<div id="requesting" style="display:none">
 				<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
@@ -42,7 +42,7 @@
 				'method' => 'post',
 				'data' => $dados,
 				'dataExpression' => true,
-				'update' => '#sucesso',
+				'update' => '#message',
 				'async' => true,
 				'before' => '$("#requesting").attr("style", "")',
 				'complete' => '$("#requesting").attr("style", "display:none")',
@@ -52,7 +52,8 @@
 									'method' => 'post',
 									'update' => '#table-body',
 									'dataExpression' => true,
-									'async' => true
+									'async' => true,
+									'complete' => 'displayMessages()'
 								)
 							)
 			)

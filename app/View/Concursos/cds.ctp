@@ -17,6 +17,7 @@
 		echo "<br>";
 		echo $this->Form->label('Funcionario.sexo', 'Genero');
 		echo $this->Form->radio('Funcionario.sexo', array('M' => 'Masculino', 'F' => 'Feminino'), array('legend' => false));
+		echo $this->Form->input('Funcionario.posicao', array('class' => 'w3-input w3-border', 'label' => 'Posi&ccedil;&atilde;o'));
 	?>
 	<div id="requestingCds<?php echo $carreira_id; ?>" style="display: none">
 		<?php echo $this->Html->image('ajax/ajax-loader.gif');  ?>
@@ -43,9 +44,7 @@
 			'controller' => 'cds'
 		),
 		array(
-			'before' => '$("#sucessoCds'.$carreira_id.'").fadeIn(100)',
-			'complete' => '$("#sucessoCds'.$carreira_id.'").fadeOut(6500)',
-			'success' => '$("#sucessoCds'.$carreira_id.'").finish()'
+			'complete' => 'displayMessages()'
 		)
 	);
 	$this->Js->get('#cdsForm'.$carreira_id)->event(
@@ -62,7 +61,7 @@
 				'async' => true,
 				'before' => '$("#requestingCds'.$carreira_id.'").attr("style", "")',
 				'complete' => '$("#requestingCds'.$carreira_id.'").attr("style", "display:none")',
-				'update' => '#sucessoCds'.$carreira_id,
+				'update' => '#message',
 				'success' => $success
 			)
 		)

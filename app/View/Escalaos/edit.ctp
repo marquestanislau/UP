@@ -36,7 +36,8 @@
 						'method' => 'post',
 						'update' => '#table-body',
 						'async' => true,
-						'dataExpression' => true
+						'dataExpression' => true,
+						'complete' => 'displayMessages()'
 					)
 				);
 	$this->Js->get('#ajaxFormEscEdit'.$id);
@@ -47,7 +48,7 @@
 			array(
 				'method' => 'post',
 				'data' => $dados,
-				'update' => '#sucesso'.$id,
+				'update' => '#message',
 				'dataExpression' => true,
 				'before' => $before,
 				'complete' => $complete,

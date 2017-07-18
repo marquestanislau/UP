@@ -45,6 +45,13 @@ function displayMessages() {
 	var data = {message: ''};
 	snackbarContainer.MaterialSnackbar.showSnackbar(data);
 }
+// Hardecoded to solve multiple ajax requests: Estanislau Marques
+function displayMessagesVer2() {
+	var snackbarContainer = document.querySelector('#message');
+	var data = {message: 'As carreiras foram alteradas (Adicionadas/Removidas)'};
+	// var data = {message: ''};
+	snackbarContainer.MaterialSnackbar.showSnackbar(data);
+}
 
 function clearInput(id, foco) {
 	// document.getElementById(id).value = '';
