@@ -5,11 +5,11 @@
     <div class="col-md-6">
       <?php echo $this->Form->input('concurso_id', 
                       array(
-                        'class' => 'w3-input w3-hover-sand w3-border',
+                        'class' => 'w3-input w3-hover-sand w3-border w3-white w3-round',
                         'id' => 'getConcurso',
                         'label' => array(
                             'text' => 'Concurso',
-                            'class' => 'w3-label'
+                            'class' => 'w3-label w3-text-black'
                         ),
                         'empty' => ' Filtrar por concurso ...'
                       )
@@ -20,11 +20,11 @@
       <?php 
         echo $this->Form->input('carreira_id', 
                                 array(
-                                  'class' => 'w3-input w3-hover-sand w3-border',
+                                  'class' => 'w3-input w3-white w3-hover-sand w3-border w3-round',
                                   'id' => 'getCarreira',
                                   'label' => array(
                                     'text' => 'Carreira',
-                                    'class' => 'w3-label'
+                                    'class' => 'w3-label w3-text-black'
                                   ), 
                                   'empty' => ' Filtrar por carreira ...'
                                 )
@@ -40,7 +40,7 @@
         <?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
       </div>
 
-      <table class="table table-striped w3-topbar w3-border-grey">
+      <table class="table table-striped w3-topbar w3-border-light-grey">
         <thead class="w3-label w3-white w3-text-blue">
           <th>Estado</th>
           <th>Nome</th>
