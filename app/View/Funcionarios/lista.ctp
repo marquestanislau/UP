@@ -34,6 +34,7 @@
   <?php endforeach; ?>
   <?php } else { ?>
   <tr>
-    <td colspan="7"><span class="w3-text-red">Sem participantes</span></td>
+    <td colspan="7" class="w3-large w3-center" >Sem participantes</td>
+    <td></td>
   </tr>
   <?php } ?>

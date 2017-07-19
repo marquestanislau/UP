@@ -52,7 +52,7 @@ function displayMessagesVer2() {
 	// var data = {message: ''};
 	snackbarContainer.MaterialSnackbar.showSnackbar(data);
 }
-
+// used to clear a form and focus the first field of it
 function clearInput(id, foco) {
 	// document.getElementById(id).value = '';
 	var form = document.getElementById(id);

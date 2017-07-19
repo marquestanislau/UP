@@ -88,3 +88,10 @@
 		?>
 
 	<?php endforeach; ?>
+
+	<?php if (empty($concursos)) { ?>
+		<tr>
+			<td colspan="2" class="w3-center"> <div class="w3-panel w3-large">Do momento n&atilde;o existe concurso no sistema.</div></td>
+			<td></td>
+		</tr>
+	<?php } ?>

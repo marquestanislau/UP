@@ -21,13 +21,13 @@
     </div>
 
     <footer style="padding: 20px;" class="w3-container w3-white">
-		<button class="w3-button w3-border">
+		<button class="w3-button w3-border w3-round">
 			<span class='glyphicon glyphicon-ok'></span>
 			Submeter
 		</button>
 		<?php echo $this->Form->end(); ?>
 		
-		<button class="w3-button w3-border" onclick="clearInput('addForm', 'nome')">
+		<button class="w3-button w3-border w3-round" onclick="clearInput('addForm', 'nome')">
 			<i class="fa fa-plus"></i>
 			Novo concurso
 		</button>

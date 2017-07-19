@@ -44,6 +44,14 @@
           <label class="w3-label">Despacho: </label>
           <?php echo $this->Form->input('despacho', array('class' => 'w3-light-grey', 'type' => 'date', 'label' => false)); ?>
         </div>
+        <div class="w3-col m12">
+          <label class="w3-label">Delegacao: </label>
+          <?php echo $this->Form->input('delegacao_id', array('class' => 'w3-input w3-border', 'label' => false)); ?>
+        </div>
+        <div class="w3-col m12">
+          <label class="w3-label">Classe: </label>
+          <?php echo $this->Form->input('clazze_id', array('class' => 'w3-input w3-border', 'label' => false)); ?>
+        </div>
       </div>
       <div id="requesting<?php echo $funcionario['Funcionario']['id']; ?>" style="display: none;">
         <?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
@@ -51,55 +59,58 @@
       <?php }?>
     </div>
     <footer class="w3-container w3-white w3-padding-bottom w3-padding">
-        <?php if ( !empty($funcionario['Funcionario']['despacho'])): ?>
-          <button type="button" onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" class="w3-btn w3-large w3-blue">
-            <i class="fa fa-thumbs-up"></i>
-            Ok
+      <?php if ( !empty($funcionario['Funcionario']['despacho'])): ?>
+        <button type="button" onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" class="w3-btn w3-large w3-blue">
+          <i class="fa fa-thumbs-up"></i>
+          Ok
+        </button>
+      <?php else: ?>
+        <div class="w3-bar"> 
+        <button id="admitir<?php echo $funcionario_id;?>" class=" w3-button w3-border w3-border-green w3-green"><i class="fa fa-thumbs-o-up"></i> Admitir
           </button>
-        <?php else: ?>
-          <button onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" type="button" class="w3-button w3-light-grey w3-border w3-hover-text-red w3-large pull-right">
+          <button onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" type="button" class="w3-button w3-light-grey w3-border w3-hover-text-red">
             <i class="fa fa-close"></i>
             Cancelar
           </button>
-          <button id="admitir<?php echo $funcionario_id;?>" class="w3-large w3-button w3-hover-text-blue pull-right w3-white w3-border"><i class="fa fa-thumbs-o-up"></i> Admitir
-          </button>
-        <?php endif ?>
+        </div>
+      <?php endif ?>
 
-        <?php echo $this->Form->end(); ?>
+      <?php echo $this->Form->end(); ?>
     </footer>
   </div>
-  </div>
-  <?php 
-  $data = $this->Js->get('#formCandidatura'.$funcionario_id)->serializeForm(array('inline' => true, 'isForm' => true));
-  $success = $this->Js->request(
+</div>
+<?php 
+$data = $this->Js->get('#formCandidatura'.$funcionario_id)->serializeForm(array('inline' => true, 'isForm' => true));
+$success = $this->Js->request(
+  array(
+    'action' => 'listaDeParticipantesAjax',
+    'controller' => 'funcionarios'
+    ),
+  array(
+    'update' => '#table-body',
+    'method' => 'post',
+    'dataExpression' => true,
+    'async' => true,
+    'complete' => 'displayMessages()'
+    )
+  );
+$this->Js->get('#formCandidatura'.$funcionario_id)->event(
+  'submit',
+  $this->Js->request(
     array(
-      'action' => 'listaDeParticipantesAjax',
+      'action' => 'aceitarDespacho', $funcionario_id,
       'controller' => 'funcionarios'
       ),
     array(
-      'update' => '#table-body',
       'method' => 'post',
       'dataExpression' => true,
-      'async' => true
+      'data' => $data,
+      'before' => '$("#requesting'.$funcionario_id.'").attr("style", "")',
+      'complete' => '$("#requesting'.$funcionario_id.'").attr("style", "display:none")',
+      'update' => '#message',
+      'async' => true,
+      'success' => $success
       )
-    );
-  $this->Js->get('#formCandidatura'.$funcionario_id)->event(
-    'submit',
-    $this->Js->request(
-      array(
-        'action' => 'aceitarDespacho', $funcionario_id,
-        'controller' => 'funcionarios'
-      ),
-      array(
-        'method' => 'post',
-        'dataExpression' => true,
-        'data' => $data,
-        'before' => '$("#requesting'.$funcionario_id.'").attr("style", "")',
-        'complete' => '$("#requesting'.$funcionario_id.'").attr("style", "display:none")',
-        'update' => '#sucesso'.$funcionario_id,
-        'async' => true,
-        'success' => $success
-        )
-      )
-    );
+    )
+  );
   ?>

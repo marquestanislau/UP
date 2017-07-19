@@ -125,6 +125,10 @@
      </div>
 <?php
 $data = $this->Js->get('#formUpdateFuncionario')->serializeForm(array('isForm' => true, 'inline' => true));
+$success = $this->Js->request(
+    array('controller' => 'funcionarios'),
+    array('complete' => 'displayMessages()')
+  );
 $this->Js->get('#formUpdateFuncionario')->event(
  'submit',
  $this->Js->request(
@@ -137,9 +141,10 @@ $this->Js->get('#formUpdateFuncionario')->event(
    'data' => $data,
    'dataExpression' => true,
    'async' => true,
-   'update' => '#sucesso',
+   'update' => '#message',
    'before' => '$("#requesting").attr("style", "")',
-   'complete' => '$("#requesting").attr("style", "display:none")'
+   'complete' => '$("#requesting").attr("style", "display:none")',
+   'success' => $success
    )
   )
  );

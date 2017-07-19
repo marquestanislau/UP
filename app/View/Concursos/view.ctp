@@ -15,14 +15,14 @@
 		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->
 		</div>
 		<p><strong><?php echo h($concurso['Concurso']['nome']); ?></strong></p>
-		<table class="w3-margin-bottom w3-table-all">
+		<table class="w3-margin-bottom w3-table table-striped">
 			<tr>
 				<td><strong><?php echo __('Data da Aprova&ccedil;&atilde;o'); ?></strong></td>
-				<td><strong><?php echo __('Data de Registo'); ?></strong></td>
+				<td><strong><?php echo __('Data e Hora de Registo'); ?></strong></td>
 			</tr>
 			<tr>
 				<td><?php echo h($concurso['Concurso']['data_aprovacao']); ?></td>
-				<td><?php echo h($concurso['Concurso']['data_registo']); ?></td>
+				<td><?php echo h($concurso['Concurso']['created']); ?></td>
 			</tr>
 		</table>
 		<div role="form">
@@ -33,13 +33,13 @@
 
 			<div id="carreiras" class="w3-hide w3-animate-top">
 				<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'add'), 'id' => 'ajaxFormAdd')); ?>
-				<div class="form-group w3-sand w3-border">
+				<div class="form-group w3-light-grey w3-round w3-border-top">
 					<?php echo $this->Form->input('Carreira', array(
 								'multiple' => 'checkbox',
 								'selected' => $selected,
 								'id' => 'carreiraSelecionada', 
 								'label' => FALSE,
-								'class' => 'w3-margin w3-text-dark-grey w3-hover-sand'
+								'class' => 'w3-margin w3-text-dark-grey w3-hover-text-blue'
 							)
 					); ?>	
 				</div>

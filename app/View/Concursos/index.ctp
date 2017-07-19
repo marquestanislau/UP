@@ -19,7 +19,7 @@
 		<table class="table table-striped w3-topbar w3-border-grey" cellpadding="0" cellspacing="0">
 			<thead class="w3-white w3-text-blue">
 				<tr>
-					<th><?php echo $this->Paginator->sort('data_aprovacao'); ?></th>
+					<th><?php echo __('Data de aprova&ccedil;&atilde;o'); ?></th>
 					<th><?php echo $this->Paginator->sort('nome'); ?></th>
 					<th class="actions"><?php echo __('Actividade'); ?></th>
 				</tr>
