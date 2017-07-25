@@ -127,4 +127,23 @@ class CtasController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
+    public function excepcao() {
+      $this->getkeys();
+      if($this->request->is('ajax')) {
+        $clazzes = $this->Cta->Funcionario->Clazze->find('list', array('conditions' => array('carreira_id' => $this->request->data['Funcionario']['carreira_id']), 'fields' => array('Clazze.id', 'Clazze.nome')));
+        $this->set(compact('clazzes'));
+        $this->render('input_classe', 'ajax');
+      }
+    }
+
+    public function getkeys() {
+      $concursos = $this->Cta->Funcionario->Concurso->find('list', array('fields' => 'Concurso.data_aprovacao', 'Concurso.id'));
+      $carreiras = $this->Cta->Funcionario->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
+      $this->set('clazzes', $this->Cta->Funcionario->Clazze->find('list', array('fields' => 'Clazze.nome', 'Clazze.id')));
+      $delegacaos = $this->Cta->Funcionario->Delegacao->find('list', array('fields' => 'Delegacao.nome', 'Delegacao.id'));
+      $escalaos = $this->Cta->Funcionario->Escalao->find('list', array('fields' => 'Escalao.nome', 'Escalao.id'));
+      $sectores = $this->Cta->Funcionario->Sectore->find('list', array('fields' => 'Sectore.designacao', 'Sectore.id'));
+      $this->set(compact('concursos', 'carreiras', 'delegacaos', 'escalaos', 'sectores'));
+    }
+
 }

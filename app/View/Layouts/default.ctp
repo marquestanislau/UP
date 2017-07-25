@@ -16,16 +16,14 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 	<?php echo $cakeDescription ?>:
 	<?php echo $this->fetch('title'); ?>
 </title>
+<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
 <?php
   echo $this->Html->meta('icon');
-   # Load jsquery libs for ajax and other effects
-  echo $this->Html->script('jquery/jquery');
-  echo $this->Html->script('jquery-ui.min');
   #Inclusao de bootstrap
   echo $this->Html->css('bootstrap/bootstrap.min');
-  #	echo $this->Html->css('cake.generic');
+  # echo $this->Html->css('cake.generic');
   echo $this->Html->css('material/material.indigo-orange.min');
-  	# Funciona quando possuimos uma conexao com a internet
+    # Funciona quando possuimos uma conexao com a internet
   #echo $this->Html->css('https://fonts.googleapis.com/icon?family=Material+Icons');
   #Modificacao de alguns aspectos (Modificacao do aspecto default)
   echo $this->Html->css('custom');
@@ -34,9 +32,15 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   echo $this->Html->css('w3');
   echo $this->Html->css('font-awesome/css/font-awesome.min');
   #Carrega o javascript do framwork da google mdl
-  echo $this->Html->script('material/material.min');
   #Carrega o script de bootstrap
-  echo $this->Html->script('bootstrap/bootstrap.min');
+  // echo $this->Html->script('bootstrap/bootstrap.min');
+  
+   # Load jsquery libs for ajax and other effects
+  echo $this->Html->script('jquery/jquery');
+  echo $this->Html->script('jquery-ui.min');
+  echo $this->Html->script('material/material.min');
+  echo $this->Html->script('steps/jq.progress-bar');
+  echo $this->Html->script('script_frameworks');
   echo $this->Html->script('script');
 
   echo $this->fetch('meta');
@@ -52,7 +56,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
     <li class="w3-opennav w3-right w3-hide-large">
       <a class="w3-hover-white w3-large" href="javascript:void(0)" onclick="w3_open()"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
     </li>
-    <li><a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'home'));?>" class="w3-theme-l1" style="font-weight: bolder;">SIGERH</a></li>
+    <li><a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'home'));?>" class=" logo w3-theme-l1" style="font-weight: bolder;">SIGERH</a></li>
     <li>
       <a><span class="glyphicon glyphicon-home"></span></a>
     </li>
@@ -111,7 +115,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
             <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'concursos'));?>"><span class="glyphicon glyphicon-book"></span> Concursos</a></td>
           </tr>
           <tr>
-            <td><a href="<?php echo $this->Html->url(array('action' => 'entrevista', 'controller' => 'funcionarios'));?>"><span class="fa fa-comments"></span> Entrevistas de emprego</a></td>
+           <!--  <td><a href="<?php echo $this->Html->url(array('action' => 'entrevista', 'controller' => 'funcionarios'));?>"><span class="fa fa-comments"></span> Entrevistas de emprego</a></td> -->
           </tr>
         </table>
       </div>

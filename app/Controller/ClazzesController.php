@@ -22,7 +22,7 @@ class ClazzesController extends AppController {
             	'RequestHandler'
             );
 
-	public $helpers = array('Js'  => array('Jquery'), 'Html');
+	public $helpers = array('Js'  => array('Jquery'));
 
 /**
  * index method
@@ -31,6 +31,7 @@ class ClazzesController extends AppController {
  */
 	public function index() {
 		$this->Clazze->recursive = 0;
+		$this->Paginator->settings = $this->paginator_settings;
 		$this->set('clazzes', $this->Paginator->paginate());
 		$this->setKeys();
 		if($this->request->is('ajax')) {

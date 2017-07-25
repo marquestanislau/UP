@@ -31,7 +31,7 @@
 				<span class="glyphicon glyphicon-briefcase"></span> Carreiras (Clique para obter opcoes)
 			</button>
 
-			<div id="carreiras" class="w3-hide w3-animate-top">
+			<div id="carreiras" style="overflow-y: scroll; height: 200px;" class="w3-hide w3-animate-top">
 				<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'add'), 'id' => 'ajaxFormAdd')); ?>
 				<div class="form-group w3-light-grey w3-round w3-border-top">
 					<?php echo $this->Form->input('Carreira', array(
@@ -44,11 +44,11 @@
 					); ?>	
 				</div>
 				<?php echo $this->Form->input('Concurso.id', array('value' => $concurso['Concurso']['id'])); ?>
-				<button id="adicionar" class="w3-button w3-green w3-large pull-right">
-					<span class="glyphicon glyphicon-save"></span> Adicionar
-				</button>
-				<?php echo $this->Form->end(); ?>
 			</div>
+			<button id="adicionar" class="w3-button w3-green w3-large pull-right">
+				<span class="glyphicon glyphicon-save"></span> Adicionar
+			</button>
+			<?php echo $this->Form->end(); ?>
 		</div>
 	</div>
 </div>

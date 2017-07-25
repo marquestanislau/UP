@@ -29,6 +29,7 @@
 				 		Adicionar participantes <br>
 				 		<strong>Carreira:</strong> <?php echo $carreira['nome']; ?>
 				 	</span>
+					 Adicionar participantes
 				 </button>
 				</td>
 			</tr>

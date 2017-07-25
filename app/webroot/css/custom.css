@@ -99,6 +99,37 @@ th a {
 	color: #c73e14;
 }
 
+.button-small {
+	font-size: 85%;
+}
+
+.logo {
+	font-family: 'Gloria Hallelujah', cursive;
+}
+
+.statusbar {
+	width: 100%;
+}
+
+.statusbar li {
+	background-color: white;
+	margin-left: 10%;
+}
+
+#FuncionarioDataEmissaoMonth, 
+#FuncionarioDataNascimentoMonth {
+	width: 30%; 
+	display: inline;
+}
+
+#FuncionarioDataEmissaoDay, 
+#FuncionarioDataEmissaoYear, 
+#FuncionarioDataNascimentoDay, 
+#FuncionarioDataNascimentoYear {
+	width: 23.3%; 
+	display: inline;
+}
+
 table tr td {
 	white-space: nowrap;
 	padding-bottom: 0px;
@@ -133,3 +164,49 @@ table {
 #carreiras {
 	overflow: auto;
 }
+
+
+/*Progress bar*/
+.jumbotron ul { font-size: .75em; }
+
+#progress-bar-wrap {
+  min-height: 20px;
+  display: none;
+  margin-bottom: 0;
+}
+
+#progress-bar-wrap .encouragement { display: none; }
+
+#progress-bar-wrap .close:before {
+  content: "\f0d7";
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#progress-bar-wrap span { line-height: 1.75em; }
+
+#progress-bar-wrap.collapsed h4 {
+  font-size: 14px;
+  color: #999999;
+}
+
+#progress-bar-wrap.collapsed .encouragement { display: none; }
+
+#progress-bar-wrap.collapsed .progress { display: none; }
+
+#progress-bar-wrap.collapsed .close:before {
+  content: "\f0d8";
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: .75em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/*end progressbar*/

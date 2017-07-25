@@ -1,0 +1,1 @@
+<?php echo $this->Form->input('clazze_id', array('id' => 'classe' ,'class' => 'w3-input w3-border w3-round','label' => array('class' => 'w3-margin-top', 'text' => 'Classe'))); ?>

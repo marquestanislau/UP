@@ -79,6 +79,10 @@ class Funcionario extends AppModel {
 		'Escalao' => array(
 			'className' => 'Escalao',
 			'foreignKey' => 'escalao_id'
+		),
+		'Sectore' => array(
+			'className' => 'Sectore',
+			'foreignKey' => 'sector_id'
 		)
 	);
 }

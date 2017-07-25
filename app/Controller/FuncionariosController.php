@@ -153,4 +153,13 @@ class FuncionariosController extends AppController {
     $this->set(compact('funcionario'));
   }
 
+  public function excepcao() {
+    $this->getkeys();
+    if($this->request->is('ajax')) {
+      $clazzes = $this->Funcionario->Clazze->find('list', array('conditions' => array('carreira_id' => $this->request->data['Funcionario']['carreira_id']), 'fields' => array('Clazze.id', 'Clazze.nome')));
+      $this->set(compact('clazzes'));
+      $this->render('input_classe', 'ajax');
+    }
+  }
+
 }

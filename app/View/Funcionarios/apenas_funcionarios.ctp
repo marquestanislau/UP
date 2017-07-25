@@ -51,6 +51,6 @@
 <?php endforeach; ?>
 <?php } else { ?>
   <tr>
-    <td colspan="7"><i class="fa fa-stop"></i> Sem funcionarios cadastrados no sistema</td>
+    <td colspan="7" class="w3-large"><i class="fa fa-table"></i> Sem funcionarios cadastrados no sistema</td>
   </tr>
 <?php } ?>

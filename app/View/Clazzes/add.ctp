@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<footer class="w3-container w3-white w3-padding">
-			<button class="w3-button w3-border">
+			<button class="w3-button w3-border w3-border-green w3-green">
 				<span class="glyphicon glyphicon-ok"></span>
 				Submeter
 			</button>

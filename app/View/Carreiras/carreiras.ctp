@@ -9,6 +9,7 @@
 			<button class="w3-btn w3-blue" onclick="document.getElementById('carreiraModalEditar<?php echo $id;?>').style.display='block'">
 				<span class='glyphicon glyphicon-edit'></span>
 			</button>
+			<a href="<?php echo $this->Html->url(array('controller' => 'carreiras', 'action' => 'view', $carreira['Carreira']['id']));?>">Detalhes</a>
 		</td>
 	</tr>
 	<?php

@@ -23,6 +23,7 @@ class CarreirasController extends AppController {
  */
 	public function index() {
 		$this->Carreira->recursive = 0;
+		$this->Paginator->settings = $this->paginator_settings;
 		$this->set('carreiras', $this->Paginator->paginate());
 		if($this->request->is('ajax')) {
 			$this->render('carreiras', 'ajax');
@@ -45,8 +46,11 @@ class CarreirasController extends AppController {
 		if (!$this->Carreira->exists($id)) {
 			throw new NotFoundException(__('Invalid carreira'));
 		}
+		$this->loadModel('Clazze');
 		$options = array('conditions' => array('Carreira.' . $this->Carreira->primaryKey => $id));
-		$this->set('carreira', $this->Carreira->find('first', $options));
+		$clazzes = $this->Clazze->find('all', array('conditions' => array('carreira_id' => $id)));
+		$carreira = $this->Carreira->find('first', $options);
+		$this->set(compact('carreira', 'clazzes'));
 	}
 
 /**
