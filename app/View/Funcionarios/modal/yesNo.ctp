@@ -10,10 +10,10 @@
 				<i class="fa fa-user"></i>
 				CTA
 			</a>
-			<button class="w3-button w3-large w3-round w3-blue w3-hover-light-blue">
+			<a href="<?php echo $this->Html->url(array('action' => 'excepcao', 'controller' => 'cds'));?>" class="w3-button w3-large w3-round w3-blue w3-hover-light-blue">
 				<i class="fa fa-graduation-cap"></i>
 				CD
-			</button>
+			</a>
 		</div>		
 		<footer class="w3-container w3-padding">
 			
