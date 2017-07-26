@@ -27,7 +27,7 @@
 
 
 	<p class="corpo">
-		Nome Completo <b><?php echo $funcionario['Funcionario']['nome'].' '.$funcionario['Funcionario']['apelido']; ?>,</b>nomeado por despacho de <b><?php echo $funcionario['Funcionario']['despacho']; ?></b> do Magnífico Reitor da Universidade Pedagógica, para a Carreira de <b><?php echo $funcionario['Carreira']['nome']; ?></b>, <?php echo $funcionario['Clazze']['nome']; ?>, <?php echo $funcionario['Escalao']['nome']; ?>, nos termos do previsto na alínea e) do artigo 1, da Resolução nº. 2/2006, de 13 de Julho, conjugado com n.° 1 do art. 34 e o n.° 4 do art.° 13, ambos do EGFAE, com colocação na <?php echo $funcionario['Delegacao']['nome']; ?>.
+		Nome Completo <b><?php echo $funcionario['Funcionario']['nome'].' '.$funcionario['Funcionario']['apelido']; ?>,</b>nomeado por despacho de <b><?php echo $funcionario['Funcionario']['despacho']; ?></b> do Magnífico Reitor da Universidade Pedagógica, para a Carreira de <b><?php echo $funcionario['Carreira']['nome']; ?></b>, <b>Classe <?php echo $funcionario['Clazze']['nome']; ?></b>, <b><?php echo $funcionario['Escalao']['nome']; ?></b>, nos termos do previsto na alínea e) do artigo 1, da Resolução nº. 2/2006, de 13 de Julho, conjugado com n.° 1 do art. 34 e o n.° 4 do art.° 13, ambos do EGFAE, com colocação na <b><?php echo $funcionario['Delegacao']['nome']; ?></b>.
 	</p>
 	<p>
 		Forma de nomeação: <b>Nomeação provisória</b>. <br>

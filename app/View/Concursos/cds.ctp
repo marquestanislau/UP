@@ -10,27 +10,45 @@
 	<?php
 		echo $this->Form->input('Funcionario.carreira_id', array('value' => $carreira_id, 'type' => 'hidden'));
 		echo $this->Form->input('Funcionario.concurso_id', array('value' => $concurso_id, 'type' => 'hidden'));
-		echo $this->Form->input('Funcionario.nome', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Estanislau', 'id' => 'name'.$carreira_id));
-		echo $this->Form->input('Funcionario.apelido', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Marques'));
+		echo $this->Form->input('Funcionario.nome', array('class' => 'w3-input w3-round w3-border w3-hover-khaki', 'placeholder' => 'Estanislau', 'id' => 'name'.$carreira_id));
+		echo $this->Form->input('Funcionario.apelido', array('class' => 'w3-input w3-round w3-border w3-hover-khaki', 'placeholder' => 'Marques'));
 		echo $this->Form->input('funcionario_id', array('type' => 'hidden'));
-		echo $this->Form->input('Funcionario.data_nascimento', array('label' => 'Data de nascimento', 'type' => 'text', 'class' => 'w3-input w3-border datepicker', 'placeholder' => '(Ano-Mes-Dia)', 'id' => 'data'.$carreira_id , 'onfocus' => 'selecionadorPorId(data'.$carreira_id.')'));
 		echo "<br>";
-		echo $this->Form->label('Funcionario.sexo', 'Genero');
-		echo "<br>";
-		echo $this->Form->radio('Funcionario.sexo', array('M' => 'Masculino', 'F' => 'Feminino'), array('legend' => false, 'separator' => '<br>'));
-		echo $this->Form->input('Funcionario.posicao', array('class' => 'w3-input w3-border', 'label' => 'Posi&ccedil;&atilde;o', 'style' => 'width: 20%;'));
 	?>
+		<div class="row">
+			<div class="col-md-6">
+				<?php 
+					echo $this->Form->label('Funcionario.sexo', 'Genero');
+					echo "<br>";
+					echo $this->Form->radio('Funcionario.sexo', array('M' => 'Masculino', 'F' => 'Feminino'), array('legend' => false, 'separator' => '<br>'));
+				 ?>
+			</div>
+			<div class="col-md-6">
+				<?php 
+					echo $this->Form->input('Funcionario.posicao', array('class' => 'w3-input w3-round w3-border', 'label' => 'Posi&ccedil;&atilde;o'));
+					echo $this->Form->input('Funcionario.data_nascimento', array('label' => 'Data de nascimento', 'type' => 'text', 'class' => 'w3-input w3-text-blue w3-round w3-border datepicker', 'placeholder' => '(Ano-Mes-Dia)', 'id' => 'data'.$carreira_id , 'onfocus' => 'selecionadorPorId(data'.$carreira_id.')'));
+				 ?>
+			</div>
+		</div>
 	<div id="requestingCds<?php echo $carreira_id; ?>" style="display: none">
 		<?php echo $this->Html->image('ajax/ajax-loader.gif');  ?>
 	</div>
 </div>
 <div class="col-md-6">
-	<?php
-		echo $this->Form->input('Funcionario.contacto_pessoal', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => '84777777'));
-		echo $this->Form->input('Funcionario.contacto_alternativo', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => '841234567'));
-		echo $this->Form->input('Funcionario.email_pessoal', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'exemplo@mail.com'));
-		echo $this->Form->input('cadeira', array('class' => 'w3-input w3-border w3-hover-khaki', 'placeholder' => 'Sistemas de Comunicação'));
-	?>
+	<div class="row">
+		<div class="col-md-6">
+			<?php
+				echo $this->Form->input('Funcionario.contacto_pessoal', array('class' => 'w3-input w3-round w3-border w3-hover-khaki', 'placeholder' => '84777777'));
+				echo $this->Form->input('Funcionario.contacto_alternativo', array('class' => 'w3-input w3-round w3-border w3-hover-khaki', 'placeholder' => '841234567'));
+			?>
+			<br>
+		</div>
+		<div class="col-md-6"></div>
+	</div>
+	<?php 
+		echo $this->Form->input('Funcionario.email_pessoal', array('class' => 'w3-input w3-round w3-border w3-hover-khaki', 'placeholder' => 'exemplo@mail.com'));
+		echo $this->Form->input('cadeira', array('class' => 'w3-input w3-round w3-border w3-hover-khaki', 'placeholder' => 'Sistemas de Comunicação'));
+	 ?>
 </div>
 <footer class="w3-container w3-padding">
 	<div class="w3-bar">

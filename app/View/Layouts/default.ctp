@@ -58,7 +58,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
     </li>
     <li><a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'home'));?>" class=" logo w3-theme-l1" style="font-weight: bolder;">SIGERH</a></li>
     <li>
-      <a><span class="glyphicon glyphicon-home"></span></a>
+      <a href="<?php echo $this->Html->url(array('action' => 'home', 'controller' => 'pages'));?>"><span class="glyphicon glyphicon-home"></span></a>
     </li>
     <li class="w3-hide-small w3-dropdown-hover">
       <a><span class="glyphicon glyphicon-user"></span></a>
@@ -67,9 +67,9 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         <table>
           <tr>
             <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'funcionarios')); ?>"><i class="fa fa-users"></i> Funcion&aacute;rios</a></td>
-            <td><a href=""><i class="fa fa-star-o w3-large"></i> Progress&atilde;o</a></td>
+            <!-- <td><a href=""><i class="fa fa-star-o w3-large"></i> Progress&atilde;o</a></td> -->
           </tr>
-          <tr>
+         <!--  <tr>
             <td><a href="<?php echo $this->Html->url(array('action' => 'transferencia', 'controller' => 'funcionarios')); ?>"><i class="fa fa-refresh"></i> Transfer&ecirc;ncias</a></td>
           </tr>
           <tr>
@@ -77,13 +77,13 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
           </tr>
           <tr>
             <td><a href="#"><i class="fa fa-balance-scale"></i> Avalia&ccedil;&atilde;o de desempenho</a></td>
-          </tr>
+          </tr> -->
         </table>
       </div>
     </li>
-    <li>
+    <!-- <li>
       <a><span class="glyphicon glyphicon-education"></span></a>
-    </li>
+    </li> -->
     <li class="w3-hide-small w3-dropdown-hover">
       <a><span class="glyphicon glyphicon-cog"></span></a>
       <div class="w3-dropdown-content w3-card-4 w3-padding w3-text-blue w3-bottombar">

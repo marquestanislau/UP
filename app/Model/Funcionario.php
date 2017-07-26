@@ -13,7 +13,7 @@ class Funcionario extends AppModel {
 				'rule' => array('notBlank'),
 				'message' => 'Campo obrigatorio',
 				//'allowEmpty' => false,
-				//'required' => false,
+				'required' => true,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
@@ -83,6 +83,10 @@ class Funcionario extends AppModel {
 		'Sectore' => array(
 			'className' => 'Sectore',
 			'foreignKey' => 'sector_id'
+		),
+		'Categoria' => array(
+			'className' => 'Categoria',
+			'foreignKey' => 'categoria_id'
 		)
 	);
 }

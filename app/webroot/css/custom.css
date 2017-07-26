@@ -117,7 +117,9 @@ th a {
 }
 
 #FuncionarioDataEmissaoMonth, 
-#FuncionarioDataNascimentoMonth {
+#FuncionarioDataNascimentoMonth, 
+#FuncionarioAnoConclusaoMonth,
+#FuncionarioDespachoMonth {
 	width: 30%; 
 	display: inline;
 }
@@ -125,7 +127,11 @@ th a {
 #FuncionarioDataEmissaoDay, 
 #FuncionarioDataEmissaoYear, 
 #FuncionarioDataNascimentoDay, 
-#FuncionarioDataNascimentoYear {
+#FuncionarioDataNascimentoYear,
+#FuncionarioAnoConclusaoDay,
+#FuncionarioAnoConclusaoYear,
+#FuncionarioDespachoDay,
+#FuncionarioDespachoYear {
 	width: 23.3%; 
 	display: inline;
 }

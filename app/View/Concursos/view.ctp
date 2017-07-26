@@ -27,8 +27,8 @@
 		</table>
 		<div role="form">
 
-		<button onclick="myFunction('carreiras')" class="w3-button w3-hover-gray w3-hover-text-light-grey w3-block w3-left-align">
-				<span class="glyphicon glyphicon-briefcase"></span> Carreiras (Clique para obter opcoes)
+		<button onclick="myFunction('carreiras')" class="w3-button w3-center w3-hover-gray w3-hover-text-light-grey w3-block w3-left-align">
+				<span class="glyphicon glyphicon-briefcase"></span> Carreiras (Clique para obter op&ccedil;&otilde;es)
 			</button>
 
 			<div id="carreiras" style="overflow-y: scroll; height: 200px;" class="w3-hide w3-animate-top">

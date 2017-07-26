@@ -23,8 +23,8 @@
 					// 	array('class' => 'w3-btn w3-white w3-border w3-text-grey', 'escape' => FALSE)
 					// );
 				 ?>
-				 <button id="participante<?php echo $carreira['id'];?>" onclick="document.getElementById('participantesModal<?php echo $carreira_id;?>').style.display='block'" class="w3-btn w3-white w3-border w3-text-grey">
-				 	<span class="glyphicon glyphicon-user"></span>
+				 <button id="participante<?php echo $carreira['id'];?>" onclick="document.getElementById('participantesModal<?php echo $carreira_id;?>').style.display='block'" class="w3-button w3-text-grey">
+					 <i class="fa fa-user-plus"></i>
 				 	<span class="mdl-tooltip" data-mdl-for="participante<?php echo $carreira['id'];?>">
 				 		Adicionar participantes <br>
 				 		<strong>Carreira:</strong> <?php echo $carreira['nome']; ?>

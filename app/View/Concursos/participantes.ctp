@@ -1,5 +1,5 @@
  <div id="participantesModal<?php echo $carreira_id;?>" class="w3-modal">
-  <div class="w3-modal-content w3-animate-top">
+  <div class="w3-modal-content w3-animate-zoom">
 
     <header class="w3-container w3-blue">
       <span onclick="document.getElementById('participantesModal<?php echo $carreira_id;?>').style.display='none'"

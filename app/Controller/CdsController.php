@@ -149,7 +149,8 @@ class CdsController extends AppController {
       $delegacaos = $this->Cd->Funcionario->Delegacao->find('list', array('fields' => 'Delegacao.nome', 'Delegacao.id'));
       $escalaos = $this->Cd->Funcionario->Escalao->find('list', array('fields' => 'Escalao.nome', 'Escalao.id'));
       $sectores = $this->Cd->Funcionario->Sectore->find('list', array('fields' => 'Sectore.designacao', 'Sectore.id'));
-      $this->set(compact('concursos', 'carreiras', 'delegacaos', 'escalaos', 'sectores'));
+      $categorias = $this->Cd->Funcionario->Categoria->find('list', array('fields' => 'Categoria.nome', 'Categoria.id'));
+      $this->set(compact('concursos', 'carreiras', 'delegacaos', 'escalaos', 'sectores', 'categorias'));
     }
 
 }

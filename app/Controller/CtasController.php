@@ -49,11 +49,13 @@ class CtasController extends AppController {
      * @return void
      */
     public function add() {
+        $data = $this->request->data;
         if ($this->request->is('ajax')) {
             $this->Cta->create();
             $this->Cta->Funcionario->create();
-            if ($this->antesDeSalvar($this->request->data)) {
-                if ($this->Cta->saveAssociated($this->request->data)) {
+            if ($this->antesDeSalvar($data)) {
+                $data['Funcionario']['clazze_id'] = $this->classeCorrecta($data);
+                if ($this->Cta->saveAssociated($data)) {
                     $this->request->data = array();
                     $this->render('sucesso', 'ajax');
                 } else {
@@ -65,6 +67,24 @@ class CtasController extends AppController {
         }
         // $funcionarios = $this->Cta->Funcionario->find('list');
         // $this->set(compact('funcionarios'));
+    }
+
+    protected function classeCorrecta($request = array()) {
+        $classe_id = $this->Cta->Funcionario->Clazze->find('all', 
+                    array(
+                        'conditions' => array(
+                                    'Carreira.id' => $request['Funcionario']['carreira_id'],
+                                    'Clazze.nome' => 'E'
+                                    )
+                        )
+                    );
+
+        if (empty($request['Funcionario']['clazze_id'])) {
+            $request['Funcionario']['clazze_id'] = $classe_id[0]['Clazze']['id'];
+            return $request['Funcionario']['clazze_id'];
+        }
+
+        return $request['Funcionario']['clazze_id'];
     }
 
     protected function antesDeSalvar($data) {
@@ -143,7 +163,8 @@ class CtasController extends AppController {
       $delegacaos = $this->Cta->Funcionario->Delegacao->find('list', array('fields' => 'Delegacao.nome', 'Delegacao.id'));
       $escalaos = $this->Cta->Funcionario->Escalao->find('list', array('fields' => 'Escalao.nome', 'Escalao.id'));
       $sectores = $this->Cta->Funcionario->Sectore->find('list', array('fields' => 'Sectore.designacao', 'Sectore.id'));
-      $this->set(compact('concursos', 'carreiras', 'delegacaos', 'escalaos', 'sectores'));
+      $a = $this->Cta->Funcionario->Clazze->find('all', array('conditions' => array('Carreira.id' => 1, 'Clazze.nome' => 'E')));
+      $this->set(compact('concursos', 'carreiras', 'delegacaos', 'escalaos', 'sectores', 'a'));
     }
 
 }
