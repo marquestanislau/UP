@@ -1,28 +1,28 @@
 <div id="categoriaAddForm" class="w3-modal">
-	<div class="w3-modal-content w3-animate-top">
-		<header class="w3-container w3-blue">
+	<div class="w3-modal-content w3-animate-top w3-round" style="width: 50%;">
+		<header class="w3-container w3-center w3-text-blue">
 			<span onclick="document.getElementById('categoriaAddForm').style.display='none'"
-       class="w3-closebtn w3-hover-text-white">&times;</span>
+       class="w3-closebtn w3-hover-text-orange">&times;</span>
 			<h4><i class="fa fa-tags"></i> <?php echo __('Adicionar Categoria'); ?></h4>
 		</header>
 		<div class="w3-container w3-padding-32">
 			<div id="sucesso"></div>
 			<?php echo $this->Form->create('Categoria', array('class' => 'w3-container', 'id' => 'formAdd')); ?>
 			<?php
-				echo $this->Form->input('nome', array('class' => 'w3-input w3-border w3-hover-khaki', 'id' => 'nome'));
-				echo $this->Form->input('carreira_id', array('empty' => '==Seleccione uma carreira==', 'class' => 'w3-input w3-border w3-hover-khaki'));
+				echo $this->Form->input('nome', array('class' => 'w3-input w3-round w3-border w3-hover-khaki w3-margin-bottom', 'id' => 'nome'));
+				echo $this->Form->input('carreira_id', array('empty' => '==Seleccione uma carreira==', 'class' => 'w3-input w3-round w3-border w3-hover-khaki w3-large'));
 			?>
 			<div id="requesting" style="display:none">
 				<?php echo $this->Html->image('ajax/ajax-loader.gif');?>
 			</div>
 		</div>
-		<footer class="w3-container w3-padding">
-			<button class="w3-button w3-border">
+		<footer class="w3-container w3-padding w3-margin-left">
+			<button class="w3-button w3-green w3-round">
 				<span class="glyphicon glyphicon-ok"></span>
 				Submeter
 			</button>
 			<?php echo $this->Form->end(); ?>
-			<button onclick="clearInput('formAdd', 'nome')" class="w3-button w3-border">
+			<button onclick="clearInput('formAdd', 'nome')" class="w3-button w3-ligh-grey w3-round">
 				<span class="glyphicon glyphicon-plus"></span>
 				Nova categoria
 			</button>
