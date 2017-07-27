@@ -150,7 +150,12 @@ class CdsController extends AppController {
       $escalaos = $this->Cd->Funcionario->Escalao->find('list', array('fields' => 'Escalao.nome', 'Escalao.id'));
       $sectores = $this->Cd->Funcionario->Sectore->find('list', array('fields' => 'Sectore.designacao', 'Sectore.id'));
       $categorias = $this->Cd->Funcionario->Categoria->find('list', array('fields' => 'Categoria.nome', 'Categoria.id'));
-      $this->set(compact('concursos', 'carreiras', 'delegacaos', 'escalaos', 'sectores', 'categorias'));
+      $a = $this->Cd->Funcionario->Categoria->find('all');
+      $r = array();
+      for($i = 0; $i < count($a); $i++) {
+        $r[$i] = $a[$i]['Carreira'];
+      }
+      $this->set(compact('concursos', 'carreiras', 'delegacaos', 'escalaos', 'sectores', 'categorias', 'r'));
     }
 
 }

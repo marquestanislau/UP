@@ -70,14 +70,10 @@ class CtasController extends AppController {
     }
 
     protected function classeCorrecta($request = array()) {
-        $classe_id = $this->Cta->Funcionario->Clazze->find('all', 
-                    array(
-                        'conditions' => array(
-                                    'Carreira.id' => $request['Funcionario']['carreira_id'],
-                                    'Clazze.nome' => 'E'
-                                    )
-                        )
-                    );
+        $classe_id = $this->findClazzByClasse($request, 'E');
+        if(empty($classe_id)) {
+            $classe_id = $this->findClazzByClasse($request, 'U');
+        }
 
         if (empty($request['Funcionario']['clazze_id'])) {
             $request['Funcionario']['clazze_id'] = $classe_id[0]['Clazze']['id'];
@@ -85,6 +81,18 @@ class CtasController extends AppController {
         }
 
         return $request['Funcionario']['clazze_id'];
+    }
+
+    private function findClazzByClasse($request = array(), $clazze) {
+        $a = $this->Cta->Funcionario->Clazze->find('all', 
+                            array(
+                                'conditions' => array(
+                                            'Carreira.id' => $request['Funcionario']['carreira_id'],
+                                            'Clazze.nome' => $clazze
+                                            )
+                                )
+                            );
+        return $a;
     }
 
     protected function antesDeSalvar($data) {

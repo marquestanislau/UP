@@ -42,6 +42,18 @@ function clearInput(id, foco) {
 
 }
 
+// Capacidade de troca de div para a proxima na view add concursos
+
+function toConcurso() {
+	document.getElementById('delegacao').style.display = 'none';
+	document.getElementById('concursos').style.display = 'block';
+}
+
+function backToDelegacao() {
+	document.getElementById('concursos').style.display = 'none';
+	document.getElementById('delegacao').style.display = 'block';
+}
+
 function clearInputs(...clazz) {
 	todos = document.getElementsByClassName(clazz);
 	for (i = 0; i < todos.length; i++) {

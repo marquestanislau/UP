@@ -15,6 +15,7 @@ class ConcursosController extends AppController {
 		if($this->request->is('ajax')) {
 			$this->render('concursos', 'ajax');
 		}
+		$this->set('delegacaos', $this->Concurso->Delegacao->find('list', array('fields' => array('Delegacao.id', 'Delegacao.nome'))));
 	}
 
 	public function lista_concursos() {

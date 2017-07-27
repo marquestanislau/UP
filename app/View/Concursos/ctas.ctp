@@ -12,6 +12,7 @@
     <?php echo $this->Form->input('Funcionario.escalao_id', array('type' => 'hidden', 'value' => 1)); ?>
     <?php echo $this->Form->input('Funcionario.carreira_id', array('type' => 'hidden', 'value' => $carreira_id)); ?>
     <?php echo $this->Form->input('Funcionario.concurso_id', array('type' => 'hidden', 'value' => $concurso_id)); ?>
+    <?php echo $this->Form->input('Funcionario.delegacao_id', array('type' => 'hidden', 'value' => $concurso['Concurso']['delegacao_id'])); ?>
     <label for="FuncionarioNome">Nome</label>
     <?php echo $this->Form->input('Funcionario.nome', array('label'=>false, 'class' => 'w3-input w3-round w3-border w3-hover-khaki', 'placeholder' => 'Estanislau', 'id' => 'nome'.$carreira_id)); ?>
     <label for="FuncionarioApelido">Apelido</label>

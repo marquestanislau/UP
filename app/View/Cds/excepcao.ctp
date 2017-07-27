@@ -1,5 +1,6 @@
 <div class="w3-white w3-text-blue">
 	<h4><i class="fa fa-graduation-cap"></i> <?php echo __('Corpo docente / Novo Funcion&aacute;rio'); ?></h4>
+	<?php debug($r); ?>
 </div>
 <div class="w3-cell-row">
 	<div class="w3-third w3-padding w3-topbar w3-border-lime" style="background-color: #fafafa;">
@@ -35,7 +36,7 @@
 		echo "<br><h5>Outros</h5><hr>";
 		echo $this->Form->input('Funcionario.carreira_id', array('id' => 'carreiras', 'class' => 'w3-khaki w3-input w3-hover-sand w3-border w3-round required','label' => array('class' => 'w3-margin-top'), 'empty' => 'Escolha uma carreira'));
 		echo $this->Form->input('Funcionario.categoria_id', array('class' => 'w3-input w3-hover-sand w3-border w3-round required','label' => array('class' => 'w3-margin-top')));
-		echo $this->Form->input('Funcionario.clazze_id', array('id' => 'classe' ,'class' => 'w3-input w3-khaki w3-hover-sand w3-border w3-round required','label' => array('class' => 'w3-margin-top', 'text' => 'Classe')));
+		// echo $this->Form->input('Funcionario.clazze_id', array('id' => 'classe' ,'class' => 'w3-input w3-khaki w3-hover-sand w3-border w3-round required','label' => array('class' => 'w3-margin-top', 'text' => 'Classe')));
 		echo $this->Form->input('Funcionario.escalao_id', array('class' => 'w3-input w3-white w3-hover-sand w3-border w3-round required','label' => array('class' => 'w3-margin-top', 'text' => 'Escal&atilde;o'), 'empty' => 'Escolha o escalao'));
 		echo $this->Form->input('Funcionario.delegacao_id', array('class' => 'w3-input w3-white w3-hover-sand w3-border w3-round required','label' => array('class' => 'w3-margin-top', 'text' => 'Delega&ccedil;&atilde;o'), 'empty' => 'Escolha a delegacao'));
 		echo $this->Form->input('Funcionario.sectore_id', array('class' => 'w3-input w3-white w3-hover-sand w3-border w3-round required','label' => array('class' => 'w3-margin-top', 'text' => 'Sector'), 'empty' => 'Escolha o sector'));

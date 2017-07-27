@@ -24,7 +24,7 @@
 
 		<!-- The Modal -->
 		<div id="modal<?php echo $concurso['Concurso']['id']; ?>" class="w3-modal">
-			<div class="w3-modal-content">
+			<div class="w3-modal-content w3-animate-zoom">
 				<header class="w3-container w3-blue w3-padding">
 					<span onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='none'"
 						class="w3-closebtn">&times;</span>
@@ -38,16 +38,17 @@
 						<?php echo $this->Form->input('nome', array('value' => $concurso['Concurso']['nome'], 'class' => 'w3-input w3-border w3-hover-sand'));?>
 						<?php echo $this->Form->input('data_aprovacao', array('value' => $concurso['Concurso']['data_aprovacao'], 'class' => 'w3-input w3-border w3-hover-sand', 'type' => 'text', 'id' => 'date_input', 'label' => 'Data de aprova&ccedil;&atilde;o'));?>
 						<?php echo $this->Form->hidden('data_registo', array('id' => $concurso['Concurso']['id'])); ?>
+						<?php echo $this->Form->hidden('delegacao_id', array('id' => $concurso['Concurso']['delegacao_id'])); ?>
 					</div>
 					<footer style="padding: 14px;" class="w3-container">
-						<button class="w3-border w3-button w3-round" id="saveForm">
+						<button class="w3-green w3-button w3-round" id="saveForm">
 							<span class="glyphicon glyphicon-ok"></span>
 							Modificar dados
 						</button>
 						<?php echo $this->Form->end();?> 
 						<!-- end form  -->
 						<!-- button to cancel and exit modal window -->
-						<button onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='none'" class="w3-border w3-button w3-hover-text-red w3-round">
+						<button onclick="document.getElementById('modal<?php echo $concurso['Concurso']['id']?>').style.display='none'" class="w3-light-grey w3-button w3-round">
 							<span class="glyphicon glyphicon-remove"></span>
 							Cancelar
 						</button>

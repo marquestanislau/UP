@@ -59,5 +59,12 @@ class Concurso extends AppModel {
 		)
 	);
 
+	public $belongsTo = array(
+			'Delegacao' => array(
+					'className' => 'Delegacao',
+					'foreignKey' => 'delegacao_id'
+				)
+		);
+
 
 }

@@ -171,6 +171,10 @@ table {
 	overflow: auto;
 }
 
+#ConcursoDelegacaoId option {
+	font-size: 18px;
+}
+
 
 /*Progress bar*/
 .jumbotron ul { font-size: .75em; }

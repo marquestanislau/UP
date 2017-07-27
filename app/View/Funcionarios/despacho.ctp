@@ -49,7 +49,12 @@
           <label class="w3-label w3-margin-top">Despacho: </label>
           <?php echo $this->Form->input('despacho', array('class' => 'w3-white w3-input w3-round w3-border w3-text-blue', 'type' => 'date', 'label' => false)); ?>
           <label class="w3-label w3-margin-top">Delega&ccedil;&atilde;o: </label>
-          <?php echo $this->Form->input('delegacao_id', array('class' => 'w3-input w3-round w3-border', 'label' => false)); ?>
+          <?php echo $funcionario['Delegacao']['nome']; ?>
+        </div>
+        <div class="col-md-6">
+          <br>
+          <label class="w3-label">NUIT</label>
+          <?php echo $this->Form->input('nuit', array('class' => 'w3-input w3-large w3-border w3-hover-khaki w3-round', 'label' => false)); ?>
         </div>
         <!-- <div class="w3-col m12">
           <label class="w3-label">Classe: </label>
@@ -71,7 +76,7 @@
         <div class="w3-bar"> 
         <button id="admitir<?php echo $funcionario_id;?>" class=" w3-button w3-round w3-green"><i class="fa fa-thumbs-o-up"></i> Aprovar candidato
           </button>
-          <button onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" type="button" class="w3-button w3-round w3-border">
+          <button onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" type="button" class="w3-button w3-round w3-light-grey w3-text-grey">
             <i class="fa fa-close"></i>
             Cancelar aprova&ccedil;&atilde;o
           </button>
