@@ -8,7 +8,7 @@
 		  <input onkeyup="filtro()" style="width: 50%;" id="procurar" class="w3-round w3-white w3-bar-item w3-input w3-border" placeholder="Procure digitando o primeiro nome">
 		  <!-- <input type="text" class="w3-bar-item w3-input w3-white w3-border" placeholder="Search.."> -->
 		  <!-- <a href="<?php echo $this->Html->url(array('action' => 'excepcao', 'controller' => 'funcionarios'));?>" class="w3-bar-item w3-button w3-green "> -->
-		<button onclick="document.getElementById('yesNo').style.display='block'" class="w3-bar-item w3-green">
+		<button onclick="document.getElementById('yesNo').style.display='block'" class="w3-bar-item w3-green w3-right">
 		    <i class="fa fa-user"></i>	
 		    Adicionar funcion&aacute;rio
 	    </button>

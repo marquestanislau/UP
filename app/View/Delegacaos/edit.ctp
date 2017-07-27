@@ -1,23 +1,23 @@
 <div id="delegacaoModal<?php echo $id;?>" class="w3-modal">
-	<div class="w3-modal-content w3-animate-zoom">
-		<header class="w3-container w3-blue">
-			<span onclick="document.getElementById('delegacaoModal<?php echo $id;?>').style.display='none'" class="w3-closebtn">&times;</span>
-			<h4>Alterar dados da delegacao</h4>
+	<div class="w3-modal-content w3-animate-zoom w3-round" style="width: 50%;">
+		<header class="w3-container w3-text-blue">
+			<span onclick="document.getElementById('delegacaoModal<?php echo $id;?>').style.display='none'" class="w3-closebtn w3-hover-text-orange">&times;</span>
+			<h4>Alterar dados da delega&ccedil;&atilde;o</h4>
 		</header>	
 		<div class="w3-container w3-padding">
 			<div id="sucesso<?php echo $id;?>"></div>
 			<?php echo $this->Form->create('Delegacao', array('class' => 'w3-container', 'id' => 'delegacaoForm'.$id)); ?>
 			<?php
 				echo $this->Form->input('id', array('value' => $delegacao['Delegacao']['id']));
-				echo $this->Form->input('nome', array('class' => 'w3-input w3-border w3-hover-sand', 'value' => $delegacao['Delegacao']['nome']));
+				echo $this->Form->input('nome', array('class' => 'w3-input w3-large w3-round w3-border w3-hover-sand', 'value' => $delegacao['Delegacao']['nome']));
 			?>
 			<div id="requesting<?php echo $id;?>" style="display: none">
 				<?php echo $this->Html->image('ajax/ajax-loader.gif');?>
 			</div>
 		</div>
 		<footer class="w3-container w3-padding">
-			<button class="w3-btn w3-large w3-teal pull-right">
-				<i class="fa fa-save"></i>
+			<button class="w3-button w3-round w3-large w3-green">
+				<i class="fa fa-check"></i>
 				Adicionar
 			</button>
 			<?php echo $this->Form->end(); ?>

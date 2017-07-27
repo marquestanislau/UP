@@ -1,7 +1,7 @@
 <div id="classeModal<?php echo $id;?>" class="w3-modal">
-	<div class="w3-modal-content w3-animate-zoom">
-		<header class="w3-container w3-blue">
-			<span class="w3-closebtn" onclick="document.getElementById('classeModal<?php echo $id;?>').style.display = 'none'">
+	<div class="w3-modal-content w3-animate-zoom w3-round" style="width: 50%;">
+		<header class="w3-container w3-text-blue">
+			<span class="w3-closebtn w3-hover-text-orange" onclick="document.getElementById('classeModal<?php echo $id;?>').style.display = 'none'">
 				&times;
 			</span>
 			<h4>Adi&ccedil;&atilde;o de classes</h4>
@@ -11,15 +11,15 @@
 			<?php echo $this->Form->create('Clazze', array('id' => 'ajaxFormClasseEdit'.$id, 'class' => 'w3-container')); ?>
 			<?php
 				echo $this->Form->input('id', array('value' => $id));
-				echo $this->Form->input('nome', array('class' => 'w3-input w3-border w3-hover-khaki', 'value' => $clazze['Clazze']['nome']));
-				echo $this->Form->input('carreira_id', array('class' => 'w3-input w3-border w3-hover-khaki', 'value' => $clazze['Clazze']['carreira_id']));
+				echo $this->Form->input('nome', array('class' => 'w3-input w3-round w3-border w3-hover-khaki', 'value' => $clazze['Clazze']['nome']));
+				echo $this->Form->input('carreira_id', array('class' => 'w3-input w3-round w3-border w3-hover-khaki', 'value' => $clazze['Clazze']['carreira_id']));
 			?>
 			<div id="requesting<?php echo $id;?>" style="display:none">
 				<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
 			</div>
 		</div>
-		<footer class="w3-container w3-white w3-padding">
-			<button class="w3-button w3-border">
+		<footer class="w3-container w3-white w3-padding w3-margin-left">
+			<button class="w3-button w3-green w3-round">
 				<span class="glyphicon glyphicon-ok"></span>
 				Submeter
 			</button>

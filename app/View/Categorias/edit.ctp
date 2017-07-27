@@ -1,7 +1,7 @@
 <div class="w3-modal" id="catModal<?php echo $id;?>">
-	<div class="w3-modal-content w3-animate-top">
-		<header class="w3-container w3-blue">
-			<span onclick="document.getElementById('catModal<?php echo $id;?>').style.display='none'" class="w3-closebtn">&times;</span>
+	<div class="w3-modal-content w3-animate-top w3-round" style="width: 50%;">
+		<header class="w3-container w3-text-blue">
+			<span onclick="document.getElementById('catModal<?php echo $id;?>').style.display='none'" class="w3-closebtn w3-hover-text-orange">&times;</span>
 			<h4>Alterar dados da categoria</h4>
 		</header>
 		<div class="w3-container w3-padding">
@@ -9,15 +9,15 @@
 			<?php echo $this->Form->create('Categoria', array('id' => 'ajaxFormCatEdit'.$id, 'class' => 'w3-container')); ?>
 			<?php
 				echo $this->Form->input('id', array('value' => $categoria['Categoria']['id']));
-				echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki w3-border', 'value' => $categoria['Categoria']['nome']));
-				echo $this->Form->input('carreira_id', array('class' => 'w3-input w3-hover-khaki w3-border', 'value' => $categoria['Categoria']['carreira_id']));
+				echo $this->Form->input('nome', array('class' => 'w3-input w3-round w3-hover-khaki w3-border', 'value' => $categoria['Categoria']['nome']));
+				echo $this->Form->input('carreira_id', array('class' => 'w3-input w3-round w3-hover-khaki w3-border', 'value' => $categoria['Categoria']['carreira_id']));
 			?>
 			<div style="display: none" id="requesting<?php echo $id;?>">
 				<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
 			</div>
 		</div>
 		<footer class="w3-container w3-padding">
-			<button class="w3-btn w3-green w3-large">
+			<button class="w3-button w3-green w3-round w3-large">
 				<span class="glyphicon glyphicon-ok"></span>
 				Submeter
 			</button>

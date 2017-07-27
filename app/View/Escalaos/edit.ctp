@@ -1,7 +1,7 @@
 <div class="w3-modal" id="escModal<?php echo $id;?>">
-	<div class="w3-modal-content">
-		<header class="w3-container w3-blue">
-			<span onclick="document.getElementById('escModal<?php echo $id; ?>').style.display='none'" class="w3-closebtn">&times;</span>
+	<div class="w3-modal-content w3-round" style="width: 50%;">
+		<header class="w3-container w3-text-blue">
+			<span onclick="document.getElementById('escModal<?php echo $id; ?>').style.display='none'" class="w3-closebtn w3-hover-text-orange">&times;</span>
 			<h4>Altere os dados do escal&atilde;o</h4>
 		</header>
 		<div class="w3-container w3-padding">
@@ -9,16 +9,16 @@
 			<?php echo $this->Form->create('Escalao', array('id' => 'ajaxFormEscEdit'.$id, 'class' => 'w3-container')); ?>
 			<?php
 				echo $this->Form->input('id', array('value' => $id));
-				echo $this->Form->input('nome', array('class' => 'w3-input w3-border w3-hover-khaki', 'value' => $escalao['Escalao']['nome']));
-				echo $this->Form->input('categoria_id', array('class' => 'w3-input w3-border w3-hover-khaki', 'value' => $escalao['Escalao']['categoria_id']));
-				echo $this->Form->input('clazze_id', array('class' => 'w3-input w3-border w3-hover-khaki', 'value' => $escalao['Escalao']['clazze_id'], 'label' => 'Classe'));
+				echo $this->Form->input('nome', array('class' => 'w3-input w3-round w3-border w3-hover-khaki', 'value' => $escalao['Escalao']['nome']));
+				echo $this->Form->input('categoria_id', array('class' => 'w3-input w3-large w3-round w3-border w3-hover-khaki', 'value' => $escalao['Escalao']['categoria_id']));
+				echo $this->Form->input('clazze_id', array('class' => 'w3-input w3-large w3-round w3-border w3-hover-khaki', 'value' => $escalao['Escalao']['clazze_id'], 'label' => 'Classe'));
 			?>
 			<div style="display:none"> id="requesting<?php echo $id;?>">
 				<?php echo $this->Html->image('ajax/ajax-loader.gif');?>
 			</div>
 		</div>
 		<footer class="w3-container w3-padding">
-			<button class="w3-btn w3-green w3-large">
+			<button class="w3-button w3-round w3-green w3-large">
 				<span class="glyphicon glyphicon-ok"></span>
 				Submeter dados
 			</button>
