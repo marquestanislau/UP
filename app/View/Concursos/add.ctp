@@ -9,25 +9,32 @@
 
     <div class="w3-container w3-padding">
 		<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'adicionarModal'), 'class' => 'w3-container', 'id' => 'addForm')); ?>
+			<!-- A janela que contem  a delegacao para ser selecionada -->
 			<div class="col-md-12 w3-center w3-animate-zoom" id="delegacao">
 				<h2>Escolha uma Delega&ccedil;&atilde;o</h2>
 				<?php  
 					echo $this->Form->input('delegacao_id', array('label' => false, 'class' => 'w3-white w3-border w3-input w3-round w3-large', 'style' => 'width: 50%; margin: auto;'));
 				?>
-				<button onclick="toConcurso()" type="button" class="w3-button w3-margin-top w3-circle w3-large w3-blue w3-hover-orange">
-					<i class="fa  fa-arrow-circle-right"></i>
+				<button id="btnDelegacao" onclick="paraFrente('delegacao', 'concursos')" type="button" class="w3-button w3-margin-top w3-round w3-large w3-blue w3-hover-orange">
+					<!-- <i class="fa  fa-arrow-circle-right"></i> -->
+					Pr&oacute;ximo
 				</button>
+				<span class="mdl-tooltip" data-mdl-for="btnDelegacao"> Selecionar a delega&ccedil;&atilde;o</span>
 			</div>
+			<!-- fim seleccao de delegacao -->
+			<!-- A janela para inserccao de dados do concurso -->
 		<div style="display:none;" id="concursos" class="row w3-animate-zoom">
 			<div class="col-md-9">
 				<?php 
-					echo $this->Form->input('nome', array('class' => 'w3-input w3-round w3-hover-sand w3-border w3-large', 'id' => 'nome', 'placeholder' => 'O nome do concurso'));
+					echo $this->Form->input('nome', array('class' => 'w3-input w3-margin-bottom w3-round w3-hover-sand w3-border w3-large', 'id' => 'nome', 'placeholder' => 'O nome do concurso'));
 				 ?>
 			</div>
 			<div class="col-md-4">
 				<?php 
-					echo $this->Form->input('data_aprovacao', array('label' => 'Data de aprova&ccedil;&atilde;o: ', 'class' => 'w3-white w3-border w3-input w3-round datepicker w3-text-blue', 'type' => 'text'));
+					echo $this->Form->input('data_aprovacao', array('label' => 'Data de aprova&ccedil;&atilde;o: ', 'class' => 'w3-white w3-border w3-input w3-margin-bottom w3-round datepicker w3-text-blue', 'type' => 'text'));
 				 ?>
+				 <label>O tipo de concurso:</label><br>
+				 <?php echo $this->Form->radio('tipo', array(0 => 'CTA', 1 => 'CD'), array('legend' => false, 'separator' => '<br>')); ?>
 			</div>
 			
 			<?php
@@ -48,11 +55,14 @@
 					<i class="fa fa-plus"></i>
 					Novo concurso
 				</button>
-				<button type="button" onclick="backToDelegacao()" class="w3-button w3-red w3-hover-orange w3-circle w3-large w3-right" onclick="clearInput('addForm', 'nome')">
+				<button id="btnBack" type="button" onclick="paraTraz('concursos', 'delegacao')" class="w3-button w3-red w3-hover-orange w3-round w3-right" onclick="clearInput('addForm', 'nome')">
 					<i class="fa fa-arrow-circle-left"></i>
+					Voltar
 				</button>
+				<span class="mdl-tooltip" data-mdl-for="btnBack">Voltar</span>
 	    	</div>
 		</div>
+		<!-- Fim da janela de insercao de conteudo do concurso -->
     </div>
   </div>
 </div>

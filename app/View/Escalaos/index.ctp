@@ -3,7 +3,7 @@
 		<div class="w3-container w3-white w3-padding">
 			<h6 class="w3-text-blue"><span class="fa fa-cubes"></span>Escal&otilde;es pertencentes a categorias e classes</h6>
 		<div class="w3-bar w3-light-grey w3-margin-bottom w3-margin-top">
-		  <button class="w3-button w3-bar-item" onclick="document.getElementById('escAddModal').style.display='block'">
+		  <button class="w3-button w3-green w3-bar-item" onclick="document.getElementById('escAddModal').style.display='block'">
 					<span class="glyphicon glyphicon-plus-sign"></span>
 					Adicionar Escal&otilde;es
 				</button>

@@ -9,11 +9,11 @@
 		</h6>
 	</div>
 	<div class="w3-bar w3-light-grey w3-margin-bottom">
-		<a class="w3-bar-item w3-button" href="#" onclick="document.getElementById('categoriaAddForm').style.display='block'">
+		<a class="w3-bar-item w3-button w3-green" href="#" onclick="document.getElementById('categoriaAddForm').style.display='block'">
 			<span class="glyphicon glyphicon-plus w3-large"></span>
 			Novas categorias</a>
-			<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-briefcase w3-large"></span> Carreiras disponiveis'), array('controller' => 'carreiras', 'action' => 'index'), array('class' => 'w3-bar-item w3-button', 'escape' => false)); ?>
-			<a id="print_category" href="<?php echo $this->Html->url(array('action' => 'listaEmPdf', 'ext' => 'pdf')); ?>" target="_blank" class="w3-bar-item w3-button w3-hover-text-blue"><i class="fa fa-print w3-large"></i> Imprimir</a>
+			<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-briefcase w3-large"></span> Carreiras disponiveis'), array('controller' => 'carreiras', 'action' => 'index'), array('class' => 'w3-bar-item w3-button w3-text-grey', 'escape' => false)); ?>
+			<a id="print_category" href="<?php echo $this->Html->url(array('action' => 'listaEmPdf', 'ext' => 'pdf')); ?>" target="_blank" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-print w3-large"></i> Imprimir</a>
 			<span class="mdl-tooltip" data-mdl-for="print_category">Imprimir todas categorias disponiveis!</span>
 		</div> 
 		<table class="table table-striped w3-border-light-grey">

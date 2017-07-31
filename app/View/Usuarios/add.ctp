@@ -1,58 +1,54 @@
-<div class="col-md-12">
-	<h5 class="w3-text-grey"><span class="glyphicon glyphicon-user" style="font-size: 16px;" ></span> <?php echo __('Adicionar utilizador'); ?>
-	</h5>
-</div>
-<div id="formularioUtilizador" class="col-md-7">
-	<div class="w3-white w3-padding-bottom w3-padding w3-border">
-		<?php echo $this->Form->create('Usuario', array('type' => 'file', 'class' => 'w3-container', 'id' => 'ajaxFormUserAdd')); ?>
-		<!-- Mensagem de sucesso  -->
-		<div id="sucesso"></div>
-		<h5 class="w3-text-blue">Dados pessoais</h5>
-		<?php echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki w3-border'));?>
-		<?php echo $this->Form->input('apelido', array('class' => 'w3-input w3-hover-khaki w3-border')); ?>
-		<?php echo $this->Form->input('email', array('class' => 'w3-input w3-hover-khaki w3-border')); ?>
-		<?php echo $this->Form->input('contacto', array('class' => 'w3-input w3-hover-khaki w3-border')); ?>
-		<?php
-		$hoje = date("Y-m-d");
-		echo $this->Form->input('data_de_registo', array('value' => $hoje,'type' => 'hidden'), array('class' => 'btn btn-default'));
+<div id="addUser" class="w3-modal">
+	<div class="w3-modal-content w3-round w3-animate-zoom" style="width: 50%;">
+		<header class="w3-container w3-text-blue">
+			<span class="w3-closebtn w3-hover-text-orange" onclick="document.getElementById('addUser').style.display='none'">&times;</span>
+			<h5>
+				<span class="glyphicon glyphicon-user"></span> 
+				<?php echo __('Adicionar utilizador'); ?>
+			</h5>
+		</header>
+		<div class="w3-container w3-padding">
+			<?php echo $this->Form->create('Usuario', array('type' => 'file', 'class' => 'w3-container', 'id' => 'ajaxFormUserAdd')); ?>
+			<!-- Mensagem de sucesso  -->
+			<div id="sucesso"></div>
+			<div class="row">
+				<div class="col-md-6">
+					<?php echo $this->Form->input('nome', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'John'));?>
+					<?php echo $this->Form->input('apelido', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'Doe')); ?>
+					<?php echo $this->Form->input('email', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'example@mail.com')); ?>
+					<?php echo $this->Form->input('contacto', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => '845656561')); ?>
+					<?php
+					$hoje = date("Y-m-d");
+					echo $this->Form->input('data_de_registo', array('value' => $hoje,'type' => 'hidden'), array('class' => 'btn btn-default'));
 
-		echo $this->Form->input('foto_perfil', array('value' => 'upload/perfil_default.png', 'type' => 'file'));
-		?>
-			<!-- Ajax loading image... -->
-		<div style="display: none;" id="enviando">
-			<?php echo $this->Html->image('ajax/ajax-loader.gif') ?>
+					echo $this->Form->input('foto_perfil', array('value' => 'upload/perfil_default.png', 'type' => 'file'));
+					?>
+				</div>
+				<div class="col-md-6">
+					<p class="w3-center">
+						<?php echo $this->Html->image('upload/perfil_default.png', array('class' => 'w3-center w3-circle')); ?>
+					</p>
+				</div>
+			</div>
+				<!-- Ajax loading image... -->
+			<div style="display: none;" id="enviando">
+				<?php echo $this->Html->image('ajax/ajax-loader.gif') ?>
+			</div>
 		</div>
-		<div class="w3-container w3-padding-top">
-			<button class="w3-btn w3-green w3-large pull-right">
+		<footer class="w3-container w3-padding-top w3-padding">
+			<button class="w3-button w3-margin-left w3-green w3-round">
 				<span class="glyphicon glyphicon-ok"></span> Submeter
 			</button>
-			<button id="novo" type="button" class="w3-btn w3-blue w3-large pull-right">
+			<?php
+				echo $this->Form->end();
+			?>
+			<button id="novo" type="button" class="w3-button w3-light-grey w3-round">
 				<span class="glyphicon glyphicon-plus"></span> Novo
 			</button>
-		</div>
+		</footer>
+	</div>
+</div>
 
-	</div>
-		<?php
-		echo $this->Form->end();
-		?>
-	</div>
-
-	<div class="col-md-4">
-		<div class="list-group">
-			<a href="" class="list-group-item w3-light-blue">
-				<h6> Escolha uma op&ccedil;&atilde;o</h6>
-			</a>
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de utilizadores", array('action' => 'index'), array('class' => 'list-group-item', 'escape' => FALSE)); ?>
-			<?php echo $this->Html->link("<span class='glyphicon glyphicon-cog'></span> Configura&ccedil;&otilde;es", array('action' => 'configuracao', 'controller' => 'pages'), array('class' => 'list-group-item', 'escape' => FALSE)) ?>
-		</div>
-		<div class="list-group" id="ultimoUsuario">
-			<?php 
-				if( !empty($ultimoUsuario)) {
-					include('ultimo_usuario.ctp');
-				}
-			?>
-		</div>
-	</div>
 	<?php
 		$dados = $this->Js->get('#ajaxFormUserAdd')->serializeForm(array('inline' => true, 'isForm' => true));
 		

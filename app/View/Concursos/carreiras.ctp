@@ -35,7 +35,7 @@
 			</tr>
 <?php
 			// include('configurarCarreiras.ctp');
-			include('participantes.ctp');
+			include('participantes.ctp'); // A janela modal que contem os formularios dos ctas e cds
 		endforeach;
 	endforeach;
 

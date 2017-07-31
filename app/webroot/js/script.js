@@ -44,14 +44,14 @@ function clearInput(id, foco) {
 
 // Capacidade de troca de div para a proxima na view add concursos
 
-function toConcurso() {
-	document.getElementById('delegacao').style.display = 'none';
-	document.getElementById('concursos').style.display = 'block';
+function paraFrente(primeiro, segundo) {
+	document.getElementById(primeiro).style.display = 'none';
+	document.getElementById(segundo).style.display = 'block';
 }
 
-function backToDelegacao() {
-	document.getElementById('concursos').style.display = 'none';
-	document.getElementById('delegacao').style.display = 'block';
+function paraTraz(segundo, primeiro) {
+	document.getElementById(segundo).style.display = 'none';
+	document.getElementById(primeiro).style.display = 'block';
 }
 
 function clearInputs(...clazz) {

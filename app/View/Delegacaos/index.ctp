@@ -5,7 +5,7 @@
     </span><?php echo  __('Listas das Delega&ccedil;&otilde;es');?>
   </h6>
   <div class="w3-bar w3-light-grey w3-margin-bottom">
-      <button onclick="document.getElementById('delegacaoModalWindow').style.display='block'" class="w3-button w3-bar-item">
+      <button onclick="document.getElementById('delegacaoModalWindow').style.display='block'" class="w3-button w3-green w3-bar-item">
         <span class="glyphicon glyphicon-plus"></span>
         Adicionar delega&ccedil;&atilde;o
       </button>

@@ -81,6 +81,18 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         </table>
       </div>
     </li>
+    <li class="w3-dropdown-hover w3-hide-small">
+      <a href="#"><i class="fa fa-user-plus"></i></a>
+      <div class="w3-dropdown-content w3-bottombar w3-text-blue w3-padding w3-card-4">
+        <h3>Utilizadores</h3>
+        <table>
+          <tr>
+            <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'usuarios'));?>"><i class="fa fa-user-plus"></i> Gerir contas</a></td>
+            <td><a href=""><i class="fa fa-sign-out "></i> Activos</a></td>
+          </tr>
+        </table>
+      </div>
+    </li>
     <!-- <li>
       <a><span class="glyphicon glyphicon-education"></span></a>
     </li> -->
@@ -90,8 +102,9 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         <h3 class="w3-text-blue">Configura&ccedil;&otilde;es</h3>
         <table>
           <tr>
-            <td><a class="" href="#"><span class="glyphicon glyphicon-list-alt"></span> Tipos de ingresso</a></td>
+            <!-- <td><a class="" href="#"><span class="glyphicon glyphicon-list-alt"></span> Tipos de ingresso</a></td> -->
             <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'carreiras'));?>"><span class="glyphicon glyphicon-briefcase"></span> Carreiras</a></td>
+            <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'escalaos'));?>"><span class="fa fa-cubes"></span> Escal&otilde;es</a></td>
           </tr>
           <tr>
             <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'categorias'));?>"><span class="glyphicon glyphicon-tags"></span> Categorias</a></td>
@@ -100,7 +113,6 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
           <tr>
             <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'clazzes'));?>"><span class="fa fa-cube"></span> Classes</a></td>
             <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'sectores'));?>"><span class="fa fa-industry"></span> Sectores</a></td>
-             <td><a class="" href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'escalaos'));?>"><span class="fa fa-cubes"></span> Escal&otilde;es</a></td>
           </tr>
         </table>
       </div>

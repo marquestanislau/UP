@@ -30,7 +30,7 @@ class ConcursosController extends AppController {
 		}
 		$this->loadModel('Carreira', 'CarreirasConcursos');
 		$concurso = $this->Concurso->find('first', array('conditions' => array('Concurso.id' => $id)));
-		$carreiras = $this->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
+		$carreiras = $this->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id', 'conditions' => array('tipo' => $concurso['Concurso']['tipo'])));
 
 		$concursos = $this->Concurso->find('all', array(
 					'contain' => array('Carreira'),
@@ -41,6 +41,8 @@ class ConcursosController extends AppController {
 		$this->set(compact('carreiras', 'concurso', 'selected', 'concursos'));
 	}
 
+	// Converte um array multidimencional em simples para 
+	// preenchimento dos checkboxs das carreiras seleccionadas no concurso
 	private function convertToSelects($data = array(), $carreiras) {
 		for ($i=0; $i < count($carreiras); $i++) {
 			$data[$i] = $carreiras[$i]['carreira_id'];

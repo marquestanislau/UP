@@ -98,9 +98,9 @@
               </div>
             </div>
 
-             <button id="submeter" class="w3-margin-left w3-hover-light-blue w3-button w3-large w3-blue">
-              <i class="fa fa-send"></i>
-              Submeter formul&aacute;rio
+             <button id="submeter" class="w3-margin-left w3-hover-light-blue w3-button w3-round w3-large w3-blue">
+              <i class="fa fa-check"></i>
+              Submeter <!-- formul&aacute;rio -->
             </button>
              <div id="requesting" style="display: none">
               <?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>

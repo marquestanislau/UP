@@ -57,7 +57,7 @@
 			Guardar
 		</button>
 		<?php echo $this->Form->end(); ?>
-		<button onclick="clearInput('cdsForm'+<?php echo $carreira_id; ?>, 'name'+<?php echo $carreira_id; ?>)" class="w3-border w3-button w3-margin-top w3-round">
+		<button onclick="clearInput('cdsForm'+<?php echo $carreira_id; ?>, 'name'+<?php echo $carreira_id; ?>)" class="w3-light-grey w3-button w3-margin-top w3-round">
 			<i class="fa fa-plus"></i>
 			Novo registro
 		</button>

@@ -66,10 +66,10 @@
 			<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
 		</div>
 		<div>
-			<a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'funcionarios')); ?>" style="width: 100%;" class="w3-padding w3-button w3-xlarge w3-text-dark-grey w3-margin-top">
+			<a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'funcionarios')); ?>" style="width: 100%;" class="w3-padding w3-button w3-xlarge w3-text-grey w3-margin-top">
 				<i class="fa fa-users"></i> Funcion&aacute;rios
 			</a>
-			<a href="<?php echo $this->Html->url(array('action' => 'excepcao', 'controller' => 'cds')); ?>" style="width: 100%;" class="w3-padding w3-button w3-xlarge w3-text-dark-grey w3-margin-top">
+			<a href="<?php echo $this->Html->url(array('action' => 'excepcao', 'controller' => 'cds')); ?>" style="width: 100%;" class="w3-padding w3-button w3-xlarge w3-text-grey w3-margin-top">
 				<i class="fa fa-graduation-cap"></i> Adicionar CD
 			</a>
 		</div>

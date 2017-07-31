@@ -1,6 +1,5 @@
 <div class="w3-white w3-text-blue">
 	<h4><i class="fa fa-graduation-cap"></i> <?php echo __('Corpo docente / Novo Funcion&aacute;rio'); ?></h4>
-	<?php debug($r); ?>
 </div>
 <div class="w3-cell-row">
 	<div class="w3-third w3-padding w3-topbar w3-border-lime" style="background-color: #fafafa;">
@@ -69,10 +68,10 @@
 			<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
 		</div>
 		<div>
-			<a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'funcionarios')); ?>" style="width: 100%;" class="w3-padding w3-button w3-xlarge w3-text-dark-grey w3-margin-top">
+			<a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'funcionarios')); ?>" style="width: 100%;" class="w3-padding w3-button w3-xlarge w3-text-grey w3-margin-top">
 				<i class="fa fa-users"></i> Funcion&aacute;rios
 			</a>
-			<a href="<?php echo $this->Html->url(array('action' => 'excepcao', 'controller' => 'ctas')); ?>" style="width: 100%;" class="w3-padding w3-button w3-xlarge w3-text-dark-grey w3-margin-top">
+			<a href="<?php echo $this->Html->url(array('action' => 'excepcao', 'controller' => 'ctas')); ?>" style="width: 100%;" class="w3-padding w3-button w3-xlarge w3-text-grey w3-margin-top">
 				<i class="fa fa-user"></i> Adicionar CTA
 			</a>
 		</div>

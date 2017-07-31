@@ -1,7 +1,7 @@
 <div id="modalfuncionario<?php echo $funcionario_id;?>" class="w3-modal">
   <div class="w3-modal-content  w3-animate-top w3-round w3-text-dark-grey">
     <header class="w3-container w3-padding">
-      <span class="w3-closebtn" onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" >&times;</span>
+      <span class="w3-closebtn w3-hover-text-orange" onclick="document.getElementById('modalfuncionario<?php echo $funcionario_id;?>').style.display='none'" >&times;</span>
       <h6 class="w3-center">
           <i class="fa fa-user w3-large"></i>
           Aprovar candidato <?php echo $funcionario['Funcionario']['nome']; ?>?
@@ -54,7 +54,7 @@
         <div class="col-md-6">
           <br>
           <label class="w3-label">NUIT</label>
-          <?php echo $this->Form->input('nuit', array('class' => 'w3-input w3-large w3-border w3-hover-khaki w3-round', 'label' => false)); ?>
+          <?php echo $this->Form->input('nuit', array('class' => 'w3-input w3-large w3-border w3-hover-khaki w3-round require', 'label' => false)); ?>
         </div>
         <!-- <div class="w3-col m12">
           <label class="w3-label">Classe: </label>

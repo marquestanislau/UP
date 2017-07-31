@@ -3,8 +3,10 @@
 	<h4 class="w3-text-blue"><span class="fa fa-industry"></span> <?php echo __('Sectores'); ?></h4>
 	
 	<div class="w3-bar w3-light-grey w3-margin-bottom">
-		<button class="w3-bar-item w3-button" onclick="document.getElementById('sectoresModal').style.display='block'">
-			<span class='glyphicon glyphicon-plus'></span> Novo sector
+		<button class="w3-bar-item w3-button w3-green" onclick="document.getElementById('sectoresModal').style.display='block'">
+			<span class='glyphicon glyphicon-plus'></span>
+			<!-- <i class="fa fa-plus-circle"></i> -->
+			Novo sector
 		</button>
 		<a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'delegacaos')); ?>" class="w3-button w3-bar-item"><i class="fa fa-list"></i> Listas das delega&ccedil;&otilde;es</a>
 		

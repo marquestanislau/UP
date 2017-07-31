@@ -6,7 +6,7 @@
 	</h4>
 		 <div class="w3-bar w3-light-grey w3-margin-bottom">
 		 	<a id="salvarConcurso" href="#" onclick="document.getElementById('addConcursoModal').style.display='block'"
-		 		class="w3-bar-item w3-button">
+		 		class="w3-bar-item w3-button w3-green">
 		 		<span class='glyphicon glyphicon-plus-sign' ></span>
 		 		Novo Concurso
 		 	</a>
@@ -16,9 +16,10 @@
 		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->
 		</div>
 		<!-- <h4 class="w3-text-dark-grey w3-center">Lista de concursos disponiveis</h4> -->
-		<table class="table table-striped w3-topbar w3-border-grey" cellpadding="0" cellspacing="0">
+		<table class="table table-striped w3-topbar w3-border-light-grey" cellpadding="0" cellspacing="0">
 			<thead class="w3-white w3-text-blue">
 				<tr>
+					<th><?php echo $this->Paginator->sort('tipo'); ?></th>
 					<th><?php echo __('Data de aprova&ccedil;&atilde;o'); ?></th>
 					<th><?php echo $this->Paginator->sort('nome'); ?></th>
 					<th class="actions"><?php echo __('Actividade'); ?></th>

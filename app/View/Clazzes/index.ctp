@@ -5,14 +5,14 @@
 	    	<h6 class="w3-text-blue">
 	    		<span class="fa fa-cube"></span>
 	    		Classes
-	    		<a href="#" class="w3-button w3-circle w3-large pull-right"><span class="glyphicon glyphicon-question-sign w3-text-grey"></span></a>
-	    		<a href="#" class="w3-button w3-circle w3-large pull-right"><span class="glyphicon glyphicon-file w3-text-grey"></span></a>
+	    		<a href="#" class="w3-button w3-large pull-right"><span class="glyphicon glyphicon-question-sign w3-text-grey"></span><small> Ajuda</small></a>
+	    		<a href="#" class="w3-button w3-large pull-right"><span class="glyphicon glyphicon-file w3-text-grey"></span> <small>Relatorios</small></a>
 			</h6>
 	    </div>
 	    <div class="w3-bar w3-light-grey w3-margin-top w3-margin-bottom">
 	    		<span class="mdl-tooltip" data-mdl-for="print"><i class="fa fa-check"></i> Imprimir relat&oacute;rio</span>
 	    		<span class="mdl-tooltip" data-mdl-for="add"><i class="fa fa-plus"></i> Adicionar classes</span>
-				<button id="add" onclick="document.getElementById('classeModal').style.display='block'" class="w3-bar-item w3-button w3-text-dark-grey">
+				<button id="add" onclick="document.getElementById('classeModal').style.display='block'" class="w3-bar-item w3-button w3-green">
 					<span class="glyphicon glyphicon-plus"></span>
 					Nova classe
 				</button>

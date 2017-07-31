@@ -11,13 +11,20 @@
 		</header>
 
 		<div class="w3-container w3-padding-32">
-			<div id="sucesso"></div>
-			<?php echo $this->Form->create('Carreira', array('url' => array('action' => 'adicionarCarreira'), 'class' => 'w3-container', 'id' => 'addFormCarreira')); ?>
-			<?php
-			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki w3-border w3-large w3-round', 'label' => 'Designa&ccedil;&atilde;o da carreira', 'id' => 'nome'));
-			?>
-			<div id="processando" style="display: none">
-				<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
+			<div>
+				<div id="sucesso"></div>
+				<?php echo $this->Form->create('Carreira', array('url' => array('action' => 'adicionarCarreira'), 'class' => 'w3-container', 'id' => 'addFormCarreira')); ?>
+				<?php
+				echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-khaki w3-border w3-large w3-round', 'label' => 'Designa&ccedil;&atilde;o da carreira', 'id' => 'nome'));
+				?>
+				<br>
+				<label>Carreira para?</label><br>
+				<?php 
+					$options = array('0' => 'CTA', '1' => 'CD');
+					echo $this->Form->radio('tipo',$options, array('legend' => false, 'separator' => '<br>')); ?>
+				<div id="processando" style="display: none">
+					<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
+				</div>
 			</div>
 		</div>
 

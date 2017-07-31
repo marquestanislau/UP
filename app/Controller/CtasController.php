@@ -166,7 +166,7 @@ class CtasController extends AppController {
 
     public function getkeys() {
       $concursos = $this->Cta->Funcionario->Concurso->find('list', array('fields' => 'Concurso.data_aprovacao', 'Concurso.id'));
-      $carreiras = $this->Cta->Funcionario->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
+      $carreiras = $this->Cta->Funcionario->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id', 'conditions' => array('tipo' => 0)));
       $this->set('clazzes', $this->Cta->Funcionario->Clazze->find('list', array('fields' => 'Clazze.nome', 'Clazze.id')));
       $delegacaos = $this->Cta->Funcionario->Delegacao->find('list', array('fields' => 'Delegacao.nome', 'Delegacao.id'));
       $escalaos = $this->Cta->Funcionario->Escalao->find('list', array('fields' => 'Escalao.nome', 'Escalao.id'));

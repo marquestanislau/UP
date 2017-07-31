@@ -1,7 +1,7 @@
 
 <div class="col-md-12">
     <p>
-        Formul&aacute;rio de registo de Carreira de tecnicos administrativos |
+        Formul&aacute;rio de registo de Corpo t&eacute;cnico administrativo |
         <span class="w3-text-blue"><?php echo $carreira['nome'];?></span> |
     </p>
     <div id="sucesso<?php echo $carreira_id;?>"></div>
@@ -54,7 +54,7 @@
           Guardar
       </button>
       <?php echo $this->Form->end(); ?>
-      <button class="w3-button w3-border w3-margin-top w3-round" onclick="clearInput('ctasForm'+<?php echo $carreira_id?>,'nome'+<?php echo $carreira_id?>)">
+      <button  class="w3-button w3-light-grey w3-margin-top w3-round" onclick="clearInput('ctasForm'+<?php echo $carreira_id?>,'nome'+<?php echo $carreira_id?>)">
           <span class="glyphicon glyphicon-plus"></span>
           Novo registo
       </button>

@@ -144,18 +144,13 @@ class CdsController extends AppController {
 
     public function getkeys() {
       $concursos = $this->Cd->Funcionario->Concurso->find('list', array('fields' => 'Concurso.data_aprovacao', 'Concurso.id'));
-      $carreiras = $this->Cd->Funcionario->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
+      $carreiras = $this->Cd->Funcionario->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id', 'conditions' => array('tipo' => 1)));
       $this->set('clazzes', $this->Cd->Funcionario->Clazze->find('list', array('fields' => 'Clazze.nome', 'Clazze.id')));
       $delegacaos = $this->Cd->Funcionario->Delegacao->find('list', array('fields' => 'Delegacao.nome', 'Delegacao.id'));
       $escalaos = $this->Cd->Funcionario->Escalao->find('list', array('fields' => 'Escalao.nome', 'Escalao.id'));
       $sectores = $this->Cd->Funcionario->Sectore->find('list', array('fields' => 'Sectore.designacao', 'Sectore.id'));
       $categorias = $this->Cd->Funcionario->Categoria->find('list', array('fields' => 'Categoria.nome', 'Categoria.id'));
-      $a = $this->Cd->Funcionario->Categoria->find('all');
-      $r = array();
-      for($i = 0; $i < count($a); $i++) {
-        $r[$i] = $a[$i]['Carreira'];
-      }
-      $this->set(compact('concursos', 'carreiras', 'delegacaos', 'escalaos', 'sectores', 'categorias', 'r'));
+      $this->set(compact('concursos', 'carreiras', 'delegacaos', 'escalaos', 'sectores', 'categorias'));
     }
 
 }
