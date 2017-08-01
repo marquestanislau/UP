@@ -27,7 +27,13 @@
 
 
 	<p class="corpo">
-		Nome Completo <b><?php echo $funcionario['Funcionario']['nome'].' '.$funcionario['Funcionario']['apelido']; ?>,</b>nomeado por despacho de <b><?php echo $funcionario['Funcionario']['despacho']; ?></b> do Magnífico Reitor da Universidade Pedagógica, para a Carreira de <b><?php echo $funcionario['Carreira']['nome']; ?></b>, <b>Classe <?php echo $funcionario['Clazze']['nome']; ?></b>, <b><?php echo $funcionario['Escalao']['nome']; ?></b>, nos termos do previsto na alínea e) do artigo 1, da Resolução nº. 2/2006, de 13 de Julho, conjugado com n.° 1 do art. 34 e o n.° 4 do art.° 13, ambos do EGFAE, com colocação na <b><?php echo $funcionario['Delegacao']['nome']; ?></b>.
+		Nome Completo <span class="bold"><?php echo $funcionario['Funcionario']['nome'].' '.$funcionario['Funcionario']['apelido']; ?>,</span>nomeado por despacho de <span class="bold"><?php echo $funcionario['Funcionario']['despacho']; ?></span> do Magnífico Reitor da Universidade Pedagógica, para a Carreira de <span class="bold"><?php echo $funcionario['Carreira']['nome'].', '; ?>
+						<?php if(empty($funcionario['Clazze']['nome'])){
+						echo $funcionario['Categoria']['nome'].', ';
+					} else {
+						echo 'Classe '.$funcionario['Clazze']['nome'].', ';
+					}?></span>
+		<span class="bold"><?php echo $funcionario['Escalao']['nome']; ?></span>, nos termos do previsto na alínea e) do artigo 1, da Resolução nº. 2/2006, de 13 de Julho, conjugado com n.° 1 do art. 34 e o n.° 4 do art.° 13, ambos do EGFAE, com colocação na <span class="bold"><?php echo $funcionario['Delegacao']['nome']; ?></span>.
 	</p>
 	<p>
 		Forma de nomeação: <b>Nomeação provisória</b>. <br>
@@ -35,7 +41,24 @@
 	</p>
 
 	<p id="reitor">
-		Data: 22 de Fevereiro de 2012 <br>
+		Data: 
+		<?php
+		$hoje = date('d/m/Y');
+		$day; $month; $year;
+		echo $hoje;
+		 // switch (variable) {
+			// case 'value':
+			// 	# code...
+			// 	break;
+			
+			// default:
+			// 	# code...
+			// 	break;
+		// } 
+		echo $day.'de'.$month.'de'.$year;
+		?>
+
+		22 de Fevereiro de 2012 <br>
 		O Reitor	<br>
 		<br>
 		<br>

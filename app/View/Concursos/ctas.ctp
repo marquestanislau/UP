@@ -7,9 +7,10 @@
     <div id="sucesso<?php echo $carreira_id;?>"></div>
 </div>
 <div class="col-md-6">
-    <?php echo $this->Form->create('Cta', array('id' => 'ctasForm'.$carreira_id, 'url' => array('controller' => 'ctas', 'action' => 'add'))); ?>
-    <?php echo $this->Form->input('funcionario_id', array('type' => 'hidden')); ?>
+    <?php echo $this->Form->create('Cta', array('id' => 'ctasForm'.$carreira_id)); ?>
+    <?php //echo $this->Form->input('funcionario_id', array('type' => 'hidden')); ?>
     <?php echo $this->Form->input('Funcionario.escalao_id', array('type' => 'hidden', 'value' => 1)); ?>
+    <?php echo $this->Form->input('Funcionario.nuit', array('type' => 'hidden', 'value' => 1)); ?>
     <?php echo $this->Form->input('Funcionario.carreira_id', array('type' => 'hidden', 'value' => $carreira_id)); ?>
     <?php echo $this->Form->input('Funcionario.concurso_id', array('type' => 'hidden', 'value' => $concurso_id)); ?>
     <?php echo $this->Form->input('Funcionario.delegacao_id', array('type' => 'hidden', 'value' => $concurso['Concurso']['delegacao_id'])); ?>

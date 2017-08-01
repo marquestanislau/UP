@@ -2,7 +2,8 @@
 <?php foreach ($funcionarios as $funcionario): ?>
   <?php $funcionario_id = $funcionario['Funcionario']['id'];?>
   <tr class="w3-text-grey w3-hover-khaki">
-    <td><?php echo $funcionario['Funcionario']['despacho'] != NULL? "<span class='glyphicon glyphicon-ok w3-text-green'>": "<span class='w3-text-grey glyphicon glyphicon-remove'>"; ?></td>
+    <td><?php echo $funcionario['Cta']['id'] != NULL ? '<i class="fa fa-user"></i>' : '<i class="fa fa-graduation-cap"></i>'; ?></td>
+    <td><?php echo $funcionario['Funcionario']['despacho'] != NULL? '<i class="fa fa-check w3-text-green"></i>': '<i class="fa fa-remove"></i>'; ?></td>
     <td><?php echo $funcionario['Funcionario']['nome']; ?></td>
     <td><?php echo $funcionario['Funcionario']['apelido']; ?></td>
     <td><?php echo $funcionario['Funcionario']['contacto_pessoal']; ?></td>

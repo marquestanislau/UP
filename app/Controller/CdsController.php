@@ -54,6 +54,8 @@ class CdsController extends AppController {
         if ($this->request->is('ajax')) {
             $this->Cd->create();
             $this->Cd->Funcionario->create();
+            if(empty( $this->request->data['Funcionario']['categoria_id']))
+                $this->request->data['Funcionario']['categoria_id'] = $this->atribuiCategoria($this->request->data);
             if ($this->antesDeSalvar( $this->request->data )) {
                 if ($this->Cd->saveAssociated($this->request->data)) {
                     $this->render('sucesso', 'ajax');
@@ -86,6 +88,27 @@ class CdsController extends AppController {
         return TRUE;
     }
 
+    private function atribuiCategoria($request = array()) {
+        $carreira_id = $request['Funcionario']['carreira_id'];
+        // para buscar categorias que contenha as palavras chaves estagiario ou auxiliar para atribuir ao funcionario
+        $categorias = $this->Cd->Funcionario->Categoria->find('all', 
+                                array(
+                                    'conditions' => array(
+                                        'Categoria.carreira_id' => $carreira_id,
+                                        'OR' => array(
+                                              array('Categoria.nome LIKE' => '%stagiário'),
+                                              array('Categoria.nome LIKE' => '%stagiario'),
+                                              array('Categoria.nome LIKE' => '%uxiliar')
+                                          )
+                                       
+                                        )
+                                )
+                        );
+        $categoria_id = 0;
+        if(!empty($categorias))
+            $categoria_id = $categorias[0]['Categoria']['id'];
+        return $categoria_id;
+    }
     /**
      * edit method
      *
@@ -150,6 +173,7 @@ class CdsController extends AppController {
       $escalaos = $this->Cd->Funcionario->Escalao->find('list', array('fields' => 'Escalao.nome', 'Escalao.id'));
       $sectores = $this->Cd->Funcionario->Sectore->find('list', array('fields' => 'Sectore.designacao', 'Sectore.id'));
       $categorias = $this->Cd->Funcionario->Categoria->find('list', array('fields' => 'Categoria.nome', 'Categoria.id'));
+      
       $this->set(compact('concursos', 'carreiras', 'delegacaos', 'escalaos', 'sectores', 'categorias'));
     }
 

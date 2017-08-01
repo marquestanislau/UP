@@ -14,13 +14,11 @@
         <!-- Se quiser voltar ao modelo de seleccao manual com as abas basta remover os if's e elses -->
         <?php $tipo = $concurso['Concurso']['tipo']; ?>
         <?php if ($tipo == 0) { ?>
-          <!-- <a href="javascript:void(0)" onclick="janelasParticipantes(event, 'cta<?php echo $carreira_id;?>');"> -->
-          <a href="javascript:void(0)">
+          <a href="javascript:void(0)" onclick="janelasParticipantes(event, 'cta<?php echo $carreira_id;?>');">
             <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><strong><span class="glyphicon glyphicon-user"></span> CTAS</strong></div>
           </a>
           <?php } else { ?>
-          <!-- <a href="javascript:void(0)" onclick="janelasParticipantes(event, 'CorpoDocente<?php echo $carreira_id;?>');"> -->
-          <a href="javascript:void(0)">
+          <a href="javascript:void(0)" onclick="janelasParticipantes(event, 'CorpoDocente<?php echo $carreira_id;?>');">
             <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><strong><span class="glyphicon glyphicon-education"></span> Corpo docente</strong></div>
           </a>
           <?php } ?>

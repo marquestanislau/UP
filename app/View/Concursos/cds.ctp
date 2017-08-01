@@ -8,6 +8,9 @@
 	<?php echo $this->Form->create('Cd', array('url' => array('action' => 'add', 'controller' => 'cds'), 'id' => 'cdsForm'.$carreira_id, 'class' => 'w3-container')); ?>
 
 	<?php
+		echo $this->Form->input('Funcionario.nuit', array('value' => 1, 'type' => 'hidden'));
+		echo $this->Form->input('Funcionario.escalao_id', array('value' => 1, 'type' => 'hidden'));
+		echo $this->Form->input('Funcionario.delegacao_id', array('value' => $concurso['Concurso']['delegacao_id'], 'type' => 'hidden'));
 		echo $this->Form->input('Funcionario.carreira_id', array('value' => $carreira_id, 'type' => 'hidden'));
 		echo $this->Form->input('Funcionario.concurso_id', array('value' => $concurso_id, 'type' => 'hidden'));
 		echo $this->Form->input('Funcionario.nome', array('class' => 'w3-input w3-round w3-border w3-hover-khaki', 'placeholder' => 'Estanislau', 'id' => 'name'.$carreira_id));

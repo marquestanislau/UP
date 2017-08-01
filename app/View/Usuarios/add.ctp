@@ -21,7 +21,7 @@
 					$hoje = date("Y-m-d");
 					echo $this->Form->input('data_de_registo', array('value' => $hoje,'type' => 'hidden'), array('class' => 'btn btn-default'));
 
-					echo $this->Form->input('foto_perfil', array('value' => 'upload/perfil_default.png', 'type' => 'file'));
+					echo $this->Form->input('foto_perfil', array('value' => 'upload/perfil_default.png', 'type' => 'file', 'class' => 'w3-button'));
 					?>
 				</div>
 				<div class="col-md-6">
@@ -36,15 +36,17 @@
 			</div>
 		</div>
 		<footer class="w3-container w3-padding-top w3-padding">
-			<button class="w3-button w3-margin-left w3-green w3-round">
-				<span class="glyphicon glyphicon-ok"></span> Submeter
-			</button>
-			<?php
-				echo $this->Form->end();
-			?>
-			<button id="novo" type="button" class="w3-button w3-light-grey w3-round">
-				<span class="glyphicon glyphicon-plus"></span> Novo
-			</button>
+			<div class="w3-bar w3-xxround">
+				<button class="w3-button w3-bar-item w3-margin-left w3-green">
+					<span class="glyphicon glyphicon-ok"></span> Submeter
+				</button>
+				<?php
+					echo $this->Form->end();
+				?>
+				<button id="novo" type="button" class="w3-button w3-bar-item w3-light-grey">
+					<span class="glyphicon glyphicon-plus"></span> Novo
+				</button>
+			</div>
 		</footer>
 	</div>
 </div>

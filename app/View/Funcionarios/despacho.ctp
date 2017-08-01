@@ -43,7 +43,8 @@
           <?php echo $funcionario['Funcionario']['apelido']; ?>
         </div> -->
         <div class="col-md-12 m12">
-          <strong>Sexo: <?php echo $funcionario['Funcionario']['sexo']; ?></strong>          
+          <br>
+          <strong>Sexo: <?php echo $funcionario['Funcionario']['sexo'] == 'F'? '<i class="fa fa-female"></i> Feminino' : '<i class="fa fa-male"></i> Masculino'; ?></strong>          
         </div>
         <div class="col-md-6 m12">
           <label class="w3-label w3-margin-top">Despacho: </label>

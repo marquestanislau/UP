@@ -3,6 +3,10 @@
 
 }
 
+.bold {
+	font-weight: bold;
+}
+
 #reitor {
 	text-align: center;
 }

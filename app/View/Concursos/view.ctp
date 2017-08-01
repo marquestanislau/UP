@@ -8,12 +8,14 @@
 		 <div class="w3-bar w3-light-grey w3-round">
 		 	<!-- BEGIN BUTTON'S -->
 		 	<?php $link = $this->Html->url(array('action' => 'participantes', 'controller' => 'funcionarios')); ?>
-		 	<a class="w3-button w3-bar-item" href="<?php echo $link; ?>"><i class="fa fa-users"></i> Lista de participantes</a>
+		 	<a class="w3-button w3-cyan w3-bar-item" href="<?php echo $link; ?>"><i class="fa fa-users"></i> Lista de participantes</a>
 		 	<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'w3-button w3-bar-item', 'escape' => false)); ?>
 		 	<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-button w3-bar-item', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
 		 	<!-- END BUTTON'S -->
 		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->
 		</div>
+		<br>
+		<p class="w3-text-grey"><i class="<?php echo $concurso['Concurso']['tipo'] == 0 ? 'fa fa-user': 'fa fa-graduation-cap'; ?>"></i> Concurso para <?php echo $concurso['Concurso']['tipo'] == 0 ? 'CORPO T&Eacute;CNICO ADMINISTRATIVO': 'CORPO DOCENTE';  ?></p>
 		<p class="w3-large w3-margin-top"><strong><?php echo h($concurso['Concurso']['nome']); ?></strong></p>
 		<table class="w3-margin-bottom w3-table table-striped">
 			<tr>

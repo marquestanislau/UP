@@ -42,6 +42,7 @@
 
       <table class="table table-striped w3-topbar w3-border-light-grey">
         <thead class="w3-label w3-white w3-text-blue">
+          <th>Tipo</th>
           <th>Estado</th>
           <th>Nome</th>
           <th>Apelido</th>
