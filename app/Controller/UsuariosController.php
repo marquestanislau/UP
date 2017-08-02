@@ -29,6 +29,10 @@ class UsuariosController extends AppController {
 		$this->Usuario->recursive = 0;
     	$this->Paginator->settings = $this->paginator_settings;
 		$this->set('usuarios', $this->Paginator->paginate());
+		
+		if($this->request->is('ajax')) {
+			$this->render('users', 'ajax');
+		}
 	}
 
 	public function print_users() {

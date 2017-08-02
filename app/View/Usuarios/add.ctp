@@ -13,7 +13,7 @@
 			<div id="sucesso"></div>
 			<div class="row">
 				<div class="col-md-6">
-					<?php echo $this->Form->input('nome', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'John'));?>
+					<?php echo $this->Form->input('nome', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'John', 'id' => 'userName'));?>
 					<?php echo $this->Form->input('apelido', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'Doe')); ?>
 					<?php echo $this->Form->input('email', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'example@mail.com')); ?>
 					<?php echo $this->Form->input('contacto', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => '845656561')); ?>
@@ -43,7 +43,7 @@
 				<?php
 					echo $this->Form->end();
 				?>
-				<button id="novo" type="button" class="w3-button w3-bar-item w3-light-grey">
+				<button onclick="clearInput('ajaxFormUserAdd', 'userName')" id="novo" type="button" class="w3-button w3-bar-item w3-light-grey">
 					<span class="glyphicon glyphicon-plus"></span> Novo
 				</button>
 			</div>
@@ -56,12 +56,11 @@
 		
 		$actualizarDados = $this->Js->request(
 			array(
-				'action' => 'ultimo_user',
+				'action' => 'index',
 			),
 			array(
-				'update' => '#ultimoUsuario', 
-				'before' => '$("#sucesso").fadeIn()',
-				'complete' => '$("#sucesso").slideUp(2000)',
+				'update' => '#table-body', 
+				'complete' => 'displayMessages()',
 			)
 		);
 
@@ -79,7 +78,7 @@
 					'async' => true,
 					'before' => '$("#enviando").attr("style", "")',
 					'complete' => '$("#enviando").attr("style", "display:none")',
-					'update' => '#sucesso',
+					'update' => '#message',
 					'success' => $actualizarDados
 				)
 			)

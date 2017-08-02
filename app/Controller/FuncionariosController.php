@@ -87,6 +87,15 @@ class FuncionariosController extends AppController {
     $this->getKeys();
   }
 
+  public function novoNome($id = null) {
+    $this->Funcionario->id = $id;
+    $funcionario = $this->Funcionario->read();
+    if($this->request->is('ajax')) {
+      $this->set(compact('funcionario'));
+      $this->render('nome', 'ajax');
+    }
+  }
+
   public function alterarDados($id = null) {
     if ($this->request->is('post')) {
       $this->Funcionario->id = $id;
