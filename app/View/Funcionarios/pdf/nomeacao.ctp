@@ -27,7 +27,7 @@
 
 
 	<p class="corpo">
-		Nome Completo <span class="bold"><?php echo $funcionario['Funcionario']['nome'].' '.$funcionario['Funcionario']['apelido']; ?>,</span>nomeado por despacho de <span class="bold"><?php echo $funcionario['Funcionario']['despacho']; ?></span> do Magnífico Reitor da Universidade Pedagógica, para a Carreira de <span class="bold"><?php echo $funcionario['Carreira']['nome'].', '; ?>
+		Nome Completo <span class="bold"><?php echo $funcionario['Funcionario']['nome'].' '.$funcionario['Funcionario']['apelido']; ?>,</span> nomeado por despacho de <span class="bold"><?php echo $funcionario['Funcionario']['despacho']; ?></span> do Magnífico Reitor da Universidade Pedagógica, para a Carreira de <span class="bold"><?php echo $funcionario['Carreira']['nome'].', '; ?>
 						<?php if(empty($funcionario['Clazze']['nome'])){
 						echo $funcionario['Categoria']['nome'].', ';
 					} else {

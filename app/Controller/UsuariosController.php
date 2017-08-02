@@ -89,24 +89,19 @@ class UsuariosController extends AppController {
  */
 	public function edit($id = null) {
 		if (!$this->Usuario->exists($id)) {
-			throw new NotFoundException(__('Invalid usuario'));
+			throw new NotFoundException(__('Utilizador invalido!'));
 		}
-		if ($this->request->is(array('post', 'put'))) {
+		$this->Usuario->id = $id;
+		if ($this->request->is(array('ajax'))) {
 			$data = $this->request->data['Usuario'];
 			if (!$data['foto_perfil']['name']) {
 				unset($data['foto_perfil']);
 			}
 			if ($this->Usuario->save($data)) {
-				$this->Flash->success(__('The usuario has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->render('sucesso', 'ajax');
 			} else {
-				$this->Flash->error(__('The usuario could not be saved. Please, try again.'));
+				$this->render('erro', 'ajax');
 			}
-		} else {
-			$options = array('conditions' => array('Usuario.' . $this->Usuario->primaryKey => $id));
-			$usuario = $this->Usuario->find('first', $options);
-			$this->request->data = $usuario;
-			$this->set('usuario', $usuario);
 		}
 	}
 

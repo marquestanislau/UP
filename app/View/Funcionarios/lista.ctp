@@ -17,7 +17,7 @@
       </button>
       <span class="mdl-tooltip" for="aprovado<?php echo $funcionario_id;?>">Aprovar <?php echo $funcionario['Funcionario']['nome']; ?></span>
       <?php } else { ?>
-      <a id="nomeacao" target="_blank" href="<?php echo $this->Html->url(
+      <a id="nomeacao<?php echo $funcionario_id;?>" target="_blank" href="<?php echo $this->Html->url(
             array(
               'action' => 'nomeacao',
               'controller' => 'funcionarios',
@@ -25,8 +25,8 @@
               $funcionario_id
               )); ?>" 
               class="w3-hover-text-black">
-        <i class="fa fa-file-pdf-o"></i>
-        <span class="mdl-tooltip" data-mdl-for="nomeacao">Gerar nomea&ccedil;&atilde;o provis&oacute;ria</span>
+        <i class="fa fa-file-pdf-o w3-text-green"></i>
+        <span class="mdl-tooltip" data-mdl-for="nomeacao<?php echo $funcionario_id;?>">Gerar nomea&ccedil;&atilde;o provis&oacute;ria</span>
       </a>
       <?php } ?>
     </td>
