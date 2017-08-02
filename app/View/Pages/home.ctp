@@ -1,13 +1,17 @@
 <div class="w3-row-padding">
 	<div class="w3-quarter">
-		<div class="w3-card-4 w3-dark-grey">
+		<div>
 			<div class="w3-container w3-center">
-				<h3>Friend request</h3>
+				<div class="w3-button w3-xxlarge">
+					<i class="fa fa-search"></i>
+					Procurar
+				</div>
+				<!-- <h3>Friend request</h3>
 				<img src="img_avatar3.png" alt="Avatar" style="width:80%">
 				<h5>John Doe</h5>
 
 				<button class="w3-button w3-green">Accept</button>
-				<button class="w3-button w3-red">Decline</button>
+				<button class="w3-button w3-red">Decline</button> -->
 			</div>
 		</div>
 	</div> 

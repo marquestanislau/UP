@@ -172,4 +172,8 @@ class FuncionariosController extends AppController {
     }
   }
 
+  public function busca() {
+    $this->getkeys();
+  }
+
 }
