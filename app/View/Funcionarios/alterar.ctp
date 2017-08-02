@@ -104,6 +104,7 @@
         <?php echo $this->Form->create('Funcionario', array('id' => 'formUpdateFuncionario')); ?>
         <?php $funcionario_id = $funcionario['Funcionario']['id']; ?>
         <?php $this->Form->input('id', array('value' => $funcionario_id, 'type' => 'hidden')); ?>
+        <?php $this->Form->input('escalao_id', array('value' => $funcionario['Funcionario']['escalao_id'], 'type' => 'hidden')); ?>
         <div id="London" style="display: block;" class="w3-container city">
           <div class="w3-half">
 
@@ -114,8 +115,13 @@
                   <?php echo $funcionario['Carreira']['nome']; ?>
               </li>
               <li>
-                <label class="w3-label">Classe: </label>
+                <?php if ($funcionario['Concurso']['tipo'] == 0) { ?>
+                  <label class="w3-label">Classe: </label>
                   <?php echo $this->Form->input('clazze_id', array('value' => $funcionario['Funcionario']['clazze_id'], 'label' => false, 'class' => 'w3-input w3-round w3-margin-bottom w3-border', 'style' => 'width: 50%'));?>
+                <?php } else { ?>
+                  <label class="w3-label">Categoria: </label>
+                  <?php echo $this->Form->input('categoria_id', array('value' => $funcionario['Funcionario']['categoria_id'], 'label' => false, 'class' => 'w3-input w3-round w3-margin-bottom w3-border', 'style' => 'width: 50%'));?>
+                <?php } ?>
               </li>
               <li>
                 <label class="w3-label">Delega&ccedil;&atilde;o: </label>
@@ -166,7 +172,7 @@
                 <h4>Documentos de indentifica&ccedil;&atilde;o</h4>
                 <label class="w3-label">NUIT: </label>
                    <?php echo $this->Form->input('nuit', array('label' => false, 'class' => 'w3-border w3-input w3-round w3-margin-bottom', 'value' => $funcionario['Funcionario']['nuit'])); ?>
-                 <label class="w3-label">Numedo do BI: </label>
+                 <label class="w3-label">N&uacute;mero do BI: </label>
                    <?php echo $this->Form->input('bi', array('label' => false, 'class' => 'w3-border w3-input w3-round w3-margin-bottom', 'value' => $funcionario['Funcionario']['bi'])); ?>
                  <label class="w3-label">Data de Emiss&atilde;o: </label> 
                    <?php echo $this->Form->input('data_emissao', array('type' => 'text', 'label' => false, 'class' => 'w3-border w3-input w3-round w3-margin-bottom datepicker', 'value' => $funcionario['Funcionario']['data_emissao'])); ?>

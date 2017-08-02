@@ -38,8 +38,9 @@
 						<?php echo $this->Form->input('id', array('type' => 'hidden', 'value' => $concurso['Concurso']['id']));?>
 						<?php echo $this->Form->input('nome', array('value' => $concurso['Concurso']['nome'], 'class' => 'w3-input w3-margin-bottom w3-round w3-border w3-hover-sand'));?>
 						<?php echo $this->Form->input('data_aprovacao', array('value' => $concurso['Concurso']['data_aprovacao'], 'class' => 'w3-input datepicker w3-margin-bottom w3-round w3-border w3-hover-sand', 'type' => 'text', 'id' => 'date_input', 'label' => 'Data de aprova&ccedil;&atilde;o'));?>
+						<?php echo $this->Form->input('delegacao_id', array('value' => $concurso['Concurso']['delegacao_id'], 'class' => 'w3-input w3-margin-bottom w3-round w3-border w3-hover-sand', 'label' => 'Delegaga&ccedil;&atilde;o'));?>
 						<?php echo $this->Form->hidden('data_registo', array('id' => $concurso['Concurso']['id'])); ?>
-						<?php echo $this->Form->hidden('delegacao_id', array('id' => $concurso['Concurso']['delegacao_id'])); ?>
+						<?php // echo $this->Form->hidden('delegacao_id', array('id' => $concurso['Concurso']['delegacao_id'])); ?>
 					</div>
 					<footer class="w3-container w3-padding">
 						<button class="w3-green w3-button w3-round" id="saveForm">
