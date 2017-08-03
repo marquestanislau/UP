@@ -51,7 +51,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 </head>
 <body class="w3-white w3-text-gray">
 <!-- Navbar -->
-<div class="w3-top">
+<div id="header" class="w3-top">
   <ul class="w3-navbar w3-blue w3-theme w3-left-align w3-large">
     <li class="w3-opennav w3-right w3-hide-large">
       <a class="w3-hover-white w3-large" href="javascript:void(0)" onclick="w3_open()"><i class="glyphicon glyphicon-menu-hamburger"></i></a>

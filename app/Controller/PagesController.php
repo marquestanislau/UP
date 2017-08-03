@@ -35,7 +35,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array();
+	public $uses = array('Funcionario', 'Usuario');
 
 /**
  * Displays a view
@@ -63,7 +63,7 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
-
+		$this->resume();
 		try {
 			$this->render(implode('/', $path));
 		} catch (MissingViewException $e) {
@@ -72,5 +72,11 @@ class PagesController extends AppController {
 			}
 			throw new NotFoundException();
 		}
+	}
+
+	private function resume() {
+		$funcionarios = $this->Funcionario->find('all');
+		$usuarios = $this->Usuario->find('all');
+		$this->set(compact('funcionarios', 'usuarios'));
 	}
 }
