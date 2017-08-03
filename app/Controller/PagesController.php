@@ -77,6 +77,25 @@ class PagesController extends AppController {
 	private function resume() {
 		$funcionarios = $this->Funcionario->find('all');
 		$usuarios = $this->Usuario->find('all');
-		$this->set(compact('funcionarios', 'usuarios'));
+		$concursos = $this->Funcionario->Concurso->find('all', array('fields' => 'Concurso.data_aprovacao', 'Concurso.id'));
+		$json_concursos_nomes = $this->concursoBarChart($concursos);
+		$json_concursos_totalidades = $this->funcionariosPorConcurso($concursos);
+		$this->set(compact('funcionarios', 'usuarios', 'concursos', 'json_concursos_nomes', 'json_concursos_totalidades'));
+	}
+
+	private function concursoBarChart($concursos = array()) {
+		$names = array();
+		for ($i = 0; $i < count($concursos); $i++) {
+			$names[$i] = $concursos[$i]['Concurso']['data_aprovacao'];
+		}
+		return $names;
+	}
+
+	private function funcionariosPorConcurso($concursos = array()) {
+		$totalidades = array();
+		for ($i = 0; $i < count($concursos); $i++ ) {
+			$totalidades[$i] = count($concursos[$i]['Carreira']);
+		}
+		return $totalidades;
 	}
 }

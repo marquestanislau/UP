@@ -1,3 +1,4 @@
+<?php echo $this->Html->script('Chart.min'); ?>
 <div class="w3-row-padding">
 	<div class="w3-quarter">
 		<div>
@@ -12,7 +13,7 @@
 	<div class="w3-quarter">
 		<div class="w3-light-grey">
 			<div class="w3-container w3-center w3-text-brown">
-				<div class="row">
+				<div class="row w3-border-brown w3-border">
 					<div class="col-sm-6"> 
 						<h3><i class="fa fa-users"></i></h3>
 					</div>
@@ -29,7 +30,7 @@
 	<div class="w3-quarter">
 		<div class="w3-light-grey">
 			<div class="w3-container w3-center w3-text-red">
-				<div class="row">
+				<div class="row w3-border w3-border-red">
 					<div class="col-sm-6">
 						<h3><i class="fa fa-user"></i></h3>
 					</div>
@@ -46,7 +47,7 @@
 	<div class="w3-quarter">
 		<div class="w3-light-grey">
 			<div class="w3-container w3-center w3-text-teal">
-				<div class="row">
+				<div class="row w3-border w3-border-teal">
 					<div class="col-sm-6">
 						<h3><i class="fa fa-file-pdf-o"></i></h3>
 					</div>
@@ -64,44 +65,66 @@
 <div class="w3-row-padding w3-margin-top">
 	<div class="w3-half">
 
-		<div class="w3-card-4">
+		<div class="">
 
 			<header class="w3-container">
-				<h1>Header</h1>
+				<h5>Gr&aacute;fico de relacao Concurso/carreiras</h5>
 			</header>
 
 			<div class="w3-container">
-				<p>Lorem ipsum...</p>
-				<table class="w3-table w3-striped w3-white w3-border-dark-grey w3-border w3-margin-bottom">
-					<tr class="w3-dark-grey">
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Points</th>
-					</tr>
-					<tr>
-						<td>Jill</td>
-						<td>Smith</td>
-						<td>50</td>
-					</tr>
-					<tr>
-						<td>Jill</td>
-						<td>Smith</td>
-						<td>50</td>
-					</tr>
-					<tr>
-						<td>Jill</td>
-						<td>Smith</td>
-						<td>50</td>
-					</tr>
-					<tr>
-						<td>Jill</td>
-						<td>Smith</td>
-						<td>50</td>
-					</tr>
-				</table>
+				<?php 
+					$json = json_encode($json_concursos_nomes);
+					$json_totalidades = json_encode($json_concursos_totalidades);
+				?>
+				<canvas id="concursoChart"></canvas>
+
+				<script type="text/javascript">
+					var label = <?php echo $json;?>;
+					var data = <?php echo $json_totalidades;?>;
+
+					console.log(data);
+
+					var ctx = document.getElementById("concursoChart").getContext('2d');
+					var myChart = new Chart(ctx, {
+					    type: 'bar',
+					    data: {
+					        labels: label,
+					        datasets: [{
+					            label: '',
+					            data: data,
+					            backgroundColor: [
+					                'rgba(255, 99, 132, 0.2)',
+					                'rgba(54, 162, 235, 0.2)',
+					                'rgba(255, 206, 86, 0.2)',
+					                'rgba(75, 192, 192, 0.2)',
+					                'rgba(153, 102, 255, 0.2)',
+					                'rgba(255, 159, 64, 0.2)'
+					            ],
+					            borderColor: [
+					                'rgba(255,99,132,1)',
+					                'rgba(54, 162, 235, 1)',
+					                'rgba(255, 206, 86, 1)',
+					                'rgba(75, 192, 192, 1)',
+					                'rgba(153, 102, 255, 1)',
+					                'rgba(255, 159, 64, 1)'
+					            ],
+					            borderWidth: 1
+					        }]
+					    },
+					    options: {
+					        scales: {
+					            yAxes: [{
+					                ticks: {
+					                    beginAtZero:true
+					                }
+					            }]
+					        }
+					    }
+					});
+				</script>
 			</div>
 
-			<footer class="w3-container w3-blue">
+			<footer class="w3-container">
 				<h5>Footer</h5>
 			</footer>
 
@@ -109,16 +132,16 @@
 	</div>
 	<div class="w3-half">
 		
-		<div class="w3-card-4">
+		<div class="">
 
 			<header class="w3-container">
-				<h1>Header</h1>
+				<h1>Gr&aacute;fico de concursos</h1>
 			</header>
 
 			<div class="w3-container">
 				<p>Lorem ipsum...</p>
-				<table class="w3-table w3-striped w3-white w3-border-dark-grey w3-border w3-margin-bottom">
-					<tr class="w3-dark-grey">
+				<table class="w3-table w3-striped w3-white w3-border w3-margin-bottom">
+					<tr class="">
 						<th>First Name</th>
 						<th>Last Name</th>
 						<th>Points</th>
@@ -146,7 +169,7 @@
 				</table>
 			</div>
 
-			<footer class="w3-container w3-blue">
+			<footer class="w3-container">
 				<h5>Footer</h5>
 			</footer>
 
