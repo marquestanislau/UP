@@ -78,9 +78,15 @@ class PagesController extends AppController {
 		$funcionarios = $this->Funcionario->find('all');
 		$usuarios = $this->Usuario->find('all');
 		$concursos = $this->Funcionario->Concurso->find('all', array('fields' => 'Concurso.data_aprovacao', 'Concurso.id'));
+		$carreiras = $this->Funcionario->Carreira->find('all', array('fields' => 'Carreira.nome', 'Carreira.id'));
+		
 		$json_concursos_nomes = $this->concursoBarChart($concursos);
-		$json_concursos_totalidades = $this->funcionariosPorConcurso($concursos);
-		$this->set(compact('funcionarios', 'usuarios', 'concursos', 'json_concursos_nomes', 'json_concursos_totalidades'));
+		$json_concursos_totalidades = $this->carreirasPorConcurso($concursos);
+
+		$json_carreiras_nomes = $this->nomesParaGraficoCarreiras($carreiras);
+		$json_carreiras_participantes = $this->participantePorCarreira($carreiras);
+
+		$this->set(compact('funcionarios', 'usuarios', 'concursos', 'json_concursos_nomes', 'json_concursos_totalidades', 'carreiras', 'json_carreiras_nomes', 'json_carreiras_participantes'));
 	}
 
 	private function concursoBarChart($concursos = array()) {
@@ -91,10 +97,26 @@ class PagesController extends AppController {
 		return $names;
 	}
 
-	private function funcionariosPorConcurso($concursos = array()) {
+	private function carreirasPorConcurso($concursos = array()) {
 		$totalidades = array();
 		for ($i = 0; $i < count($concursos); $i++ ) {
 			$totalidades[$i] = count($concursos[$i]['Carreira']);
+		}
+		return $totalidades;
+	}
+
+	private function nomesParaGraficoCarreiras( $carreiras = array() ) {
+		$nomes = array();
+		for ( $i = 0; $i < count($carreiras); $i++ ) {
+			$nomes[$i] = $carreiras[$i]['Carreira']['nome'];
+		}
+		return $nomes;
+	}
+
+	private function participantePorCarreira( $carreiras = array() ) {
+		$totalidades = array();
+		for ( $i = 0; $i < count($carreiras); $i++) {
+			$totalidades[$i] = count($this->Funcionario->find('list', array('conditions' => array('carreira_id' => $carreiras[$i]['Carreira']['id']))));
 		}
 		return $totalidades;
 	}

@@ -68,7 +68,7 @@
 		<div class="">
 
 			<header class="w3-container">
-				<h5>Gr&aacute;fico de relacao Concurso/carreiras</h5>
+				<h3 class="w3-text-grey">Gr&aacute;fico de rela&ccedil;&atilde;o Concurso/carreiras</h3>
 			</header>
 
 			<div class="w3-container">
@@ -76,7 +76,7 @@
 					$json = json_encode($json_concursos_nomes);
 					$json_totalidades = json_encode($json_concursos_totalidades);
 				?>
-				<canvas id="concursoChart"></canvas>
+				<canvas id="concursoChart" class="w3-white" ></canvas>
 
 				<script type="text/javascript">
 					var label = <?php echo $json;?>;
@@ -90,7 +90,7 @@
 					    data: {
 					        labels: label,
 					        datasets: [{
-					            label: '',
+					            label: 'Concursos/Carreiras',
 					            data: data,
 					            backgroundColor: [
 					                'rgba(255, 99, 132, 0.2)',
@@ -125,21 +125,17 @@
 			</div>
 
 			<footer class="w3-container">
-				<h5>Footer</h5>
+				<!-- <h5>Footer</h5> -->
 			</footer>
 
 		</div>
 	</div>
 	<div class="w3-half">
-		
-		<div class="">
-
+		<div class="w3-margin-bottom">
 			<header class="w3-container">
-				<h1>Gr&aacute;fico de concursos</h1>
+				<h3>Proximas notas provisorias</h3>
 			</header>
-
 			<div class="w3-container">
-				<p>Lorem ipsum...</p>
 				<table class="w3-table w3-striped w3-white w3-border w3-margin-bottom">
 					<tr class="">
 						<th>First Name</th>
@@ -168,11 +164,62 @@
 					</tr>
 				</table>
 			</div>
-
 			<footer class="w3-container">
-				<h5>Footer</h5>
+				<!-- <h5>Footer</h5> -->
 			</footer>
-
 		</div>
 	</div>
 </div> 
+<div class="w3-row-padding">
+	<div class="w3-rest">
+		<canvas id="carreirasChart"></canvas>
+		
+		<?php //debug($carreiras); 
+			$json_carreiras_nomes_ = json_encode($json_carreiras_nomes);
+			$json_carreiras_participantes_ = json_encode($json_carreiras_participantes);
+		?>
+
+		<script>
+		var ctx = document.getElementById("carreirasChart").getContext('2d');
+		var nomesCarreiras = <?php echo $json_carreiras_nomes_; ?>;
+		var participantes = <?php echo $json_carreiras_participantes_; ?>;
+
+		var myChart = new Chart(ctx, {
+		    type: 'radar',
+		    data: {
+		        labels: nomesCarreiras,
+		        datasets: [{
+		            label: '# of Votes',
+		            data: participantes,
+		            backgroundColor: [
+		                'rgba(255, 99, 132, 0.2)',
+		                'rgba(54, 162, 235, 0.2)',
+		                'rgba(255, 206, 86, 0.2)',
+		                'rgba(75, 192, 192, 0.2)',
+		                'rgba(153, 102, 255, 0.2)',
+		                'rgba(255, 159, 64, 0.2)'
+		            ],
+		            borderColor: [
+		                'rgba(255,99,132,1)',
+		                'rgba(54, 162, 235, 1)',
+		                'rgba(255, 206, 86, 1)',
+		                'rgba(75, 192, 192, 1)',
+		                'rgba(153, 102, 255, 1)',
+		                'rgba(255, 159, 64, 1)'
+		            ],
+		            borderWidth: 1
+		        }]
+		    },
+		    options: {
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true
+		                }
+		            }]
+		        }
+		    }
+		});
+		</script>
+	</div>
+</div>
