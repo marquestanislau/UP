@@ -8,7 +8,7 @@
     <td><?php echo $funcionario['Funcionario']['apelido']; ?></td>
     <td><?php echo $funcionario['Funcionario']['contacto_pessoal']; ?></td>
     <td><?php echo $funcionario['Funcionario']['data_nascimento']; ?></td>
-    <td><?php echo $funcionario['Funcionario']['contacto_alternativo']; ?></td>
+    <td ><span class="w3-tag"><?php echo $funcionario['Funcionario']['posicao']; ?></span></td>
     <td><?php echo $funcionario['Funcionario']['sexo']; ?></td>
     <td>
       <?php if ( empty($funcionario['Funcionario']['despacho']) ) { ?>

@@ -1,15 +1,10 @@
 <?php echo $this->Html->script('Chart.min'); ?>
+<div id="ajaxContent">
+<div id="requesting" class="w3-row-padding" style="display:none;">
+	<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
+	A processar...
+</div>
 <div class="w3-row-padding">
-	<div class="w3-quarter">
-		<div>
-			<div class="w3-container w3-center">
-				<div class="w3-button w3-green w3-xxlarge">
-					<i class="fa fa-search"></i>
-					Procurar
-				</div>
-			</div>
-		</div>
-	</div> 
 	<div class="w3-quarter">
 		<div class="w3-light-grey">
 			<div class="w3-container w3-center w3-text-brown">
@@ -19,6 +14,13 @@
 					</div>
 					<div class="col-sm-6">
 						<h1><?php echo count($funcionarios); ?></h1>
+						<?php $funcionarios_json =  json_encode($funcionarios); ?>
+						<script type="text/javascript">
+							var funcionarios = <?php echo $funcionarios_json; ?>;
+							for (var i = 0; i < funcionarios.length; i++ ) {
+								console.log(funcionarios[i]);
+							}
+						</script>
 					</div>
 					<div class="col-sm-12 w3-brown">
 						<p>Funcion&aacute;rios</p>
@@ -61,6 +63,16 @@
 			</div>
 		</div>
 	</div>
+	<div class="w3-quarter">
+		<div>
+			<div class="w3-container w3-center">
+				<a id="search" href="#" class="w3-button w3-green w3-xxlarge">
+					<i class="fa fa-search"></i>
+					Procurar
+				</a>
+			</div>
+		</div>
+	</div> 
 </div>
 <div class="w3-row-padding w3-margin-top">
 	<div class="w3-half">
@@ -81,8 +93,6 @@
 				<script type="text/javascript">
 					var label = <?php echo $json;?>;
 					var data = <?php echo $json_totalidades;?>;
-
-					console.log(data);
 
 					var ctx = document.getElementById("concursoChart").getContext('2d');
 					var myChart = new Chart(ctx, {
@@ -223,3 +233,43 @@
 		</script>
 	</div>
 </div>
+</div>
+<?php 
+
+	$this->Js->get('#search')->event(
+			'click',
+			$this->Js->request(
+					array(
+							'action' => 'busca',
+							'controller' => 'funcionarios'
+						),
+					array(
+							'update' => '#ajaxContent',
+							'method' => 'post',
+							'before' => '$("#requesting").attr("style", "")',
+							'complete' => '$("#requesting").attr("style", "display:none")'
+						)
+				)
+		);
+
+	// $formData = $this->Js->get('#funcionarioSearch')->serializeForm(array('inline' => true, 'isForm' => true));
+
+	// $this->Js->get('#search')->event(
+	// 		'change', 
+	// 		$this->Js->request(
+	// 				array(
+	// 						'action' => 'findAll',
+	// 						'controller' => 'funcionarios'
+	// 					),
+	// 				array(
+	// 						'data' => $formData,
+	// 						'dataExpression' => true,
+	// 						'method' => 'post',
+	// 						'before' => '',
+	// 						'complete' => '',
+	// 						'update' => '#result'
+	// 					)
+	// 			)
+	// 	);
+
+ ?>

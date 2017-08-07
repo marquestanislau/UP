@@ -36,6 +36,8 @@ class PagesController extends AppController {
  * @var array
  */
 	public $uses = array('Funcionario', 'Usuario');
+	public $components = array('RequestHandler');
+	public $helpers = array('Js' => 'Jquery');
 
 /**
  * Displays a view

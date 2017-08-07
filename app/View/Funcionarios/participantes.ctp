@@ -48,12 +48,12 @@
           <th>Apelido</th>
           <th>Contacto Primario</th>
           <th>Data de Nascimento</th>
-          <th>Contacto alternativo</th>
+          <th>Posi&ccedil;&atilde;o</th>
           <th>Sexo</th>
           <th></th>
         </thead>
         <tbody id="table-body">
-          <?php include('lista.ctp'); ?>
+           <?php include('lista.ctp'); ?>
         </tbody>
       </table>
       <p class="w3-text-blue">

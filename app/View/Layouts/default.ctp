@@ -42,6 +42,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   echo $this->Html->script('steps/jq.progress-bar');
   echo $this->Html->script('script_frameworks');
   echo $this->Html->script('script');
+  echo $this->Html->script('angular.min');
 
   echo $this->fetch('meta');
   echo $this->fetch('css');

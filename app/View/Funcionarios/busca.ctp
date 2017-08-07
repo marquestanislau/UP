@@ -5,7 +5,7 @@
  ?>
  <br>
  <div class="row">
- 	<div class="col-md-3 w3-light-gey w3-round" style="background-color: #FFF8DC;">
+ 	<div class="col-md-3 w3-light-grey w3-round">
  		<h4 class="w3-border-bottom w3-center"><i class="fa fa-filter"></i> Filtros</h4>
  		<?php 
  			echo $this->Form->input('concurso_id', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom'));
@@ -25,7 +25,7 @@
 	 		 	Procurar
 	 		 </button>
  		</div>
- 		 <div id="content">
+ 		 <div id="result">
  		 	<h4>Resultado:</h4>
  		 	<div class="w3-center" style="margin: 20%;">
 	 		 	<i class="fa fa-user w3-opacity w3-xxxlarge"></i>

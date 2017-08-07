@@ -173,6 +173,9 @@ class FuncionariosController extends AppController {
   }
 
   public function busca() {
+    if ( $this->request->is('ajax') ) {
+      
+    }
     $this->getkeys();
   }
 
