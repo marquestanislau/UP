@@ -8,19 +8,23 @@
  	<div class="col-md-3 w3-light-grey w3-round">
  		<h4 class="w3-border-bottom w3-center"><i class="fa fa-filter"></i> Filtros</h4>
  		<?php 
- 			echo $this->Form->input('concurso_id', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom'));
- 			echo $this->Form->input('carreira_id', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom'));
- 			echo $this->Form->input('categoria_id', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom'));
- 			echo $this->Form->input('delegacao_id', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom'));
- 			echo $this->Form->input('posicao', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom'));
+ 			echo $this->Form->input('posicao', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom', 'id' => 'posicao', 'label' => 'Posi&ccedil;&atilde;o'));
+ 			echo $this->Form->input('concurso_id', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom', 'id' => 'concurso'));
+ 			echo $this->Form->input('carreira_id', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom', 'id' => 'carreira'));
+ 			echo $this->Form->input('categoria_id', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom', 'id' => 'categoria'));
+ 			echo $this->Form->input('delegacao_id', array('class' => 'w3-input w3-text-grey w3-round w3-border w3-white w3-margin-bottom', 'id' => 'delegacao'));
  		 ?>
+ 		 <div id="requesting" class="w3-row-padding" style="display:none;">
+ 		 	<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
+ 		 	A processar...
+ 		 </div>
  	</div>
  	<div class="col-md-9">
- 		<div class="w3-bar w3-round">
+ 		<div class="w3-bar w3-round w3-light-grey">
 	 		<?php 
-	 			echo $this->Form->input('nome', array('class' => 'w3-input w3-text-black w3-border w3-border-blue w3-bar-item w3-large', 'label' => false, 'style' => 'width: 80%', 'placeholder' => 'Digite o nome do funcionario'));
+	 			echo $this->Form->input('nome', array('class' => 'w3-input w3-white w3-text-black w3-border w3-bar-item w3-large', 'label' => false, 'style' => 'width: 80%', 'placeholder' => 'Procure usando o nome'));
 	 		 ?>
-	 		 <button class="w3-bar-item w3-button w3-border w3-border-blue w3-hover-light-blue w3-blue w3-large" style="width: 20%;">
+	 		 <button type="button" id="btnSubmit" class="w3-bar-item w3-button w3-border w3-hover-light-blue w3-large" style="width: 20%;">
 	 		 	<i class="fa fa-search"></i>
 	 		 	Procurar
 	 		 </button>

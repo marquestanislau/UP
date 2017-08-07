@@ -14,13 +14,6 @@
 					</div>
 					<div class="col-sm-6">
 						<h1><?php echo count($funcionarios); ?></h1>
-						<?php $funcionarios_json =  json_encode($funcionarios); ?>
-						<script type="text/javascript">
-							var funcionarios = <?php echo $funcionarios_json; ?>;
-							for (var i = 0; i < funcionarios.length; i++ ) {
-								console.log(funcionarios[i]);
-							}
-						</script>
 					</div>
 					<div class="col-sm-12 w3-brown">
 						<p>Funcion&aacute;rios</p>
@@ -184,7 +177,7 @@
 	<div class="w3-rest">
 		<canvas id="carreirasChart"></canvas>
 		
-		<?php //debug($carreiras); 
+		<?php 
 			$json_carreiras_nomes_ = json_encode($json_carreiras_nomes);
 			$json_carreiras_participantes_ = json_encode($json_carreiras_participantes);
 		?>
@@ -254,7 +247,7 @@
 
 	// $formData = $this->Js->get('#funcionarioSearch')->serializeForm(array('inline' => true, 'isForm' => true));
 
-	// $this->Js->get('#search')->event(
+	// $this->Js->get('#concurso')->event(
 	// 		'change', 
 	// 		$this->Js->request(
 	// 				array(
@@ -265,11 +258,28 @@
 	// 						'data' => $formData,
 	// 						'dataExpression' => true,
 	// 						'method' => 'post',
-	// 						'before' => '',
-	// 						'complete' => '',
+	// 						'before' => '$("#requesting").attr("style", "")',
+	// 						'complete' => '$("#requesting").attr("style", "display:none")',
 	// 						'update' => '#result'
 	// 					)
 	// 			)
 	// 	);
 
  ?>
+
+ <script type="text/javascript">
+ 	
+ 	$(document).ready(function () {
+ 		$(document).on("change", "#concurso",function (event) {$.ajax({beforeSend:function (XMLHttpRequest) {$("#requesting").attr("style", "")}, complete:function (XMLHttpRequest, textStatus) {$("#requesting").attr("style", "display:none")}, data:$("#funcionarioSearch").serialize(), dataType:"html", success:function (data, textStatus) {$("#result").html(data);}, type:"post", url:"\/sigerh\/funcionarios\/findAll"});
+ 			return false;});
+ 		$(document).on("change", "#carreira",function (event) {$.ajax({beforeSend:function (XMLHttpRequest) {$("#requesting").attr("style", "")}, complete:function (XMLHttpRequest, textStatus) {$("#requesting").attr("style", "display:none")}, data:$("#funcionarioSearch").serialize(), dataType:"html", success:function (data, textStatus) {$("#result").html(data);}, type:"post", url:"\/sigerh\/funcionarios\/findAll"});
+ 			return false;});
+ 		$(document).on("change", "#delegacao",function (event) {$.ajax({beforeSend:function (XMLHttpRequest) {$("#requesting").attr("style", "")}, complete:function (XMLHttpRequest, textStatus) {$("#requesting").attr("style", "display:none")}, data:$("#funcionarioSearch").serialize(), dataType:"html", success:function (data, textStatus) {$("#result").html(data);}, type:"post", url:"\/sigerh\/funcionarios\/findAll"});
+ 			return false;});
+ 		$(document).on("change", "#categoria",function (event) {$.ajax({beforeSend:function (XMLHttpRequest) {$("#requesting").attr("style", "")}, complete:function (XMLHttpRequest, textStatus) {$("#requesting").attr("style", "display:none")}, data:$("#funcionarioSearch").serialize(), dataType:"html", success:function (data, textStatus) {$("#result").html(data);}, type:"post", url:"\/sigerh\/funcionarios\/findAll"});
+ 			return false;});
+ 		$(document).on("click", "#btnSubmit",function (event) {$.ajax({beforeSend:function (XMLHttpRequest) {$("#requesting").attr("style", "")}, complete:function (XMLHttpRequest, textStatus) {$("#requesting").attr("style", "display:none")}, data:$("#funcionarioSearch").serialize(), dataType:"html", success:function (data, textStatus) {$("#result").html(data);}, type:"post", url:"\/sigerh\/funcionarios\/findAll"});
+ 			return false;});
+
+ 	});
+ </script>

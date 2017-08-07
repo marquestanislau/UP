@@ -179,4 +179,41 @@ class FuncionariosController extends AppController {
     $this->getkeys();
   }
 
+  public function findAll() {
+    if( $this->request->is('ajax') ) {
+      $funcionario = $this->findEmployee($this->request->data);
+      if (!empty($funcionario)) {
+        $this->set(compact('funcionario'));
+        $this->render('funcionario_encontrado', 'ajax');
+       } else {
+        $this->render('404', 'ajax');
+       }
+    }
+  }
+
+  protected function findEmployee($data = array()) {
+    $nome = $data['Funcionario']['nome'];
+    $concurso_id = $data['Funcionario']['concurso_id'];
+    $carreira_id = $data['Funcionario']['carreira_id'];
+    $categoria_id = $data['Funcionario']['categoria_id'];
+    $delegacao_id = $data['Funcionario']['delegacao_id'];
+    $posicao = $data['Funcionario']['posicao'];
+
+    $funcionario = $this->Funcionario->find('all', 
+                        array(
+                               'conditions' => array(
+                                  'Funcionario.nome LIKE' => '%'.$nome.'%',
+                                  'OR' => array(
+                                      array('Funcionario.carreira_id' => $carreira_id),
+                                      array('Funcionario.concurso_id' => $concurso_id),
+                                      array('Funcionario.categoria_id' => $categoria_id),
+                                      array('Funcionario.delegacao_id' => $delegacao_id),
+                                      array('Funcionario.posicao' => $posicao),
+                                    )
+                                )
+                              )
+                        );
+    return $funcionario;
+  }
+
 }

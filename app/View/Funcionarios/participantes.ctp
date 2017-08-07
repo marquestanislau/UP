@@ -1,7 +1,7 @@
 <div class="col-md-12 w3-white w3-padding">
   <h6 class="w3-text-blue"><span class="fa fa-users"></span> Participantes</h6>
   <?php echo $this->Form->create('Funcionario', array('class' => 'w3-container', 'id' => 'ajaxFormParticipantes', 'style' => 'margin: 0px;'));?>
-  <div class="row w3-margin-bottom">
+  <div class="row w3-margin-bottom w3-light-grey w3-padding w3-round">
     <div class="col-md-6">
       <?php echo $this->Form->input('concurso_id', 
                       array(
