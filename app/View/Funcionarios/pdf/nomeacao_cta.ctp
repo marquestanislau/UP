@@ -7,7 +7,7 @@
 	</div>
 
 	<h3 style="text-align: center;">DIPLOMA DE PROVIMENTO</h3>
-	<p id="diploma">
+	<p id="diploma" style="text-align: center;">
 	
 		A despesa tem cabimento na dotação inserida no sector 50 capítulo 62, artigo 111001 do Orçamento do corrente ano.<br>
 

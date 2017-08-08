@@ -5,6 +5,7 @@
 		<td><?php echo h($carreira['Carreira']['id']); ?>&nbsp;</td>
 		<td><?php echo $carreira['Carreira']['tipo'] == 0 ? '<i class="fa fa-user"></i>': '<i class="fa fa-graduation-cap"></i>'; ?>&nbsp;</td>
 		<td><?php echo h($carreira['Carreira']['nome']); ?>&nbsp;</td>
+		<td><?php echo h($carreira['Carreira']['resolucao']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span>", array('action' => 'delete', $carreira['Carreira']['id']), array('class' => 'w3-tag w3-red w3-round w3-hover-light-grey' , 'escape' => false, 'confirm' => __('Remover a carreira # %s?', $carreira['Carreira']['id']))); ?>
 			<a href="#" class="w3-tag w3-round w3-green w3-hover-light-grey" onclick="document.getElementById('carreiraModalEditar<?php echo $id;?>').style.display='block'">

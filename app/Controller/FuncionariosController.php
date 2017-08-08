@@ -171,7 +171,7 @@ class FuncionariosController extends AppController {
       $this->render('input_classe', 'ajax');
     }
   }
-
+//para mostrar a pagina ajax com as combobox preenchidas
   public function busca() {
     if ( $this->request->is('ajax') ) {
       
@@ -208,7 +208,7 @@ class FuncionariosController extends AppController {
                                       array('Funcionario.concurso_id' => $concurso_id),
                                       array('Funcionario.categoria_id' => $categoria_id),
                                       array('Funcionario.delegacao_id' => $delegacao_id),
-                                      array('Funcionario.posicao' => $posicao),
+                                      array('Funcionario.posicao' => $posicao)
                                     )
                                 )
                               )

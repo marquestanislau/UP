@@ -19,16 +19,21 @@
 			width: 100px;
 		}
 	</style>
+	<link rel="stylesheet" type="text/css" href="css/pure-min.css">
+	<link rel="stylesheet" type="text/css" href="css/report.css">
 </head>
 <body>
-	<div id="header">
-		<img src="img/icon.png">
-		<h3>SIGERH-UP</h3>
+	<div id="cabecalho">
+			<img src="img/icon72x72.png">
+			<h2>DIREC&Ccedil;ÃO DE RECURSOS HUMANOS</h2>
+			<p id="endereco">
+				Rua Comandante Augusto Cardoso nº 135, Caixa Postal 3276, Tef.: 21312585 ou 21324502; Fax nº 21312585, Maputo - Moçambique
+			</p>
 	</div>
 	<div id="body">
 		Data: <strong><?php $hoje = date('d/m/Y'); echo $hoje; ?></strong>
 		<h3 style="text-align: center;">Lista de utilizadores do sistema.</h3>
-		<table class="table">
+		<table class="pure-table">
 			<thead>
 				<tr>
 					<th>Nome</th>

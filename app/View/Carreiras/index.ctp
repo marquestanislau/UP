@@ -19,6 +19,7 @@
 		<th><?php echo $this->Paginator->sort('Ordem'); ?></th>
 		<th><?php echo $this->Paginator->sort('Tipo'); ?></th>
 		<th><?php echo $this->Paginator->sort('nome'); ?> <span class="fa fa-sort w3-text-blue"></span></th>
+		<th><?php echo _('Resolu&ccedil;&atilde;o'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>

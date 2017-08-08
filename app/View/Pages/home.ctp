@@ -6,8 +6,8 @@
 </div>
 <div class="w3-row-padding">
 	<div class="w3-quarter">
-		<div class="w3-light-grey">
-			<div class="w3-container w3-center w3-text-brown">
+		<div class="w3-brown">
+			<div class="w3-container w3-center w3-textp-brown">
 				<div class="row w3-border-brown w3-border">
 					<div class="col-sm-6"> 
 						<h3><i class="fa fa-users"></i></h3>
@@ -23,8 +23,8 @@
 		</div>
 	</div> 
 	<div class="w3-quarter">
-		<div class="w3-light-grey">
-			<div class="w3-container w3-center w3-text-red">
+		<div class="w3-red">
+			<div class="w3-container w3-center">
 				<div class="row w3-border w3-border-red">
 					<div class="col-sm-6">
 						<h3><i class="fa fa-user"></i></h3>
@@ -40,8 +40,8 @@
 		</div>
 	</div> 
 	<div class="w3-quarter">
-		<div class="w3-light-grey">
-			<div class="w3-container w3-center w3-text-teal">
+		<div class="w3-teal">
+			<div class="w3-container w3-center">
 				<div class="row w3-border w3-border-teal">
 					<div class="col-sm-6">
 						<h3><i class="fa fa-file-pdf-o"></i></h3>
@@ -68,7 +68,7 @@
 	</div> 
 </div>
 <div class="w3-row-padding w3-margin-top">
-	<div class="w3-half">
+	<div class="w3-col m8">
 
 		<div class="">
 
@@ -133,7 +133,7 @@
 
 		</div>
 	</div>
-	<div class="w3-half">
+	<div class="w3-rest">
 		<div class="w3-margin-bottom">
 			<header class="w3-container">
 				<h3>Proximas notas provisorias</h3>
@@ -174,8 +174,8 @@
 	</div>
 </div> 
 <div class="w3-row-padding">
-	<div class="w3-rest">
-		<canvas id="carreirasChart"></canvas>
+	<div class="w3-rest" style="background-color: #fff7f7;">
+		<canvas class="w3-margin-top" id="carreirasChart"></canvas>
 		
 		<?php 
 			$json_carreiras_nomes_ = json_encode($json_carreiras_nomes);
@@ -188,7 +188,7 @@
 		var participantes = <?php echo $json_carreiras_participantes_; ?>;
 
 		var myChart = new Chart(ctx, {
-		    type: 'radar',
+		    type: 'line',
 		    data: {
 		        labels: nomesCarreiras,
 		        datasets: [{

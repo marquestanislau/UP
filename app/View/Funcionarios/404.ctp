@@ -1,5 +1,5 @@
-<h1><i class="fa fa-s"></i> Funcion&aacute;rio n&atilde;o encontrado!</h1>
-<div class="w3-khaki w3-panel w3-border w3-border-khaki w3-text-dark-grey">
+<h1 class="w3-center"><i class="fa fa-s"></i> Funcion&aacute;rio n&atilde;o encontrado!</h1>
+<div class="alert alert-warning w3-padding w3-text-grey">
 	<p>Sugest&otilde;es para uma pesquisa com sucesso!</p>
 	<ul>
 		<li>Escreva correctamente o nome</li>
