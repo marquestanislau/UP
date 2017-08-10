@@ -45,6 +45,7 @@
 				</button>
 				<?php echo $this->Form->end(); ?>
 				<button onclick="document.getElementById('editUser<?php echo $id; ?>').style.display='none';" type="button" class="w3-button w3-bar-item w3-light-grey">
+					<i class="fa fa-close"></i>
 					Sair
 				</button>
 			</div>

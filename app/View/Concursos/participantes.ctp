@@ -3,7 +3,7 @@
 
     <header class="w3-container w3-blue">
       <span onclick="document.getElementById('participantesModal<?php echo $carreira_id;?>').style.display='none'"
-      class="w3-closebtn">&times;</span>
+      class="w3-closebtn w3-hover-text-orange">&times;</span>
       <h5> 
         <span class="fa fa-users w3-large"></span>
         Adi&ccedil;&atilde;o de candidatos</h5>

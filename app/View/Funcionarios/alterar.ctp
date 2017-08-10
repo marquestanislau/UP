@@ -80,20 +80,18 @@
          </div>
      </script>
 <div class="row">
-	<h5 class="w3-text-blue"> 
-		<span class="fa fa-user w3-large"></span>
-		Alterar dados de funcionario</h5>
-		<div class="w3-padding w3-white">
-			<div class="w3-row">
-        <div class="w3-container">
+    <div class="w3-padding w3-white">
+      <div class="w3-row">
+        <div class="w3-container w3-blue-gray"> 
+      	   <h5 class="w3-center"> 
+      		  <span class="fa fa-user w3-large"></span>
+      	   	Alterar dados de funcionario
+          </h5>
           <h4 id="nome">
             <?php echo $funcionario['Funcionario']['nome']; ?>
             <?php echo $funcionario['Funcionario']['apelido']; ?>
             <a href="#" class="pull-right" onclick="history.back()" ><i class="fa fa-arrow-circle-left"></i> Voltar</a>
           </h4>
-          <!-- Mensagem de status (Erro ou Exito) -->
-          <div id="sucesso"></div>
-          <!-- End mensagem de erro ou exito -->
         </div>
 
         <div class="w3-bar w3-light-grey">
@@ -105,7 +103,7 @@
         <?php $funcionario_id = $funcionario['Funcionario']['id']; ?>
         <?php $this->Form->input('id', array('value' => $funcionario_id, 'type' => 'hidden')); ?>
         <?php $this->Form->input('escalao_id', array('value' => $funcionario['Funcionario']['escalao_id'], 'type' => 'hidden')); ?>
-        <div id="London" style="display: block;" class="w3-container city">
+        <div id="London" style="display: block;" class="w3-container city w3-text-grey">
           <div class="w3-half">
 
            <h4>Informa&ccedil;&otilde;es adicionais do funcion&aacute;rio</h4>
@@ -139,7 +137,7 @@
           </div>
         </div>
 
-        <div id="Paris" class="w3-container city" style="display:none">
+        <div id="Paris" class="w3-container city w3-text-grey" style="display:none">
           <div class="w3-third w3-padding">
             <h4>Dados pessoais</h4>
             <label class="w3-label">Nome:</label>
@@ -167,7 +165,7 @@
               </div>
             </div>
 
-            <div id="Tokyo" class="w3-container city" style="display:none">
+            <div id="Tokyo" class="w3-container city w3-text-grey" style="display:none">
               <div class="w3-third w3-padding">
                 <h4>Documentos de indentifica&ccedil;&atilde;o</h4>
                 <label class="w3-label">NUIT: </label>
@@ -191,13 +189,14 @@
                         var galleryUploader = new qq.FineUploader({
                             element: document.getElementById("fine-uploader-gallery"),
                             template: 'qq-template-gallery',
+                            debug: true,
                             request: {
-                                endpoint: '/sigerh/app/webroot/files'
+                                endpoint: '/sigerh/funcionarios/alterar/<?php echo $funcionario_id; ?>'
                             },
                             thumbnails: {
                                 placeholders: {
-                                    waitingPath: '/source/placeholders/waiting-generic.png',
-                                    notAvailablePath: '/source/placeholders/not_available-generic.png'
+                                    waitingPath: '/sigerh/js/fine-uploader/placeholders/waiting-generic.png',
+                                    notAvailablePath: '/sigerh/js/fine-uploader/placeholders/not_available-generic.png'
                                 }
                             },
                             validation: {

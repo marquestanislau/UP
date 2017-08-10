@@ -21,7 +21,7 @@
 					$hoje = date("Y-m-d");
 					echo $this->Form->input('data_de_registo', array('value' => $hoje,'type' => 'hidden'), array('class' => 'btn btn-default'));
 
-					echo $this->Form->input('foto_perfil', array('value' => 'upload/perfil_default.png', 'type' => 'file', 'class' => 'w3-button'));
+					echo $this->Form->input('foto_perfil', array('value' => 'upload/perfil_default.png', 'type' => 'hidden', 'class' => 'w3-button'));
 					?>
 				</div>
 				<div class="col-md-6">

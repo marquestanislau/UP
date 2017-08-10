@@ -59,10 +59,10 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
     </li>
     <li><a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'home'));?>" class=" logo w3-theme-l1" style="font-weight: bolder;">SIGERH</a></li>
     <li>
-      <a href="<?php echo $this->Html->url(array('action' => 'home', 'controller' => 'pages'));?>"><span class="glyphicon glyphicon-home"></span></a>
+      <a href="<?php echo $this->Html->url(array('action' => 'home', 'controller' => 'pages'));?>"><span class="glyphicon glyphicon-home"></span> In&iacute;cio</a>
     </li>
     <li class="w3-hide-small w3-dropdown-hover">
-      <a><span class="glyphicon glyphicon-user"></span></a>
+      <a><span class="glyphicon glyphicon-user"></span> Funcion&aacute;rios</a>
       <div class="w3-dropdown-content w3-card-4 w3-padding w3-text-blue w3-bottombar">
         <h3>Funcion&aacute;rios</h3>
         <table>
@@ -83,7 +83,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
       </div>
     </li>
     <li class="w3-dropdown-hover w3-hide-small">
-      <a href="#"><i class="fa fa-user-plus"></i></a>
+      <a href="#"><i class="fa fa-user-plus"></i> Utilizadores</a>
       <div class="w3-dropdown-content w3-bottombar w3-text-blue w3-padding w3-card-4">
         <h3>Utilizadores</h3>
         <table>
@@ -98,7 +98,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
       <a><span class="glyphicon glyphicon-education"></span></a>
     </li> -->
     <li class="w3-hide-small w3-dropdown-hover">
-      <a><span class="glyphicon glyphicon-cog"></span></a>
+      <a><span class="glyphicon glyphicon-cog"></span> Configura&ccedil;&otilde;es</a>
       <div class="w3-dropdown-content w3-card-4 w3-padding w3-text-blue w3-bottombar">
         <h3 class="w3-text-blue">Configura&ccedil;&otilde;es</h3>
         <table>
@@ -119,7 +119,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
       </div>
     </li>
     <li class="w3-hide-small w3-dropdown-hover">
-      <a><span class="glyphicon glyphicon-briefcase"></span></a>
+      <a><span class="glyphicon glyphicon-briefcase"></span> Recrutamento</a>
       <div class="w3-dropdown-content w3-padding w3-card-4 w3-text-blue w3-bottombar">
         <h3 class="w3-text-blue" >Recrutamento</h3>
         <table>
@@ -133,9 +133,9 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         </table>
       </div>
     </li>
-    <li>
+    <!-- <li>
       <a href="<?php echo $this->Html->url(array('action' => 'calendario', 'controller' => 'funcionarios'));?>"><span class="glyphicon glyphicon-calendar"></span></a>
-    </li>
+    </li> -->
     <li class="pull-right w3-hide-medium w3-hide-small">
       <a href="#">
         <?php echo $this->Html->image('perfil_default.png', array('class' => 'w3-hover-blue img-responsive img-circle user-icon')); ?>

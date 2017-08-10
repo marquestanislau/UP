@@ -1,19 +1,22 @@
 <div class="row">
-	<?php $sexo = $funcionario['Funcionario']['sexo'] == 'F'? 'a' : 'o'; ?>
-	<h4 class="w3-text-blue"><i class="fa fa-user-o"></i> Dados d<?php echo $sexo; ?> funcionari<?php echo $sexo; ?></h4>
-	<div class="w3-padding w3-white">
-		<h4>
-			<?php echo $funcionario['Funcionario']['nome']; ?>
-			<?php echo $funcionario['Funcionario']['apelido']; ?>
-			<a href="#" class="pull-right w3-large w3-border w3-white w3-text-grey w3-button w3-circle" onclick="history.back()" ><i class="fa fa-arrow-circle-left"></i></a>
-			
-			<a target="_blank" href="<?php echo $this->Html->url(array('action' => 'imprimeFuncionario', 'ext' => 'pdf', $funcionario['Funcionario']['id'])); ?>" 
-				id="print_employee" 
-				class="pull-right w3-border w3-white w3-text-grey w3-large w3-button w3-circle">
-				<i class="fa fa-print"></i>
-			</a>
-			<span data-mdl-for="print_employee" class="mdl-tooltip">Imprimir dados de <?php echo $funcionario['Funcionario']['nome']; ?></span>
-		</h4>
+	<div class="col-md-12 w3-blue-gray">
+		<?php $sexo = $funcionario['Funcionario']['sexo'] == 'F'? 'a' : 'o'; ?>
+		<h4 class="w3-center"><i class="fa fa-user"></i> Dados d<?php echo $sexo; ?> funcion&aacute;ri<?php echo $sexo; ?></h4>
+		<div>
+			<h4>
+				<?php echo $funcionario['Funcionario']['nome']; ?>
+				<?php echo $funcionario['Funcionario']['apelido']; ?>
+				<a href="#" class="pull-right w3-large w3-border w3-white w3-text-grey w3-button w3-circle" onclick="history.back()" ><i class="fa fa-arrow-circle-left"></i></a>
+				
+				<a target="_blank" href="<?php echo $this->Html->url(array('action' => 'imprimeFuncionario', 'ext' => 'pdf', $funcionario['Funcionario']['id'])); ?>" 
+					id="print_employee" 
+					class="pull-right w3-border w3-white w3-text-grey w3-large w3-button w3-circle">
+					<i class="fa fa-print"></i>
+				</a>
+				<span data-mdl-for="print_employee" class="mdl-tooltip">Imprimir dados de <?php echo $funcionario['Funcionario']['nome']; ?></span>
+			</h4>
+		</div>
+	</div>
 		<div class="w3-bar w3-light-grey">
 			<button class="w3-bar-item w3-button" onclick="openCity('London')"><i class="fa fa-user"></i> Dados pessoais</button>
 			<button class="w3-bar-item w3-button" onclick="openCity('Paris')"><i class="fa fa-info-circle"></i> Documentos de Identificacao</button>

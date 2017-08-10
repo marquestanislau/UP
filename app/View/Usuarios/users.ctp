@@ -1,7 +1,11 @@
 <?php foreach ($usuarios as $usuario): ?>
 	<tr class="w3-text-dark-grey w3-hover-khaki">
 		<?php $id = $usuario['Usuario']['id'];?>
-		<td><?php echo h($usuario['Usuario']['nome']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->image('upload/'.$usuario['Usuario']['foto_perfil'], array('class' => 'w3-circle', 'style' => 'width: 10%;'));
+				echo ' '; 
+				echo h($usuario['Usuario']['nome']); ?>&nbsp;
+		</td>
 		<td><?php echo h($usuario['Usuario']['apelido']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['email']); ?>&nbsp;</td>
 		<td><?php echo h('+(258) '.$usuario['Usuario']['contacto']); ?>&nbsp;</td>

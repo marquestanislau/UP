@@ -16,22 +16,13 @@
 		 
 		_______________________
 	</p>
-
-
 	<p class="corpo">
-		Nome Completo <span class="bold"><?php echo $funcionario['Funcionario']['nome'].' '.$funcionario['Funcionario']['apelido']; ?>,</span> nomeado por despacho de <span class="bold"><?php echo $funcionario['Funcionario']['despacho']; ?></span> do Magnífico Reitor da Universidade Pedagógica, para a Carreira de <span class="bold"><?php echo $funcionario['Carreira']['nome'].', '; ?>
-						<?php if(empty($funcionario['Clazze']['nome'])){
-						echo $funcionario['Categoria']['nome'].', ';
-					} else {
-						echo 'Classe '.$funcionario['Clazze']['nome'].', ';
-					}?></span>
-		<span class="bold"><?php echo $funcionario['Escalao']['nome']; ?></span>, nos termos do previsto na alínea e) do artigo 1, da Resolução nº. 2/2006, de 13 de Julho, conjugado com n.° 1 do art. 34 e o n.° 4 do art.° 13, ambos do EGFAE, com colocação na <span class="bold"><?php echo $funcionario['Delegacao']['nome']; ?></span>.
+		Nome Completo <span class="bold"><?php echo $funcionario['Funcionario']['nome'].' '.$funcionario['Funcionario']['apelido']; ?>,</span> nomeado por despacho de <span class="bold"><?php echo $funcionario['Funcionario']['despacho']; ?></span> do Magnífico Reitor da Universidade Pedagógica, para a Carreira de <span class="bold"><?php echo $funcionario['Carreira']['nome'].', '; ?><?php echo 'Classe '.$funcionario['Clazze']['nome'].', ';?></span><span class="bold"><?php echo $funcionario['Escalao']['nome']; ?></span>, nos termos do previsto na alínea e) do artigo 1, da Resolução nº. 2/2006, de 13 de Julho, conjugado com n.° 1 do art. 34 e o n.° 4 do art.° 13, ambos do EGFAE, com colocação na <span class="bold"><?php echo $funcionario['Delegacao']['nome']; ?></span>.
 	</p>
 	<p>
 		Forma de nomeação: <b>Nomeação provisória</b>. <br>
 		Observações: <b>NUIT- <?php echo $funcionario['Funcionario']['nuit']; ?></b>
 	</p>
-
 	<p id="reitor">
 		Data: 
 		<?php
@@ -81,8 +72,7 @@
 		echo $day.' de '.$month.' de '.$year;
 		?>
 		<br>
-		O Reitor	<br>
-		<br>
+		O Reitor<br>
 		<br>
 		Prof. Doutor Rogério José Uthui <br>
 		(Docente Universitário)

@@ -59,129 +59,73 @@
 	<div class="w3-quarter">
 		<div>
 			<div class="w3-container w3-center">
-				<a id="search" href="#" class="w3-button w3-green w3-xxlarge">
+				<a id="search" href="#" class="w3-button w3-green w3-xxlarge w3-hover-light-green w3-hover-text-white">
 					<i class="fa fa-search"></i>
 					Procurar
+					<span data-mdl-for="search" class="mdl-tooltip">Localize o funicon&aacute;rio <br>que desejar aqui! </span>
 				</a>
 			</div>
 		</div>
 	</div> 
 </div>
-<div class="w3-row-padding w3-margin-top">
+<div class="w3-row-padding w3-margin-top panel panel-info">
 	<div class="w3-col m8">
+		<div class="w3-container">
+			<h4 class="w3-text-grey w3-center">Gr&aacute;fico de rela&ccedil;&atilde;o Concurso/carreiras</h4>
+			<?php 
+				$json = json_encode($json_concursos_nomes);
+				$json_totalidades = json_encode($json_concursos_totalidades);
+			?>
+			<canvas id="concursoChart" class="w3-white" ></canvas>
 
-		<div class="">
+			<script type="text/javascript">
+				var label = <?php echo $json;?>;
+				var data = <?php echo $json_totalidades;?>;
 
-			<header class="w3-container">
-				<h3 class="w3-text-grey">Gr&aacute;fico de rela&ccedil;&atilde;o Concurso/carreiras</h3>
-			</header>
+				var bgcolor = new Array();
+				for (var i = 0; i < data.length; i++ ) {
+					bgcolor[i] = 'rgba('+(i*100)+','+(i*50)+','+(i*30)+','+0.4+')';
+				}
 
-			<div class="w3-container">
-				<?php 
-					$json = json_encode($json_concursos_nomes);
-					$json_totalidades = json_encode($json_concursos_totalidades);
-				?>
-				<canvas id="concursoChart" class="w3-white" ></canvas>
-
-				<script type="text/javascript">
-					var label = <?php echo $json;?>;
-					var data = <?php echo $json_totalidades;?>;
-
-					var ctx = document.getElementById("concursoChart").getContext('2d');
-					var myChart = new Chart(ctx, {
-					    type: 'bar',
-					    data: {
-					        labels: label,
-					        datasets: [{
-					            label: 'Concursos/Carreiras',
-					            data: data,
-					            backgroundColor: [
-					                'rgba(255, 99, 132, 0.2)',
-					                'rgba(54, 162, 235, 0.2)',
-					                'rgba(255, 206, 86, 0.2)',
-					                'rgba(75, 192, 192, 0.2)',
-					                'rgba(153, 102, 255, 0.2)',
-					                'rgba(255, 159, 64, 0.2)'
-					            ],
-					            borderColor: [
-					                'rgba(255,99,132,1)',
-					                'rgba(54, 162, 235, 1)',
-					                'rgba(255, 206, 86, 1)',
-					                'rgba(75, 192, 192, 1)',
-					                'rgba(153, 102, 255, 1)',
-					                'rgba(255, 159, 64, 1)'
-					            ],
-					            borderWidth: 1
-					        }]
-					    },
-					    options: {
-					        scales: {
-					            yAxes: [{
-					                ticks: {
-					                    beginAtZero:true
-					                }
-					            }]
-					        }
-					    }
-					});
-				</script>
-			</div>
-
-			<footer class="w3-container">
-				<!-- <h5>Footer</h5> -->
-			</footer>
-
+				var ctx = document.getElementById("concursoChart").getContext('2d');
+				var myChart = new Chart(ctx, {
+				    type: 'bar',
+				    data: {
+				        labels: label,
+				        datasets: [{
+				            label: '# Carreiras',
+				            data: data,
+				            backgroundColor: bgcolor,
+				            borderColor: bgcolor,
+				            borderWidth: 1
+				        }]
+				    },
+				   options: {
+				         legend: { display: false },
+				         title: {
+				           display: true,
+				           text: 'Quantidade de carreiras por concurso'
+				         }
+				       }
+				});
+			</script>
 		</div>
 	</div>
-	<div class="w3-rest">
-		<div class="w3-margin-bottom">
-			<header class="w3-container">
-				<h3>Proximas notas provisorias</h3>
-			</header>
-			<div class="w3-container">
-				<table class="w3-table w3-striped w3-white w3-border w3-margin-bottom">
-					<tr class="">
-						<th>First Name</th>
-						<th>Last Name</th>
-						<th>Points</th>
-					</tr>
-					<tr>
-						<td>Jill</td>
-						<td>Smith</td>
-						<td>50</td>
-					</tr>
-					<tr>
-						<td>Jill</td>
-						<td>Smith</td>
-						<td>50</td>
-					</tr>
-					<tr>
-						<td>Jill</td>
-						<td>Smith</td>
-						<td>50</td>
-					</tr>
-					<tr>
-						<td>Jill</td>
-						<td>Smith</td>
-						<td>50</td>
-					</tr>
-				</table>
-			</div>
-			<footer class="w3-container">
-				<!-- <h5>Footer</h5> -->
-			</footer>
+	<div class="w3-rest w3-padding">
+		<div class="w3-center">
+			<h3>Total de concursos</h3>
+			<h3 class="w3-round w3-button"><?php echo count($json_concursos_nomes); ?></h3>
 		</div>
 	</div>
-</div> 
-<div class="w3-row-padding">
-	<div class="w3-rest" style="background-color: #fff7f7;">
+</div>
+<div class="w3-row-padding panel panel-info">
+	<div class="w3-col m8">
+		<h4 class="w3-text-grey w3-center">Gr&aacute;fico Rela&ccedil;&atilde;o carreira e Funcion&aacute;rio</h4>
 		<canvas class="w3-margin-top" id="carreirasChart"></canvas>
-		
 		<?php 
 			$json_carreiras_nomes_ = json_encode($json_carreiras_nomes);
 			$json_carreiras_participantes_ = json_encode($json_carreiras_participantes);
 		?>
-
 		<script>
 		var ctx = document.getElementById("carreirasChart").getContext('2d');
 		var nomesCarreiras = <?php echo $json_carreiras_nomes_; ?>;
@@ -195,38 +139,30 @@
 		            label: '# of Votes',
 		            data: participantes,
 		            backgroundColor: [
-		                'rgba(255, 99, 132, 0.2)',
-		                'rgba(54, 162, 235, 0.2)',
-		                'rgba(255, 206, 86, 0.2)',
-		                'rgba(75, 192, 192, 0.2)',
-		                'rgba(153, 102, 255, 0.2)',
-		                'rgba(255, 159, 64, 0.2)'
-		            ],
+		                'rgba(54, 162, 235, 0.2)'		            ],
 		            borderColor: [
-		                'rgba(255,99,132,1)',
-		                'rgba(54, 162, 235, 1)',
-		                'rgba(255, 206, 86, 1)',
-		                'rgba(75, 192, 192, 1)',
-		                'rgba(153, 102, 255, 1)',
-		                'rgba(255, 159, 64, 1)'
+		                'rgba(255,99,132,1)'
 		            ],
-		            borderWidth: 1
+		            borderWidth: 2
 		        }]
 		    },
-		    options: {
-		        scales: {
-		            yAxes: [{
-		                ticks: {
-		                    beginAtZero:true
-		                }
-		            }]
-		        }
-		    }
+		   options: {
+		         legend: { display: false },
+		         title: {
+		           display: true,
+		           text: 'Quantidade total de funcionarios por carreira'
+		         }
+		       }
 		});
 		</script>
 	</div>
-</div>
-</div>
+	<div class="w3-rest">
+		<div class=" w3-padding w3-margin-top w3-center">
+			<h3>Total de carreiras</h3>
+			<h3 class="w3-button w3-round" style="background-color:rgba(54, 162, 235, 0.2); "><?php echo count($json_carreiras_participantes); ?></h3>
+		</div>
+	</div>
+</div> 
 <?php 
 
 	$this->Js->get('#search')->event(

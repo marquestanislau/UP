@@ -207,7 +207,9 @@ class FuncionariosController extends AppController {
                                       array('Funcionario.carreira_id' => $carreira_id),
                                       array('Funcionario.concurso_id' => $concurso_id),
                                       array('Funcionario.categoria_id' => $categoria_id),
-                                      array('Funcionario.delegacao_id' => $delegacao_id),
+                                      array('Funcionario.delegacao_id' => $delegacao_id)
+                                    ),
+                                  'AND' => array(
                                       array('Funcionario.posicao' => $posicao)
                                     )
                                 )
