@@ -1,4 +1,4 @@
-<h1 class="w3-center"><i class="fa fa-s"></i> Funcion&aacute;rio n&atilde;o encontrado!</h1>
+<h1 class="w3-center"><i class="fa fa-s"></i> Participante / Funcion&aacute;rio n&atilde;o encontrado!</h1>
 <div class="alert alert-warning w3-padding w3-text-grey">
 	<p>Sugest&otilde;es para uma pesquisa com sucesso!</p>
 	<ul>

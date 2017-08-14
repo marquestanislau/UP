@@ -15,7 +15,8 @@
                  <div><i class="fa fa-upload"></i></div>
              </div>
              <span class="qq-drop-processing-selector qq-drop-processing">
-                 <span>Processing dropped files...</span>
+                 <!-- <span>Processing dropped files...</span> -->
+                 <span>A processar os ficheiros...</span>
                  <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
              </span>
              <ul class="qq-upload-list-selector qq-upload-list" role="region" aria-live="polite" aria-relevant="additions removals">
@@ -31,7 +32,8 @@
                      <button type="button" class="qq-upload-cancel-selector qq-upload-cancel">X</button>
                      <button type="button" class="qq-upload-retry-selector qq-upload-retry">
                          <span class="qq-btn qq-retry-icon" aria-label="Retry"></span>
-                         Retry
+                         <!-- Retry -->
+                         Tente de novo
                      </button>
 
                      <div class="qq-file-info">
@@ -179,6 +181,7 @@
               </div>
               <div class="w3-rest w3-padding">
                 <h4 class="w3-text-grey">Documentos</h4>
+                    <p class="w3-text-brown">S&atilde;o aceites os documentos com estes formatos: ['jpeg', 'jpg', 'gif', 'png', 'pdf']</p>
                 <!-- Fine Uploader DOM Element
                     ====================================================================== -->
                     <div id="fine-uploader-gallery"></div>
@@ -189,7 +192,7 @@
                         var galleryUploader = new qq.FineUploader({
                             element: document.getElementById("fine-uploader-gallery"),
                             template: 'qq-template-gallery',
-                            debug: true,
+                            // debug: true,
                             request: {
                                 endpoint: '/sigerh/funcionarios/alterar/<?php echo $funcionario_id; ?>'
                             },
@@ -207,7 +210,7 @@
               </div>
             </div>
 
-             <button id="submeter" class="w3-margin-left w3-hover-light-blue w3-button w3-round w3-large w3-blue">
+             <button id="submeter" class="w3-margin-left w3-hover-text-white w3-hover-light-green w3-button w3-large w3-green">
               <i class="fa fa-check"></i>
               Submeter <!-- formul&aacute;rio -->
             </button>

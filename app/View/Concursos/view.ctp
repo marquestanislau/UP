@@ -1,4 +1,5 @@
 <div class="row ">
+ <a href="#" id="close" class="w3-button w3-btn w3-circle w3-red w3-right" style="position: fixed; left: 93%;"><i class="fa  fa-archive"></i><span class="mdl-tooltip" data-mdl-for="close">Encerrar o concurso</span></a>
 	<div class="w3-container w3-white w3-padding">
 		<h4 class="w3-text-blue">
 			<span class="glyphicon glyphicon-folder-open" style="font-size: 24px;"></span>
@@ -10,9 +11,8 @@
 		 	<?php $link = $this->Html->url(array('action' => 'participantes', 'controller' => 'funcionarios')); ?>
 		 	<a class="w3-button w3-cyan w3-bar-item" href="<?php echo $link; ?>"><i class="fa fa-users"></i> Lista de participantes</a>
 		 	<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'w3-button w3-bar-item', 'escape' => false)); ?>
-		 	<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-button w3-bar-item', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
+		 	<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-button w3-bar-item w3-red w3-right', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
 		 	<!-- END BUTTON'S -->
-		  <!-- <a href="#" class="w3-bar-item w3-button w3-green">Go</a> -->
 		</div>
 		<br>
 		<p class="w3-text-grey"><i class="<?php echo $concurso['Concurso']['tipo'] == 0 ? 'fa fa-user': 'fa fa-graduation-cap'; ?>"></i> Concurso para <?php echo $concurso['Concurso']['tipo'] == 0 ? 'CORPO T&Eacute;CNICO ADMINISTRATIVO': 'CORPO DOCENTE';  ?></p>
@@ -35,13 +35,13 @@
 
 			<div id="carreiras" style="overflow-y: scroll; height: 200px;" class="w3-hide w3-animate-top">
 				<?php echo $this->Form->create('Concurso', array('url' => array('action' => 'add'), 'id' => 'ajaxFormAdd')); ?>
-				<div class="form-group w3-light-grey w3-round w3-border-top">
+				<div class="form-group w3-light-grey w3-padding row">
 					<?php echo $this->Form->input('Carreira', array(
 								'multiple' => 'checkbox',
 								'selected' => $selected,
 								'id' => 'carreiraSelecionada', 
 								'label' => FALSE,
-								'class' => 'w3-margin w3-text-dark-grey w3-hover-text-blue'
+								'class' => 'w3-text-dark-grey col-md-6 w3-hover-text-blue'
 							)
 					); ?>	
 				</div>

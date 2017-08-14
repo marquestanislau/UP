@@ -84,8 +84,33 @@ class FuncionariosController extends AppController {
         $funcionario = $this->Funcionario->read();
         $this->set(compact('funcionario'));
       }
+    } else if($this->request->is('post')) {
+      // qqfilename, name of the field that contains de file to upload
+      $this->saveDocument($funcionario_id, $this->request->data['qqfilename']);
     }
     $this->getKeys();
+  }
+
+// Busca pelo funcionario que sera associado ao documento que esta a ser enviado ao servidor
+  private function saveDocument($id, $fileName) {
+    $this->Funcionario->id = $id;
+    $funcionario = $this->Funcionario->read();
+    $this->set(compact('funcionario'));
+    if (!empty($funcionario)) {
+        if ($this->moveToFolder($fileName)) {
+          $funcionario['Funcionario']['fileName'] = $fileName;
+          if($this->Funcionario->save($funcionario)) {
+            $this->render('response', 'ajax');
+          } else {
+            $this->render('response_error', 'ajax');
+          }
+        }
+    }
+  }
+
+// Carrega o ficheiro para a pasta files do cakephp no servidor
+  private function moveToFolder($fileName) {
+    return move_uploaded_file($_FILES['qqfile']['tmp_name'], WWW_ROOT . 'files' . '/'.$fileName) ? true : false;
   }
 
   public function novoNome($id = null) {
