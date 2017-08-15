@@ -57,7 +57,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
     <li class="w3-opennav w3-right w3-hide-large">
       <a class="w3-hover-white w3-large" href="javascript:void(0)" onclick="w3_open()"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
     </li>
-    <li><a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'home'));?>" class=" logo w3-theme-l1" style="font-weight: bolder;">SIGERH</a></li>
+    <li><a href="<?php echo $this->Html->url(array('controller' => 'pages', 'action' => 'home'));?>" class="logo w3-theme-l1" style="font-weight: bolder;">SIGERH</a></li>
     <li>
       <a href="<?php echo $this->Html->url(array('action' => 'home', 'controller' => 'pages'));?>"><span class="glyphicon glyphicon-home"></span> In&iacute;cio</a>
     </li>

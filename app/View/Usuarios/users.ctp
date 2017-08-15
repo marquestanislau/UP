@@ -11,7 +11,7 @@
 		<td><?php echo h('+(258) '.$usuario['Usuario']['contacto']); ?>&nbsp;</td>
 		<td><span class="glyphicon glyphicon-ok w3-text-green"></span></td>
 		<td class="actions">
-			<?php echo $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', array('action' => 'view', $usuario['Usuario']['id']), array('class' => 'w3-tag w3-round w3-green', 'escape' => FALSE)); ?>
+			<?php //echo $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', array('action' => 'view', $usuario['Usuario']['id']), array('class' => 'w3-tag w3-round w3-green', 'escape' => FALSE)); ?>
 			<a href="#" class="w3-tag w3-round w3-blue" onclick="document.getElementById('editUser<?php echo $id; ?>').style.display='block';">
 				<i class="fa fa-edit"></i>				
 			</a>

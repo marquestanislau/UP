@@ -2,7 +2,9 @@
 <?php foreach ($funcionarios as $funcionario) :?>
       <?php $funcionario_id = $funcionario['Funcionario']['id'];?>
       <tr class="w3-hover-khaki w3-text-grey w3-hover-text-blue">
-        <td><?php echo $funcionario['Funcionario']['nome']; ?></td>
+        <td>
+          <?php echo $this->Html->image('upload/'.$funcionario['Funcionario']['foto_perfil'], array('class' => 'w3-circle', 'style' => 'width: 5%;')); ?>
+          <?php echo $funcionario['Funcionario']['nome']; ?></td>
         <td><?php echo $funcionario['Funcionario']['apelido']; ?></td>
         <td><?php echo $funcionario['Funcionario']['contacto_pessoal']; ?></td>
         <td>

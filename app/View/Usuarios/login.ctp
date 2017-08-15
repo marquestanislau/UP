@@ -106,7 +106,7 @@
 </head>
 <body class="w3-blue">	
 	<div class="login-page">
-	  <div class="form">
+	  <div class="form w3-round">
 		<center><?php echo $this->Html->image('icon.png', array('alt' => 'login icon', 'class' => 'w3-margin-bottom'));?></center>
 	    <form class="register-form">
 	      <input type="text" placeholder="name"/>
@@ -118,8 +118,8 @@
 	    <form class="login-form">
 	      <input type="text" placeholder="Nome do utilizador"/>
 	      <input type="password" placeholder="Palavra passe"/>
-	      <button class="w3-blue">Autenticar</button>
-	      <p class="message"><a href="#">N&atilde;o consegue autenticar?</a></p>
+	      <button class="w3-blue"><i class="fa fa-unlock-alt"></i> Autenticar</button>
+	      <p class="message"><a href="<?php echo $this->Html->url(array('action' => 'recuperar', 'controller' => 'usuarios'));?>">N&atilde;o consegue autenticar?</a></p>
 	    </form>
 	  </div>
 	</div>

@@ -12,7 +12,7 @@
                  <span class="qq-upload-drop-area-text-selector"></span>
              </div>
              <div class="qq-upload-button-selector qq-upload-button">
-                 <div><i class="fa fa-upload"></i></div>
+                 <div><i class="fa fa-upload"></i> Carregar</div>
              </div>
              <span class="qq-drop-processing-selector qq-drop-processing">
                  <!-- <span>Processing dropped files...</span> -->
@@ -184,7 +184,19 @@
                     <p class="w3-text-brown">S&atilde;o aceites os documentos com estes formatos: ['jpeg', 'jpg', 'gif', 'png', 'pdf']</p>
                 <!-- Fine Uploader DOM Element
                     ====================================================================== -->
-                    <div id="fine-uploader-gallery"></div>
+                      <div id="fine-uploader-gallery"></div>
+                      <div class="alert alert-danger">
+                        <?php if (!empty($funcionario['Funcionario']['fileName'])) { ?>
+                        <strong><?php echo $funcionario['Funcionario']['fileName']; ?></strong><br>
+                       <!--  <embed src="<?php echo $this->webroot;?>files/<?php echo $funcionario['Funcionario']['fileName']; ?>" width="600" height="300" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html"> -->
+                        <a class="w3-button w3-blue-gray w3-hover-teal w3-large" target="_blank" href="<?php echo $this->webroot;?>files/<?php echo $funcionario['Funcionario']['fileName']; ?>">
+                          <i class="fa fa-download"></i>
+                          Baixar
+                        </a>
+                        <?php } else { ?>
+                          Ainda n&atilde;o possui processo individual associado!
+                        <?php } ?>
+                      </div>
 
                     <!-- Your code to create an instance of Fine Uploader and bind to the DOM/template
                     ====================================================================== -->

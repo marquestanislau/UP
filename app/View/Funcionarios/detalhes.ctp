@@ -17,10 +17,20 @@
 			</h4>
 		</div>
 	</div>
-		<div class="w3-bar w3-light-grey">
+		<div class="w3-bar w3-teal">
 			<button class="w3-bar-item w3-button" onclick="openCity('London')"><i class="fa fa-user"></i> Dados pessoais</button>
 			<button class="w3-bar-item w3-button" onclick="openCity('Paris')"><i class="fa fa-info-circle"></i> Documentos de Identificacao</button>
 			<button class="w3-bar-item w3-button" onclick="openCity('Tokyo')"><i class="fa fa-phone"></i> Contactos</button>
+			<button class="w3-bar-item w3-button" onclick="openCity('doc')"><i class="fa fa-file-word-o"></i> Processo individual</button>
+		</div>
+		<div id="doc" class="city">
+			<div class="w3-padding">
+				<?php if (!empty($funcionario['Funcionario']['fileName'])){ ?>
+				<embed src="<?php echo $this->webroot;?>files/<?php echo $funcionario['Funcionario']['fileName']; ?>" width="100%" height="600" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html">
+				<?php } else { ?>
+				<h4><i class="fa fa-frown-o"></i> Processo n&atilde;o dispon&iacute;vel</h4>
+				<?php } ?> 
+			</div>
 		</div>
 		<div id="London" class="city" style="display:block;">
 			<div class="w3-half">
