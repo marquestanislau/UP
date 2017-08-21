@@ -2,7 +2,12 @@
 	<tr class="w3-hover-khaki">
 		<td class="w3-text-gray"><?php echo $concurso['Concurso']['tipo'] == 0 ? '<i class="fa fa-user"></i>' : '<i class="fa fa-graduation-cap"></i>'; ?>&nbsp;</td>
 		<td class="w3-text-gray"><?php echo h($concurso['Concurso']['data_aprovacao']); ?>&nbsp;</td>
-		<td class="w3-text-gray"><?php echo h($concurso['Concurso']['nome'].' [' .$concurso['Concurso']['data_aprovacao']. ']'); ?>&nbsp;</td>
+		<td class="w3-text-gray">
+			<?php 
+				echo h($concurso['Concurso']['nome'].' [' .$concurso['Concurso']['data_aprovacao']. ']'); 
+			?>
+			<i class="fa <?php echo $concurso['Concurso']['status'] == 0 ? 'fa-folder' : 'fa-folder-open';?>"></i>
+		</td>
 		<td class="actions">
 			<!-- <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $concurso['Concurso']['id']), array('class' => 'btn btn-success', 'id' => '')); ?> -->
 			<!-- Trigger/Open the Modal -->
@@ -39,6 +44,7 @@
 						<?php echo $this->Form->input('nome', array('value' => $concurso['Concurso']['nome'], 'class' => 'w3-input w3-margin-bottom w3-round w3-border w3-hover-sand'));?>
 						<?php echo $this->Form->input('data_aprovacao', array('value' => $concurso['Concurso']['data_aprovacao'], 'class' => 'w3-input datepicker w3-margin-bottom w3-round w3-border w3-hover-sand', 'type' => 'text', 'id' => 'date_input', 'label' => 'Data de aprova&ccedil;&atilde;o'));?>
 						<?php echo $this->Form->input('delegacao_id', array('value' => $concurso['Concurso']['delegacao_id'], 'class' => 'w3-input w3-margin-bottom w3-round w3-border w3-hover-sand', 'label' => 'Delegaga&ccedil;&atilde;o'));?>
+						<?php echo $this->Form->radio('status', array(0 => 'Fechado', 1 => 'Aberto'), array('legend' => false, 'value' => $concurso['Concurso']['status'])); ?>
 						<?php echo $this->Form->hidden('data_registo', array('id' => $concurso['Concurso']['id'])); ?>
 						<?php // echo $this->Form->hidden('delegacao_id', array('id' => $concurso['Concurso']['delegacao_id'])); ?>
 					</div>

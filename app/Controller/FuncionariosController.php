@@ -243,4 +243,21 @@ class FuncionariosController extends AppController {
     return $funcionario;
   }
 
+  // cancelar o despacho emitido para qualquer funcionario00
+
+  public function cancelDespacho($id = null) { 
+    if ($this->request->is('ajax')) {
+      $this->Funcionario->id = $id;
+        $funcionario = $this->Funcionario->read();
+        if (!empty($funcionario) ) {
+            $funcionario['Funcionario']['despacho'] = NULL;
+            if ($this->Funcionario->save($funcionario)) {
+                $this->render('cancel_despacho', 'ajax');
+            }
+        } else {
+          $this->render('erro', 'ajax');
+        }
+    }
+  }
+
 }

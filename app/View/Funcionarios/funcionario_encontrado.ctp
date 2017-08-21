@@ -11,7 +11,7 @@
 					Posi&ccedil;&atilde;o: <?php echo $employee['Funcionario']['posicao']; ?>
 				</div>
 				<div class="col-md-6">
-					<?php echo $this->Html->image('perfil_default.png', array('class' => 'w3-circle')); ?>
+					<?php echo $this->Html->image('perfil_default.png', array('class' => 'w3-circle', 'style' => 'width: 50%')); ?>
 				</div>
 			</div>
 		</div>

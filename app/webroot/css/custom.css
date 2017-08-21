@@ -224,3 +224,9 @@ table {
   -moz-osx-font-smoothing: grayscale;
 }
 /*end progressbar*/
+
+.scrollableTble {
+	height: 400px;                    /* define the height */
+	overflow-x: hidden;             /* esthetics */
+	overflow-y: auto; 
+}

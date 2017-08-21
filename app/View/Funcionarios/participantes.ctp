@@ -39,24 +39,28 @@
       <div id="requesting" style="display:none">
         <?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
       </div>
-
-      <table class="table table-striped w3-topbar w3-border-light-grey">
-        <thead class="w3-label w3-white w3-text-blue">
-          <th>Tipo</th>
-          <th>Estado</th>
-          <th>Nome</th>
-          <th>Apelido</th>
-          <th>Contacto Primario</th>
-          <th>Data de Nascimento</th>
-          <th>Posi&ccedil;&atilde;o</th>
-          <th>Sexo</th>
-          <th></th>
-        </thead>
-        <tbody id="table-body">
-           <?php include('lista.ctp'); ?>
-        </tbody>
-      </table>
-      <p class="w3-text-blue">
+      
+      <div>
+        <table id="table" class="table table-striped w3-topbar w3-border-light-grey">
+          <thead class="w3-label w3-white w3-text-blue">
+            <tr>
+              <th>Tipo</th>
+              <th>Estado</th>
+              <th>Nome</th>
+              <th>Apelido</th>
+              <th>Contacto Primario</th>
+              <th>Data de Nascimento</th>
+              <th>Posi&ccedil;&atilde;o</th>
+              <th>Sexo</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+             <?php include('lista.ctp'); ?>
+          </tbody>
+        </table>
+      </div>
+     <!--  <p class="w3-text-blue">
       <?php
       echo $this->Paginator->counter(array(
         'format' => __('Pagina {:page} de {:pages}, a visualizar {:current} registos num total de {:count}, inicia em {:start},  e termina em {:end}')
@@ -68,9 +72,8 @@
           echo $this->Paginator->numbers(array('separator' => ''));
           echo $this->Paginator->next(__('Seguinte') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
-      </div>
+      </div> -->
     </div>
-
   </div>
 </div>
 

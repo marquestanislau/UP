@@ -25,7 +25,7 @@
 			</center>
 			<p>Digite o seu e-mail para recuperar a sua senha</p>
 			<input type="text" placeholder="Email" class="w3-input w3-border w3-sand" name="">
-			<button class="w3-btn w3-green w3-margin-top">Enviar pedido</button>
+			<button style="width: 100%;" class="w3-btn w3-green w3-margin-top">Enviar pedido</button>
 			<p class="w3-center">Sistema de Gest&atilde;o de Recursos Humanos da UP</p>
 			<p class="w3-center"><span class="w3-text-blue">SIGERH</span></p>
 		</div>

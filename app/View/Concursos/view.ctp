@@ -1,4 +1,4 @@
-<div class="row ">
+<div class="row">
  <a href="#" id="close" class="w3-button w3-btn w3-circle w3-red w3-right" style="position: fixed; left: 93%;"><i class="fa  fa-archive"></i><span class="mdl-tooltip" data-mdl-for="close">Encerrar o concurso</span></a>
 	<div class="w3-container w3-white w3-padding">
 		<h4 class="w3-text-blue">

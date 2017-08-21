@@ -40,6 +40,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
   echo $this->Html->script('jquery-ui.min');
   echo $this->Html->script('material/material.min');
   echo $this->Html->script('steps/jq.progress-bar');
+  echo $this->Html->script('jquery.dataTables.min.js');
   echo $this->Html->script('script_frameworks');
   echo $this->Html->script('script');
   echo $this->Html->script('angular.min');
