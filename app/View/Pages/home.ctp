@@ -4,6 +4,38 @@
 	<?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
 	A processar...
 </div>
+
+<!-- Janela modal para os funcionarios que receberao as novas nota provisorias -->
+<div class="w3-modal w3-text-white w3-white" id="notasProvisorias">
+	<div class="w3-modal-content w3-animate-zoom w3-blue w3-padding w3-round">
+		<header class="w3-container">
+			<span class="w3-closebtn w3-hover-text-orange" onclick="document.getElementById('notasProvisorias').style.display=''">&times;</span>
+			<h3><i class="fa fa-info"></i> Mensagem do sistema</h3>
+		</header>
+		<div class="w3-container">
+			Candidatos por emitir a nota provisoria
+			<table class="table">
+				<thead>
+					<th>Posi&ccedil;&atilde;o</th>
+					<th>Nome</th>
+					<th>Carreira</th>
+					<th></th>
+				</thead>
+				<tbody>
+					<?php foreach ($funcionarios as $funcionario) { ?>
+						<tr class="w3-hover-white">
+							<td><span class="w3-button w3-blue w3-border w3-border-white w3-round"><?php echo $funcionario['Funcionario']['posicao']; ?></span></td>
+							<td><?php echo $funcionario['Funcionario']['nome']; ?></td>
+							<td><?php echo $funcionario['Carreira']['nome']; ?></td>
+							<td><a href="#" class="w3-button w3-round w3-green w3-hover-blue">Gerar nota!</a></td>
+						</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- fim da janela modal -->
 <div class="w3-row-padding">
 	<div class="w3-quarter">
 		<div class="w3-brown">
@@ -50,7 +82,8 @@
 						<h1 class="">N</h1>
 					</div>
 					<div class="col-sm-12 w3-teal">
-						<p>Pr&oacute;xima nota provis&oacute;ria</p>
+						<p><a id="nota" class="w3-hover-text-white" href="#" onclick="document.getElementById('notasProvisorias').style.display='block'">Pr&oacute;xima nota provis&oacute;ria</a></p>
+						<span data-mdl-for="nota" class="mdl-tooltip w3-large">Clique para observar os proximos <br> candidatos a obter as notas</span>
 					</div>
 				</div>
 			</div>
