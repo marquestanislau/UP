@@ -6,14 +6,14 @@
 </div>
 
 <!-- Janela modal para os funcionarios que receberao as novas nota provisorias -->
-<div class="w3-modal w3-text-white w3-white" id="notasProvisorias">
+<div class="w3-modal w3-text-white" id="notasProvisorias">
 	<div class="w3-modal-content w3-animate-zoom w3-blue w3-padding w3-round">
 		<header class="w3-container">
 			<span class="w3-closebtn w3-hover-text-orange" onclick="document.getElementById('notasProvisorias').style.display=''">&times;</span>
 			<h3><i class="fa fa-info"></i> Mensagem do sistema</h3>
 		</header>
 		<div class="w3-container">
-			Candidatos por emitir a nota provisoria
+			<i class="fa fa-user"></i> Candidatos por emitir a nota provis&oacute;ria
 			<table class="table">
 				<thead>
 					<th>Posi&ccedil;&atilde;o</th>
@@ -22,7 +22,7 @@
 					<th></th>
 				</thead>
 				<tbody>
-					<?php foreach ($funcionarios as $funcionario) { ?>
+					<?php foreach ($funcionarios_notas as $funcionario) { ?>
 						<tr class="w3-hover-white">
 							<td><span class="w3-button w3-blue w3-border w3-border-white w3-round"><?php echo $funcionario['Funcionario']['posicao']; ?></span></td>
 							<td><?php echo $funcionario['Funcionario']['nome']; ?></td>

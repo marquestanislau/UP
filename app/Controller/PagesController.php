@@ -77,7 +77,10 @@ class PagesController extends AppController {
 	}
 
 	private function resume() {
-		$funcionarios = $this->Funcionario->find('all');
+		// debug($this->concursoAntigo());
+		// debug($this->geraNotasParaOsPrimeiros());
+		$funcionarios = $this->Funcionario->find('all', array('conditions' => array('Funcionario.despacho not' => NULL)));
+		$funcionarios_notas = $this->geraNotasParaOsPrimeiros();
 		$usuarios = $this->Usuario->find('all');
 		$concursos = $this->Funcionario->Concurso->find('all', array('fields' => 'Concurso.data_aprovacao', 'Concurso.id'));
 		$carreiras = $this->Funcionario->Carreira->find('all', array('fields' => 'Carreira.nome', 'Carreira.id'));
@@ -88,7 +91,7 @@ class PagesController extends AppController {
 		$json_carreiras_nomes = $this->nomesParaGraficoCarreiras($carreiras);
 		$json_carreiras_participantes = $this->participantePorCarreira($carreiras);
 
-		$this->set(compact('funcionarios', 'usuarios', 'concursos', 'json_concursos_nomes', 'json_concursos_totalidades', 'carreiras', 'json_carreiras_nomes', 'json_carreiras_participantes'));
+		$this->set(compact('funcionarios', 'usuarios', 'concursos', 'json_concursos_nomes', 'json_concursos_totalidades', 'carreiras', 'json_carreiras_nomes', 'json_carreiras_participantes', 'funcionarios_notas'));
 	}
 
 	private function concursoBarChart($concursos = array()) {
@@ -121,5 +124,32 @@ class PagesController extends AppController {
 			$totalidades[$i] = count($this->Funcionario->find('list', array('conditions' => array('carreira_id' => $carreiras[$i]['Carreira']['id']))));
 		}
 		return $totalidades;
+	}
+
+	private function geraNotasParaOsPrimeiros(){
+		$limit = 5;
+		$concurso_mais_antigo = $this->concursoAntigo();
+		$diplomasFuncionarios = $this->Funcionario->find('all', array('limit' => $limit, 'conditions' => array('concurso_id' => $concurso_mais_antigo['Concurso']['id'], 'despacho' => ''), 'order' => array('posicao' => 'asc')));
+		return $diplomasFuncionarios;
+	}
+
+	// Em busca do concurso mais antigo e ainda aberto 
+	private function concursoAntigo() {
+		$concursos = $this->Funcionario->Concurso->find('all');
+		$concurso_mais_antigo = $concursos[0];
+		$data_antiga = $concurso_mais_antigo['Concurso']['data_aprovacao'];
+		// Iterar sobre os concursos existentes
+		foreach ( $concursos as $concurso ) {
+			// Se o valor do status for um entao o concurso esta aberto | 0 fechado
+			if ($concurso['Concurso']['status'] == 1 && (strtotime($data_antiga) > strtotime($concurso['Concurso']['data_aprovacao']))) {
+				// Inicio a comparacao das datas dos funcionarios
+				$data_antiga = $concurso['Concurso']['data_aprovacao'];
+				$concurso_mais_antigo = $concurso;
+
+			} else {
+				// $concurso_mais_antigo = NULL;
+			}
+		}
+		return $concurso_mais_antigo;
 	}
 }
