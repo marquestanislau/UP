@@ -183,8 +183,16 @@ class FuncionariosController extends AppController {
   }
 
   public function nomeacao($id = null) {
+
     $this->Funcionario->id = $id;
     $funcionario = $this->Funcionario->read();
+
+    if (empty($funcionario['Funcionario']['nuit']) || ($funcionario['Funcionario']['nuit'] == 1)) {
+        $funcionario['Funcionario']['nuit'] = $this->request->data['Funcionario']['nuit'];
+        $funcionario['Funcionario']['despacho'] = $this->request->data['Funcionario']['despacho'];
+        $this->Funcionario->save($funcionario);
+    }
+
     $this->set(compact('funcionario'));
   }
 

@@ -23,11 +23,36 @@
 				</thead>
 				<tbody>
 					<?php foreach ($funcionarios_notas as $funcionario) { ?>
+						<?php $func_id = $funcionario['Funcionario']['id']; ?>
 						<tr class="w3-hover-white">
 							<td><span class="w3-button w3-blue w3-border w3-border-white w3-round"><?php echo $funcionario['Funcionario']['posicao']; ?></span></td>
 							<td><?php echo $funcionario['Funcionario']['nome']; ?></td>
 							<td><?php echo $funcionario['Carreira']['nome']; ?></td>
-							<td><a href="#" class="w3-button w3-round w3-green w3-hover-blue">Gerar nota!</a></td>
+							<td><a onclick="document.getElementById('aceitarCandidatura<?php echo $func_id; ?>').style.display='block'" href="#" class="w3-button w3-round w3-green w3-hover-blue"><i class="fa fa-file-pdf-o"></i> Gerar nota!</a></td>
+							<div class="w3-modal" id="aceitarCandidatura<?php echo $func_id; ?>">
+								<div class="w3-blue w3-modal-content w3-padding">
+									<header class="w3-conatiner">
+										<span class="w3-closebtn" onclick="document.getElementById('aceitarCandidatura').style.display='none'">&times;</span>
+										<h3>Atribuir nota provisoria</h3>
+									</header>
+									<div class="w3-container">
+										<?php 
+											echo $this->Form->create('Funcionario', array('url' => array('controller' => 'funcionarios', 'action' => 'nomeacao', 'ext' => 'pdf', $funcionario['Funcionario']['id'])));
+											echo $this->Form->input('nuit', array('class' => 'w3-input w3-border w3-round w3-text-dark-gray w3-large'));
+											echo '<label>Data do despacho: </label>';
+											echo $this->Form->input('despacho', array('class' => 'w3-input w3-border datepicker w3-round w3-text-dark-gray w3-large', 'style' => 'width: 32%', 'label' => FALSE, 'type' => 'text'));
+											echo $this->Form->input('id', array('value' => $funcionario['Funcionario']['id'], 'type' => 'hidden'));
+										?>
+										<button class="w3-button w3-large w3-round w3-margin-top w3-orange">
+											<i class="fa fa-print"></i>
+											Obter nota
+										</button>
+										<?php 
+											echo $this->Form->end();
+										?>
+									</div>
+								</div>
+							</div>
 						</tr>
 					<?php } ?>
 				</tbody>
