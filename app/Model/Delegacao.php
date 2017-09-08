@@ -23,4 +23,11 @@ class Delegacao extends AppModel {
 			),
 		),
 	);
+
+	public $hasMany = array(
+			'Funcionario' => array (
+					'className' => 'Funcionario',
+					'foreignKey' => 'delegacao_id'
+				) 
+		);
 }

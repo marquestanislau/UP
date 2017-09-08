@@ -77,9 +77,28 @@ class FuncionariosController extends AppController {
       }
     }
   }
+  
+  #Metodo responsavel por gerar os dados que serao apresentados 
+  #ao utilizador para possivel uso como referencial no ambito estatistico da DRH 
+  public function preparaRelatorio() {
+    $this->loadModel('Delegacao');
+    if ($this->request->is('ajax')) {
+        $this->filtroParaRelatorio();
+        $this->render('prepara_relatorio', 'ajax');
+    } else {
+        $this->filtroParaRelatorio();
+    }
+  }
 
-  protected function getKeysCompany() {
-
+  private function filtroParaRelatorio() {
+    $funcionario_masculino = $this->Funcionario->find('all', array('conditions' => array('sexo' => 'M', 'despacho not' => '')));
+    $funcionario_feminino = $this->Funcionario->find('all', array('conditions' => array('sexo' => 'F', 'despacho not' => '')));
+    $cta_masculino = $this->Funcionario->Cta->find('all', array('conditions' => array('despacho not' => '', 'sexo' => 'M')));
+    $cta_feminino = $this->Funcionario->Cta->find('all', array('conditions' => array('despacho not' => '', 'sexo' => 'F')));
+    $cd_masculino = $this->Funcionario->Cd->find('all', array('conditions' => array('despacho not' => '', 'sexo' => 'M')));
+    $cd_feminino = $this->Funcionario->Cd->find('all', array('conditions' => array('despacho not' => '', 'sexo' => 'F')));
+    $delegacao = $this->Delegacao->find('all');
+    $this->set(compact('delegacao','cd_feminino','cd_masculino', 'cta_masculino','cta_feminino', 'funcionario_feminino', 'funcionario_masculino'));
   }
 
   public function alterar($funcionario_id = null) {
