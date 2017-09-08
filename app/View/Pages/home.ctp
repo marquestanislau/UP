@@ -32,15 +32,15 @@
 							<div class="w3-modal" id="aceitarCandidatura<?php echo $func_id; ?>">
 								<div class="w3-blue w3-modal-content w3-padding">
 									<header class="w3-conatiner">
-										<span class="w3-closebtn" onclick="document.getElementById('aceitarCandidatura').style.display='none'">&times;</span>
+										<span class="w3-closebtn" onclick="document.getElementById('aceitarCandidatura<?php echo $func_id;?>').style.display='none'">&times;</span>
 										<h3>Atribuir nota provisoria</h3>
 									</header>
 									<div class="w3-container">
 										<?php 
 											echo $this->Form->create('Funcionario', array('url' => array('controller' => 'funcionarios', 'action' => 'nomeacao', 'ext' => 'pdf', $funcionario['Funcionario']['id'])));
-											echo $this->Form->input('nuit', array('class' => 'w3-input w3-border w3-round w3-text-dark-gray w3-large'));
+											echo $this->Form->input('nuit', array('class' => 'w3-input w3-border w3-round w3-text-dark-gray w3-large', 'placeholder' => 'Digite o NUIT do candidato'));
 											echo '<label>Data do despacho: </label>';
-											echo $this->Form->input('despacho', array('class' => 'w3-input w3-border datepicker w3-round w3-text-dark-gray w3-large', 'style' => 'width: 32%', 'label' => FALSE, 'type' => 'text'));
+											echo $this->Form->input('despacho', array('class' => 'w3-input w3-border datepicker w3-round w3-text-dark-gray w3-large', 'style' => 'width: 32%', 'label' => FALSE, 'type' => 'text', 'placeholder' => 'A data do despacho'));
 											echo $this->Form->input('id', array('value' => $funcionario['Funcionario']['id'], 'type' => 'hidden'));
 										?>
 										<button class="w3-button w3-large w3-round w3-margin-top w3-orange">

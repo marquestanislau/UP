@@ -59,6 +59,11 @@ class FuncionariosController extends AppController {
       $this->render('lista', 'ajax');
   }
 
+  // Usado para mandar a lista dos funcionarios para a view que ira transformar a lista em pdf
+  public function todos() {
+    $this->index();
+  }
+
 
   public function detalhes($id = null) {
     if ($this->request->is('ajax')) {
