@@ -46,7 +46,7 @@
 							<div class="w3-center alert alert-info">
 								<p>
 									As tabelas a baixo mostram os dados relativos a quantidade de funcion&aacute;rios 
-									subdividida em dois grupos <b>Corpo tecnico administractivo</b> e <b>Corpo docente</b> respectivamente.
+									subdividida em dois grupos <b>Corpo t&eacute;cnico administrativo</b> e <b>Corpo docente</b> respectivamente.
 								</p>
 							</div>
 							<div class="col-md-6">
@@ -118,7 +118,7 @@
 					         legend: { display: false },
 					         title: {
 					           display: true,
-					           text: 'Numero de funcionarios por delegacao'
+					           text: 'Número de funcionários por delegação'
 					         }
 					       }
 					});
