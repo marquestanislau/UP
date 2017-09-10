@@ -29,6 +29,8 @@ class UsuariosController extends AppController {
 		$this->Usuario->recursive = 0;
     	$this->Paginator->settings = $this->paginator_settings;
 		$this->set('usuarios', $this->Paginator->paginate());
+		$this->set('grupos',
+			$this->Usuario->Grupo->find('list', array('fields' => 'Grupo.nome', 'Grupo.id')));
 		
 		if($this->request->is('ajax')) {
 			$this->render('users', 'ajax');
@@ -68,8 +70,6 @@ class UsuariosController extends AppController {
 				$this->render('erro', 'ajax');
 			}
 		} 
-		$this->set('ultimoUsuario',
-			$this->Usuario->find('first', array('order' => array('Usuario.id' => 'desc'))));
 	}
 
 	public function ultimo_user() {
@@ -141,9 +141,20 @@ class UsuariosController extends AppController {
 
 	public function login() {
 		$this->layout = 'empty';
+		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				return $this->redirect($this->Auth->redirect());
+			}
+			$this->Session->setFlash('Senha ou nome do utilizador errado.');
+		}
 	}
 
 	public function recuperar() {
 		$this->layout = 'empty';
+	}
+
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow();
 	}
 }

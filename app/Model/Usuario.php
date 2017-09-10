@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('AuthComponent', 'Controller/Component');
 /**
  * Usuario Model
  *
@@ -69,31 +70,31 @@ class Usuario extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'foto_perfil' => array(
-			'uploadError' => array(
-				'rule' => 'uploadError',
-				'message' => 'Ocorreu um erro ao carregar a imagem.',
-				'allowEmpty' => TRUE,
-			),
-			'mimeType' => array(
-				'rule' => array('mimeType', array('image/gif', 'image/png', 'image/jpg', 'image/jpeg')),
-				'message' => 'O sistema apenas suporta os formatos (gif, png, jpg).',
-				'allowEmpty' => TRUE,
-			),
-			'fileSize' => array(
-				'rule' => array('fileSize', '<=', '1MB'),
-				'message' => 'A imagem nao deve exceder 1MB em tamanho.',
-				'allowEmpty' => TRUE,	
-			),
-			'proccessCoverUpload' => array(
-				'rule' => 'proccessCoverUpload',
-				'message' => 'Nao foi possivel processar a imagem para upload.',
-				'allowEmpty' => TRUE,
-			),
-		),
+		// 'foto_perfil' => array(
+		// 	'uploadError' => array(
+		// 		'rule' => 'uploadError',
+		// 		'message' => 'Ocorreu um erro ao carregar a imagem.',
+		// 		'allowEmpty' => TRUE,
+		// 	),
+		// 	'mimeType' => array(
+		// 		'rule' => array('mimeType', array('image/gif', 'image/png', 'image/jpg', 'image/jpeg')),
+		// 		'message' => 'O sistema apenas suporta os formatos (gif, png, jpg).',
+		// 		'allowEmpty' => TRUE,
+		// 	),
+		// 	'fileSize' => array(
+		// 		'rule' => array('fileSize', '<=', '1MB'),
+		// 		'message' => 'A imagem nao deve exceder 1MB em tamanho.',
+		// 		'allowEmpty' => TRUE,	
+		// 	),
+		// 	'proccessCoverUpload' => array(
+		// 		'rule' => 'proccessCoverUpload',
+		// 		'message' => 'Nao foi possivel processar a imagem para upload.',
+		// 		'allowEmpty' => TRUE,
+		// 	),
+		// ),
 	);
 
-	public function proccessCoverUpload($check = array()) {
+	/*public function proccessCoverUpload($check = array()) {
 		if (!is_uploaded_file($check['foto_perfil']['tmp_name'])) {
 			return FALSE; 
 		} 
@@ -102,5 +103,19 @@ class Usuario extends AppModel {
 		}
 		$this->data[$this->alias]['foto_perfil'] = 'upload' . '/' . $check['foto_perfil']['name'];
 		return TRUE;
+	}*/
+
+	public $belongsTo = array(
+			'Grupo' => array(
+					'className' => 'Grupo'
+				)
+		);
+	public $actAs = array('Acl' => array('type' => 'requester'));
+
+	public function beforeSave($options = array()) {
+		$this->data['Usuario']['senha'] = AuthComponent::password(
+				$this->data['Usuario']['senha']
+			);
+		return true;
 	}
 }

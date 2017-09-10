@@ -92,6 +92,9 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
             <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'usuarios'));?>"><i class="fa fa-user-plus"></i> Gerir contas</a></td>
             <td><a href=""><i class="fa fa-sign-out "></i> Activos</a></td>
           </tr>
+          <tr>
+            <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'grupos')); ?>"><i class="fa fa-group"></i> Grupos</a></td>
+          </tr>
         </table>
       </div>
     </li>

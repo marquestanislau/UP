@@ -32,9 +32,33 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
-	public $components = array('Session', 'DebugKit.Toolbar', 'AjaxMultiUpload.Upload');
+	public $components = array('Session', 'DebugKit.Toolbar', 'AjaxMultiUpload.Upload', 
+			'Acl',
+			'Auth' => array(
+					'authorize' => array(
+							'Actions' => array('actionPath' => 'controllers')
+						)
+				)
+		);
+
+	public $helpers = array('Html', 'Form', 'Session');
 
 	public $paginator_settings = array(
 		'limit' => 100000
 	);
+
+	public function beforeFilter() {
+		$this->Auth->loginAction = array(
+			'controller' => 'usuarios',
+			'action' => 'login'
+		);
+		$this->Auth->loginRedirect = array(
+			'controller' => 'pages',
+			'action' => '/'
+		);
+		$this->Auth->logoutRedirect = array(
+			'controller' => 'usuarios',
+			'action' => 'login'
+		);
+	}
 }

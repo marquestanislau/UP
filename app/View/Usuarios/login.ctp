@@ -115,12 +115,21 @@
 	      <button>create</button>
 	      <p class="message">Already registered? <a href="#">Sign In</a></p>
 	    </form>
-	    <form class="login-form">
-	      <input type="text" placeholder="Nome do utilizador"/>
-	      <input type="password" placeholder="Palavra passe"/>
+	    <?php 
+
+	    	echo $this->Form->create('Usuario', array('class' => 'login-form', 'url' => array('action' => 'login')));
+	    	echo $this->Form->input('nome', array('type' => 'text', 'placeholder' => 'Nome do utilizador'));
+	    	echo $this->Form->input('senha', array('type' => 'password', 'placeholder' => 'Palavra passe'));
+	    ?>
 	      <button class="w3-blue"><i class="fa fa-unlock-alt"></i> Autenticar</button>
 	      <p class="message"><a href="<?php echo $this->Html->url(array('action' => 'recuperar', 'controller' => 'usuarios'));?>">N&atilde;o consegue autenticar?</a></p>
-	    </form>
+	    <?php 
+	    	echo $this->Form->end();
+	     ?>
+	    <!-- <form class="login-form">
+	      <input type="text" placeholder="Nome do utilizador"/>
+	      <input type="password" placeholder="Palavra passe"/>
+	    </form> -->
 	  </div>
 	</div>
 </body>
