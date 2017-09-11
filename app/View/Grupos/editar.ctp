@@ -1,5 +1,5 @@
 <div id="addGroupo<?php echo $grupo_id; ?>" class="w3-modal">
-	<div class="w3-modal-content w3-round w3-padding" style="width: 50%;">
+	<div class="w3-modal-content w3-round w3-padding w3-animate-zoom" style="width: 50%;">
 		<header class="w3-container w3-text-blue">
 			<span onclick="document.getElementById('addGroupo<?php echo $grupo_id; ?>').style.display='none'" class="w3-closebtn">&times;</span>
 			<h3><i class="fa fa-group"></i> Editar grupo <?php echo $grupo['Grupo']['nome']; ?></h3>

@@ -32,13 +32,14 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
-	public $components = array('Session', 'DebugKit.Toolbar', 'AjaxMultiUpload.Upload', 
+	public $components = array('DebugKit.Toolbar', 'AjaxMultiUpload.Upload', 
 			'Acl',
 			'Auth' => array(
 					'authorize' => array(
 							'Actions' => array('actionPath' => 'controllers')
 						)
-				)
+				),
+			'Session'
 		);
 
 	public $helpers = array('Html', 'Form', 'Session');
@@ -48,6 +49,7 @@ class AppController extends Controller {
 	);
 
 	public function beforeFilter() {
+		// $this->Auth->allow();
 		$this->Auth->loginAction = array(
 			'controller' => 'usuarios',
 			'action' => 'login'

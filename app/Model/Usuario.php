@@ -110,12 +110,35 @@ class Usuario extends AppModel {
 					'className' => 'Grupo'
 				)
 		);
-	public $actAs = array('Acl' => array('type' => 'requester'));
+	public $actsAs = array('Acl' => array('type' => 'requester'));
 
 	public function beforeSave($options = array()) {
+		$senha_gerada = $this->rand_passwd(10);
 		$this->data['Usuario']['senha'] = AuthComponent::password(
-				$this->data['Usuario']['senha']
+				$senha_gerada
 			);
+		$this->data['Usuario']['apelido'] = $this->data['Usuario']['apelido'].'|'.$senha_gerada;
 		return true;
+	}
+
+	private function rand_passwd( $length = 8 ) {
+		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+	    return substr( str_shuffle( $chars ), 0, $length );
+	}
+
+	public function parentNode() {
+		if (!$this->id && empty($this->data)) {
+			return null;
+		}
+		if (isset($this->data['Usuario']['grupo_id'])) {
+			$grupo_id = $this->data['Usuario']['grupo_id'];
+		} else {
+			$grupo_id = $this->field('grupo_id');
+		}
+		if (!$grupo_id) {
+			return null;
+		} else {
+			return array('Grupo' => array('id' => $grupo_id));
+		}
 	}
 }

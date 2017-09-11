@@ -117,9 +117,9 @@
 	    </form>
 	    <?php 
 
-	    	echo $this->Form->create('Usuario', array('class' => 'login-form', 'url' => array('action' => 'login')));
-	    	echo $this->Form->input('nome', array('type' => 'text', 'placeholder' => 'Nome do utilizador'));
-	    	echo $this->Form->input('senha', array('type' => 'password', 'placeholder' => 'Palavra passe'));
+	    	echo $this->Form->create('Usuario', array('class' => 'login-form', 'url' => array('action' => 'login', 'controller' => 'usuarios')));
+	    	echo $this->Form->input('Usuario.nome', array('type' => 'text', 'placeholder' => 'Nome do utilizador'));
+	    	echo $this->Form->input('Usuario.senha', array('type' => 'password', 'placeholder' => 'Palavra passe'));
 	    ?>
 	      <button class="w3-blue"><i class="fa fa-unlock-alt"></i> Autenticar</button>
 	      <p class="message"><a href="<?php echo $this->Html->url(array('action' => 'recuperar', 'controller' => 'usuarios'));?>">N&atilde;o consegue autenticar?</a></p>

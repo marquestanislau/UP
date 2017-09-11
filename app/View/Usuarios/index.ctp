@@ -30,6 +30,7 @@
 					<tr>
 						<th><?php echo $this->Paginator->sort('nome'); ?></th>
 						<th><?php echo $this->Paginator->sort('apelido'); ?></th>
+						<th><?php echo $this->Paginator->sort('Grupo'); ?></th>
 						<th><?php echo $this->Paginator->sort('email'); ?></th>
 						<th><?php echo $this->Paginator->sort('contacto'); ?></th>
 						<th>status</th>

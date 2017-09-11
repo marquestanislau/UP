@@ -72,6 +72,7 @@ class UsuariosController extends AppController {
 		} 
 	}
 
+
 	public function ultimo_user() {
 		$this->set('ultimoUsuario',
 			$this->Usuario->find('first', array('order' => array('Usuario.id' => 'desc'))));
@@ -94,9 +95,9 @@ class UsuariosController extends AppController {
 		$this->Usuario->id = $id;
 		if ($this->request->is(array('ajax'))) {
 			$data = $this->request->data['Usuario'];
-			if (!$data['foto_perfil']['name']) {
-				unset($data['foto_perfil']);
-			}
+			// if (!$data['foto_perfil']['name']) {
+			// 	unset($data['foto_perfil']);
+			// }
 			if ($this->Usuario->save($data)) {
 				$this->render('sucesso', 'ajax');
 			} else {
@@ -141,12 +142,20 @@ class UsuariosController extends AppController {
 
 	public function login() {
 		$this->layout = 'empty';
-		if ($this->request->is('post')) {
-			if ($this->Auth->login()) {
-				return $this->redirect($this->Auth->redirect());
-			}
-			$this->Session->setFlash('Senha ou nome do utilizador errado.');
+		// if ($this->request->is('post')) {
+		// 	if ($this->Auth->login()) {
+		// 		return $this->redirect($this->Auth->redirect());
+		// 	}
+		// 	$this->Session->setFlash('Senha ou nome do utilizador errado.');
+		// }
+		if ($this->Session->read('Auth.Usuario')) {
+			$this->Session->setFlash('Bem vindo ao sistema');
+			return $this->redirect('/');
 		}
+	}
+
+	public function logout() {
+		$this->redirect($this->Auth-logout());
 	}
 
 	public function recuperar() {
@@ -156,5 +165,23 @@ class UsuariosController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow();
+	}
+
+	public function initDB() {
+		$group = $this->Usuario->Grupo;
+		// Allow admins to everything
+		$group->id = 1;
+		$this->Acl->allow($group, 'controllers');
+		// allow managers to posts and widgets
+		$group->id = 2;
+		$this->Acl->deny($group, 'controllers');
+		$this->Acl->allow($group, 'controllers/Funcionarios');
+		$this->Acl->allow($group, 'controllers/Concursos');
+		
+		// allow basic users to log out
+		$this->Acl->allow($group, 'controllers/usuarios/logout');
+		// we add an exit to avoid an ugly "missing views" error message
+		echo "all done";
+		exit;
 	}
 }

@@ -2,11 +2,12 @@
 	<tr class="w3-text-dark-grey w3-hover-khaki">
 		<?php $id = $usuario['Usuario']['id'];?>
 		<td>
-			<?php echo $this->Html->image('upload/'.$usuario['Usuario']['foto_perfil'], array('class' => 'w3-circle', 'style' => 'width: 10%;'));
+			<?php echo $this->Html->image($usuario['Usuario']['foto_perfil'], array('class' => 'w3-circle', 'style' => 'width: 10%;'));
 				echo ' '; 
 				echo h($usuario['Usuario']['nome']); ?>&nbsp;
 		</td>
 		<td><?php echo h($usuario['Usuario']['apelido']); ?>&nbsp;</td>
+		<td class="w3-label"><?php echo h($usuario['Grupo']['nome']); ?>&nbsp;</td>
 		<td><?php echo h($usuario['Usuario']['email']); ?>&nbsp;</td>
 		<td><?php echo h('+(258) '.$usuario['Usuario']['contacto']); ?>&nbsp;</td>
 		<td><span class="glyphicon glyphicon-ok w3-text-green"></span></td>
