@@ -7,8 +7,8 @@
 		<div class="w3-container">
 			<?php 
 
-				echo $this->Form->create('Grupo', array('id' => 'formGrupo'));
-				echo $this->Form->input('nome', array('class' => 'w3-input w3-border w3-round w3-margin-bottom', 'placeholder' => 'Nome do grupo'));
+				echo $this->Form->create('Group', array('id' => 'formGrupo'));
+				echo $this->Form->input('name', array('class' => 'w3-input w3-border w3-round w3-margin-bottom', 'placeholder' => 'Nome do grupo'));
 				echo $this->Form->input('descricao', array('class' => 'w3-input w3-border w3-round w3-margin-bottom', 'placeholder' => 'Digite algum texto que descreva o proposito do grupo', 'type' => 'textarea', 'label' => 'Descrição'));
 			?>
 				<button class="w3-button w3-green w3-round"><i class="fa fa-plus"></i> Criar novo grupo</button>
@@ -31,7 +31,7 @@
 			$this->Js->request(
 					array(
 							'action' => 'add',
-							'controller' => 'grupos'
+							'controller' => 'groups'
 						),
 					array(
 							'method' => 'post',
@@ -44,7 +44,7 @@
 							'success' => $this->Js->request(
 									array(
 											'action' => 'index',
-											'controller' => 'grupos'
+											'controller' => 'groups'
 										),
 									array(
 											'method' => 'post',

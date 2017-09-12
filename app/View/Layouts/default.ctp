@@ -89,11 +89,11 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         <h3>Utilizadores</h3>
         <table>
           <tr>
-            <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'usuarios'));?>"><i class="fa fa-user-plus"></i> Gerir contas</a></td>
+            <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'users'));?>"><i class="fa fa-user-plus"></i> Gerir contas</a></td>
             <td><a href=""><i class="fa fa-sign-out "></i> Activos</a></td>
           </tr>
           <tr>
-            <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'grupos')); ?>"><i class="fa fa-group"></i> Grupos</a></td>
+            <td><a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'groups')); ?>"><i class="fa fa-group"></i> Grupos</a></td>
           </tr>
         </table>
       </div>
@@ -147,7 +147,12 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
     </li>
     <li class="pull-right w3-hide-medium w3-hide-small">
       <a href="#">
-        <span class="glyphicon glyphicon-bell"></span>
+        <!-- <span class="glyphicon glyphicon-bell"></span> -->
+        <i class="fa fa-user"></i>
+        <?php 
+          $user = $this->Session->read('Auth.User'); 
+          echo $user['username'];
+        ?>
       </a>
     </li>
   </ul>
@@ -206,7 +211,7 @@ function w3_close() {
     overlayBg.style.display = "none";
 }
 </script>
-   <?php echo $this->Session->flash(); ?>
+   <?php #echo $this->Session->flash(); ?>
 
 <?php echo $this->Js->writeBuffer(array('cache' => FALSE, 'buffer' => FALSE)); ?>
 </body>

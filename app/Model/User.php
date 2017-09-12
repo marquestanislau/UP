@@ -2,17 +2,17 @@
 App::uses('AppModel', 'Model');
 App::uses('AuthComponent', 'Controller/Component');
 /**
- * Usuario Model
+ * User Model
  *
  */
-class Usuario extends AppModel {
+class User extends AppModel {
 
 /**
  * Display field
  *
  * @var string
  */
-	public $displayField = 'nome';
+	public $displayField = 'name';
 
 /**
  * Validation rules
@@ -20,7 +20,7 @@ class Usuario extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'nome' => array(
+		'name' => array(
 			'notBlank' => array(
 				'rule' => array('notBlank'),
 				'message' => 'Este campo e obrigatorio',
@@ -106,18 +106,20 @@ class Usuario extends AppModel {
 	}*/
 
 	public $belongsTo = array(
-			'Grupo' => array(
-					'className' => 'Grupo'
+			'Group' => array(
+					'className' => 'Group'
 				)
 		);
 	public $actsAs = array('Acl' => array('type' => 'requester'));
 
 	public function beforeSave($options = array()) {
 		$senha_gerada = $this->rand_passwd(10);
-		$this->data['Usuario']['senha'] = AuthComponent::password(
+		$this->data['User']['password'] = AuthComponent::password(
 				$senha_gerada
-			);
-		$this->data['Usuario']['apelido'] = $this->data['Usuario']['apelido'].'|'.$senha_gerada;
+			);//$this->data['User']['senha'] = AuthComponent::password(
+				//$senha_gerada
+			//);
+		$this->data['User']['apelido'] = $this->data['User']['apelido'].'|'.$senha_gerada;
 		return true;
 	}
 
@@ -130,15 +132,15 @@ class Usuario extends AppModel {
 		if (!$this->id && empty($this->data)) {
 			return null;
 		}
-		if (isset($this->data['Usuario']['grupo_id'])) {
-			$grupo_id = $this->data['Usuario']['grupo_id'];
+		if (isset($this->data['User']['group_id'])) {
+			$group_id = $this->data['User']['group_id'];
 		} else {
-			$grupo_id = $this->field('grupo_id');
+			$group_id = $this->field('group_id');
 		}
-		if (!$grupo_id) {
+		if (!$group_id) {
 			return null;
 		} else {
-			return array('Grupo' => array('id' => $grupo_id));
+			return array('Group' => array('id' => $group_id));
 		}
 	}
 }

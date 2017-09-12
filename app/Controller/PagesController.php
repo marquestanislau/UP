@@ -35,7 +35,7 @@ class PagesController extends AppController {
  *
  * @var array
  */
-	public $uses = array('Funcionario', 'Usuario');
+	public $uses = array('Funcionario', 'User');
 	public $components = array('RequestHandler');
 	public $helpers = array('Js' => 'Jquery');
 
@@ -81,7 +81,7 @@ class PagesController extends AppController {
 		// debug($this->geraNotasParaOsPrimeiros());
 		$funcionarios = $this->Funcionario->find('all', array('conditions' => array('Funcionario.despacho not' => NULL)));
 		$funcionarios_notas = $this->geraNotasParaOsPrimeiros();
-		$usuarios = $this->Usuario->find('all');
+		$usuarios = $this->User->find('all');
 		$concursos = $this->Funcionario->Concurso->find('all', array('fields' => 'Concurso.data_aprovacao', 'Concurso.id'));
 		$carreiras = $this->Funcionario->Carreira->find('all', array('fields' => 'Carreira.nome', 'Carreira.id'));
 		

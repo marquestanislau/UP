@@ -1,12 +1,12 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * Grupos Controller
+ * Groups Controller
  *
- * @property Grupo $Grupo
+ * @property Group $Group
  * @property PaginatorComponent $Paginator
  */
-class GruposController extends AppController {
+class GroupsController extends AppController {
 
 /**
  * Helpers
@@ -25,7 +25,7 @@ class GruposController extends AppController {
 
 	public function add() {
 		if ($this->request->is('ajax')) {
-			if ($this->Grupo->save($this->request->data)) {
+			if ($this->Group->save($this->request->data)) {
 				$this->render('sucesso', 'ajax');
 			} else {
 				$this->render('erro', 'ajax');
@@ -35,8 +35,8 @@ class GruposController extends AppController {
 
 	public function edit($id) {
 		if ($this->request->is('ajax')) {
-			$this->Grupo->id =  $id;
-			if ($this->Grupo->save($this->request->data)) {
+			$this->Group->id =  $id;
+			if ($this->Group->save($this->request->data)) {
 				$this->render('sucesso', 'ajax');
 			} else {
 				$this->render('erro', 'ajax');
@@ -45,7 +45,7 @@ class GruposController extends AppController {
 	}
 
 	public function index() {
-		$this->set('grupos', $this->Grupo->find('all'));
+		$this->set('grupos', $this->Group->find('all'));
 		if ($this->request->is('ajax')) {
 			$this->render('grupos', 'ajax');
 		}
@@ -58,11 +58,11 @@ class GruposController extends AppController {
 
 	public function delete($id = null) {
 		if ($this->request->is('post')) {
-			$this->Grupo->id = $id;
-			if (!$this->Grupo->exists()) {
-				throw new NotFoundException(__('Grupo invalido'));
+			$this->Group->id = $id;
+			if (!$this->Group->exists()) {
+				throw new NotFoundException(__('Group invalido'));
 			}
-			$this->Grupo->delete();
+			$this->Group->delete();
 			$this->redirect('index');
 		}
 	}

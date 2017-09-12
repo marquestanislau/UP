@@ -108,6 +108,7 @@
 	<div class="login-page">
 	  <div class="form w3-round">
 		<center><?php echo $this->Html->image('icon.png', array('alt' => 'login icon', 'class' => 'w3-margin-bottom'));?></center>
+	  	<span style="color: red;"><?php echo $this->Session->flash(); ?></span>
 	    <form class="register-form">
 	      <input type="text" placeholder="name"/>
 	      <input type="password" placeholder="password"/>
@@ -117,12 +118,12 @@
 	    </form>
 	    <?php 
 
-	    	echo $this->Form->create('Usuario', array('class' => 'login-form', 'url' => array('action' => 'login', 'controller' => 'usuarios')));
-	    	echo $this->Form->input('Usuario.nome', array('type' => 'text', 'placeholder' => 'Nome do utilizador'));
-	    	echo $this->Form->input('Usuario.senha', array('type' => 'password', 'placeholder' => 'Palavra passe'));
+	    	echo $this->Form->create('User', array('class' => 'login-form', 'url' => array('action' => 'login', 'controller' => 'users')));
+	    	echo $this->Form->input('User.username', array('type' => 'text', 'placeholder' => 'Nome do utilizador'));
+	    	echo $this->Form->input('User.password', array('type' => 'password', 'placeholder' => 'Palavra passe'));
 	    ?>
 	      <button class="w3-blue"><i class="fa fa-unlock-alt"></i> Autenticar</button>
-	      <p class="message"><a href="<?php echo $this->Html->url(array('action' => 'recuperar', 'controller' => 'usuarios'));?>">N&atilde;o consegue autenticar?</a></p>
+	      <p class="message"><a href="<?php echo $this->Html->url(array('action' => 'recuperar', 'controller' => 'users'));?>">N&atilde;o consegue autenticar?</a></p>
 	    <?php 
 	    	echo $this->Form->end();
 	     ?>

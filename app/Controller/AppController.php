@@ -51,7 +51,7 @@ class AppController extends Controller {
 	public function beforeFilter() {
 		// $this->Auth->allow();
 		$this->Auth->loginAction = array(
-			'controller' => 'usuarios',
+			'controller' => 'users',
 			'action' => 'login'
 		);
 		$this->Auth->loginRedirect = array(
@@ -59,7 +59,7 @@ class AppController extends Controller {
 			'action' => '/'
 		);
 		$this->Auth->logoutRedirect = array(
-			'controller' => 'usuarios',
+			'controller' => 'users',
 			'action' => 'login'
 		);
 	}

@@ -9,14 +9,14 @@
 			<div class="row">
 				<div class="col-md-6">
 					<?php 
-						echo $this->Html->image($usuario['Usuario']['foto_perfil'], array('class' => 'object-fit-cover img-circle'));
+						echo $this->Html->image($usuario['User']['foto_perfil'], array('class' => 'object-fit-cover img-circle'));
 					?>
 				</div>
 				<div class="col-md-6">
-					<h4><?php echo $usuario['Usuario']['nome'].' '.$usuario['Usuario']['apelido'];  ?></h4>
+					<h4><?php echo $usuario['User']['username'].' '.$usuario['User']['apelido'];  ?></h4>
 				</div>
 			</div>			
-			<?php echo $this->Form->create('Usuario', array('type' => 'file', 'id' => 'editUserForm'.$id)); ?>
+			<?php echo $this->Form->create('User', array('type' => 'file', 'id' => 'editUserForm'.$id)); ?>
 			<?php
 			echo $this->Form->input('id', array('value' => $id));
 			echo $this->Form->input('foto_perfil', array('type' => 'file'));
@@ -24,14 +24,14 @@
 			<div class="row">
 				<div class="col-md-6">
 				<?php 
-					echo $this->Form->input('nome', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'value' => $usuario['Usuario']['nome']));
-					echo $this->Form->input('apelido', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'value' => $usuario['Usuario']['apelido']));
+					echo $this->Form->input('username', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'value' => $usuario['User']['username']));
+					echo $this->Form->input('apelido', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'value' => $usuario['User']['apelido']));
 				?>
 				</div>
 				<div class="col-md-6">
 				<?php
-					echo $this->Form->input('email', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'value' => $usuario['Usuario']['email']));
-					echo $this->Form->input('contacto', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'value' => $usuario['Usuario']['contacto']));
+					echo $this->Form->input('email', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'value' => $usuario['User']['email']));
+					echo $this->Form->input('contacto', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'value' => $usuario['User']['contacto']));
 				?>
 				</div>
 			</div>
@@ -72,7 +72,7 @@
 			$this->Js->request(
 					array(
 							'action' => 'edit/'.$id,
-							'controller' => 'usuarios'
+							'controller' => 'users'
 						),
 					array(
 							'method' => 'post',

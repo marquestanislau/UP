@@ -8,12 +8,12 @@
 			</h5>
 		</header>
 		<div class="w3-container w3-padding">
-			<?php echo $this->Form->create('Usuario', array('type' => 'file', 'class' => 'w3-container', 'id' => 'ajaxFormUserAdd')); ?>
+			<?php echo $this->Form->create('User', array('type' => 'file', 'class' => 'w3-container', 'id' => 'ajaxFormUserAdd')); ?>
 			<!-- Mensagem de sucesso  -->
 			<div id="sucesso"></div>
 			<div class="row">
 				<div class="col-md-6">
-					<?php echo $this->Form->input('nome', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'John', 'id' => 'userName'));?>
+					<?php echo $this->Form->input('username', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'John', 'id' => 'userName'));?>
 					<?php echo $this->Form->input('apelido', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'Doe')); ?>
 					<?php echo $this->Form->input('email', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => 'example@mail.com')); ?>
 					<?php echo $this->Form->input('contacto', array('class' => 'w3-input w3-round w3-margin-bottom w3-hover-khaki w3-border', 'placeholder' => '845656561')); ?>
@@ -28,7 +28,7 @@
 					<p class="w3-center">
 						<?php echo $this->Html->image('upload/perfil_default.png', array('class' => 'w3-center w3-circle')); ?>
 					</p>
-					<?php echo $this->Form->input('grupo_id', array('class' => 'w3-input w3-round w3-border')); ?>
+					<?php echo $this->Form->input('group_id', array('class' => 'w3-input w3-round w3-border')); ?>
 				</div>
 			</div>
 				<!-- Ajax loading image... -->
@@ -70,7 +70,7 @@
 			$this->Js->request(
 				array(
 					'action' => 'add',
-					'controller' => 'usuarios'
+					'controller' => 'users'
 				),
 				array(
 					'method' => 'post',

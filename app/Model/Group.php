@@ -1,11 +1,11 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Grupo Model
+ * Group Model
  *
- * @property Usuario $Usuario
+ * @property User $User
  */
-class Grupo extends AppModel {
+class Group extends AppModel {
 
 
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -16,9 +16,9 @@ class Grupo extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Usuario' => array(
-			'className' => 'Usuario',
-			'foreignKey' => 'grupo_id',
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'group_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
