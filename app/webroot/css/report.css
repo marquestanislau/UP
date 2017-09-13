@@ -1,5 +1,7 @@
 .corpo {
 	text-align: justify;
+	padding-left: 8%;
+	padding-right: 8%;
 
 }
 
@@ -19,7 +21,7 @@
 	border: solid thin black;
 }
 
-#cabecalho {
+#cabecalho, .cabecalho {
 	text-align: center;
 }
 

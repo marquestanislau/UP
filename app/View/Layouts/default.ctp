@@ -54,7 +54,15 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 <body class="w3-white w3-text-gray">
 <!-- Navbar -->
 <div id="header" class="w3-top">
-  <ul class="w3-navbar w3-blue w3-theme w3-left-align w3-large">
+<!-- Pega os dados do funcionario que foi autenticado -->
+  <?php $user = $this->Session->read('Auth.User');  ?>
+  <!-- O utilizador é administrador? se sim muda a aparencia da tela para a do admin [Tela com menu em preto] -->
+  <?php $admin = FALSE;
+    if (stripos($user['Group']['name'], 'Adminis') !== FALSE) {
+      $admin = TRUE; // caso seja admin
+    }
+   ?>
+  <ul class="w3-navbar <?php echo $admin ? 'w3-dark-gray' : 'w3-blue'; ?> w3-theme w3-left-align w3-large">
     <li class="w3-opennav w3-right w3-hide-large">
       <a class="w3-hover-white w3-large" href="javascript:void(0)" onclick="w3_open()"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
     </li>
@@ -83,6 +91,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         </table>
       </div>
     </li>
+    <?php if ($admin) {?>
     <li class="w3-dropdown-hover w3-hide-small">
       <a href="#"><i class="fa fa-user-plus"></i> Utilizadores</a>
       <div class="w3-dropdown-content w3-bottombar w3-text-blue w3-padding w3-card-4">
@@ -122,6 +131,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
         </table>
       </div>
     </li>
+    <?php  }?>
     <li class="w3-hide-small w3-dropdown-hover">
       <a><span class="glyphicon glyphicon-briefcase"></span> Recrutamento</a>
       <div class="w3-dropdown-content w3-padding w3-card-4 w3-text-blue w3-bottombar">
@@ -142,18 +152,29 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
     </li> -->
     <li class="pull-right w3-hide-medium w3-hide-small">
       <a href="#">
-        <?php echo $this->Html->image('perfil_default.png', array('class' => 'w3-hover-blue img-responsive img-circle user-icon')); ?>
+        <?php #echo $this->Html->image('perfil_default.png', array('class' => 'w3-hover-blue img-responsive img-circle user-icon')); ?>
       </a>
     </li>
-    <li class="pull-right w3-hide-medium w3-hide-small">
+    <li class="w3-margin-right pull-right w3-hide-medium w3-hide-small w3-dropdown-hover">
       <a href="#">
         <!-- <span class="glyphicon glyphicon-bell"></span> -->
         <i class="fa fa-user"></i>
         <?php 
-          $user = $this->Session->read('Auth.User'); 
           echo $user['username'];
         ?>
       </a>
+      <div class="w3-dropdown-content w3-padding w3-card-4 w3-text-blue w3-bottombar w3-border-orange">
+        <table>
+         <tr>
+           <td>
+             <a href="<?php echo $this->Html->url(array('action' => 'perfil', 'controller' => 'users', $user['id'])); ?>"><i class="fa fa-male"></i> Meu perfil</a>
+           </td>
+         </tr>
+         <tr>
+           <td><a href="<?php echo $this->Html->url(array('action' => 'logout', 'controller' => 'users')); ?>"><i class="fa fa-sign-out"></i> Sair</a></td>
+         </tr>
+        </table>
+      </div>
     </li>
   </ul>
 </div>
