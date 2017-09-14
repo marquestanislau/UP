@@ -13,7 +13,7 @@
 			Rua Comandante Augusto Cardoso nº 135, Caixa Postal 3276, Tef.: 21312585 ou 21324502; Fax nº 21312585, Maputo - Moçambique
 		</p>
 	</div>
-	<h2>Report of categorias</h2>
+	<h3 style="color:blue;">Relat&oacute;rio de categorias</h3>
 	<table class="pure-table" style="width:100%;">
 	<thead>
 		<tr>

@@ -13,16 +13,18 @@
 							<i class="fa fa-check"></i>
 							Adicionar utilizador
 						</button>
-						<input onkeyup="filtro()" style="width: 20%;" id="procurar" type="text" class="w3-bar-item w3-border w3-input w3-white" placeholder="Digite o nome ou apelido...">
+						<input onkeyup="filtro()" style="width: 20%;" id="procurar" type="text" class="w3-bar-item w3-border w3-input w3-white w3-round" placeholder="Digite o nome ou apelido...">
 						<a href="#" class="w3-button w3-right w3-bar-item w3-text-gray">
 							<span class="glyphicon glyphicon-question-sign"></span>
 						</a>
 						<a target="_blank" href="<?php echo $this->Html->url(array('action' => 'print_users', 'ext' => 'pdf'));?>" class="w3-button w3-right w3-bar-item w3-text-gray">
 							<span class="glyphicon glyphicon-print"></span>
+							Imprimir
 						</a>
-						<a href="#" class="w3-button w3-right w3-bar-item w3-text-gray">
+						<!-- <a href="#" class="w3-button w3-right w3-bar-item w3-text-gray">
 							<span class="glyphicon glyphicon-cog"></span>
-						</a></div>
+						</a> -->
+					</div>
 					</div>
 				</div>
 				<table id="tabelaFiltro" class="table table-striped">

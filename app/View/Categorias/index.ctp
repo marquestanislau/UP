@@ -13,7 +13,7 @@
 			<span class="glyphicon glyphicon-plus w3-large"></span>
 			Novas categorias</a>
 			<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-briefcase w3-large"></span> Carreiras disponiveis'), array('controller' => 'carreiras', 'action' => 'index'), array('class' => 'w3-bar-item w3-button w3-text-grey', 'escape' => false)); ?>
-			<a id="print_category" href="<?php echo $this->Html->url(array('action' => 'listaEmPdf', 'ext' => 'pdf')); ?>" target="_blank" class="w3-bar-item w3-button w3-text-grey"><i class="fa fa-print w3-large"></i> Imprimir</a>
+			<a id="print_category" href="<?php echo $this->Html->url(array('action' => 'listaEmPdf', 'ext' => 'pdf')); ?>" target="_blank" class="w3-bar-item w3-button w3-text-grey pull-right"><i class="fa fa-print w3-large"></i> Imprimir</a>
 			<span class="mdl-tooltip" data-mdl-for="print_category">Imprimir todas categorias disponiveis!</span>
 		</div> 
 		<table class="table table-striped w3-border-light-grey">
