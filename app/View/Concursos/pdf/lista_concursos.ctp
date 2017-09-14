@@ -21,7 +21,7 @@
 		</p>
 	</div>
 	<div id="corpo">
-		<h4>Lista de concursos: <?php $data = date('d/m/Y'); echo $data; ?></h4>
+		<h4>Lista de concursos: <?php $data = date('d/m/Y'); echo $data; ?> | Utilizador: <?php echo $this->Session->read('Auth.User.username'); ?></h4>
 		<table class="pure-table">
 			<thead>
 				<tr>
@@ -43,8 +43,8 @@
 			</tbody>
 		</table>
 	</div>
-	<footer>
-		<p>Todos direitos reservados blah</p>
+	<footer style="position: fixed; bottom: 0; font-size: small;">
+		<p>Todos direitos reservados a DRH</p>
 	</footer>
 </body>
 </html>

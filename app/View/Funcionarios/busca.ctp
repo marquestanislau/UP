@@ -25,7 +25,7 @@
 	 		<?php 
 	 			echo $this->Form->input('nome', array('class' => 'w3-input w3-hover-sand w3-white w3-text-black w3-border w3-bar-item w3-light-grey', 'label' => false, 'style' => 'width: 80%', 'placeholder' => 'Procure usando o nome'));
 	 		 ?>
-	 		 <button type="button" id="btnSubmit" class="w3-bar-item w3-button w3-border-green w3-border w3-hover-light-green w3-hover-text-white" style="width: 20%;">
+	 		 <button type="button" id="btnSubmit" class="w3-bar-item w3-green w3-button w3-border-green w3-border w3-hover-light-green w3-hover-text-white" style="width: 20%;">
 	 		 	<i class="fa fa-search"></i>
 	 		 	Procurar
 	 		 </button>

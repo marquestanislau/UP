@@ -130,6 +130,7 @@ class PagesController extends AppController {
 		$limit = 5;
 		$concurso_mais_antigo = $this->concursoAntigo();
 		$diplomasFuncionarios = $this->Funcionario->find('all', array('limit' => $limit, 'conditions' => array('concurso_id' => $concurso_mais_antigo['Concurso']['id'], 'despacho' => ''), 'order' => array('posicao' => 'asc')));
+		$this->set('concurso_mais_antigo', $concurso_mais_antigo);
 		return $diplomasFuncionarios;
 	}
 

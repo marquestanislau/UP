@@ -13,6 +13,7 @@
 			<h3><i class="fa fa-info"></i> Mensagem do sistema</h3>
 		</header>
 		<div class="w3-container">
+		<h6 class="alert alert-danger w3-round w3-padding">Concurso: <?php echo $concurso_mais_antigo['Concurso']['nome'].' ['.$concurso_mais_antigo['Concurso']['data_aprovacao'].']'; ?></h6>
 			<i class="fa fa-user"></i> Candidatos por emitir a nota provis&oacute;ria
 			<table class="table">
 				<thead>
@@ -40,7 +41,7 @@
 											echo $this->Form->create('Funcionario', array('url' => array('controller' => 'funcionarios', 'action' => 'nomeacao', 'ext' => 'pdf', $funcionario['Funcionario']['id'])));
 											echo $this->Form->input('nuit', array('class' => 'w3-input w3-border w3-round w3-text-dark-gray w3-large', 'placeholder' => 'Digite o NUIT do candidato'));
 											echo '<label>Data do despacho: </label>';
-											echo $this->Form->input('despacho', array('class' => 'w3-input w3-border datepicker w3-round w3-text-dark-gray w3-large', 'style' => 'width: 32%', 'label' => FALSE, 'type' => 'text', 'placeholder' => 'A data do despacho'));
+											echo $this->Form->input('despacho', array('class' => 'w3-input w3-border datepicker w3-round w3-text-dark-gray w3-large', 'style' => 'width: 32%', 'label' => FALSE, 'type' => 'text', 'placeholder' => 'A data do despacho', 'id' => 'despacho'.$func_id));
 											echo $this->Form->input('id', array('value' => $funcionario['Funcionario']['id'], 'type' => 'hidden'));
 										?>
 										<button class="w3-button w3-large w3-round w3-margin-top w3-orange">
@@ -142,7 +143,11 @@
 
 				var bgcolor = new Array();
 				for (var i = 0; i < data.length; i++ ) {
-					bgcolor[i] = 'rgba('+(i*100)+','+(i*50)+','+(i*30)+','+0.4+')';
+					if (i%2 == 0) {
+						bgcolor[i] = 'rgba('+(i*(50))+','+(i*50)+','+(i*30)+','+0.6+')';
+					} else {
+						bgcolor[i] = 'rgba('+(i*(50))+','+(i*10)+','+(i*100)+','+0.6+')';
+					}
 				}
 
 				var ctx = document.getElementById("concursoChart").getContext('2d');
