@@ -43,16 +43,17 @@ class EmailConfig {
 		//'headerCharset' => 'utf-8',
 	);
 
-	public $smtp = array(
+	public $gmail = array(
 		'transport' => 'Smtp',
-		'from' => array('site@localhost' => 'My Site'),
-		'host' => 'localhost',
-		'port' => 25,
+		'from' => array('estanislaumarques@gmail.com' => 'SIGERH'),
+		'host' => 'ssl://smtp.gmail.com',
+		'port' => 465,
 		'timeout' => 30,
-		'username' => 'user',
-		'password' => 'secret',
+		'username' => 'estanislaumarques@gmail.com',
+		'password' => 'konvictmuzik',
 		'client' => null,
 		'log' => false,
+		'subject' => 'SIGERH - O sistema da Universidade Pedagogica'
 		//'charset' => 'utf-8',
 		//'headerCharset' => 'utf-8',
 	);

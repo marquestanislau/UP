@@ -120,7 +120,7 @@ class UsersController extends AppController {
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->User->delete()) {
-			$this->Flash->success(__('The usuario has been deleted.'));
+			// erroer message
 		} else {
 			$this->Flash->error(__('The usuario could not be deleted. Please, try again.'));
 		}

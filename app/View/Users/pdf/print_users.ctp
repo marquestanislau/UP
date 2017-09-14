@@ -37,22 +37,25 @@
 			<thead>
 				<tr>
 					<th>Nome</th>
-					<th>Apelido</th>
+					<!-- <th>Apelido</th> -->
 					<th>Email</th>
 					<th>Contacto</th>
+					<th>Grupo</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php foreach ( $usuarios as $usuario ): ?>
 					<tr>
-						<td><?php echo $usuario['Usuario']['nome']; ?></td>
-						<td><?php echo $usuario['Usuario']['apelido']; ?></td>
-						<td><?php echo $usuario['Usuario']['email']; ?></td>
-						<td><?php echo $usuario['Usuario']['contacto']; ?></td>
+						<td><?php echo $usuario['User']['username']; ?></td>
+						<!-- <td><?php //echo $usuario['User']['apelido']; ?></td> -->
+						<td><?php echo $usuario['User']['email']; ?></td>
+						<td><?php echo $usuario['User']['contacto']; ?></td>
+						<td><?php echo $usuario['Group']['name']; ?></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
 	</div>
+	<p style="position: fixed; bottom: 0;">Lista de todos utilizadores</p>
 </body>
 </html>

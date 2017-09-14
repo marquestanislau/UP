@@ -1,6 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 App::uses('AuthComponent', 'Controller/Component');
+App::uses('CakeEmail', 'Network/Email');
 /**
  * User Model
  *
@@ -114,19 +115,32 @@ class User extends AppModel {
 
 	public function beforeSave($options = array()) {
 		$senha_gerada = $this->rand_passwd(10);
-		$this->data['User']['password'] = AuthComponent::password(
-				$senha_gerada
-			);//$this->data['User']['senha'] = AuthComponent::password(
-				//$senha_gerada
-			//);
-		$this->data['User']['apelido'] = $this->data['User']['apelido'].'|'.$senha_gerada;
-		return true;
+		if (empty($this->id)) {
+			$this->data['User']['password'] = AuthComponent::password(
+					$senha_gerada
+				);
+			// $this->data['User']['apelido'] = $this->data['User']['apelido'].'|'.$senha_gerada;
+			$this->sendEmail($this->data, $senha_gerada);
+		} 
 	}
 
 	private function rand_passwd( $length = 8 ) {
 		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 	    return substr( str_shuffle( $chars ), 0, $length );
 	}
+
+	private function sendEmail( $data = array(), $password) {
+		$email = new CakeEmail('gmail');
+		$email->to($data['User']['email']);
+		$email->viewVars(array('user' => $data, 'password' => $password, 'url' => 'http://localhost/sigerh'));
+		$email->template('wellcome', null);
+		$email->emailFormat('html');
+		if(!empty($email->send())) {
+			return true;
+		}
+		return false;
+	}
+
 
 	public function parentNode() {
 		if (!$this->id && empty($this->data)) {

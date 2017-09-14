@@ -19,7 +19,7 @@
 			<?php echo $this->Form->create('User', array('type' => 'file', 'id' => 'editUserForm'.$id)); ?>
 			<?php
 			echo $this->Form->input('id', array('value' => $id));
-			echo $this->Form->input('foto_perfil', array('type' => 'file'));
+			// echo $this->Form->input('foto_perfil', array('type' => 'file'));
 			?>
 			<div class="row">
 				<div class="col-md-6">
