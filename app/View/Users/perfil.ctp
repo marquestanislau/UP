@@ -25,7 +25,8 @@
 			echo h($usuario['User']['username']);
 		?>
     </h3>   
-    <?php echo $this->Form->create('User'); ?>
+    <?php echo $this->Form->create('User', array('id' => 'perfilForm')); ?>
+    <?php echo $this->Form->input('id', array('value' => $usuario['User']['id'])); ?>
     <table class="table table-striped">
         <tr>
             <td class="w3-label"><?php echo __('username'); ?></td>
@@ -39,7 +40,6 @@
             <td class="w3-label"><?php echo __('Email'); ?></td>
             <td class="w3-text-dark-grey"><?php echo $this->Form->input('email', array('value' => $usuario['User']['email'], 'label' => FALSE, 'class' => 'w3-input w3-round w3-border')); ?></td>
         </tr>
-        </tr>
         <tr>
             <td class="w3-label"><?php echo __('Data De Registo'); ?></td>
             <td class="w3-text-dark-grey"><?php echo h($usuario['User']['data_de_registo']); ?></td>
@@ -49,9 +49,10 @@
             <td class="w3-text-dark-grey"><?php echo $this->Form->input('contacto', array('value' => $usuario['User']['contacto'], 'label' => FALSE, 'class' => 'w3-input w3-round w3-border')); ?></td>
         </tr>
         <tr>
-            <td colspan="2">
-                Defina a senha
+            <td>
+                <div id="requesting" style="display:none;"><?php echo $this->Html->image('ajax/ajax-loader.gif'); ?></div>
             </td>
+            <td></td>
         </tr>
     </table>
     <button class="w3-button w3-green w3-round w3-large">
@@ -60,17 +61,34 @@
     </button>
     <?php echo $this->Form->end(); ?>
 </div>
-<!-- <div class="col-md-3">
-    <div class="list-group">
-        <h6>
-            <a href="#" class="w3-black list-group-item list-group-item-success">
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-                Menu 
-            </a>
-        </h6>
-	  <?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span> Rectificar dados', array('action' => 'edit', $usuario['User']['id']), array('class' => 'list-group-item', 'escape' => FALSE)); ?>
-	  <?php echo $this->Form->postLink('<span class="glyphicon glyphicon-trash"></span> Remover este utilizador', array('action' => 'delete', $usuario['User']['id']), array('escape' => FALSE, 'class' => 'list-group-item', 'confirm' => __('Are you sure you want to delete # %s?', $usuario['User']['id']))); ?>
-	  <?php echo $this->Html->link('<span class="glyphicon glyphicon-user"></span> Todos utilizadores', array('action' => 'index'), array('escape' => false,'class' => 'list-group-item')); ?>
-	  <?php echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> Registo de utilizadores', array('action' => 'add'), array('escape' => FALSE, 'class' => 'list-group-item')); ?>
-    </div>
-</div> -->
+<?php 
+
+    $data = $this->Js->get('#perfilForm')->serializeForm(array('isForm' => true, 'inline' => true));
+
+    $success = $this->Js->request(
+            array(),
+            array(
+                    'complete' => 'displayMessages()'
+                )
+        );
+
+    $this->Js->get('#perfilForm')->event(
+        'submit',
+        $this->Js->request(
+                array(
+                        'action' => 'edit/'.$usuario['User']['id'],
+                        'controller' => 'users'
+                    ),
+                array(
+                        'method' => 'post',
+                        'dataExpression' => true,
+                        'data' => $data,
+                        'async' => true,
+                        'before' => '$("#requesting").attr("style", "");',
+                        'complete' => '$("#requesting").attr("style", "display: none")',
+                        'update' => '#message',
+                        'success' => $success
+                    )
+            )
+        );
+ ?>

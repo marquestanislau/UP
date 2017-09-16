@@ -124,12 +124,12 @@ class User extends AppModel {
 		} 
 	}
 
-	private function rand_passwd( $length = 8 ) {
+	public function rand_passwd( $length = 8 ) {
 		$chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 	    return substr( str_shuffle( $chars ), 0, $length );
 	}
 
-	private function sendEmail( $data = array(), $password) {
+	public function sendEmail( $data = array(), $password) {
 		$email = new CakeEmail('gmail');
 		$email->to($data['User']['email']);
 		$email->viewVars(array('user' => $data, 'password' => $password, 'url' => 'http://localhost/sigerh'));

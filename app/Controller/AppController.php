@@ -49,7 +49,7 @@ class AppController extends Controller {
 	);
 
 	public function beforeFilter() {
-		// $this->Auth->allow();
+		// $this->Auth->allow('recuperar');
 		$this->Auth->loginAction = array(
 			'controller' => 'users',
 			'action' => 'login'

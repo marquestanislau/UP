@@ -9,7 +9,7 @@
 	<h3>Activa&ccedil;&atilde;o de conta de utilizador</h3>
 
 	<p>Utilize este dados abaixo para aceder ao sistema</p>
-	<p><b>Nota:</b> Altere a senha logo que aceder ao sistema.</p>
+	<p><b>Nota:</b> A senha fornecida n&atilde;o e&acute; alteravel.</p>
 	
 	<table class="table table-striped">
 		<tr>

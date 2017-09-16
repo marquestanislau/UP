@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('AuthComponent', 'Controller/Component');
 /**
  * Usuarios Controller
  *
@@ -53,7 +54,10 @@ class UsersController extends AppController {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid usuario'));
 		}
-		$this->log('may work');
+		if ($this->request->is('ajax')) {
+			$this->render('sucesso', 'ajax');			
+		}
+		// $this->log('visualizou perfil');
 		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 		$this->set('usuario', $this->User->find('first', $options));
 	}
@@ -149,11 +153,6 @@ class UsersController extends AppController {
 			}
 			$this->Session->setFlash('Senha ou nome do utilizador errado.');
 		}
-		// if ($this->Session->read('Auth.User')) {
-		// 	debug($this->Session->read('Auth.User'));
-		// 	$this->Session->setFlash('Bem vindo ao sistema');
-		// 	return $this->redirect('/');
-		// }
 	}
 
 	public function logout() {
@@ -162,9 +161,30 @@ class UsersController extends AppController {
 
 	public function recuperar() {
 		$this->layout = 'empty';
+		if ($this->request->is('ajax')) {
+			$email = $this->request->data['email'];
+			if (!empty($email)) {
+				$user = $this->User->find('first', array('conditions' => array('email' => $email)));
+				if (!empty($user)) {
+					$nova_senha = $this->User->rand_passwd(8);
+					$user['User']['password'] = AuthComponent::password(
+						$nova_senha
+					);
+					if($this->User->save($user)) {
+						$this->User->sendEmail($user, $nova_senha);
+						$this->render('recuperado', 'ajax');
+					} else {
+						$this->render('erro', 'ajax');
+					}
+				} else {
+					$this->render('nenhuma', 'ajax');
+				}
+			}
+		}
 	}
 
 	public function beforeFilter() {
+		$this->Auth->allow('recuperar');
 		parent::beforeFilter();
 	}
 
