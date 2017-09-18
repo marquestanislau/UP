@@ -249,31 +249,34 @@ class FuncionariosController extends AppController {
   }
 
   protected function findEmployee($data = array()) {
-    $nome = $data['Funcionario']['nome'];
-    $concurso_id = $data['Funcionario']['concurso_id'];
-    $carreira_id = $data['Funcionario']['carreira_id'];
-    $categoria_id = $data['Funcionario']['categoria_id'];
-    $delegacao_id = $data['Funcionario']['delegacao_id'];
-    $posicao = $data['Funcionario']['posicao'];
+    if (!empty($data)) {
+      $nome = $data['Funcionario']['nome'];
+      $concurso_id = $data['Funcionario']['concurso_id'];
+      $carreira_id = $data['Funcionario']['carreira_id'];
+      $categoria_id = $data['Funcionario']['categoria_id'];
+      $delegacao_id = $data['Funcionario']['delegacao_id'];
+      $posicao = $data['Funcionario']['posicao'];
 
-    $funcionario = $this->Funcionario->find('all', 
-                        array(
-                               'conditions' => array(
-                                  'Funcionario.nome LIKE' => '%'.$nome.'%',
-                                  'OR' => array(
-                                      array('Funcionario.carreira_id' => $carreira_id),
-                                      array('Funcionario.concurso_id' => $concurso_id),
-                                      array('Funcionario.categoria_id' => $categoria_id),
-                                      array('Funcionario.delegacao_id' => $delegacao_id),
-                                      array('Funcionario.posicao' => $posicao)
-                                    )//,
-                                  // 'AND' => array(
-                                  //     array('Funcionario.posicao' => $posicao)
-                                  //   )
+      $funcionario = $this->Funcionario->find('all', 
+                          array(
+                                 'conditions' => array(
+                                    'Funcionario.nome LIKE' => '%'.$nome.'%',
+                                    'OR' => array(
+                                        array('Funcionario.carreira_id' => $carreira_id),
+                                        array('Funcionario.concurso_id' => $concurso_id),
+                                        array('Funcionario.categoria_id' => $categoria_id),
+                                        array('Funcionario.delegacao_id' => $delegacao_id),
+                                        array('Funcionario.posicao' => $posicao)
+                                      )//,
+                                    // 'AND' => array(
+                                    //     array('Funcionario.posicao' => $posicao)
+                                    //   )
+                                  )
                                 )
-                              )
-                        );
-    return $funcionario;
+                          );
+      return $funcionario;
+    }
+    return NULL;
   }
 
   // cancelar o despacho emitido para qualquer funcionario00
@@ -284,6 +287,7 @@ class FuncionariosController extends AppController {
         $funcionario = $this->Funcionario->read();
         if (!empty($funcionario) ) {
             $funcionario['Funcionario']['despacho'] = NULL;
+            $funcionario['Funcionario']['nuit'] = 1;
             if ($this->Funcionario->save($funcionario)) {
                 $this->render('cancel_despacho', 'ajax');
             }

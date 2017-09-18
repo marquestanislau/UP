@@ -20,7 +20,14 @@
 	</div>
 	<h1>
 		<?php echo $funcionario['Funcionario']['nome']; ?>
-		<?php echo $funcionario['Funcionario']['apelido']; ?>	
+		<?php echo $funcionario['Funcionario']['apelido']; ?>
+		| <?php 
+			$hoje = date('Y');
+			$birth = date('Y', strtotime($funcionario['Funcionario']['data_nascimento']));
+			$idade = ($hoje - $birth);
+			echo $idade;
+		 ?>
+		 anos	
 	</h1>
 	<table class="pure-table">
 		<thead>
@@ -31,7 +38,8 @@
 				<?php echo $funcionario['Funcionario']['apelido']; ?>
 			</th>
         </tr>
-    </thead>
+	    </thead>
+	    <tbody>
 		<tr>
 			<td>
 				Classe:
@@ -41,27 +49,86 @@
 			</td>
 		</tr>
 		<tr>
-			<td><b>Contactos</b></td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>Email:</td>
+			<td>
+				Email:
+			</td>
 			<td>
 				<?php echo $funcionario['Funcionario']['email_pessoal']; ?>
 			</td>
 		</tr>
 		<tr>
-			<td>Contacto primario</td>
-			<td><?php echo $funcionario['Funcionario']['contacto_pessoal']; ?></td>
+			<td>
+				Contacto primario:
+			</td>
+			<td>
+				<?php echo $funcionario['Funcionario']['contacto_pessoal']; ?>
+			</td>
 		</tr>
 		<tr>
-			<td>Contacto corporativo</td>
-			<td><?php echo $funcionario['Funcionario']['contacto_trabalho']; ?></td>
+			<td>
+				Delega&ccedil;&atilde;o:
+			</td>
+			<td>
+				<?php echo $funcionario['Delegacao']['nome']; ?>
+			</td>
 		</tr>
 		<tr>
-			<td>Contacto alternativo</td>
-			<td><?php echo $funcionario['Funcionario']['contacto_alternativo']; ?></td>
+			<td>
+				Contacto alternativo:
+			</td>
+			<td>
+				<?php echo $funcionario['Funcionario']['contacto_alternativo']; ?>
+			</td>
 		</tr>
+		<tr>
+			<td>
+				Data do despacho:
+			</td>
+			<td>
+				<?php echo $funcionario['Funcionario']['despacho']; ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				NUIT
+			</td>
+			<td>
+				<?php echo $funcionario['Funcionario']['nuit']; ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Sexo
+			</td>
+			<td>
+				<?php echo $funcionario['Funcionario']['sexo']; ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Data de nascimento
+			</td>
+			<td>
+				<?php echo $funcionario['Funcionario']['data_nascimento']; ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Posi&ccedil;&atilde;o
+			</td>
+			<td>
+				<?php echo $funcionario['Funcionario']['posicao']; ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Carreira:
+			</td>
+			<td>
+				<?php echo $funcionario['Carreira']['nome']; ?>
+			</td>
+		</tr>
+		</tbody>
 	</table>
 	<footer style="padding: 10px 0px 0px 0px;">
 		<i>

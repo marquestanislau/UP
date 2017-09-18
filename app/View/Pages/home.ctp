@@ -13,7 +13,7 @@
 			<h3><i class="fa fa-info"></i> Mensagem do sistema</h3>
 		</header>
 		<div class="w3-container">
-		<h6 class="alert alert-danger w3-round w3-padding">Concurso: <?php echo $concurso_mais_antigo['Concurso']['nome'].' ['.$concurso_mais_antigo['Concurso']['data_aprovacao'].']'; ?></h6>
+		<h6 class="alert alert-info w3-round w3-padding" style="<?php echo empty($funcionarios_notas)? 'display:none':''; ?>">Concurso: <?php echo $concurso_mais_antigo['Concurso']['nome'].' ['.$concurso_mais_antigo['Concurso']['data_aprovacao'].']'; ?></h6>
 			<i class="fa fa-user"></i> Candidatos por emitir a nota provis&oacute;ria
 			<table class="table">
 				<thead>
@@ -23,6 +23,11 @@
 					<th></th>
 				</thead>
 				<tbody>
+					<?php if (empty($funcionarios_notas)) {?>
+						<tr>
+							<td colspan="3">Do momento n&atilde;o temos notas por emitir</td>
+						</tr>
+					<?php } ?>
 					<?php foreach ($funcionarios_notas as $funcionario) { ?>
 						<?php $func_id = $funcionario['Funcionario']['id']; ?>
 						<tr class="w3-hover-white">
@@ -143,12 +148,9 @@
 
 				var bgcolor = new Array();
 				for (var i = 0; i < data.length; i++ ) {
-					if (i%2 == 0) {
-						bgcolor[i] = 'rgba('+(i*(50))+','+(i*50)+','+(i*30)+','+0.6+')';
-					} else {
-						bgcolor[i] = 'rgba('+(i*(50))+','+(i*10)+','+(i*100)+','+0.6+')';
-					}
+					bgcolor[i] = 'rgba('+(Math.floor(Math.random() * 255))+','+(Math.floor(Math.random() * 255))+','+(Math.floor(Math.random() * 255))+','+0.6+')';
 				}
+				console.log(bgcolor);
 
 				var ctx = document.getElementById("concursoChart").getContext('2d');
 				var myChart = new Chart(ctx, {
@@ -168,6 +170,29 @@
 				         title: {
 				           display: true,
 				           text: 'Quantidade de carreiras por concurso'
+				         },
+				         scales: {
+				             yAxes: [{
+				               id: 'y-axis-0',
+				               gridLines: {
+				                 display: true,
+				                 lineWidth: 1,
+				               },
+				               ticks: {
+				                 beginAtZero:true,
+				                 mirror:false,
+				                 suggestedMin: 0,
+				               }
+				             }],
+				             xAxes: [{
+				               id: 'x-axis-0',
+				               gridLines: {
+				                 display: false
+				               },
+				               ticks: {
+				                 beginAtZero: true
+				               }
+				             }]
 				         }
 				       }
 				});

@@ -1,5 +1,5 @@
-<div class="row">
-	<div class="col-md-12 w3-blue-gray">
+<div class="row w3-round w3-padding" style="background-color: #fafafa;">
+	<div class="col-md-12">
 		<?php $sexo = $funcionario['Funcionario']['sexo'] == 'F'? 'a' : 'o'; ?>
 		<h4 class="w3-center"><i class="fa fa-user"></i> Dados d<?php echo $sexo; ?> funcion&aacute;ri<?php echo $sexo; ?></h4>
 		<div>
@@ -17,7 +17,7 @@
 			</h4>
 		</div>
 	</div>
-		<div class="w3-bar w3-teal">
+		<div class="w3-bar w3-light-gray ">
 			<button class="w3-bar-item w3-button" onclick="openCity('London')"><i class="fa fa-user"></i> Dados pessoais</button>
 			<button class="w3-bar-item w3-button" onclick="openCity('Paris')"><i class="fa fa-info-circle"></i> Documentos de Identificacao</button>
 			<button class="w3-bar-item w3-button" onclick="openCity('Tokyo')"><i class="fa fa-phone"></i> Contactos</button>
@@ -134,9 +134,9 @@
 						</li>
 					</ul>
 				</div>
-				<button class="w3-button w3-green">
+				<!-- <button class="w3-button w3-green">
 					<i class="fa fa-check"></i> Vta
-				</button>
+				</button> -->
 
 				 <?php echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
 				<!--

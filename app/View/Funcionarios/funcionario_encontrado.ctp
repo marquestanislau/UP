@@ -20,7 +20,9 @@
 					<?php echo $this->Html->image('perfil_default.png', array('class' => 'w3-circle', 'style' => 'width: 50%')); ?>
 				</div>
 				<div class="col-md-12">
-					<a class="w3-button w3-teal w3-round w3-margin" href="<?php echo $this->Html->url(array('controller' => 'funcionarios', 'action' => 'alterar', $employee['Funcionario']['id'])); ?>">Detalhes</a>
+				<?php if (!empty($employee['Funcionario']['despacho'])) { ?>
+						<a class="w3-button w3-teal w3-round w3-margin" href="<?php echo $this->Html->url(array('controller' => 'funcionarios', 'action' => 'alterar', $employee['Funcionario']['id'])); ?>">Detalhes</a>
+				<?php } ?>
 					<?php if (!empty($employee['Funcionario']['fileName'])){?>
 						<a target="_blank" href="<?php echo $this->webroot;?>files/<?php echo $employee['Funcionario']['fileName']; ?>" class="w3-button w3-blue w3-round"><i class="fa fa-download"></i></a>
 					<?php } else {?>

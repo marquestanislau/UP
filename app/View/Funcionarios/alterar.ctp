@@ -82,9 +82,9 @@
          </div>
      </script>
 <div class="row">
-    <div class="w3-padding w3-white">
+    <div class="w3-padding" style="background-color: #fafafa;">
       <div class="w3-row">
-        <div class="w3-container w3-blue-gray"> 
+        <div class="w3-container"> 
       	   <h5 class="w3-center"> 
       		  <span class="fa fa-user w3-large"></span>
       	   	Alterar dados de funcionario
@@ -92,7 +92,8 @@
           <h4 id="nome">
             <?php echo $funcionario['Funcionario']['nome']; ?>
             <?php echo $funcionario['Funcionario']['apelido']; ?>
-            <a href="#" class="pull-right" onclick="history.back()" ><i class="fa fa-arrow-circle-left"></i> Voltar</a>
+            <a href="#" class="pull-right" onclick="history.back()" >| <i class="fa fa-arrow-circle-left"></i> Voltar</a>
+            <a href="#" class="pull-right" onclick="history.back()" ><i class="fa fa-print"></i> Imprimir </a>
           </h4>
         </div>
 

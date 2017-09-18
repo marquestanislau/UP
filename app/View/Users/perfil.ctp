@@ -22,7 +22,7 @@
 		?>
         <space></space>
 		<?php
-			echo h($usuario['User']['username']);
+			echo h($usuario['User']['username'].' '.$usuario['User']['apelido']);
 		?>
     </h3>   
     <?php echo $this->Form->create('User', array('id' => 'perfilForm')); ?>
@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <td class="w3-label"><?php echo __('Data De Registo'); ?></td>
-            <td class="w3-text-dark-grey"><?php echo h($usuario['User']['data_de_registo']); ?></td>
+            <td class="w3-text-dark-grey"><?php echo h($usuario['User']['created']); ?></td>
         </tr>
         <tr>
             <td class="w3-label"><?php echo __('Contacto'); ?></td>
