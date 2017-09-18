@@ -2,7 +2,6 @@
 		<!-- Para facilitar na nomeacao de formulario, usamos o id por ser unico -->
 	<?php $id = $carreira['Carreira']['id']; ?>
 	<tr class="w3-hover-khaki w3-hover-text-blue">
-		<td><?php echo h($carreira['Carreira']['id']); ?>&nbsp;</td>
 		<td><?php echo $carreira['Carreira']['tipo'] == 0 ? '<i class="fa fa-user"></i>': '<i class="fa fa-graduation-cap"></i>'; ?>&nbsp;</td>
 		<td><?php echo h($carreira['Carreira']['nome']); ?>&nbsp;</td>
 		<td><?php echo h($carreira['Carreira']['resolucao']); ?>&nbsp;</td>

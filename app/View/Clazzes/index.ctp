@@ -1,3 +1,4 @@
+<?php echo $this->Html->script('filter.js'); ?>
 <div class="row">
 	<div class="">
 	    <div class="w3-white w3-padding">
@@ -5,8 +6,8 @@
 	    	<h6 class="w3-text-blue">
 	    		<span class="fa fa-cube"></span>
 	    		Classes
-	    		<a href="#" class="w3-button w3-large pull-right"><span class="glyphicon glyphicon-question-sign w3-text-grey"></span><small> Ajuda</small></a>
-	    		<a href="#" class="w3-button w3-large pull-right"><span class="glyphicon glyphicon-file w3-text-grey"></span> <small>Relatorios</small></a>
+	    		<!-- <a href="#" class="w3-button w3-large pull-right"><span class="glyphicon glyphicon-question-sign w3-text-grey"></span><small> Ajuda</small></a>
+	    		<a href="#" class="w3-button w3-large pull-right"><span class="glyphicon glyphicon-file w3-text-grey"></span> <small>Relatorios</small></a> -->
 			</h6>
 	    </div>
 	    <div class="w3-bar w3-light-grey w3-margin-top w3-margin-bottom">
@@ -19,9 +20,9 @@
 				<a id="print" href="<?php echo $this->Html->url(array('action' => 'pdf_classes', 'ext' => 'pdf')); ?>" class="w3-bar-item w3-button" target="_blank"><span class="glyphicon glyphicon-print w3-text-dark-grey"></span>
 					Imprimir
 				</a>
-		    <input style="width: 30%;" placeholder="Procure aqui..." class="w3-bar-item w3-input w3-white w3-border w3-hover-sand">
+		    <input id="procurar" style="width: 30%;" onkeyup="filtro()" placeholder="Procure aqui..." class="w3-bar-item w3-round w3-input w3-white w3-border w3-hover-sand">
 	    </div>
-    	    <table class="table table-striped w3-border-light-grey">
+    	    <table id="tabelaFiltro" class="table table-striped w3-border-light-grey">
 	    		<thead class="w3-text-blue">
 	    		<tr>
     				<th><?php echo $this->Paginator->sort('nome'); ?></th>

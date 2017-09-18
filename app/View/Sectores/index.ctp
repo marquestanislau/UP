@@ -10,7 +10,7 @@
 		</button>
 		<a href="<?php echo $this->Html->url(array('action' => 'index', 'controller' => 'delegacaos')); ?>" class="w3-button w3-bar-item"><i class="fa fa-list"></i> Listas das delega&ccedil;&otilde;es</a>
 		
-		<input onkeyup="filtro()" id="procurar" style="width: 50%;" class="w3-bar-item w3-white w3-hover-sand w3-border w3-input" placeholder="Insira o nome do sector..." >
+		<input onkeyup="filtro()" id="procurar" style="width: 50%;" class="w3-bar-item w3-round w3-white w3-hover-sand w3-border w3-input" placeholder="Insira o nome do sector..." >
 	</div>
 
     <table class="table table-striped" id="tabelaFiltro">

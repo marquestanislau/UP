@@ -11,12 +11,11 @@
  	  	Imprimir
  	  </a>
  	  <span data-mdl-for="print_report" class="mdl-tooltip">Clique para imprimir o relat&oacute;rio</span>
- 	  <input style="width: 30%;" class="w3-bar-item w3-hover-sand w3-input w3-border w3-white" placeholder="Nome da carreira">
+ 	  <!-- <input style="width: 30%;" class="w3-bar-item w3-round w3-hover-sand w3-input w3-border w3-white" placeholder="Nome da carreira"> -->
 	</div> 
 	<table id="table" class="table table-striped w3-border-light-grey" cellpadding="0" cellspacing="0">
 	<thead class="w3-white w3-text-blue">
 	<tr>
-		<th><?php echo $this->Paginator->sort('Ordem'); ?></th>
 		<th><?php echo $this->Paginator->sort('Tipo'); ?></th>
 		<th><?php echo $this->Paginator->sort('nome'); ?> <span class="fa fa-sort w3-text-blue"></span></th>
 		<th><?php echo _('Resolu&ccedil;&atilde;o'); ?></th>

@@ -9,7 +9,7 @@
         <span class="glyphicon glyphicon-plus"></span>
         Adicionar delega&ccedil;&atilde;o
       </button>
-      <input type="text" class="w3-bar-item w3-border w3-white" style="width: 30%;" name="">
+      <!-- <input type="text" class="w3-bar-item w3-border w3-white" style="width: 30%;" name=""> -->
   </div>
       <table class="table table-striped" cellpadding="0" cellspacing="0">
         <thead class="w3-white w3-text-blue" >
