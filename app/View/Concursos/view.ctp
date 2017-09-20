@@ -11,7 +11,7 @@
 		 	<?php $link = $this->Html->url(array('action' => 'participantes', 'controller' => 'funcionarios')); ?>
 		 	<a class="w3-button w3-cyan w3-bar-item" href="<?php echo $link; ?>"><i class="fa fa-users"></i> Lista de participantes</a>
 		 	<?php echo $this->Html->link("<span class='glyphicon glyphicon-list'></span> Lista de Concursos", array('action' => 'index'), array('class' => 'w3-button w3-bar-item', 'escape' => false)); ?>
-		 	<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-button w3-bar-item w3-red w3-right', 'confirm' => __('Are you sure you want to delete # %s?', $concurso['Concurso']['id']))); ?> 
+		 	<?php echo $this->Form->postLink("<span class='glyphicon glyphicon-trash'></span> Delete Concurso", array('action' => 'delete', $concurso['Concurso']['id']), array('escape' => false, 'class' => 'w3-button w3-bar-item w3-red w3-right', 'confirm' => __('Pretende remover este concurso # %s?', $concurso['Concurso']['nome']))); ?> 
 		 	<!-- END BUTTON'S -->
 		</div>
 		<br>
