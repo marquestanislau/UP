@@ -22,7 +22,7 @@
 		</tr>
 	</table>
 
-	<p>Use <a href="<?php echo $url; ?>">este</a> link para confirmar o registo no sistema</p>
+	<p>Use <a href="<?php echo $url; ?>">este</a> link para aceder ao sistema</p>
 
 	<p style="position: fixed; bottom: 0;">O sistema de gest&atilde;o do processo de recrutamento e selec&ccedil;&atilde;o da universidade pedag&oacute;gica, todos direitos reservados</p>
 </body>

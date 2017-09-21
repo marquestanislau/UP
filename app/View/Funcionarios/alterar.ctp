@@ -207,12 +207,12 @@
                             template: 'qq-template-gallery',
                             // debug: true,
                             request: {
-                                endpoint: '/sigerh/funcionarios/alterar/<?php echo $funcionario_id; ?>'
+                                endpoint: '<?php echo $_SERVER['REQUEST_URI']; ?>'
                             },
                             thumbnails: {
                                 placeholders: {
-                                    waitingPath: '/sigerh/js/fine-uploader/placeholders/waiting-generic.png',
-                                    notAvailablePath: '/sigerh/js/fine-uploader/placeholders/not_available-generic.png'
+                                    waitingPath: '<?php echo $this->webroot; ?>/js/fine-uploader/placeholders/waiting-generic.png',
+                                    notAvailablePath: '<?php echo $this->webroot; ?>/js/fine-uploader/placeholders/not_available-generic.png'
                                 }
                             },
                             validation: {

@@ -31,8 +31,8 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	
-	public $components = array('DebugKit.Toolbar', 'AjaxMultiUpload.Upload', 
+	//'DebugKit.Toolbar', 
+	public $components = array('AjaxMultiUpload.Upload', 
 			'Acl',
 			'Auth' => array(
 					'authorize' => array(

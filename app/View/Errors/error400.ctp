@@ -14,14 +14,15 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-<h2><?php echo $message; ?></h2>
-<p class="error">
-	<strong><?php echo __d('cake', 'Error'); ?>: </strong>
+<!-- <h2><?php echo $message; ?></h2> -->
+<!-- <p class="error">
+	<strong><?php echo __d('cake', 'Erro'); ?>: </strong>
 	<?php printf(
-		__d('cake', 'The requested address %s was not found on this server.'),
+		__d('cake', 'O endereco %s n&atilde;o esta disponivel no servidor.'),
 		"<strong>'{$url}'</strong>"
 	); ?>
-</p>
+</p> -->
+<?php include ('missing_action.ctp'); ?>
 <?php
 if (Configure::read('debug') > 0):
 	echo $this->element('exception_stack_trace');
