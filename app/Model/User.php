@@ -132,7 +132,7 @@ class User extends AppModel {
 	public function sendEmail( $data = array(), $password) {
 		$email = new CakeEmail('gmail');
 		$email->to($data['User']['email']);
-		$email->viewVars(array('user' => $data, 'password' => $password, 'url' => 'http://localhost/sigerh'));
+		$email->viewVars(array('user' => $data, 'password' => $password, 'url' => $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']));
 		$email->template('wellcome', null);
 		$email->emailFormat('html');
 		if(!empty($email->send())) {
