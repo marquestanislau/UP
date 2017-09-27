@@ -1,7 +1,7 @@
 <?php foreach ($concursos as $concurso): ?>
 	<tr class="w3-hover-khaki">
-		<td class="w3-text-gray"><?php echo $concurso['Concurso']['tipo'] == 0 ? '<i class="fa fa-user"></i>' : '<i class="fa fa-graduation-cap"></i>'; ?>&nbsp;</td>
 		<td class="w3-text-gray"><?php echo h($concurso['Concurso']['data_aprovacao']); ?>&nbsp;</td>
+		<td class="w3-text-gray"><?php echo $concurso['Concurso']['tipo'] == 0 ? '<i class="fa fa-user"></i>' : '<i class="fa fa-graduation-cap"></i>'; ?>&nbsp;</td>
 		<td class="w3-text-gray">
 			<?php 
 				echo h($concurso['Concurso']['nome'].' [' .$concurso['Concurso']['data_aprovacao']. ']'); 
