@@ -45,12 +45,12 @@ class EmailConfig {
 
 	public $gmail = array(
 		'transport' => 'Smtp',
-		'from' => array('estanislaumarques@gmail.com' => 'SIGERH'),
-		'host' => 'ssl://smtp.gmail.com',
+		'from' => array('info@sigerh.mpt-on.com' => 'SIGERH'),
+		'host' => 'ssl://sigerh.mpt-on.com',
 		'port' => 465,
 		'timeout' => 30,
-		'username' => 'estanislaumarques@gmail.com',
-		'password' => 'konvictmuzik',
+		'username' => 'info@sigerh.mpt-on.com',
+		'password' => 'mpton2017',
 		'client' => null,
 		'log' => false,
 		'subject' => 'SIGERH - O sistema da Universidade Pedagogica'
