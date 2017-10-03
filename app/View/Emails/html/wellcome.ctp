@@ -8,6 +8,7 @@
 	<h1 style="color: gray;">SIGERH</h1>
 	<h3>Activa&ccedil;&atilde;o de conta de utilizador</h3>
 
+	<p>Ol&aacute;, <?php echo $user['User']['username'].' '.$user['User']['apelido']; ?></p>
 	<p>Utilize este dados abaixo para aceder ao sistema</p>
 	<p><b>Nota:</b> A senha fornecida n&atilde;o e&acute; alteravel.</p>
 	
