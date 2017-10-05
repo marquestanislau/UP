@@ -1,5 +1,6 @@
 <div class="row">
- <a href="#" id="close" class="w3-button w3-btn w3-circle w3-red w3-right" style="position: fixed; left: 93%;"><i class="fa  fa-archive"></i><span class="mdl-tooltip" data-mdl-for="close">Encerrar o concurso</span></a>
+<?php $status = $concurso['Concurso']['status']; ?>
+ <a href="#" id="close" class="w3-button w3-btn w3-circle w3-right" style="position: fixed; left: 93%;"><i class="fa <?php echo $status == 0 ? 'fa-folder' : 'fa-folder-open'; ?>"></i><span class="mdl-tooltip" data-mdl-for="close">Concurso <?php echo $status == 0 ? 'fechado' : 'aberto'; ?></span></a>
 	<div class="w3-container w3-white w3-padding">
 		<h4 class="w3-text-blue">
 			<span class="glyphicon glyphicon-folder-open" style="font-size: 24px;"></span>

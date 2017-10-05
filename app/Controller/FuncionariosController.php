@@ -11,7 +11,7 @@ class FuncionariosController extends AppController {
     $this->Paginator->settings = $this->paginator_settings;
 		$this->set('funcionarios', $this->Paginator->paginate());
 		$this->getkeys();
-		if($this->request->is('ajax')) {
+    if($this->request->is('ajax')) {
       $concurso = $this->request->data['Funcionario']['concurso_id'];
       $carreira = $this->request->data['Funcionario']['carreira_id'];
       if(!empty($concurso) && empty($carreira)) {
@@ -36,6 +36,13 @@ class FuncionariosController extends AppController {
       }
 		}
 	}
+
+  public function listEmployee() {
+    if ($this->request->is('ajax')) {
+      $this->set('funcionarios', $this->Funcionario->find('all'));
+      $this->render('lista', 'ajax');
+    }
+  }
 
   public function getkeys() {
     $concursos = $this->Funcionario->Concurso->find('list', array('fields' => 'Concurso.data_aprovacao', 'Concurso.id'));

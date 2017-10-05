@@ -119,19 +119,14 @@ class CtasController extends AppController {
         if (!$this->Cta->exists($id)) {
             throw new NotFoundException(__('Invalid cta'));
         }
-        if ($this->request->is(array('post', 'put'))) {
+        if ($this->request->is('ajax')) {
+            $this->Cta->id = $id;
             if ($this->Cta->saveAssociated($this->request->data)) {
-                $this->Flash->success(__('The cta has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+                $this->render('sucesso', 'ajax');
             } else {
-                $this->Flash->error(__('The cta could not be saved. Please, try again.'));
+                $this->render('erro', 'ajax');
             }
-        } else {
-            $options = array('conditions' => array('Cta.' . $this->Cta->primaryKey => $id));
-            $this->request->data = $this->Cta->find('first', $options);
-        }
-        $funcionarios = $this->Cta->Funcionario->find('list');
-        $this->set(compact('funcionarios'));
+        } 
     }
 
     /**

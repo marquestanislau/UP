@@ -30,6 +30,7 @@ class CdsController extends AppController {
         $this->set('cds', $this->Paginator->paginate());
     }
 
+
     /**
      * view method
      *
@@ -120,19 +121,14 @@ class CdsController extends AppController {
         if (!$this->Cd->exists($id)) {
             throw new NotFoundException(__('Invalid cd'));
         }
-        if ($this->request->is(array('post', 'put'))) {
-            if ($this->Cd->save($this->request->data)) {
-                $this->Flash->success(__('The cd has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+        if ($this->request->is('ajax')) {
+            $this->Cd->id = $id;
+            if ($this->Cd->saveAssociated($this->request->data)) {
+                $this->render('sucesso', 'ajax');
             } else {
-                $this->Flash->error(__('The cd could not be saved. Please, try again.'));
+                $this->render('erro', 'ajax');
             }
-        } else {
-            $options = array('conditions' => array('Cd.' . $this->Cd->primaryKey => $id));
-            $this->request->data = $this->Cd->find('first', $options);
         }
-        $funcionarios = $this->Cd->Funcionario->find('list');
-        $this->set(compact('funcionarios'));
     }
 
     /**

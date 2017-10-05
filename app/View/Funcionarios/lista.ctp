@@ -5,7 +5,19 @@
     <td><?php echo $funcionario['Cta']['id'] != NULL ? '<i class="fa fa-user"></i>' : '<i class="fa fa-graduation-cap"></i>'; ?></td>
     <td><?php echo $funcionario['Funcionario']['despacho'] != NULL? '<i class="fa fa-check w3-text-green"></i>': '<i class="fa fa-remove"></i>'; ?>
     </td>
-    <td><?php echo $funcionario['Funcionario']['nome']; ?></td>
+    <td>
+      <?php 
+        if ($funcionario['Funcionario']['despacho'] != NULL) {
+          echo $funcionario['Funcionario']['nome']; 
+        } else {
+      ?>
+      <a onclick="document.getElementById('edit<?php echo $funcionario_id; ?>').style.display='block'" href="#" class="w3-text-blue w3-label">
+        <?php 
+            echo $funcionario['Funcionario']['nome']; 
+          }
+        ?>
+      </a>
+    </td>
     <td><?php echo $funcionario['Funcionario']['apelido']; ?></td>
     <td><?php echo $funcionario['Funcionario']['contacto_pessoal']; ?></td>
     <td><?php echo $funcionario['Funcionario']['data_nascimento']; ?></td>
@@ -71,7 +83,10 @@
       <?php } ?>
     </td>
     </tr>
-    <?php include('despacho.ctp'); ?>
+    <?php 
+      include('despacho.ctp');
+      include('edit.ctp'); 
+    ?>
   <?php endforeach; ?>
   <?php } else { ?>
   <tr>
