@@ -1,4 +1,9 @@
+<?php $user = $this->Session->read('Auth.User'); ?>
 <?php foreach ($usuarios as $usuario): ?>
+	<?php if ($user['email'] == $usuario['User']['email']) {
+		# Just do nothing :).
+		} else { 
+	?>
 	<tr class="w3-text-dark-grey w3-hover-khaki">
 		<?php $id = $usuario['User']['id'];?>
 		<td>
@@ -20,4 +25,5 @@
 		</td>
 		<?php include('edit.ctp'); ?>
 	</tr>
+	<?php } ?>
 <?php endforeach; ?>
