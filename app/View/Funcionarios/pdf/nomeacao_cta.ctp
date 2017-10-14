@@ -74,7 +74,7 @@
 		<br>
 		O Reitor<br>
 		<br>
-		Prof. Doutor Rogério José Uthui <br>
+		Prof. Doutor Lu&iacute;s Jorge Manuel Ant&oacute;nio Ferr&atilde;o <br>
 		(Docente Universitário)
 	</p>
 	<p style="text-align: center;">
@@ -149,7 +149,7 @@
 			<br>
 			<br>
 			<br>
-			(Prof. Doutor Rogério José Uthui) <br>
+			(Prof. Doutor Lu&iacute;s Jorge Manuel Ant&oacute;nio Ferr&atilde;o) <br>
 		</p>
 
 		<br>
