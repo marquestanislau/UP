@@ -32,7 +32,7 @@
 						<?php $func_id = $funcionario['Funcionario']['id']; ?>
 						<tr class="w3-hover-white">
 							<td><span class="w3-button w3-blue w3-border w3-border-white w3-round"><?php echo $funcionario['Funcionario']['posicao']; ?></span></td>
-							<td><?php echo $funcionario['Funcionario']['nome']; ?></td>
+							<td><?php echo $funcionario['Funcionario']['nome'].$funcionario['Funcionario']['apelido']; ?></td>
 							<td><?php echo $funcionario['Carreira']['nome']; ?></td>
 							<td><a onclick="document.getElementById('aceitarCandidatura<?php echo $func_id; ?>').style.display='block'" href="#" class="w3-button w3-round w3-green w3-hover-blue"><i class="fa fa-file-pdf-o"></i> Gerar nota!</a></td>
 							<div class="w3-modal" id="aceitarCandidatura<?php echo $func_id; ?>">
