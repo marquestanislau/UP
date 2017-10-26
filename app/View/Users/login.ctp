@@ -102,6 +102,9 @@
 		  -webkit-font-smoothing: antialiased;
 		  -moz-osx-font-smoothing: grayscale;      
 		}
+		.message {
+			color: red;
+		}
 	</style>
 </head>
 <body class="w3-blue">	

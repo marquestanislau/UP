@@ -82,13 +82,14 @@
          </div>
      </script>
 <div class="row">
-    <div class="w3-padding" style="background-color: #fafafa;">
+    <div class="w3-padding">
       <div class="w3-row">
-        <div class="w3-container"> 
-      	   <h5 class="w3-center"> 
+        <div class="w3-container panel panel-info"> 
+      	   <h5> 
       		  <span class="fa fa-user w3-large"></span>
-      	   	Alterar dados de funcionario
+      	   	Alterar dados de funcion&aacute;rio
           </h5>
+          <hr>
           <h4 id="nome">
             <?php echo $funcionario['Funcionario']['nome']; ?>
             <?php echo $funcionario['Funcionario']['apelido']; ?>
@@ -97,10 +98,10 @@
           </h4>
         </div>
 
-        <div class="w3-bar w3-light-grey">
-          <button class="w3-bar-item w3-button" onclick="openCity('London')"><i class="fa fa-info"></i> Informa&ccedil;&atilde;o</button>
-          <button class="w3-bar-item w3-button" onclick="openCity('Paris')"><i class="fa fa-address-card-o"></i> Dados/Contacto</button>
-          <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')"><i class="fa fa-file-word-o"></i> Documentos</button>
+        <div class="w3-bar w3-light-grey w3-round">
+          <button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('London')"><i class="fa fa-info"></i> Informa&ccedil;&atilde;o</button>
+          <button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('Paris')"><i class="fa fa-address-card-o"></i> Dados/Contacto</button>
+          <button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('Tokyo')"><i class="fa fa-file-word-o"></i> Documentos</button>
         </div>
         <?php echo $this->Form->create('Funcionario', array('id' => 'formUpdateFuncionario')); ?>
         <?php $funcionario_id = $funcionario['Funcionario']['id']; ?>
@@ -230,7 +231,7 @@
              <div id="requesting" style="display: none">
               <?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
             </div>
-            <?php echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
+            <?php #echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
             
             <?php echo $this->Form->end(); ?>
 

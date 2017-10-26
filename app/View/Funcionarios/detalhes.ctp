@@ -1,16 +1,16 @@
-<div class="row w3-round w3-padding" style="background-color: #fafafa;">
-	<div class="col-md-12">
+<div class="row w3-round w3-padding">
+	<div class="col-md-12 panel panel-info">
 		<?php $sexo = $funcionario['Funcionario']['sexo'] == 'F'? 'a' : 'o'; ?>
-		<h4 class="w3-center"><i class="fa fa-user"></i> Dados d<?php echo $sexo; ?> funcion&aacute;ri<?php echo $sexo; ?></h4>
+		<h6><i class="fa fa-user"></i> Dados d<?php echo $sexo; ?> funcion&aacute;ri<?php echo $sexo; ?></h6>
 		<div>
 			<h4>
 				<?php echo $funcionario['Funcionario']['nome']; ?>
 				<?php echo $funcionario['Funcionario']['apelido']; ?>
-				<a href="#" class="pull-right w3-large w3-border w3-white w3-text-grey w3-button w3-circle" onclick="history.back()" ><i class="fa fa-arrow-circle-left"></i></a>
+				<a href="#" class="pull-right btn btn-success" onclick="history.back()" ><i class="fa fa-arrow-circle-left"></i></a>
 				
 				<a target="_blank" href="<?php echo $this->Html->url(array('action' => 'imprimeFuncionario', 'ext' => 'pdf', $funcionario['Funcionario']['id'])); ?>" 
 					id="print_employee" 
-					class="pull-right w3-border w3-white w3-text-grey w3-large w3-button w3-circle">
+					class="pull-right btn btn-primary">
 					<i class="fa fa-print"></i>
 				</a>
 				<span data-mdl-for="print_employee" class="mdl-tooltip">Imprimir dados de <?php echo $funcionario['Funcionario']['nome']; ?></span>
@@ -18,10 +18,10 @@
 		</div>
 	</div>
 		<div class="w3-bar w3-light-gray ">
-			<button class="w3-bar-item w3-button" onclick="openCity('London')"><i class="fa fa-user"></i> Dados pessoais</button>
-			<button class="w3-bar-item w3-button" onclick="openCity('Paris')"><i class="fa fa-info-circle"></i> Documentos de Identificacao</button>
-			<button class="w3-bar-item w3-button" onclick="openCity('Tokyo')"><i class="fa fa-phone"></i> Contactos</button>
-			<button class="w3-bar-item w3-button" onclick="openCity('doc')"><i class="fa fa-file-word-o"></i> Processo individual</button>
+			<button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('London')"><i class="fa fa-user"></i> Dados pessoais</button>
+			<button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('Paris')"><i class="fa fa-info-circle"></i> Documentos de Identificacao</button>
+			<button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('Tokyo')"><i class="fa fa-phone"></i> Contactos</button>
+			<button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('doc')"><i class="fa fa-file-word-o"></i> Processo individual</button>
 		</div>
 		<div id="doc" class="city">
 			<div class="w3-padding">
@@ -138,7 +138,7 @@
 					<i class="fa fa-check"></i> Vta
 				</button> -->
 
-				 <?php echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
+				 <?php #echo $this->Html->image('perfil_default.png', array('class' => 'img img-responsive img-circle pull-right')); ?>
 				<!--
 				<ul class="nav nav-pills nav-stacked w3-text-grey w3-leftbar w3-border-green w3-margin-top">
 					<li role="presentation"><a href="#"><i class="fa fa-balance-scale"></i> Avaliar desempenho</a></li>
