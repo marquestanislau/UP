@@ -17,6 +17,7 @@ $cakeDescription = __d('cake_dev', 'SIGERH-UP');
 	<?php echo $this->fetch('title'); ?>
 </title>
 <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Signika+Negative" rel="stylesheet">
 <?php
   echo $this->Html->meta('icon');
   #Inclusao de bootstrap

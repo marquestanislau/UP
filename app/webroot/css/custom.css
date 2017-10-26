@@ -1,5 +1,6 @@
 *, html {
     font-size: small;
+    font-family: 'Signika Negative', sans-serif;
 }
 .list-group-item a, a {
     color: gray;
