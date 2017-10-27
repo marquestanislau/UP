@@ -49,8 +49,9 @@ class FuncionariosController extends AppController {
     $carreiras = $this->Funcionario->Carreira->find('list', array('fields' => 'Carreira.nome', 'Carreira.id'));
     $this->set('clazzes', $this->Funcionario->Clazze->find('list', array('fields' => 'Clazze.nome', 'Clazze.id')));
     $delegacaos = $this->Funcionario->Delegacao->find('list', array('fields' => 'Delegacao.nome', 'Delegacao.id'));
+    $sectores = $this->Funcionario->Sectore->find('list', array('fields' => 'Sectore.designacao', 'Sectore.id'));
     $categorias = $this->Funcionario->Categoria->find('list', array('fields' => 'Categoria.nome', 'Categoria.id'));
-    $this->set(compact('concursos', 'carreiras', 'delegacaos', 'categorias'));
+    $this->set(compact('concursos', 'carreiras', 'delegacaos', 'categorias', 'sectores'));
   }
 
   public function calendario() {

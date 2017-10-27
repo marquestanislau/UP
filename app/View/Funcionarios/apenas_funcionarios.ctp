@@ -4,7 +4,8 @@
       <tr class="w3-hover-khaki w3-text-grey w3-hover-text-blue">
         <td>
           <?php echo $this->Html->image('upload/'.$funcionario['Funcionario']['foto_perfil'], array('class' => 'w3-circle', 'style' => 'width: 5%;')); ?>
-          <?php echo $funcionario['Funcionario']['nome']; ?></td>
+          <?php echo $funcionario['Funcionario']['nome']; ?>
+        </td>
         <td><?php echo $funcionario['Funcionario']['apelido']; ?></td>
         <td><?php echo $funcionario['Funcionario']['contacto_pessoal']; ?></td>
         <td>
@@ -12,6 +13,9 @@
           [<?php echo $funcionario['Funcionario']['sexo']; ?>]
         </td>
         <td><?php echo $funcionario['Funcionario']['data_nascimento']; ?></td>
+        <td>
+          <i class="<?php echo $funcionario['Funcionario']['categoria_id'] != NULL ? 'fa fa-graduation-cap' : 'fa fa-user' ; ?> w3-text-blue-gray"></i>
+        </td>
         <td>
           <!-- <a id="vta<?php echo $funcionario_id;?>" class="w3-btn w3-white w3-border w3-hover-blue w3-text-grey">
             <i class="fa fa-file-text"></i>

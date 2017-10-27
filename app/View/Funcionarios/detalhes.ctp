@@ -6,6 +6,7 @@
 			<h4>
 				<?php echo $funcionario['Funcionario']['nome']; ?>
 				<?php echo $funcionario['Funcionario']['apelido']; ?>
+				<i class="<?php echo !empty($funcionario['Funcionario']['fileName']) ? 'fa fa-check' :'fa fa-remove'; ?>"></i>
 				<a href="#" class="pull-right btn btn-success" onclick="history.back()" ><i class="fa fa-arrow-circle-left"></i></a>
 				
 				<a target="_blank" href="<?php echo $this->Html->url(array('action' => 'imprimeFuncionario', 'ext' => 'pdf', $funcionario['Funcionario']['id'])); ?>" 
@@ -19,7 +20,7 @@
 	</div>
 		<div class="w3-bar w3-light-gray ">
 			<button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('London')"><i class="fa fa-user"></i> Dados pessoais</button>
-			<button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('Paris')"><i class="fa fa-info-circle"></i> Documentos de Identificacao</button>
+			<button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('Paris')"><i class="fa fa-info-circle"></i> Documentos de Identifica&ccedil;&atilde;o</button>
 			<button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('Tokyo')"><i class="fa fa-phone"></i> Contactos</button>
 			<button class="w3-bar-item w3-button w3-text-blue" onclick="openCity('doc')"><i class="fa fa-file-word-o"></i> Processo individual</button>
 		</div>
@@ -63,7 +64,7 @@
 					</div>
 					<div class="w3-half">
 						<ul class="w3-ul">
-							<h4><i class="fa fa-info-circle"></i> Informa&ccedil;&otilde;s adicionais do funcion&aacute;rio</h4>
+							<h4><i class="fa fa-info-circle"></i> Informa&ccedil;&otilde;es adicionais do funcion&aacute;rio</h4>
 							<li>
 								<label class="w3-label">Carreira: </label>	
 								<?php echo $funcionario['Carreira']['nome']; ?>
@@ -109,6 +110,36 @@
 						<li>
 							<h4><i class="fa fa-file"></i> Documentos</h4>
 							Sem documento
+							<table class="table table-striped">
+								<tr>
+									<td>
+										Bilhete de identidade
+									</td>
+									<td>
+										Processo individual
+									</td>
+								</tr>
+								<tr>
+									<td>
+									<?php 
+										if (empty($funcionario['Funcionario']['bi'])) {
+											echo "N/D";
+										}
+										echo $funcionario['Funcionario']['bi']; 
+									?>
+									</td>
+									<td>
+										<?php if (empty($funcionario['Funcionario']['fileName'])): ?>
+											N/D
+										<?php else: ?>
+										<a href="files/<?php echo $funcionario['Funcionario']['fileName']; ?>">
+											<i class="fa fa-download"></i>
+											<?php echo $funcionario['Funcionario']['fileName']; ?>
+										</a>
+									<?php endif; ?>
+									</td>
+								</tr>
+							</table>
 						</li>
 					</ul>
 				</div>

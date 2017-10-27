@@ -20,6 +20,7 @@
 				<th>Contacto</th>
 				<th>Sexo</th>
 				<th>Data de nascimento</th>
+				<th></th>
 				<th><?php echo $this->Html->image('ajax/ajax-loader.gif', array('id' => 'requesting', 'style' => 'display:none')); ?></th>
 			</thead>
 			<tbody id="table-body">

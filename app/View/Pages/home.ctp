@@ -113,7 +113,7 @@
 						<h1 class="">N</h1>
 					</div>
 					<div class="col-sm-12 w3-teal">
-						<p><a id="nota" class="w3-hover-text-white" href="#" onclick="document.getElementById('notasProvisorias').style.display='block'">Pr&oacute;xima nota provis&oacute;ria</a></p>
+						<p><a id="nota" class="w3-hover-text-white" style="text-decoration: underline;" href="#" onclick="document.getElementById('notasProvisorias').style.display='block'">Pr&oacute;xima nota provis&oacute;ria</a></p>
 						<span data-mdl-for="nota" class="mdl-tooltip w3-large">Clique para observar os proximos <br> candidatos a obter as notas</span>
 					</div>
 				</div>

@@ -94,7 +94,7 @@
             <?php echo $funcionario['Funcionario']['nome']; ?>
             <?php echo $funcionario['Funcionario']['apelido']; ?>
             <a href="#" class="pull-right" onclick="history.back()" >| <i class="fa fa-arrow-circle-left"></i> Voltar</a>
-            <a href="#" class="pull-right" onclick="history.back()" ><i class="fa fa-print"></i> Imprimir </a>
+            <a href="<?php echo $this->Html->url(array('action' => 'imprimeFuncionario', 'controller' => 'funcionarios', 'ext' => 'pdf', $funcionario['Funcionario']['id'])) ?>" target="_blank" class="pull-right"><i class="fa fa-print"></i> Imprimir </a>
           </h4>
         </div>
 
@@ -130,8 +130,8 @@
                    <?php echo $this->Form->input('delegacao_id', array('value' => $funcionario['Funcionario']['delegacao_id'], 'label' => false, 'class' => 'w3-input w3-round w3-margin-bottom w3-border', 'style' => 'width: 50%')); ?>
               </li>
               <li>
-                <label class="w3-label">Departamento: </label>
-                   <?php echo $funcionario['Funcionario']['departamento_id']; ?>
+                <label class="w3-label">Sector: </label>
+                   <?php echo $this->Form->input('sectore_id', array('class' => 'w3-input w3-round w3-border', 'style' => 'width: 50%;', 'label' => false, 'value' => $funcionario['Funcionario']['sector_id'])); ?>
               </li>
               <li>
                 <label class="w3-label">Data e hora de registo no sistema: </label>
@@ -223,11 +223,13 @@
                     </script>
               </div>
             </div>
-
-             <button id="submeter" class="w3-margin-left w3-hover-text-white w3-hover-light-green w3-button w3-large w3-green">
-              <i class="fa fa-check"></i>
-              Submeter <!-- formul&aacute;rio -->
-            </button>
+            <div class="w3-bar w3-light-grey">
+              <button id="submeter" class="w3-hover-text-white w3-hover-light-green w3-button w3-green pull-right w3-bar-item">
+                <i class="fa fa-check"></i>
+                Submeter <!-- formul&aacute;rio -->
+              </button>
+            </div>
+            
              <div id="requesting" style="display: none">
               <?php echo $this->Html->image('ajax/ajax-loader.gif'); ?>
             </div>
