@@ -1,5 +1,5 @@
 <div id="carreiraModal" class="w3-modal">
-	<div class="w3-modal-content w3-round" style="width: 50%;">
+	<div class="w3-modal-content w3-round w3-animate-zoom" style="width: 50%;">
 
 		<header class="w3-container w3-text-blue"> 
 			<span onclick="document.getElementById('carreiraModal').style.display='none'" 
